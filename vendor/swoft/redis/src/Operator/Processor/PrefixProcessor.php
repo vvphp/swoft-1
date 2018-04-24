@@ -19,12 +19,18 @@ class PrefixProcessor implements ProcessorInterface
      */
     private $redisPoolConfig;
 
+    /**
+     * @var string
+     */
     private $prefix;
 
+    /**
+     * @var array
+     */
     private $commands;
 
     /**
-     * @param string $prefix Prefix for the keys.
+     * Init
      */
     public function init()
     {
@@ -32,7 +38,7 @@ class PrefixProcessor implements ProcessorInterface
 
         $this->commands = array(
             /* ---------------- Redis 1.2 ---------------- */
-            'EXISTS'           => 'static::all',
+            'EXISTS'           => 'static::first',
             'DEL'              => 'static::all',
             'TYPE'             => 'static::first',
             'KEYS'             => 'static::first',
@@ -205,9 +211,7 @@ class PrefixProcessor implements ProcessorInterface
         }
 
         if (!is_callable($callback)) {
-            throw new \InvalidArgumentException(
-                'Callback must be a valid callable object or NULL'
-            );
+            throw new \InvalidArgumentException('Callback must be a valid callable object or NULL');
         }
 
         $this->commands[$commandID] = $callback;
