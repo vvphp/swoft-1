@@ -26,10 +26,9 @@ use Swoft\Http\Message\Server\Response;
  */
 class LoginController
 {
-
     /**
      * @RequestMapping("/login")
-     * @View(template="live/login/login")
+     * @View(template="live/login/login",layout="layouts/live.php")
      * @return array
      */
     public function index(): array
