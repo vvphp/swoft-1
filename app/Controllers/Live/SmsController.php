@@ -1,6 +1,6 @@
 <?php
 /**
- * 直播项目，登录页.
+ * 直播项目，短信发送.
  *
  * @link https://swoft.org
  * @document https://doc.swoft.org
@@ -20,22 +20,31 @@ use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
 
+
 /**
- * Class IndexController
+ * Class SmsController
  * @Controller()
  */
-class LoginController
+class SmsController
 {
     /**
-     * @RequestMapping("/live/login")
-     * @View(template="live/login/login",layout="layouts/live.php")
-     * @return array
+     * 发送短信
+     * @return Response
      */
-    public function index(): array
+    public function sendCode():Response
     {
-        return array('eewrewr');
-    }
 
+        $settings = App::getAppProperties()->get('sms');
+        return $settings;
+        print_r($settings);
+
+//        $response = Sms::sendSms();
+//        echo "发送短信(sendSms)接口返回的结果:\n";
+//        print_r($response);
+//
+//        sleep(2);
+
+    }
 
     /**
      * show view by view function
