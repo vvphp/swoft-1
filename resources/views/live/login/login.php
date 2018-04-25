@@ -10,11 +10,11 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
     <meta content="email=no" name="format-detection" />
-    <link rel="stylesheet" type="text/css" href="<?php echo @resources ?>/static/assert/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo @resources ?>/static/assert/css/main.css" />
-    <link rel="stylesheet" href="<?php echo @resources ?>/static/assert/iconfont/iconfont.css">
-    <link rel="shortcut icon" href="<?php echo @resources ?>/static/favicon.ico">
-    <script src="<?php echo @resources ?>/static/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/assert/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/static/assert/css/main.css" />
+    <link rel="stylesheet" href="/static/assert/iconfont/iconfont.css">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
     <style>
         body {
             background: #eee;
