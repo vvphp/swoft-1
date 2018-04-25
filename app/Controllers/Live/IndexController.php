@@ -34,9 +34,8 @@ class IndexController
      */
     public function index(): array
     {
-        return array('eewrewr','ewrewrew','123123');
+        return array('eewrewr');
     }
-
 
     /**
      * show view by view function

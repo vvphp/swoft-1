@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of Swoft.
+ * 直播项目，登录页.
  *
  * @link https://swoft.org
  * @document https://doc.swoft.org
@@ -8,7 +8,7 @@
  * @license https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace App\Controllers;
+namespace App\Controllers\Live;
 
 use Swoft\App;
 use Swoft\Core\Coroutine;
@@ -24,45 +24,17 @@ use Swoft\Http\Message\Server\Response;
  * Class IndexController
  * @Controller()
  */
-class IndexController
+class LoginController
 {
 
     /**
-     * @RequestMapping("/index/index")
-     * @View(template="index/index")
+     * @RequestMapping("/login")
+     * @View(template="live/login/login")
      * @return array
      */
     public function index(): array
     {
-        $name = 'Swoft';
-        $notes = [
-            'New Generation of PHP Framework',
-            'Hign Performance, Coroutine and Full Stack'
-        ];
-        $links = [
-            [
-                'name' => 'Home',
-                'link' => 'http://www.swoft.org',
-            ],
-            [
-                'name' => 'Documentation',
-                'link' => 'http://doc.swoft.org',
-            ],
-            [
-                'name' => 'Case',
-                'link' => 'http://swoft.org/case',
-            ],
-            [
-                'name' => 'Issue',
-                'link' => 'https://github.com/swoft-cloud/swoft/issues',
-            ],
-            [
-                'name' => 'GitHub',
-                'link' => 'https://github.com/swoft-cloud/swoft',
-            ],
-        ];
-        // 返回一个 array 或 Arrayable 对象，Response 将根据 Request Header 的 Accept 来返回数据，目前支持 View, Json, Raw
-        return compact('name', 'notes', 'links');
+        return array('eewrewr');
     }
 
     /**
