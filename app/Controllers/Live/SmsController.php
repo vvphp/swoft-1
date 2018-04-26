@@ -30,18 +30,16 @@ class SmsController
 {
     /**
      * 发送短信
-     * @return array
+     * @return object
      */
-    public function sendCode():array
+    public function sendCode():object
     {
-        $settings = App::$properties['ali'];
         try{
-          $res = AliCode::sendSms('15201138358','1234');
-           print_r($res);
+           $res = AliCode::sendSms('15201138358','1234');
         }catch(\Exception $e){
             return [$e->getCode(),$e->getMessage()];
         }
-        return $settings;
+        return $res;
 
 
         /*
