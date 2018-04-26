@@ -11,6 +11,7 @@
     </div>
     <div class="login-item">
         <input type="text" placeholder="验证码" name="code" />
+        <input type="hidden" value="<?php echo $token; ?>" name="token">
     </div>
     <button type="submit" class="submit-btn" id="submit-btn">进入平台</button>
 </form>

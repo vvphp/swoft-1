@@ -18,7 +18,7 @@ use Swoft\Log\Log;
 use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
-use Swoft\Http\Message\Server\Response;
+use Swoft\Http\Message\Server\Request;
 
 /**
  * Class IndexController
@@ -31,9 +31,12 @@ class LoginController
      * @View(template="live/login/login",layout="layouts/live.php")
      * @return array
      */
-    public function index(): array
+    public function login(Request $request): array
     {
-        return array('eewrewr');
+        $server = $request->getSwooleRequest()->server;
+        $ip = $server['remote_addr'];
+        $token = md5($ip. uniqid());
+        return array($token);
     }
 
 }
