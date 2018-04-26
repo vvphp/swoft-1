@@ -28,7 +28,7 @@ class IndexController
 {
 
     /**
-     * @RequestMapping(route="/")
+     * @RequestMapping("/")
      * @View(template="index/index")
      * @return array
      */
