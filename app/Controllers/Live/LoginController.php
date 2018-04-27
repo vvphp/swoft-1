@@ -12,13 +12,15 @@ namespace App\Controllers\Live;
 
 use Swoft\App;
 use Swoft\Core\Coroutine;
+use Swoft\Http\Message\Cookie\Cookie;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 use Swoft\Log\Log;
 use Swoft\View\Bean\Annotation\View;
-use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Request;
+use Swoft\Http\Message\Server\Response;
+
 
 /**
  * Class IndexController
@@ -27,16 +29,23 @@ use Swoft\Http\Message\Server\Request;
 class LoginController
 {
     /**
-     * @RequestMapping(route="/")
+     * @RequestMapping(route="/live/login")
      * @View(template="live/login/login",layout="layouts/live.php")
      * @return array
      */
-    public function index(Request $request): array
+    public function index(Request $request,Response $response): array
     {
         $server = $request->getSwooleRequest()->server;
         $token = md5( $server['remote_addr']. uniqid());
+
+        $cookie = new Cookie('liveLoginToken',$token,300);
+        $response->withCookie($cookie);
+
         return array('token'=>$token);
     }
+
+
+
 
     /**
      * signin
@@ -46,7 +55,8 @@ class LoginController
     public  function signin(Request $request)
     {
         $post = $request->post();
-         print_r($post);
+         return $request->getCookieParams();
+        print_r($post);
     }
 
 }

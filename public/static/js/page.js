@@ -10,7 +10,6 @@ $(function () {
         url = "live/sms/sendCode?phone_num="+phone_num;
         $(this).html('已发送').attr('disabled', true);
         $.get(url, function (data) {
-            // TODO: 将下面3行代码删除
             if (data.status == 'ok') {
                 alert('发送完成');
             }
