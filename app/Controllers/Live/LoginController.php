@@ -30,18 +30,19 @@ class LoginController
 {
     /**
      * @RequestMapping(route="/live/login")
+     * @param \Swoft\Http\Message\Server\Request $request
+     * @param  \Swoft\Http\Message\Server\Response
      * @View(template="live/login/login",layout="layouts/live.php")
      * @return array
      */
-    public function index(Request $request,Response $response): array
+    public function index(Request $request,Response $response): Response
     {
         $server = $request->getSwooleRequest()->server;
         $token = md5( $server['remote_addr']. uniqid());
-
         $cookie = new Cookie('liveLoginToken',$token,300);
         $response->withCookie($cookie);
-
-        return array('token'=>$token);
+        $data =  array('token '=> $token);
+        return view("live/login/login", $data,'layouts/live.php');
     }
 
 
