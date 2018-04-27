@@ -32,4 +32,25 @@ class DemoRedisPoolConfig extends RedisPoolConfig
      * @var string
      */
     protected $prefix = '';
+
+    /**
+     * @Value(name="${config.cache.demoRedis.uri}", env="${REDIS_DEMO_URI}")
+     * @var array
+     */
+    protected $uri;
+
+    /**
+     * the name of pool
+     *
+     * @Value(name="${config.cache.demoRedis.name}", env="${REDIS_DEMO_NAME}")
+     * @var string
+     */
+    protected $name = '';
+
+    /**
+     * @Value(name="${config.cache.demoRedis.provider}", env="${REDIS_DEMO_PROVIDER}")
+     * @var string
+     */
+    protected $provider = '';
+
 }
