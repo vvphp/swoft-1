@@ -22,7 +22,7 @@ use Swoft\Cache\Cache;
 use Swoft\Bean\Annotation\Inject;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Http\Message\Server\Response;
-
+use Swoft\Helper\ResponseHelper;
 
 /**
  * Class IndexController
@@ -30,7 +30,6 @@ use Swoft\Http\Message\Server\Response;
  */
 class LoginController
 {
-
     /**
      * @Inject()
      * @var \Swoft\Redis\Redis
@@ -38,12 +37,10 @@ class LoginController
     private $redis;
 
     /**
-     * @Inject("demoRedis")
-     * @var \Swoft\Redis\Redis
+     * 登录时存放在COOKIE中的的Token名
+     * @var string
      */
-    private $demoRedis;
-
-
+    private $loginCookie = 'liveLoginToken';
 
     /**
      * @RequestMapping(route="/live/login")
@@ -54,36 +51,34 @@ class LoginController
      */
     public function index(Request $request,Response $response): Response
     {
-        $token = $request->cookie('liveLoginToken');
+        $token = $request->cookie($this->loginCookie);
         if(empty($token)){
             $server = $request->getSwooleRequest()->server;
             $token = md5( $server['remote_addr']. uniqid());
             $host = $request->getUri()->getHost();
             $cookie = new Cookie('liveLoginToken',$token,time()+300,'/',$host);
-
+            //设置REDIS
+            $this->redis->set($token, $token,60);
             $data =  array('token'=> $token);
             return view("live/login/login", $data,'layouts/live.php')->withCookie($cookie);
         }
-
-        //设置REDIS
-        $result = $this->redis->set('name', 'swoft');
-        $this->demoRedis->set('hello','world');
-
         $data =  array('token'=> $token);
         return view("live/login/login", $data,'layouts/live.php');
     }
 
-
-
-
     /**
      * signin
      * 登录处理
-     * @param Request $request
+     * @param \Swoft\Http\Message\Server\Request $request
+     * @param  \Swoft\Http\Message\Server\Response
      */
-    public  function signin(Request $request)
-    {
-        $request->cookie();
+    public  function signin(Request $request,Response $response)
+    { 
+        $cookie = $request->cookie($this->loginCookie);
+        if(empty($cookie)){
+             return  ResponseHelper::formatData(['status' => '-1','msg' => '非法请求']);
+        }
+
         $post = $request->post();
          return $request->getCookieParams();
         print_r($post);
