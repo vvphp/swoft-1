@@ -22,21 +22,31 @@ use Swoft\Http\Message\Server\Request;
 
 /**
  * Class IndexController
- * @Controller(prefix="/live")
+ * @Controller(prefix="/live/login")
  */
 class LoginController
 {
     /**
-     * @RequestMapping(route="login")
+     * @RequestMapping(route="/")
      * @View(template="live/login/login",layout="layouts/live.php")
      * @return array
      */
-    public function login(Request $request): array
+    public function index(Request $request): array
     {
         $server = $request->getSwooleRequest()->server;
-        $ip = $server['remote_addr'];
-        $token = md5($ip. uniqid());
-        return array($token);
+        $token = md5( $server['remote_addr']. uniqid());
+        return array('token'=>$token);
+    }
+
+    /**
+     * signin
+     * 登录处理
+     * @param Request $request
+     */
+    public  function signin(Request $request)
+    {
+        $post = $request->post();
+         print_r($post);
     }
 
 }

@@ -19,12 +19,13 @@ use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
+use Swoft\Helper\JsonHelper;
 use App\Common\Sms\AliCode;
 
 
 /**
  * Class SmsController
- * @Controller(prefix="/live")
+ * @Controller(prefix="/live/sms")
  */
 class SmsController
 {
@@ -37,6 +38,7 @@ class SmsController
         try{
            $res = AliCode::sendSms('15201138358','1234');
         }catch(\Exception $e){
+            echo JsonHelper::encode();
             return [$e->getCode(),$e->getMessage()];
         }
         return $res;
