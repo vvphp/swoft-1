@@ -47,16 +47,17 @@ class SmsController extends BaseController
     public function sendCode(Request $request)
     {
         try{
+            $codeObj = new Code();
             $phone = $request->post('phone');
             $token = $request->post('token','');
             $data = ['phone' => $phone,'token'=>$token];
             $result = Valitron::valitronSendSms($data,['phone','token']);
             var_dump($result);
             if(is_array($result)){
-                throw new \Exception($result[0]);
+                throw new \Exception( array_pop($result));
             }
            //check redis token
-           $countCheck =  Code::sendBeforeCheck($phone);
+           $countCheck =  $codeObj->sendBeforeCheck($phone);
            if($countCheck == false){
                 throw new \Exception( Util::getMsg('smsSendLimit'));
             }
@@ -66,7 +67,7 @@ class SmsController extends BaseController
                throw new \Exception( Util::getMsg('Infoexpired'));
            }
            //看上一次发送短信的时间是否已经大于5分钟,不大于5分钟、还是用之前的验证码
-           $oldCode = Code::getMemberCode($phone);
+           $oldCode = $codeObj->getMemberCode($phone);
             if(!empty($oldCode)){
                  $code = $oldCode;
             }else{
@@ -74,9 +75,9 @@ class SmsController extends BaseController
             }
             $res = AliCode::sendSms($phone,$code);
             var_dump($res);
-           Code::saveRedisCode($phone,$code);
-        }catch(\Exception $e){
-            return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'emptyData',self::$language);
+            Code::saveRedisCode($phone,$code);
+         }catch(\Exception $e){
+             return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'emptyData',self::$language);
         }
         return $res;
 

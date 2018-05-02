@@ -8,7 +8,7 @@ $(function () {
     $('#authCodeBtn').click(function (event) {
         var phone_num = $(" input[ name='phone_num' ] ").val();
         var token  = $(" input[name='token'] ").val();
-        url = "live/sms/sendCode";
+        url = "/live/sms/sendCode";
         $(this).html('已发送').attr('disabled', true);
         $.post(url,{'phone':phone_num,'token':token}, function (data) {
             if (data.status == 'ok') {
