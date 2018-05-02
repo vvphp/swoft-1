@@ -9,4 +9,5 @@
 
 return [
     'body' => 'this is msg [%s] %d',
+    'emptyCookie' => 'Unlawful request'
 ];

@@ -23,12 +23,12 @@ use Swoft\Bean\Annotation\Inject;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Http\Message\Server\Response;
 use Swoft\Helper\ResponseHelper;
-
+use App\Common\Tool\Util;
 /**
  * Class IndexController
  * @Controller(prefix="/live/login")
  */
-class LoginController
+class LoginController extends  BaseController
 {
     /**
      * @Inject()
@@ -53,16 +53,13 @@ class LoginController
     {
         $token = $request->cookie($this->loginCookie);
         if(empty($token)){
-            $server = $request->getSwooleRequest()->server;
-            $token = md5( $server['remote_addr']. uniqid());
-            $host = $request->getUri()->getHost();
-            $cookie = new Cookie('liveLoginToken',$token,time()+300,'/',$host);
-            //设置REDIS
+            $token = Util::generatingLoginToken($request);
+            $cookie = new Cookie($this->loginCookie,$token,time()+300,'/',$request->getUri()->getHost());
             $this->redis->set($token, $token,60);
-            $data =  array('token'=> $token);
+            $data = array('token'=> $token);
             return view("live/login/login", $data,'layouts/live.php')->withCookie($cookie);
         }
-        $data =  array('token'=> $token);
+        $data = array('token'=> $token);
         return view("live/login/login", $data,'layouts/live.php');
     }
 
@@ -76,12 +73,23 @@ class LoginController
     { 
         $cookie = $request->cookie($this->loginCookie);
         if(empty($cookie)){
-             return  ResponseHelper::formatData(['status' => '-1','msg' => '非法请求']);
+             $msg = translate('msg.emptyCookie', [], self::$language);
+             $code = translate('Code.emptyCookie', [], self::$language);
+             return  ResponseHelper::formatData([],$msg,$code);
         }
+        $msg = translate('msg.emptyCookie', [], self::$language);
+        $code = translate('Code.emptyCookie', [], self::$language);
+        return  ResponseHelper::formatData([],$msg,$code);
 
-        $post = $request->post();
-         return $request->getCookieParams();
-        print_r($post);
+    }
+
+
+    /**
+     * @RequestMapping(route="teaa")
+    */
+    public function testa()
+    {
+            echo 'adfdsfdsf';
     }
 
 }
