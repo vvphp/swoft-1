@@ -10,19 +10,17 @@
 
 namespace App\Controllers\Live;
 
-use Swoft\App;
 /**
  * Class BaseController
  */
 class BaseController
 {
-    protected static $language = '';
+    protected static $language = 'zh';
 
-    public function __construct()
+    public function getLanguage()
     {
-        self::$language = App::$properties['language'];
-    }
 
+    }
 
 }
 

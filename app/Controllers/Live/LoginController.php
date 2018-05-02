@@ -22,7 +22,7 @@ use Swoft\Cache\Cache;
 use Swoft\Bean\Annotation\Inject;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Http\Message\Server\Response;
-use Swoft\Helper\ResponseHelper;
+use App\Common\Tool\Valitron;
 use App\Common\Tool\Util;
 /**
  * Class IndexController
@@ -65,22 +65,45 @@ class LoginController extends  BaseController
 
     /**
      * signin
+     *
      * 登录处理
      * @param \Swoft\Http\Message\Server\Request $request
-     * @param  \Swoft\Http\Message\Server\Response
+     * @param  \Swoft\Http\Message\Server\Response $response
+     *
+     * @Strings(from=ValidatorFrom::POST, name="phone_num", min=11, max=11)
+     * @Strings(from=ValidatorFrom::POST, name="code", min=4, max=4)
+     * @Strings(from=ValidatorFrom::POST, name="token", min=32, max=32)
+     *
+     * @return  Response
      */
     public  function signin(Request $request,Response $response)
-    { 
-        $cookie = $request->cookie($this->loginCookie);
-        if(empty($cookie)){
-             $msg = translate('msg.emptyCookie', [], self::$language);
-             $code = translate('Code.emptyCookie', [], self::$language);
-             return  ResponseHelper::formatData([],$msg,$code);
+    {
+        try{
+            $data =  $request->post();
+            $data['cookieToken'] = $request->cookie($this->loginCookie);
+            $field = array_keys($data);
+            $flg =  Valitron::valitronSignin($data,$field);
+            var_dump($flg);
+        }catch(\HttpResponseException $e){
+              var_dump($e->getMessage());
         }
-        $msg = translate('msg.emptyCookie', [], self::$language);
-        $code = translate('Code.emptyCookie', [], self::$language);
-        return  ResponseHelper::formatData([],$msg,$code);
 
+        return Util::showMsg([],'emptyCookie',self::$language);
+
+//        $token = $request->cookie($this->loginCookie);
+//        $phone = $request->post('phone_num', '0');
+//        $code  = $request->post('code', '0');
+//        $postToken = $request->post('token', '0');
+//        if(empty($token)){
+//            return Util::showMsg([],'emptyCookie',self::$language);
+//        }
+//
+//
+//
+//
+//        $cookie = new Cookie($this->loginCookie,$token,time()-300,'/',$request->getUri()->getHost());
+//        $this->redis->delete($token);
+//        return $response->json()->withCookie($cookie);
     }
 
 
