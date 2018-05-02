@@ -9,5 +9,7 @@
 
 return [
     'body' => '这是一条消息 [%s] %d',
-    'emptyCookie' => '非法请求'
+    'emptyCookie' => '非法请求',
+    'emptyData'   => '数据不能为空',
+    'requestError' => '请求错误',
 ];

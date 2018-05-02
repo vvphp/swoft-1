@@ -22,6 +22,8 @@ use Swoft\Cache\Cache;
 use Swoft\Bean\Annotation\Inject;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Http\Message\Server\Response;
+use Swoft\Bean\Annotation\Strings;
+use Swoft\Bean\Annotation\ValidatorFrom;
 use App\Common\Tool\Valitron;
 use App\Common\Tool\Util;
 /**
@@ -65,28 +67,25 @@ class LoginController extends  BaseController
 
     /**
      * signin
-     *
      * 登录处理
      * @param \Swoft\Http\Message\Server\Request $request
      * @param  \Swoft\Http\Message\Server\Response $response
-     *
-     * @Strings(from=ValidatorFrom::POST, name="phone_num", min=11, max=11)
-     * @Strings(from=ValidatorFrom::POST, name="code", min=4, max=4)
-     * @Strings(from=ValidatorFrom::POST, name="token", min=32, max=32)
-     *
      * @return  Response
      */
     public  function signin(Request $request,Response $response)
     {
         try{
-            $data =  $request->post();
+            $data = $request->post();
             $data['cookieToken'] = $request->cookie($this->loginCookie);
-            $field = array_keys($data);
-            $flg =  Valitron::valitronSignin($data,$field);
-            var_dump($flg);
+            $field   = array_keys($data);
+            $result  =  Valitron::valitronSignin($data,$field);
         }catch(\HttpResponseException $e){
-              var_dump($e->getMessage());
+            return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'requestError',self::$language);
         }
+        if(is_array($result)){
+             return Util::showMsg(['msg' => $result],'emptyData',self::$language);
+        }
+
 
         return Util::showMsg([],'emptyCookie',self::$language);
 
