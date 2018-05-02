@@ -31,12 +31,24 @@ class Util{
      * @param $language
      * @return array
      */
-    public function showMsg($data=[],$msgCode,$language)
+    public static function showMsg($data=[],$msgCode,$language='zh')
     {
-        $msg  = translate('msg.'.$msgCode, [], $language);
+        $msg  = self::getMsg($msgCode,$language);
         $code = translate('Code.'.$msgCode, [], $language);
         $data = JsonHelper::encode($data);
         return  ResponseHelper::formatData($data,$msg,$code);
+    }
+
+    /**
+     * 根据code 获取消息
+     * @param $code
+     * @param $language
+     * @return string
+     */
+    public static function getMsg($code,$language='zh')
+    {
+        $msg  = translate('msg.'.$code, [], $language);
+        return $msg;
     }
 
 

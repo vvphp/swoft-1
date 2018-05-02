@@ -6,10 +6,11 @@ $(function () {
     var $submitBtn = $('#submit-btn');
     // 获取验证吗
     $('#authCodeBtn').click(function (event) {
-        var phone_num = $(" input[ name='phone_num' ] ").val()
-        url = "live/sms/sendCode?phone_num="+phone_num;
+        var phone_num = $(" input[ name='phone_num' ] ").val();
+        var token  = $(" input[name='token'] ").val();
+        url = "live/sms/sendCode";
         $(this).html('已发送').attr('disabled', true);
-        $.get(url, function (data) {
+        $.post(url,{'phone':phone_num,'token':token}, function (data) {
             if (data.status == 'ok') {
                 alert('发送完成');
             }
@@ -21,7 +22,7 @@ $(function () {
         event.preventDefault();
         var formData = $('form').serialize();
         // TODO: 请求后台接口跳转界面，前端跳转或者后台跳
-        $.get("/live/login/signin?"+formData, function (data) {
+        $.post("/live/login/signin?"+formData, function (data) {
               console.log(data);
             // location.href='index.html';
         });

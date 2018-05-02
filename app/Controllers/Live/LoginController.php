@@ -57,7 +57,7 @@ class LoginController extends  BaseController
         if(empty($token)){
             $token = Util::generatingLoginToken($request);
             $cookie = new Cookie($this->loginCookie,$token,time()+300,'/',$request->getUri()->getHost());
-            $this->redis->set($token, $token,60);
+            $this->redis->set($token, $token,300);
             $data = array('token'=> $token);
             return view("live/login/login", $data,'layouts/live.php')->withCookie($cookie);
         }
@@ -85,9 +85,8 @@ class LoginController extends  BaseController
         if(is_array($result)){
              return Util::showMsg(['msg' => $result],'emptyData',self::$language);
         }
-
-
         return Util::showMsg([],'emptyCookie',self::$language);
+
 
 //        $token = $request->cookie($this->loginCookie);
 //        $phone = $request->post('phone_num', '0');

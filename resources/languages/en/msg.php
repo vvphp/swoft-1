@@ -11,5 +11,8 @@ return [
     'body' => 'this is msg [%s] %d',
     'emptyCookie' => 'Unlawful request',
     'requestError' => 'Request error',
-    'emptyData'  => 'Data can not be empty'
+    'emptyData'  => 'Data can not be empty',
+    'smsSendLimit' => 'The number of messages sent today to the upper limit'
 ];
+
+

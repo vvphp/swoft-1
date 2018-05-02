@@ -19,27 +19,64 @@ use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
-use Swoft\Helper\JsonHelper;
+use Swoft\Cache\Cache;
+use Swoft\Bean\Annotation\Inject;
 use App\Common\Sms\AliCode;
+use App\Common\Tool\Valitron;
+use Swoft\Http\Message\Server\Request;
+use App\Common\Tool\Util;
+use App\Common\Verifcode\Code;
 
 
 /**
  * Class SmsController
  * @Controller(prefix="/live/sms")
  */
-class SmsController
+class SmsController extends BaseController
 {
+    /**
+     * @Inject()
+     * @var \Swoft\Redis\Redis
+     */
+    private $redis;
+
     /**
      * 发送短信
      * @return object
      */
-    public function sendCode():object
+    public function sendCode(Request $request)
     {
         try{
-           $res = AliCode::sendSms('15201138358','1234');
+            $phone = $request->post('phone');
+            $token = $request->post('token','');
+            $data = ['phone' => $phone,'token'=>$token];
+            $result = Valitron::valitronSendSms($data,['phone','token']);
+            var_dump($result);
+            if(is_array($result)){
+                throw new \Exception($result[0]);
+            }
+           //check redis token
+           $countCheck =  Code::sendBeforeCheck($phone);
+           if($countCheck == false){
+                throw new \Exception( Util::getMsg('smsSendLimit'));
+            }
+           $getToken =  $this->redis->get($token);
+           $check = Valitron::valitronEquals($getToken,$token);
+           if($check == false){
+               throw new \Exception( Util::getMsg('Infoexpired'));
+           }
+           //看上一次发送短信的时间是否已经大于5分钟,不大于5分钟、还是用之前的验证码
+           $oldCode = Code::getMemberCode($phone);
+            if(!empty($oldCode)){
+                 $code = $oldCode;
+            }else{
+              $code = Code::generatingVerificationCode();
+            }
+            $res = AliCode::sendSms($phone,$code);
+            var_dump($res);
+           Code::saveRedisCode($phone,$code);
         }catch(\Exception $e){
-            echo JsonHelper::encode();
-            return [$e->getCode(),$e->getMessage()];
+            return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'emptyData',self::$language);
         }
         return $res;
 
