@@ -8,6 +8,8 @@
  */
 
 return [
+    'error' => 'request was aborted',
+    'success' => 'Request success',
     'body' => 'this is msg [%s] %d',
     'emptyCookie' => 'Unlawful request',
     'requestError' => 'Request error',

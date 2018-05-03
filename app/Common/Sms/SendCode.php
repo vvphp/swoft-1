@@ -17,10 +17,22 @@ use App\Common\Tool\VerifCode;
  */
 class  SendCode{
 
+    /**
+     * 短信验证码前缀
+     * @var string
+     */
     protected  static $prefix = 'sms_';
 
+    /**
+     * 验证码保存时间
+     * @var int
+     */
     protected  static $outTime = 300;
 
+    /**
+     * 当天同一手机最多可发送的次数
+     * @var int
+     */
     protected  static $maxCount = 5;
 
     /**
@@ -91,13 +103,7 @@ class  SendCode{
                 array_push($field,'token');
             }
             $this->checkData($data,$field);
-            //看上一次发送短信的时间是否已经大于5分钟,不大于5分钟、还是用之前的验证码
-            $oldCode = $this->getMemberCode($phone);
-            if(!empty($oldCode)){
-                $code = $oldCode;
-            }else{
-                $code = VerifCode::generatingVerificationCode();
-            }
+            $code = $this->getCode($phone);
             $res = AliCode::sendSms($phone,$code);
             if(is_object($res) && $res->Code == 'OK'){
                   $this->saveRedisCode($phone,$code);
@@ -108,6 +114,21 @@ class  SendCode{
              throw new \Exception( $e->getMessage());
         }
         return true;
+    }
+
+    /**
+     * 获取生成的验证码
+     * @param $phone
+     * @return bool|string
+     */
+    public function getCode($phone)
+    {
+        //看上一次发送短信的时间是否已经大于5分钟,不大于5分钟、还是用之前的验证码
+        $code = $this->getMemberCode($phone);
+        if(empty($code)){
+            $code = VerifCode::generatingVerificationCode();
+        }
+        return $code;
     }
 
 

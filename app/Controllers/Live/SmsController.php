@@ -54,9 +54,9 @@ class SmsController extends BaseController
             $token = $request->post('token','');
             $this->sendCode->sendSms($phone,$token);
          }catch(\Exception $e){
-             return Util::showMsg(['msg' => $e->getMessage()],'error',self::$language);
+             return Util::showMsg(['msg' => $e->getMessage()],'error');
         }
-        return Util::showMsg(['msg' => 'success'],'success',self::$language);
+        return Util::showMsg(['msg' => 'success'],'success');
     }
 
 }

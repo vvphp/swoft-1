@@ -51,8 +51,9 @@ class Valitron{
             'code'  => '验证码'
         ]);
         $message_list = array(
-            'phonerequired' => '手机号不能为空',
-            'phonephone' => '手机号不正确,请重新输入'
+            'phone.required' => '手机号不能为空',
+            'phone.phone'    => '手机号不正确,请重新输入',
+            'token.required' => '非法请求,请重试'
         );
         if ($Validator->validate($message_list)){
             return true;

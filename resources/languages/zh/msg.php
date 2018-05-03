@@ -8,6 +8,8 @@
  */
 
 return [
+    'error' => '请求失败',
+    'success' => '请求成功',
     'body' => '这是一条消息 [%s] %d',
     'emptyCookie' => '非法请求',
     'emptyData'   => '数据不能为空',
