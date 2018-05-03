@@ -27,6 +27,8 @@ use Swoft\Http\Message\Server\Request;
 use App\Common\Tool\Util;
 use App\Common\Verifcode\Code;
 
+use App\Common\Verifcode\Test;
+
 
 /**
  * Class SmsController
@@ -71,7 +73,7 @@ class SmsController extends BaseController
             if(!empty($oldCode)){
                  $code = $oldCode;
             }else{
-              $code = Code::generatingVerificationCode();
+                 $code = Code::generatingVerificationCode();
             }
             $res = AliCode::sendSms($phone,$code);
             var_dump($res);
@@ -80,36 +82,17 @@ class SmsController extends BaseController
              return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'emptyData',self::$language);
         }
         return $res;
+    }
 
 
-        /*
-         *
-// 调用示例：
-set_time_limit(0);
-header('Content-Type: text/plain; charset=utf-8');
 
-$response = SmsDemo::sendSms();
-echo "发送短信(sendSms)接口返回的结果:\n";
-print_r($response);
 
-sleep(2);
-
-$response = SmsDemo::sendBatchSms();
-echo "批量发送短信(sendBatchSms)接口返回的结果:\n";
-print_r($response);
-
-sleep(2);
-
-$response = SmsDemo::querySendDetails();
-echo "查询短信发送情况(querySendDetails)接口返回的结果:\n";
-print_r($response);
-         * */
-//        $response = Sms::sendSms();
-//        echo "发送短信(sendSms)接口返回的结果:\n";
-//        print_r($response);
-//
-//        sleep(2);
-
+    public function testrd()
+    {
+        var_dump($this->redis);
+        $rd = new Test();
+        $obj = $rd->rd();
+        var_dump($obj);
     }
 
 }
