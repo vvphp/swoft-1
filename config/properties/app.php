@@ -9,6 +9,7 @@
 
 return [
     'version'      => '1.0',
+    'language'     => 'zh',
     'autoInitBean' => true,
     'bootScan'     => [
         'App\Commands',
@@ -27,6 +28,7 @@ return [
         'App\Process',
         'App\Fallback',
         'App\WebSocket',
+        'App\Common'
     ],
     'I18n'         => [
         'sourceLanguage' => '@root/resources/messages/',

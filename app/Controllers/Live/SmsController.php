@@ -21,13 +21,10 @@ use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
 use Swoft\Cache\Cache;
 use Swoft\Bean\Annotation\Inject;
-use App\Common\Sms\AliCode;
-use App\Common\Tool\Valitron;
 use Swoft\Http\Message\Server\Request;
 use App\Common\Tool\Util;
-use App\Common\Verifcode\Code;
+use App\Common\Sms\SendCode;
 
-use App\Common\Verifcode\Test;
 
 
 /**
@@ -43,43 +40,24 @@ class SmsController extends BaseController
     private $redis;
 
     /**
+     * @\Swoft\Bean\Annotation\Inject("SendCode")
+     * @var \SendCode
+     */
+      private $sendCode;
+
+    /**
      * 发送短信
      * @return object
      */
     public function sendCode(Request $request)
     {
         try{
-            $codeObj = new Code();
             $phone = $request->post('phone');
             $token = $request->post('token','');
-            $data = ['phone' => $phone,'token'=>$token];
-            $result = Valitron::valitronSendSms($data,['phone','token']);
-            var_dump($result);
-            if(is_array($result)){
-                throw new \Exception( array_pop($result));
-            }
-           //check redis token
-           $countCheck =  $codeObj->sendBeforeCheck($phone);
-           if($countCheck == false){
-                throw new \Exception( Util::getMsg('smsSendLimit'));
-            }
-           $getToken =  $this->redis->get($token);
-           $check = Valitron::valitronEquals($getToken,$token);
-           if($check == false){
-               throw new \Exception( Util::getMsg('Infoexpired'));
-           }
-           //看上一次发送短信的时间是否已经大于5分钟,不大于5分钟、还是用之前的验证码
-           $oldCode = $codeObj->getMemberCode($phone);
-            if(!empty($oldCode)){
-                 $code = $oldCode;
-            }else{
-                 $code = Code::generatingVerificationCode();
-            }
-            $res = AliCode::sendSms($phone,$code);
+            $res = $this->sendCode->sendSms($phone,$token);
             var_dump($res);
-            Code::saveRedisCode($phone,$code);
          }catch(\Exception $e){
-             return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'emptyData',self::$language);
+             return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'error',self::$language);
         }
         return $res;
     }
