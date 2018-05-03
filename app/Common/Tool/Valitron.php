@@ -46,7 +46,15 @@ class Valitron{
         $Validator = new Validator($data);
         $Validator->rule("required",$field);  //不能为空
         $Validator->rule('phone',['phone']); //检查电话
-        if ($Validator->validate()){
+        $Validator->labels([
+            'phone' => '手机号',
+            'code'  => '验证码'
+        ]);
+        $message_list = array(
+            'phonerequired' => '手机号不能为空',
+            'phonephone' => '手机号不正确,请重新输入'
+        );
+        if ($Validator->validate($message_list)){
             return true;
         }else{
             return $Validator->errors();

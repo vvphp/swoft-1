@@ -23,8 +23,6 @@ use Swoft\Cache\Cache;
 use Swoft\Bean\Annotation\Inject;
 use Swoft\Http\Message\Server\Request;
 use App\Common\Tool\Util;
-use App\Common\Sms\SendCode;
-
 
 
 /**
@@ -54,23 +52,11 @@ class SmsController extends BaseController
         try{
             $phone = $request->post('phone');
             $token = $request->post('token','');
-            $res = $this->sendCode->sendSms($phone,$token);
-            var_dump($res);
+            $this->sendCode->sendSms($phone,$token);
          }catch(\Exception $e){
-             return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'error',self::$language);
+             return Util::showMsg(['msg' => $e->getMessage()],'error',self::$language);
         }
-        return $res;
-    }
-
-
-
-
-    public function testrd()
-    {
-        var_dump($this->redis);
-        $rd = new Test();
-        $obj = $rd->rd();
-        var_dump($obj);
+        return Util::showMsg(['msg' => 'success'],'success',self::$language);
     }
 
 }

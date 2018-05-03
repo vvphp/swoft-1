@@ -58,9 +58,9 @@ class  SendCode{
              return true;
         }
        $result = Valitron::valitronSendSms($data,$field);
-       var_dump($result);
        if(is_array($result)){
-            throw new \Exception( array_pop($result));
+            $msgArr = array_pop($result);
+            throw new \Exception($msgArr[0] ?? '' );
        }
         $token = isset($data['token']) ?? '';
         $getToken =  $this->redis->get($token);
@@ -99,11 +99,15 @@ class  SendCode{
                 $code = VerifCode::generatingVerificationCode();
             }
             $res = AliCode::sendSms($phone,$code);
+            if(is_object($res) && $res->Code == 'OK'){
+                  $this->saveRedisCode($phone,$code);
+            }else{
+                throw new \Exception( Util::getMsg('smsCodeError',[$res->Message]));
+            }
         }catch(\Exception $e){
              throw new \Exception( $e->getMessage());
         }
-        $this->saveRedisCode($phone,$code);
-        return $res;
+        return true;
     }
 
 

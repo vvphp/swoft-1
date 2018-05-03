@@ -12,7 +12,8 @@ return [
     'emptyCookie' => 'Unlawful request',
     'requestError' => 'Request error',
     'emptyData'  => 'Data can not be empty',
-    'smsSendLimit' => 'The number of messages sent today to the upper limit'
+    'smsSendLimit' => 'The number of messages sent today to the upper limit',
+    'smsCodeError' => 'Verification code transmission failure [%s]'
 ];
 
 

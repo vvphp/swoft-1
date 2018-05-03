@@ -13,5 +13,6 @@ return [
     'emptyData'   => '数据不能为空',
     'requestError' => '请求错误',
     'Infoexpired'  => '信息已过期,请重新刷新页面再次请求',
-    'smsSendLimit' => '今日短信发送次数已到上限'
+    'smsSendLimit' => '今日短信发送次数已到上限',
+    'smsCodeError' => '验证码发送失败[%s]'
 ];
