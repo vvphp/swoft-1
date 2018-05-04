@@ -50,7 +50,11 @@ class Valitron{
                 $ret =  $this->token->verifyToken($token);
                 return $ret;
         }else{
-              return $Validator->errors();
+                $result =  $Validator->errors();
+                if(is_array($result)){
+                    $msgArr = array_pop($result);
+                    throw new \Exception($msgArr[0] ?? '' );
+                }
         }
     }
 
