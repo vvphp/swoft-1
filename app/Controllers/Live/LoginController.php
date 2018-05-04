@@ -69,15 +69,20 @@ class LoginController extends  BaseController
      * signin
      * 登录处理
      * @param \Swoft\Http\Message\Server\Request $request
+     * @param  \Swoft\Http\Message\Server\Response $response
      * @return  Response
      */
-    public  function signin(Request $request)
+    public  function signin(Request $request,Response $response)
     {
         try{
             $data = $request->post();
             $field = ['phone_num','code','token'];
             $result = $this->valitron->valitronSignin($data,$field,$request);
-        }catch(\HttpResponseException $e){
+            if(is_array($result)){
+                $msgArr = array_pop($result);
+                throw new \Exception($msgArr[0] ?? '' );
+            }
+        }catch(\Exception $e){
              return Util::showMsg(['msg' => $e->getMessage()],'error','0');
         }
         if($result == false){
