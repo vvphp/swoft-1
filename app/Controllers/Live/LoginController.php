@@ -39,6 +39,12 @@ class LoginController extends  BaseController
      */
     private $token;
 
+    /**
+     * @\Swoft\Bean\Annotation\Inject("Valitron")
+     * @var \App\Common\Tool\Valitron
+     */
+    private $valitron;
+
 
     /**
      * @RequestMapping(route="/live/login")
@@ -69,10 +75,9 @@ class LoginController extends  BaseController
     public  function signin(Request $request,Response $response)
     {
         try{
-            $valitron = new Valitron();
             $data = $request->post();
             $field = ['phone_num','code','token'];
-            $result = $valitron->valitronSignin($data,$field,$request);
+            $result = $this->valitron->valitronSignin($data,$field,$request);
         }catch(\HttpResponseException $e){
              return Util::showMsg(['msg' => $e->getMessage()],'error','0');
         }

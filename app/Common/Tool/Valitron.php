@@ -6,9 +6,14 @@
  */
 namespace App\Common\Tool;
 
+use phpDocumentor\Reflection\Types\Boolean;
 use App\Lib\Valitron\Validator;
 use App\Common\Tool\Util;
+use Swoft\Bean\Annotation\Inject;
 
+/**
+ * @\Swoft\Bean\Annotation\Bean("Valitron")
+ */
 class Valitron{
 
     /**
