@@ -7,31 +7,45 @@
 namespace App\Common\Tool;
 
 use App\Lib\Valitron\Validator;
+use App\Common\Tool\Util;
 
 class Valitron{
+
+    /**
+     * @\Swoft\Bean\Annotation\Inject("Token")
+     * @var \App\Common\Tool\Token
+     */
+    private $token;
+
 
     /**
      * 登录时表单验证
      * @param $data
      * @param $field
+     * @param $request
      * @return array|bool
      */
-    public static function valitronSignin($data,$field)
+    public function valitronSignin($data,$field,$request)
     {
-        $comArr = array_combine($field,$field);
+        $token = $this->token->getCookie($request);
         $Validator = new Validator($data);
         $Validator->rule("required",$field);  //不能为空
-        $Validator->rule('phone',[$comArr['phone_num']]); //检查电话
-        $Validator->rule('length',[$comArr['code']],4);   //检查CODE
-        $Validator->rule('equals',[$comArr['token']],[$comArr['cookieToken']]);
-        $Validator->labels([
-            'phone' => '手机号',
-            'code' => '验证码'
-        ]);
-        if ($Validator->validate()){
-            return true;
+        $Validator->rule('phone',['phone_num']); //检查电话
+        $Validator->rule('lengthbetween',['code'],[4,4]);   //检查CODE
+        $Validator->rule('equals',$token,['token']);
+        $message_list = array(
+            'phone_num.required' => Util::getMsg('login_phone_empty'),
+            'phone_num.phone'    =>  Util::getMsg('login_phone_error'),
+            'token.required' =>  Util::getMsg('Infoexpired'),
+            'code.required'  =>  Util::getMsg('login_input_code'),
+            'code.lengthbetween'    =>  Util::getMsg('login_verify_error'),
+            'token.equals'          => Util::getMsg('login_token_error'),
+        );
+        if ($Validator->validate($message_list)){
+                $ret =  $this->token->verifyToken($token);
+                return $ret;
         }else{
-            return $Validator->errors();
+              return $Validator->errors();
         }
     }
 
@@ -51,9 +65,9 @@ class Valitron{
             'code'  => '验证码'
         ]);
         $message_list = array(
-            'phone.required' => '手机号不能为空',
-            'phone.phone'    => '手机号不正确,请重新输入',
-            'token.required' => '非法请求,请重试'
+            'phone.required' => Util::getMsg('login_phone_empty'),
+            'phone.phone'    => Util::getMsg('login_phone_error'),
+            'token.required' => Util::getMsg('emptyCookie')
         );
         if ($Validator->validate($message_list)){
             return true;
@@ -71,7 +85,7 @@ class Valitron{
     {
         $data = ['str1' => $str1,'str2' => $str2];
         $Validator = new Validator($data);
-        $Validator->rule('equals',$str1,[$str2]);
+        $Validator->rule('equals',$str1,['str2']);
         if ($Validator->validate()) {
             return true;
         }
@@ -89,10 +103,11 @@ class Valitron{
         $Validator = new Validator($data);
         $Validator->rule("required",['phone']);  //不能为空
         $Validator->rule('phone',['phone']); //检查电话
-        $Validator->labels([
-            'phone' => '手机号',
-        ]);
-        if ($Validator->validate()){
+        $message_list = array(
+            'phone.required' => '手机号不能为空',
+            'phone.phone'    => '手机号不正确,请重新输入',
+        );
+        if ($Validator->validate($message_list)){
             return true;
         }else{
             return $Validator->errors();

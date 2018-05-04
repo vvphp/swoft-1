@@ -47,6 +47,7 @@ class  SendCode{
      * 发短信之前的验证 ,同一手机号一天不能超过5次
      *
      * @param $phone
+     * @return  bool
      */
     public  function  sendBeforeCheck($phone)
     {

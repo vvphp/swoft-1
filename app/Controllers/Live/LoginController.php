@@ -32,33 +32,27 @@ use App\Common\Tool\Util;
  */
 class LoginController extends  BaseController
 {
-    /**
-     * @Inject()
-     * @var \Swoft\Redis\Redis
-     */
-    private $redis;
 
     /**
-     * 登录时存放在COOKIE中的的Token名
-     * @var string
+     * @\Swoft\Bean\Annotation\Inject("Token")
+     * @var \App\Common\Tool\Token
      */
-    private $loginCookie = 'liveLoginToken';
+    private $token;
+
 
     /**
      * @RequestMapping(route="/live/login")
      * @param \Swoft\Http\Message\Server\Request $request
-     * @param  \Swoft\Http\Message\Server\Response
      * @View(template="live/login/login",layout="layouts/live.php")
      * @return Response
      */
-    public function index(Request $request,Response $response): Response
+    public function index(Request $request): Response
     {
-        $token = $request->cookie($this->loginCookie);
+        $token = $this->token->getCookie($request);
         if(empty($token)){
-            $token = Util::generatingLoginToken($request);
-            $cookie = new Cookie($this->loginCookie,$token,time()+300,'/',$request->getUri()->getHost());
-            $this->redis->set($token, $token,300);
+            $token = $this->token->generatingLoginToken($request);
             $data = array('token'=> $token);
+            $cookie = $this->token->saveToken($token,$request);
             return view("live/login/login", $data,'layouts/live.php')->withCookie($cookie);
         }
         $data = array('token'=> $token);
@@ -75,17 +69,19 @@ class LoginController extends  BaseController
     public  function signin(Request $request,Response $response)
     {
         try{
+            $valitron = new Valitron();
             $data = $request->post();
-            $data['cookieToken'] = $request->cookie($this->loginCookie);
-            $field   = array_keys($data);
-            $result  =  Valitron::valitronSignin($data,$field);
+            $field = ['phone_num','code','token'];
+            $result = $valitron->valitronSignin($data,$field,$request);
         }catch(\HttpResponseException $e){
-            return Util::showMsg(['msg' => $e->getMessage(),'code' => $e->getCode()],'requestError',self::$language);
+             return Util::showMsg(['msg' => $e->getMessage()],'error','0');
         }
-        if(is_array($result)){
-             return Util::showMsg(['msg' => $result],'emptyData',self::$language);
+        if($result == false){
+           return Util::showMsg(['msg' => Util::getMsg('login_token_error')],'error','0');
         }
-        return Util::showMsg([],'emptyCookie',self::$language);
+
+        var_dump($result);
+
 
 
 //        $token = $request->cookie($this->loginCookie);
@@ -105,12 +101,5 @@ class LoginController extends  BaseController
     }
 
 
-    /**
-     * @RequestMapping(route="teaa")
-    */
-    public function testa()
-    {
-            echo 'adfdsfdsf';
-    }
 
 }

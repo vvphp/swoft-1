@@ -24,18 +24,23 @@ class Util{
         return $token;
     }
 
+
     /**
      * 返回消息
      * @param array $data
      * @param $msgCode
-     * @param $msgFrom
+     * @param $code
      * @param $language
      * @return array
      */
-    public static function showMsg($data=[],$msgCode,$language='zh')
+    public static function showMsg($data=[],$msgCode='success',$code='1',$language='zh')
     {
         $msg  = self::getMsg($msgCode,[],$language);
-        $code = self::getCode($msgCode,$language);
+        $sCode = 'success';
+        if(empty($code)){
+            $sCode = 'error';
+        }
+        $code = self::getCode($sCode,$language);
         $data = JsonHelper::encode($data);
         return  ResponseHelper::formatData($data,$msg,$code);
     }

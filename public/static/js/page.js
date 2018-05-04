@@ -10,10 +10,12 @@ $(function () {
         var token  = $(" input[name='token'] ").val();
         url = "/live/sms/sendCode";
         $(this).html('已发送').attr('disabled', true);
-        $.post(url,{'phone':phone_num,'token':token}, function (data) {
-            if (data.status == 'ok') {
-                alert('发送完成');
-            }
+        $.post(url,{'phone':phone_num,'token':token}, function (res) {
+               var data =  $.parseJSON(res.data);
+               alert(data.msg);
+               if(res.status == '-1'){
+                  $(this).html('发送').attr('disabled', false);
+              }
         });
     });
 
@@ -22,7 +24,7 @@ $(function () {
         event.preventDefault();
         var formData = $('form').serialize();
         // TODO: 请求后台接口跳转界面，前端跳转或者后台跳
-        $.post("/live/login/signin?"+formData, function (data) {
+        $.post("/live/login/signin",formData, function (data) {
               console.log(data);
             // location.href='index.html';
         });
