@@ -16,5 +16,5 @@ return [
     'requestError' => '请求错误',
     'Infoexpired'  => '信息已过期,请重新刷新页面再次请求',
     'smsSendLimit' => '今日短信发送次数已到上限',
-    'smsCodeError' => '验证码发送失败[%s]'
+    'smsCodeError' => '验证码发送失败,请稍后重试'
 ];

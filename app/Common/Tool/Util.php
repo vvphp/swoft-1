@@ -34,7 +34,7 @@ class Util{
      */
     public static function showMsg($data=[],$msgCode,$language='zh')
     {
-        $msg  = self::getMsg($msgCode,$language);
+        $msg  = self::getMsg($msgCode,[],$language);
         $code = self::getCode($msgCode,$language);
         $data = JsonHelper::encode($data);
         return  ResponseHelper::formatData($data,$msg,$code);

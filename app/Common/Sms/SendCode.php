@@ -11,6 +11,7 @@ use Swoft\Bean\Annotation\Inject;
 use App\Common\Tool\Valitron;
 use App\Common\Tool\Util;
 use App\Common\Tool\VerifCode;
+use Swoft\Task\Task;
 
 /**
  * @\Swoft\Bean\Annotation\Bean("SendCode")
@@ -104,11 +105,12 @@ class  SendCode{
             }
             $this->checkData($data,$field);
             $code = $this->getCode($phone);
-            $res = AliCode::sendSms($phone,$code);
-            if(is_object($res) && $res->Code == 'OK'){
+            //发短信放到task进程里去处理
+            $res  = Task::deliver('send', 'sendSms', [$phone, $code], Task::TYPE_CO);
+            if($res){
                   $this->saveRedisCode($phone,$code);
             }else{
-                throw new \Exception( Util::getMsg('smsCodeError',[$res->Message]));
+                throw new \Exception( Util::getMsg('smsCodeError'));
             }
         }catch(\Exception $e){
              throw new \Exception( $e->getMessage());
@@ -130,7 +132,6 @@ class  SendCode{
         }
         return $code;
     }
-
 
     /**
      * 将验证码保存到redis中

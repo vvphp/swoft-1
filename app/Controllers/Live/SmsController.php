@@ -31,15 +31,10 @@ use App\Common\Tool\Util;
  */
 class SmsController extends BaseController
 {
-    /**
-     * @Inject()
-     * @var \Swoft\Redis\Redis
-     */
-    private $redis;
 
     /**
      * @\Swoft\Bean\Annotation\Inject("SendCode")
-     * @var \SendCode
+     * @var \App\Common\Sms\SendCode
      */
       private $sendCode;
 
@@ -51,7 +46,7 @@ class SmsController extends BaseController
     {
         try{
             $phone = $request->post('phone');
-            $token = $request->post('token','');
+            $token = $request->post('token','token');
             $this->sendCode->sendSms($phone,$token);
          }catch(\Exception $e){
              return Util::showMsg(['msg' => $e->getMessage()],'error');
