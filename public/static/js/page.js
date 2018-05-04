@@ -24,8 +24,10 @@ $(function () {
         event.preventDefault();
         var formData = $('form').serialize();
         // TODO: 请求后台接口跳转界面，前端跳转或者后台跳
-        $.post("/live/login/signin",formData, function (data) {
-              console.log(data);
+        $.post("/live/login/signin",formData, function (res) {
+              console.log(res);
+              var data =  $.parseJSON(res.data);
+              alert(data.msg);
             // location.href='index.html';
         });
     });

@@ -42,6 +42,12 @@ class  SendCode{
      */
     private $redis;
 
+    /**
+     * @\Swoft\Bean\Annotation\Inject("Valitron")
+     * @var \App\Common\Tool\Valitron
+     */
+    private $valitron;
+
 
     /**
      * 发短信之前的验证 ,同一手机号一天不能超过5次
@@ -71,14 +77,14 @@ class  SendCode{
         if(empty($data) || empty($field)){
              return true;
         }
-       $result = Valitron::valitronSendSms($data,$field);
+       $result = $this->valitron->valitronSendSms($data,$field);
        if(is_array($result)){
             $msgArr = array_pop($result);
             throw new \Exception($msgArr[0] ?? '' );
        }
         $token = isset($data['token']) ?? '';
         $getToken =  $this->redis->get($token);
-        $check = Valitron::valitronEquals($getToken,$token);
+        $check = $this->valitron->valitronEquals($getToken,$token);
         if($check == false){
             throw new \Exception( Util::getMsg('Infoexpired'));
         }

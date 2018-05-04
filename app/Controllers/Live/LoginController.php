@@ -78,11 +78,15 @@ class LoginController extends  BaseController
             $data = $request->post();
             $field = ['phone_num','code','token'];
             $result = $this->valitron->valitronSignin($data,$field,$request);
+            if(is_array($result)){
+                $msgArr = array_pop($result);
+                throw new \Exception($msgArr[0] ?? '' );
+            }
         }catch(\HttpResponseException $e){
              return Util::showMsg(['msg' => $e->getMessage()],'error','0');
         }
         if($result == false){
-           return Util::showMsg(['msg' => Util::getMsg('login_token_error')],'error','0');
+            return Util::showMsg(['msg' => Util::getMsg('login_token_error')],'error','0');
         }
 
         var_dump($result);
