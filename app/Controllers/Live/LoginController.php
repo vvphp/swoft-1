@@ -45,6 +45,12 @@ class LoginController extends  BaseController
      */
     private $valitron;
 
+    /**
+     * @\Swoft\Bean\Annotation\Inject("SendCode")
+     * @var \App\Common\Tool\SendCode
+     */
+    private $sendCode;
+
 
     /**
      * @RequestMapping(route="/live/login")
@@ -82,12 +88,31 @@ class LoginController extends  BaseController
                 $msgArr = array_pop($result);
                 throw new \Exception($msgArr[0] ?? '' );
             }
+           if($result == false){ 
+                  throw new \Exception(Util::getMsg('login_token_error') ?? '' );
+             }
+           $getCode = $this->sendCode->getCode($data['phone_num']);
+           if(empty($getCode) || $getCode != $data['code'] ){
+               throw new \Exception(Util::getMsg('login_verify_error') ?? '' );
+           } 
+          //设置登录COOKIE
+          $loginData = [
+              'is_login' => 1,
+              'phone_num' => $data['phone_num']
+           ]
+          
+         //删除token,删除code,
+         
+         }
         }catch(\Exception $e){
-             return Util::showMsg(['msg' => $e->getMessage()],'error','0');
+            return Util::showMsg(['msg' => $e->getMessage()],'error','0');
         }
-        if($result == false){
-            return Util::showMsg(['msg' => Util::getMsg('login_token_error')],'error','0');
-        }
+
+       
+
+        $code = $data['code'];
+
+        
 
         var_dump($result);
 

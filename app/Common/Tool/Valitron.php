@@ -36,7 +36,7 @@ class Valitron{
         $Validator = new Validator($data);
         $Validator->rule("required",$field);  //不能为空
         $Validator->rule('phone',['phone_num']); //检查电话
-        $Validator->rule('lengthbetween',['code'],[4,4]);   //检查CODE
+        $Validator->rule('length',['code'],4);   //检查CODE
         $Validator->rule('equals',$token,['token']);
         $message_list = array(
             'phone_num.required' => Util::getMsg('login_phone_empty'),
