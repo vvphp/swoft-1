@@ -91,49 +91,25 @@ class LoginController extends  BaseController
            if($result == false){ 
                   throw new \Exception(Util::getMsg('login_token_error') ?? '' );
              }
-           $getCode = $this->sendCode->getCode($data['phone_num']);
-           if(empty($getCode) || $getCode != $data['code'] ){
+           $result = $this->sendCode->comparisonCode($data['phone_num'],$data['code']); 
+           if($result == false ){
                throw new \Exception(Util::getMsg('login_verify_error') ?? '' );
-           } 
+           }
           //设置登录COOKIE
           $loginData = [
               'is_login' => 1,
-              'phone_num' => $data['phone_num']
-           ]
-          
-         //删除token,删除code,
-         
-         }
+              'phone_num' => $data['phone_num'],
+              'login_time' => time()
+           ];
+           //删除token,删除code,
+           $this->sendCode->delRedisCode($data['phone_num']);
+           $this->token->delToken($data['token']);
+           return Util::showMsg($loginData,'success','1'); 
+           }
         }catch(\Exception $e){
-            return Util::showMsg(['msg' => $e->getMessage()],'error','0');
-        }
-
-       
-
-        $code = $data['code'];
-
-        
-
-        var_dump($result);
-
-
-
-//        $token = $request->cookie($this->loginCookie);
-//        $phone = $request->post('phone_num', '0');
-//        $code  = $request->post('code', '0');
-//        $postToken = $request->post('token', '0');
-//        if(empty($token)){
-//            return Util::showMsg([],'emptyCookie',self::$language);
-//        }
-//
-//
-//
-//
-//        $cookie = new Cookie($this->loginCookie,$token,time()-300,'/',$request->getUri()->getHost());
-//        $this->redis->delete($token);
-//        return $response->json()->withCookie($cookie);
-    }
-
+             return Util::showMsg(['msg' => $e->getMessage()],'error','0');
+        } 
+    } 
 
 
 }

@@ -141,6 +141,21 @@ class  SendCode{
     }
 
     /**
+     * [comparisonCode 比较验证码]
+     * @param  [type] $phone [description]
+     * @param  [type] $code  [description]
+     * @return [type]        [description]
+     */
+    public function comparisonCode($phone,$code)
+    {
+         $getCode = $this->getCode($phone);
+         if(empty($getCode) || $getCode != $code ){
+                return false;
+           } 
+           return true;
+  }
+
+    /**
      * 将验证码保存到redis中
      * @param $phone
      * @param $code
@@ -159,6 +174,17 @@ class  SendCode{
        }
         return true;
     }
+
+   /**
+    * [delRedisCode 删除保存在redis中的key]
+    * @param  [type] $phone [description]
+    * @return [type]        [description]
+    */
+   public function delRedisCode($phone)
+   {
+      $key = self::memberCodeKey($phone);
+      return  $this->redis->delete($key);
+   }
 
     /**
      * 获取在redis中的验证码

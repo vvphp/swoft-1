@@ -61,6 +61,17 @@ class Token{
         $this->redis->set($token, $token,$this->tokenSaveTime);
         return $cookie;
     }
+   
+    /**
+     * [delToken 删除redis token]
+     * @param  [type] $token [description]
+     * @return [type]        [description]
+     */
+    public function delToken($token)
+    {
+        return $this->redis->delete($token);
+    }
+
 
     /**
      * 获取当前token
