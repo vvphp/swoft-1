@@ -26,6 +26,7 @@ use Swoft\Bean\Annotation\Strings;
 use Swoft\Bean\Annotation\ValidatorFrom;
 use App\Common\Tool\Valitron;
 use App\Common\Tool\Util;
+use Swoft\Helper\JsonHelper;
 /**
  * Class IndexController
  * @Controller(prefix="/live/login")
@@ -50,6 +51,8 @@ class LoginController extends  BaseController
      * @var \App\Common\Tool\SendCode
      */
     private $sendCode;
+
+    private $cookieUserKey = 'userLoginInfo';
 
 
     /**
@@ -95,21 +98,33 @@ class LoginController extends  BaseController
            if($result == false ){
                throw new \Exception(Util::getMsg('login_verify_error') ?? '' );
            }
-          //设置登录COOKIE
-          $loginData = [
-              'is_login' => 1,
-              'phone_num' => $data['phone_num'],
-              'login_time' => time()
-           ];
            //删除token,删除code,
            $this->sendCode->delRedisCode($data['phone_num']);
            $this->token->delToken($data['token']);
-           return Util::showMsg($loginData,'success','1'); 
-           }
+           $loginData = [
+                'is_login' => 1,
+                'phone_num' => $data['phone_num'],
+                'login_time' => time()
+            ];
+            $json = Util::showMsg($loginData,'success','1');
+            $cookie = new Cookie($this->cookieUserKey,JsonHelper::encode($loginData),time()+3600,'/',$request->getUri()->getHost());
+            return  $response->withContent($json)->withCookie($cookie)->send();
         }catch(\Exception $e){
              return Util::showMsg(['msg' => $e->getMessage()],'error','0');
         } 
-    } 
+    }
+
+    /**
+     * 登录成功后，记录cookie
+     * @param Request $request
+     * @param Response $response
+     */
+    public function siginCookie(Request $request,Response $response)
+    {
+
+       return  $response->json()->withCookie();
+
+    }
 
 
 }

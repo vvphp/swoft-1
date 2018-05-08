@@ -49,7 +49,7 @@ class Token{
     }
 
     /**
-     * 保存token到redis中
+     * 保存token到redis和cookie中
      * @param $token
      * @param $request
      * @param $type
@@ -58,8 +58,18 @@ class Token{
     public  function saveToken($token,$request,$type='login')
     {
         $cookie = new Cookie($this->cookie,$token,time()+$this->tokenSaveTime,'/',$request->getUri()->getHost());
-        $this->redis->set($token, $token,$this->tokenSaveTime);
+        $this->saveRedisToken($token);
         return $cookie;
+    }
+
+    /**
+     * 将token保存到redis中
+     * @param $token
+     * @return bool
+     */
+    public function saveRedisToken($token)
+    {
+       return  $this->redis->set($token, $token,$this->tokenSaveTime);
     }
    
     /**
