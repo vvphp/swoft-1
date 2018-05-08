@@ -57,10 +57,35 @@ class Token{
      */
     public  function saveToken($token,$request,$type='login')
     {
-        $cookie = new Cookie($this->cookie,$token,time()+$this->tokenSaveTime,'/',$request->getUri()->getHost());
+        $cookie = $this->saveCookieToken($token,$request);
         $this->saveRedisToken($token);
         return $cookie;
     }
+
+    /**
+     * 将token保存到Cookie中
+     * @param $token
+     * @param $request
+     * @return Cookie
+     */
+    public function saveCookieToken($token,$request)
+    {
+        $cookie = new Cookie($this->cookie,$token,time()+$this->tokenSaveTime,'/',$request->getUri()->getHost());
+        return $cookie;
+    }
+
+    /**
+     * 删除cookie中的token
+     * @param $token
+     * @param $request
+     * @return Cookie
+     */
+    public function delCookieToken($token,$request)
+    {
+        $cookie = new Cookie($this->cookie,$token,time()-$this->tokenSaveTime,'/',$request->getUri()->getHost());
+        return $cookie;
+    }
+
 
     /**
      * 将token保存到redis中

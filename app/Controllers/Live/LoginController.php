@@ -48,7 +48,7 @@ class LoginController extends  BaseController
 
     /**
      * @\Swoft\Bean\Annotation\Inject("SendCode")
-     * @var \App\Common\Tool\SendCode
+     * @var \App\Common\Sms\SendCode
      */
     private $sendCode;
 
@@ -92,7 +92,7 @@ class LoginController extends  BaseController
                 throw new \Exception($msgArr[0] ?? '' );
             }
            if($result == false){ 
-                  throw new \Exception(Util::getMsg('login_token_error') ?? '' );
+               throw new \Exception(Util::getMsg('login_token_error') ?? '' );
              }
            $result = $this->sendCode->comparisonCode($data['phone_num'],$data['code']); 
            if($result == false ){
@@ -101,6 +101,7 @@ class LoginController extends  BaseController
            //删除token,删除code,
            $this->sendCode->delRedisCode($data['phone_num']);
            $this->token->delToken($data['token']);
+           $delCookie = $this->token->delCookieToken($data['token'],$request);
            $loginData = [
                 'is_login' => 1,
                 'phone_num' => $data['phone_num'],
@@ -108,7 +109,7 @@ class LoginController extends  BaseController
             ];
             $json = Util::showMsg($loginData,'success','1');
             $cookie = new Cookie($this->cookieUserKey,JsonHelper::encode($loginData),time()+3600,'/',$request->getUri()->getHost());
-            return  $response->withContent($json)->withCookie($cookie)->send();
+            return  $response->json($json)->withCookie($cookie)->withCookie($delCookie)->send();
         }catch(\Exception $e){
              return Util::showMsg(['msg' => $e->getMessage()],'error','0');
         } 
