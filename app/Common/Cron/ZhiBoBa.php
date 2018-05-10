@@ -14,6 +14,8 @@ use App\Common\Tool\VerifCode;
 use Swoft\Task\Task;
 use Swoft\App;
 
+use GuzzleHttp\Client;
+
 require_once App::getAlias('@vendor') .'/electrolinux/phpquery/phpQuery/phpQuery.php';
 
 /**
@@ -47,8 +49,13 @@ class  ZhiBoBa{
     public function beginGrab($url='')
     {
         $grabUrl = !empty($url) ? $url : $this->url;
-        phpQuery::newDocumentFile($grabUrl);
-        return  pq("body")->html();
+        $client = new Client();
+        $res = $client->request('GET', $grabUrl);
+        $body =  $res->getBody();
+        return $body;
+
+       // \phpQuery::newDocumentFile($grabUrl);
+       // return  pq("body")->html();
     }
 
 
