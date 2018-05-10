@@ -14,6 +14,8 @@ return array(
     '30ef5a432812e53e35293749d21015ac' => $vendorDir . '/swoft/redis/src/Helper/Functions.php',
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     '0bdbd081a332e921d63969714c2039f5' => $vendorDir . '/swoft/process/src/Helper/Functions.php',
+    'c964ee0ededf28c96ebd9db5099ef910' => $vendorDir . '/guzzlehttp/promises/src/functions_include.php',
+    'a0edc8309cc5e1d60e3047b5df6b7052' => $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
     '3ec4e28b2d7ec76d44271b44c2949657' => $vendorDir . '/swoft/rpc/src/Helper/Functions.php',
     '078453678d5904c08fc98526b0a1fdfd' => $vendorDir . '/swoft/i18n/src/Helper/Functions.php',
     '2f302328dcf56dd8b9fca7051cc3ad19' => $vendorDir . '/swoft/view/src/Helper/Functions.php',
@@ -24,5 +26,6 @@ return array(
     '0f7264010dfe4b150414d6c16fc2a53e' => $vendorDir . '/swoft/task/src/Helper/Functions.php',
     'd0b12a6e9f0416b1f736e52ca82d7ae3' => $vendorDir . '/swoft/db/src/Helper/Functions.php',
     '7f06e18cf5332466ea24ff7f629eec8e' => $vendorDir . '/swoft/devtool/src/Helper/Functions.php',
+    '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
     '507d652ffd041175c4dcafb9af7b13f2' => $baseDir . '/app/Swoft.php',
 );

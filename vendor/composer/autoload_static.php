@@ -15,6 +15,8 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         '30ef5a432812e53e35293749d21015ac' => __DIR__ . '/..' . '/swoft/redis/src/Helper/Functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '0bdbd081a332e921d63969714c2039f5' => __DIR__ . '/..' . '/swoft/process/src/Helper/Functions.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '3ec4e28b2d7ec76d44271b44c2949657' => __DIR__ . '/..' . '/swoft/rpc/src/Helper/Functions.php',
         '078453678d5904c08fc98526b0a1fdfd' => __DIR__ . '/..' . '/swoft/i18n/src/Helper/Functions.php',
         '2f302328dcf56dd8b9fca7051cc3ad19' => __DIR__ . '/..' . '/swoft/view/src/Helper/Functions.php',
@@ -25,6 +27,7 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         '0f7264010dfe4b150414d6c16fc2a53e' => __DIR__ . '/..' . '/swoft/task/src/Helper/Functions.php',
         'd0b12a6e9f0416b1f736e52ca82d7ae3' => __DIR__ . '/..' . '/swoft/db/src/Helper/Functions.php',
         '7f06e18cf5332466ea24ff7f629eec8e' => __DIR__ . '/..' . '/swoft/devtool/src/Helper/Functions.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '507d652ffd041175c4dcafb9af7b13f2' => __DIR__ . '/../..' . '/app/Swoft.php',
     );
 
@@ -88,6 +91,12 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'L' => 
         array (
             'Leuffen\\TextTemplate\\' => 21,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
         'D' => 
         array (
@@ -261,6 +270,18 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'Leuffen\\TextTemplate\\' => 
         array (
             0 => __DIR__ . '/..' . '/text/template/src',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
         'Dotenv\\' => 
         array (
