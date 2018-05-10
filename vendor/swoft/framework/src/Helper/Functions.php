@@ -89,12 +89,27 @@ if (! function_exists('bean')) {
     /**
      * Get bean from container
      *
-     * @param $name
+     * @param string $name
      * @return object
      */
-    function bean($name)
+    function bean(string $name)
     {
         return \Swoft\App::getBean($name);
+    }
+}
+
+if (! function_exists('config')) {
+    /**
+     * Get config value from app config
+     *
+     * @param string $key
+     * @param null|mixed $default
+     * @return mixed
+     */
+    function config(string $key, $default = null)
+    {
+        /** @see \Swoft\Core\Config::get() */
+        return \Swoft\App::getBean('config')->get($key, $default);
     }
 }
 
@@ -106,7 +121,7 @@ if (! function_exists('alias')) {
      * @return string
      * @throws \InvalidArgumentException
      */
-    function alias($alias): string
+    function alias(string $alias): string
     {
         return \Swoft\App::getAlias($alias);
     }
@@ -133,5 +148,17 @@ if (! function_exists('response')) {
     function response(): \Psr\Http\Message\ResponseInterface
     {
         return \Swoft\Core\RequestContext::getResponse();
+    }
+}
+
+if (!function_exists('is_iterable')) {
+    /**
+     * is_iterable
+     * @param $obj
+     * @return bool
+     */
+    function is_iterable($obj)
+    {
+        return is_array($obj) || (is_object($obj) && ($obj instanceof \Traversable));
     }
 }

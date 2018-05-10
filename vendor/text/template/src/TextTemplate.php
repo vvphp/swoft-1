@@ -236,12 +236,13 @@ class TextTemplate {
         // And ending with newline by single line
         //
         // Caution: Lookahead at the end required to strip multiple lines!
-        $input = preg_replace("/\\n\s*(\{(?!\=)[^\\n}]+?\})(?=[\\n\{])/m", '$1', $input);
+        $input = preg_replace("#\\n\h*(\{(?!=)[^\\n}]+?\})\h*\\n#m", "\$1\n", $input);
+        $input = preg_replace("#\}\\h*\\n\h*(\{(?!=))#m", "}\$1", $input);
         return $input;
     }
 
 
-    private function _getValueByName ($context, $name, $softFail=TRUE) {
+    private function _getValueByName ($context, $name, $softFail) {
         $dd = explode (".", $name);
         $value = $context;
         $cur = "";
@@ -250,6 +251,9 @@ class TextTemplate {
                 $cur = (int)$cur;
             if (is_array($value)) {
                 if ( ! isset ( $value[$cur] )) {
+                    if ( ! $softFail) {
+                        throw new UndefinedVariableException("ParsingError: Can't parse element: '{$name}' Error on subelement: '$cur'", $name);
+                    }
                     $value = NULL;
                 } else {
                     $value = $value[$cur];
@@ -258,13 +262,17 @@ class TextTemplate {
             } else {
                 if (is_object($value)) {
                     if ( ! isset ( $value->$cur )) {
+                        if ( ! $softFail) {
+                            throw new UndefinedVariableException("ParsingError: Can't parse element: '{$name}' Error on subelement: '$cur'", $name);
+
+                        }
                         $value = NULL;
                     } else {
                         $value = $value->$cur;
                     }
                 } else {
                     if ( ! $softFail) {
-                        throw new TemplateParsingException("ParsingError: Can't parse element: '{$name}' Error on subelement: '$cur'");
+                        throw new UndefinedVariableException("ParsingError: Can't parse element: '{$name}' Error on subelement: '$cur'", $name);
                     }
                     $value = NULL;
                 }
@@ -295,7 +303,7 @@ class TextTemplate {
     }
 
 
-    private function _parseValueOfTags ($context, $match, $softFail=TRUE) {
+    private function _parseValueOfTags ($context, $match, $softFail) {
         $chain = explode("|", $match);
         for ($i=0; $i<count ($chain); $i++)
             $chain[$i] = trim ($chain[$i]);
@@ -320,7 +328,7 @@ class TextTemplate {
 
 
 
-    private function _runFor (&$context, $content, $cmdParam, $softFail=TRUE) {
+    private function _runFor (&$context, $content, $cmdParam, $softFail) {
         if ( ! preg_match ('/([a-z0-9\.\_]+) in ([a-z0-9\.\_]+)/i', $cmdParam, $matches)) {
             if ( ! $softFail)
                 throw new TemplateParsingException("Invalid for-syntax '$cmdParam'");
@@ -357,7 +365,7 @@ class TextTemplate {
     }
 
 
-    private function _getItemValue ($compName, $context) {
+    private function _getItemValue ($compName, $context, $softFail) {
         if (preg_match ('/^("|\')(.*?)\1$/i', $compName, $matches))
             return $matches[2]; // string Value
         if (is_numeric($compName)) {
@@ -369,11 +377,11 @@ class TextTemplate {
             return TRUE;
         if (strtoupper($compName) == "NULL")
             return NULL;
-        return $this->_getValueByName($context, $compName);
+        return $this->_getValueByName($context, $compName, $softFail);
     }
 
 
-    private function _runIf (&$context, $content, $cmdParam, $softFail=TRUE, &$ifConditionDidMatch) {
+    private function _runIf (&$context, $content, $cmdParam, $softFail, &$ifConditionDidMatch) {
         //echo $cmdParam;
         $doIf = false;
 
@@ -398,14 +406,22 @@ class TextTemplate {
             $ifConditionDidMatch = false;
         }
 
-        if ( ! preg_match('/([\"\']?.*?[\"\']?)\s*(==|<|>|!=)\s*([\"\']?.*[\"\']?)/i', $cmdParam, $matches)) {
+        if ( ! preg_match('/(([\"\']?.*?[\"\']?)\s*(==|<|>|!=)\s*([\"\']?.*[\"\']?)|((!?)\s*(.*)))/i', $cmdParam, $matches)) {
             return "!! Invalid command sequence: '$cmdParam' !!";
         }
+        if(count($matches) == 8) {
+          $comp1 = $this->_getItemValue(trim($matches[7]), $context, $softFail);
+          $operator = '==';
+          $comp2 = $matches[6] ? FALSE : TRUE; // ! prefix
+        } elseif(count($matches) == 5){
+          $comp1 = $this->_getItemValue(trim($matches[2]), $context, $softFail);
+          $operator = trim($matches[3]);
+          $comp2 = $this->_getItemValue(trim($matches[4]), $context, $softFail);
+        } else {
+          return "!! Invalid command sequence: '$cmdParam' !!";
+        }
 
-        $comp1 = $this->_getItemValue(trim($matches[1]), $context);
-        $comp2 = $this->_getItemValue(trim($matches[3]), $context);
-
-        switch ($matches[2]) {
+        switch ($operator) {
             case "==":
                 $doIf = ($comp1 == $comp2);
                 break;
@@ -433,7 +449,7 @@ class TextTemplate {
 
     private $ifConditionMatch = [];
 
-    private function _parseBlock (&$context, $block, $softFail=TRUE) {
+    private function _parseBlock (&$context, $block, $softFail) {
         // (?!\{): Lookahead Regex: Don't touch double {{
 
         $result = preg_replace_callback('/(\{(?!=)((?<bcommand>if|for)(?<bnestingLevel>[0-9]+))(?<bcmdParam>.*?)\}(?<bcontent>.*?)\n?\{\/\2\}|\{(?!=)(?<command>[a-z]+)\s*(?<cmdParam>.*?)\}|\{\=(?<value>.+?)\})/ism',
@@ -477,8 +493,8 @@ class TextTemplate {
                     $cmdParam = $matches["cmdParam"];
 
                     $paramArr = [];
-                    $cmdParamRest = preg_replace_callback('/(?<name>[a-z0-9_]+)\s*=\s*(?<sval>((\"|\')(.*?)\4)|[a-z0-9\.\_]+)/i', function ($matches) use(&$paramArr, &$context) {
-                        $paramArr[$matches["name"]] = $this->_getItemValue($matches["sval"], $context);
+                    $cmdParamRest = preg_replace_callback('/(?<name>[a-z0-9_]+)\s*=\s*(?<sval>((\"|\')(.*?)\4)|[a-z0-9\.\_]+)/i', function ($matches) use(&$paramArr, &$context, $softFail) {
+                        $paramArr[$matches["name"]] = $this->_getItemValue($matches["sval"], $context, $softFail);
                     }, $cmdParam);
 
                     $context["lastErr"] = null;

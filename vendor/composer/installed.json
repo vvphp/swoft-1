@@ -651,60 +651,6 @@
         ]
     },
     {
-        "name": "swoft/framework",
-        "version": "v1.0.15",
-        "version_normalized": "1.0.15.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-framework.git",
-            "reference": "a2552750188746a9616882b2700c08361cfe827f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-framework/a2552750188746a9616882b2700c08361cfe827f.zip",
-            "reference": "a2552750188746a9616882b2700c08361cfe827f",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/annotations": "^1.4",
-            "monolog/monolog": "^1.23",
-            "php": ">=7.0",
-            "php-di/phpdoc-reader": "^2.0",
-            "phpseclib/phpseclib": "2.0.0",
-            "psr/http-message": "^1.0",
-            "psr/http-server-middleware": "^1.0",
-            "vlucas/phpdotenv": "^2.4",
-            "zendframework/zend-mime": "^2.7"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "friendsofphp/php-cs-fixer": "^2.10",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-10T14:09:05+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/rpc",
         "version": "v1.0.0",
         "version_normalized": "1.0.0.0",
@@ -1052,141 +998,6 @@
         ]
     },
     {
-        "name": "swoft/http-server",
-        "version": "v1.0.4",
-        "version_normalized": "1.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-http-server.git",
-            "reference": "67a7ae092d696b5ba7803659c8939a5f9d8e1fb0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-server/67a7ae092d696b5ba7803659c8939a5f9d8e1fb0.zip",
-            "reference": "67a7ae092d696b5ba7803659c8939a5f9d8e1fb0",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/console": "^1.0",
-            "swoft/framework": "^1.0",
-            "swoft/http-message": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-04T07:50:30+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Http\\Server\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "swoft/websocket-server",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-websocket-server.git",
-            "reference": "cbb7e0a6814c47b6ae9f568e4b1e08668d4ea0d9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-websocket-server/cbb7e0a6814c47b6ae9f568e4b1e08668d4ea0d9.zip",
-            "reference": "cbb7e0a6814c47b6ae9f568e4b1e08668d4ea0d9",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/http-server": "^1.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-02T12:48:56+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\WebSocket\\Server\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "websocket server for swoft",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole",
-            "websocket",
-            "websocket-server"
-        ]
-    },
-    {
-        "name": "swoft/task",
-        "version": "v1.0.4",
-        "version_normalized": "1.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-task.git",
-            "reference": "f134a77429f46d7160b2aa6cb23eb0ae09751473"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-task/f134a77429f46d7160b2aa6cb23eb0ae09751473.zip",
-            "reference": "f134a77429f46d7160b2aa6cb23eb0ae09751473",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7",
-            "swoft/process": "^1.0"
-        },
-        "time": "2018-04-10T13:43:00+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Task\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "routine",
-            "swoft",
-            "swoole",
-            "task"
-        ]
-    },
-    {
         "name": "swoft/view",
         "version": "v1.0.1",
         "version_normalized": "1.0.1.0",
@@ -1373,62 +1184,6 @@
         ]
     },
     {
-        "name": "text/template",
-        "version": "v2.3.1",
-        "version_normalized": "2.3.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/dermatthes/text-template.git",
-            "reference": "04e3d57227ceffb758a9f4ec7157a537b3d3df56"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/dermatthes/text-template/04e3d57227ceffb758a9f4ec7157a537b3d3df56.zip",
-            "reference": "04e3d57227ceffb758a9f4ec7157a537b3d3df56",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4"
-        },
-        "require-dev": {
-            "nette/tester": "*",
-            "phpunit/phpcov": "^2.0",
-            "satooshi/php-coveralls": "dev-master"
-        },
-        "time": "2018-03-28T13:07:58+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Leuffen\\TextTemplate\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Matthias Leuffen",
-                "email": "matthes@leuffen.de"
-            }
-        ],
-        "description": "Simple and secure string-template-engine (Twig-like syntax) with nested if/elseif/else, loops, filters. Simple OOP api: Just one class doing the job (2-lines of code). Fast and secure: No code-generation, no eval'ed() code. Extensible by callbacks. Fully tested. Rich examples included.",
-        "homepage": "http://github.com/dermatthes/text-template",
-        "keywords": [
-            "filter",
-            "for",
-            "if",
-            "loop",
-            "mail",
-            "render",
-            "smarty",
-            "template",
-            "text",
-            "twig"
-        ]
-    },
-    {
         "name": "seld/phar-utils",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -1520,55 +1275,6 @@
         ]
     },
     {
-        "name": "swoft/devtool",
-        "version": "v1.0.5",
-        "version_normalized": "1.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-devtool.git",
-            "reference": "dc02d4747e507aa0a43aa1e690ca1c225095bd86"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-devtool/dc02d4747e507aa0a43aa1e690ca1c225095bd86.zip",
-            "reference": "dc02d4747e507aa0a43aa1e690ca1c225095bd86",
-            "shasum": ""
-        },
-        "require": {
-            "seld/phar-utils": "^1.0",
-            "swoft/console": "^1.0",
-            "swoft/data-parser": "^1.0",
-            "swoft/framework": "^1.0",
-            "text/template": "~2.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-11T11:34:09+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Devtool\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "devTool for swoft",
-        "keywords": [
-            "debug",
-            "devtool",
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/session",
         "version": "v1.0.2",
         "version_normalized": "1.0.2.0",
@@ -1611,52 +1317,6 @@
         "keywords": [
             "php",
             "session",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "swoft/process",
-        "version": "v1.0.3",
-        "version_normalized": "1.0.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-process.git",
-            "reference": "c39e6022a2b9365fd1fa8c498729058b7481f7f9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-process/c39e6022a2b9365fd1fa8c498729058b7481f7f9.zip",
-            "reference": "c39e6022a2b9365fd1fa8c498729058b7481f7f9",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-10T13:39:14+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\Process\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "Process Component for Swoft",
-        "keywords": [
-            "php",
-            "process",
             "swoft",
             "swoole"
         ]
@@ -3019,54 +2679,6 @@
         ]
     },
     {
-        "name": "swoft/redis",
-        "version": "v1.0.6",
-        "version_normalized": "1.0.6.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-redis.git",
-            "reference": "011055dc31f72f7eab3b02d064513e8f5a0014d7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-redis/011055dc31f72f7eab3b02d064513e8f5a0014d7.zip",
-            "reference": "011055dc31f72f7eab3b02d064513e8f5a0014d7",
-            "shasum": ""
-        },
-        "require": {
-            "psr/simple-cache": "^1.0.0",
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7",
-            "swoft/service-governance": "^1.0"
-        },
-        "time": "2018-04-14T05:41:56+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\Redis\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "Redis Component for Swoft",
-        "keywords": [
-            "php",
-            "redis",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "nesbot/carbon",
         "version": "1.27.0",
         "version_normalized": "1.27.0.0",
@@ -3162,57 +2774,6 @@
             "ZendFramework",
             "stdlib",
             "zf"
-        ]
-    },
-    {
-        "name": "swoft/db",
-        "version": "v1.1.6",
-        "version_normalized": "1.1.6.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-db.git",
-            "reference": "011b8eb80acb11383e3799caa9d4afb6a51dcef7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/011b8eb80acb11383e3799caa9d4afb6a51dcef7.zip",
-            "reference": "011b8eb80acb11383e3799caa9d4afb6a51dcef7",
-            "shasum": ""
-        },
-        "require": {
-            "ext-pdo": "*",
-            "swoft/console": "^1.0",
-            "swoft/framework": "^1.0.15",
-            "swoft/service-governance": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "friendsofphp/php-cs-fixer": "^2.10",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-26T14:09:29+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Db\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "Active Record",
-            "db",
-            "orm",
-            "php",
-            "swoft",
-            "swoole"
         ]
     },
     {
@@ -3405,5 +2966,444 @@
         ],
         "description": "Symfony Yaml Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "swoft/framework",
+        "version": "v1.0.17",
+        "version_normalized": "1.0.17.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-framework.git",
+            "reference": "620394d570183bd4e2b1a6df06d9ad69d2d08a2e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-framework/620394d570183bd4e2b1a6df06d9ad69d2d08a2e.zip",
+            "reference": "620394d570183bd4e2b1a6df06d9ad69d2d08a2e",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/annotations": "^1.4",
+            "monolog/monolog": "^1.23",
+            "php": ">=7.0",
+            "php-di/phpdoc-reader": "^2.0",
+            "phpseclib/phpseclib": "2.0.0",
+            "psr/http-message": "^1.0",
+            "psr/http-server-middleware": "^1.0",
+            "vlucas/phpdotenv": "^2.4",
+            "zendframework/zend-mime": "^2.7"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "friendsofphp/php-cs-fixer": "^2.10",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-07T15:48:47+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/http-server",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-http-server.git",
+            "reference": "1aef8f2b66e8af4959559be87debc5ef11fadf20"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-server/1aef8f2b66e8af4959559be87debc5ef11fadf20.zip",
+            "reference": "1aef8f2b66e8af4959559be87debc5ef11fadf20",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/console": "^1.0",
+            "swoft/framework": "^1.0",
+            "swoft/http-message": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-02T16:13:28+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Http\\Server\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/websocket-server",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-websocket-server.git",
+            "reference": "d614189bd6a583e2f1b28e1be8b4b77efbda4ded"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-websocket-server/d614189bd6a583e2f1b28e1be8b4b77efbda4ded.zip",
+            "reference": "d614189bd6a583e2f1b28e1be8b4b77efbda4ded",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/http-server": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-03T01:17:51+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\WebSocket\\Server\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "websocket server for swoft",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole",
+            "websocket",
+            "websocket-server"
+        ]
+    },
+    {
+        "name": "swoft/task",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-task.git",
+            "reference": "fcf12d1e3cea6fdc3b274e421615bc238ccad1f6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-task/fcf12d1e3cea6fdc3b274e421615bc238ccad1f6.zip",
+            "reference": "fcf12d1e3cea6fdc3b274e421615bc238ccad1f6",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7",
+            "swoft/process": "^1.0"
+        },
+        "time": "2018-05-02T16:01:39+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Task\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "routine",
+            "swoft",
+            "swoole",
+            "task"
+        ]
+    },
+    {
+        "name": "swoft/db",
+        "version": "v1.1.10",
+        "version_normalized": "1.1.10.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-db.git",
+            "reference": "2f3781d75ead3548fd06c9e6dfbc11201e3dd067"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/2f3781d75ead3548fd06c9e6dfbc11201e3dd067.zip",
+            "reference": "2f3781d75ead3548fd06c9e6dfbc11201e3dd067",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "swoft/console": "^1.0",
+            "swoft/framework": "^1.0.15",
+            "swoft/service-governance": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "friendsofphp/php-cs-fixer": "^2.10",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-07T15:37:41+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Db\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "Active Record",
+            "db",
+            "orm",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/redis",
+        "version": "v1.0.7",
+        "version_normalized": "1.0.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-redis.git",
+            "reference": "bce9394f9692181d8e0bc34eded311d63ea33caa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-redis/bce9394f9692181d8e0bc34eded311d63ea33caa.zip",
+            "reference": "bce9394f9692181d8e0bc34eded311d63ea33caa",
+            "shasum": ""
+        },
+        "require": {
+            "psr/simple-cache": "^1.0.0",
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7",
+            "swoft/service-governance": "^1.0"
+        },
+        "time": "2018-05-07T15:57:12+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\Redis\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Redis Component for Swoft",
+        "keywords": [
+            "php",
+            "redis",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "text/template",
+        "version": "v2.4.0",
+        "version_normalized": "2.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dermatthes/text-template.git",
+            "reference": "153db4db7ec85ba4d0ea0c46f20dd3d0280b3904"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/dermatthes/text-template/153db4db7ec85ba4d0ea0c46f20dd3d0280b3904.zip",
+            "reference": "153db4db7ec85ba4d0ea0c46f20dd3d0280b3904",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "nette/tester": "*",
+            "phpunit/phpcov": "^2.0",
+            "satooshi/php-coveralls": "*"
+        },
+        "time": "2018-05-08T12:29:53+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Leuffen\\TextTemplate\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "matthes@leuffen.de"
+            }
+        ],
+        "description": "Simple and secure string-template-engine (Twig-like syntax) with nested if/elseif/else, loops, filters. Simple OOP api: Just one class doing the job (2-lines of code). Fast and secure: No code-generation, no eval'ed() code. Extensible by callbacks. Fully tested. Rich examples included.",
+        "homepage": "http://text-template.pub.leuffen.de",
+        "keywords": [
+            "filter",
+            "for",
+            "if",
+            "loop",
+            "mail",
+            "render",
+            "smarty",
+            "template",
+            "text",
+            "twig"
+        ]
+    },
+    {
+        "name": "swoft/devtool",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-devtool.git",
+            "reference": "833eab7fff98dc642880905db4a04456d53f449a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-devtool/833eab7fff98dc642880905db4a04456d53f449a.zip",
+            "reference": "833eab7fff98dc642880905db4a04456d53f449a",
+            "shasum": ""
+        },
+        "require": {
+            "seld/phar-utils": "^1.0",
+            "swoft/console": "^1.0",
+            "swoft/data-parser": "^1.0",
+            "swoft/framework": "^1.0",
+            "text/template": "~2.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-03T02:00:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Devtool\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "devTool for swoft",
+        "keywords": [
+            "debug",
+            "devtool",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/process",
+        "version": "v1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-process.git",
+            "reference": "c747c68649d8bf08a396be201030591ce670d992"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-process/c747c68649d8bf08a396be201030591ce670d992.zip",
+            "reference": "c747c68649d8bf08a396be201030591ce670d992",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-04-16T02:19:07+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\Process\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Process Component for Swoft",
+        "keywords": [
+            "php",
+            "process",
+            "swoft",
+            "swoole"
+        ]
     }
 ]
