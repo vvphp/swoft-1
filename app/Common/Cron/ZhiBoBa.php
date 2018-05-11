@@ -55,10 +55,11 @@ class  ZhiBoBa{
         \phpQuery::newDocumentHTML($body);
         foreach( pq(".box") as $html){
             $data = [];
-            $data['title'] = pq($html)->find('h2')->attr('title');
+            $title = pq($html)->find('h2')->attr('title');
             $liList = pq($html)->find("li");
             foreach($liList as $index => $liHtml){
                 $liveArr = [];
+                $data[$index]['title'] = trim($title);
                 $data[$index]['label'] = pq($liHtml)->attr("label");
                 $data[$index]['data-time'] = pq($liHtml)->attr("data-time");
                 $content = pq($liHtml)->html();
@@ -66,17 +67,99 @@ class  ZhiBoBa{
                 $key = 0 ;
                 foreach(pq($liHtml)->find("a") as $aHtml){
                     $liveArr[$key]['text'] = pq($aHtml)->text();
-                    $liveArr[$key]['href'] = pq($aHtml)->attr("href");
+                    $href = pq($aHtml)->attr("href");
+                    $urlInfo = parse_url($href);
+                    if(!isset($urlInfo['scheme'])){
+                        $href = trim($href,"/");
+                        $href = "https://".$href;
+                    }
+                    $liveArr[$key]['href'] = $href;
                     $key++;
                 }
                 $data[$index] = array_merge($data[$index],$contentArr);
                 $data[$index]['live'] = $liveArr;
             }
+            $this->saveGrabData($data);
             break;
         }
         print_r($data);
         return 1;
     }
+
+
+    /**
+     * 将数据保存到mysql中
+     * @param $data
+     */
+    private  function saveGrabData($data)
+    {
+        if(empty($data)){
+             return true;
+        }
+        foreach($data as $index => $value){
+
+
+
+
+
+        }
+
+
+
+
+        live_match_table
+
+
+        live_play_link
+
+
+        live_game_schedule
+
+    }
+
+    /**
+     * 写入球队表
+     * @param $value
+     */
+    private function saveLiveTeam($value)
+    {
+        //live_team_table
+        if(empty($value['home_team']) && empty($value['visiting_team'])){
+             return true;
+        }
+        if(!empty($value['home_team'])){
+            //先查一下球队是否已经在表里存在
+            $where = [
+                'team_name' => $value['home_team']
+            ];
+
+
+            $live_team = [
+                'team_name'  => $value['home_team'],
+                'team_logo'  => $value['home_team_micro'],
+                'add_date'   => time(),
+                'sports_category' => $this->processLabel($value['label'])
+            ];
+
+        }
+
+    }
+
+    /**
+     * 处理 label数据
+     * @param $label
+     * @return string
+     */
+    private function processLabel($label)
+    {
+        $labelRel = str_replace(['其他','篮球公园','中超'],'',$label);
+        $labelArr = explode(',',$labelRel);
+        if(empty($labelArr)){
+            return $label;
+        }
+       return implode(',',$labelArr);
+    }
+
 
 
     /**
@@ -109,8 +192,8 @@ class  ZhiBoBa{
         });
         $contentArr = array_values($contentArr);
         if(count($contentArr) >= 3){
-            $teamMicro = isset($imagesList[0]) ? $imagesList[0] : '';
-            $visitingTeam = isset($imagesList[1]) ? $imagesList[1] : '';
+            $teamMicro = isset($imagesList[0]) ? "https:".trim($imagesList[0],'"') : '';
+            $visitingTeam = isset($imagesList[1]) ? "https:".trim($imagesList[1],'"') : '';
             array_splice($contentArr,2,0,["2" => $teamMicro]);
             array_splice($contentArr,5,0,["5" => $visitingTeam]);
         }
