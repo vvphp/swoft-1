@@ -55,7 +55,7 @@ class  ZhiBoBa{
         \phpQuery::newDocumentHTML($body);
         foreach( pq(".box") as $html){
             $data = [];
-            $data['title'] = pq($html)->find('h2')->html();
+            $data['title'] = pq($html)->find('h2')->attr('title');
             $liList = pq($html)->find("li");
             foreach($liList as $liHtml){
                 $liveArr = [];
@@ -63,12 +63,15 @@ class  ZhiBoBa{
                 $data['data-time'] = pq($liHtml)->attr("data-time");
                 $content = pq($liHtml)->html();
                 $contentArr = $this->processContent($content);
+                $key = 0 ;
                 foreach(pq($liHtml)->find("a") as $aHtml){
-                    $liveArr['text'] = pq($aHtml)->text();
-                    $liveArr['href'] = pq($aHtml)->attr("href");
+                    $liveArr[$key]['text'] = pq($aHtml)->text();
+                    $liveArr[$key]['href'] = pq($aHtml)->attr("href");
+                    $key++;
                 }
             }
-            $data = array_merge($data,$contentArr,$liveArr);
+            $data = array_merge($data,$contentArr);
+            $data['live'] = $liveArr;
             break;
         }
         print_r($data);
@@ -114,6 +117,8 @@ class  ZhiBoBa{
         if(count($contentArr) < 3){
             $contentArr = array_pad($contentArr,5,'');
         }
+        $gameArr = array('competition_category','home_team','home_team_micro','visiting_team','visiting_team_micro');
+        $contentArr = array_combine($gameArr,$contentArr);
         return $contentArr;
     }
 
