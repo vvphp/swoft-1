@@ -57,10 +57,10 @@ class  ZhiBoBa{
             $data = [];
             $data['title'] = pq($html)->find('h2')->attr('title');
             $liList = pq($html)->find("li");
-            foreach($liList as $liHtml){
+            foreach($liList as $index => $liHtml){
                 $liveArr = [];
-                $data['label'] = pq($liHtml)->attr("label");
-                $data['data-time'] = pq($liHtml)->attr("data-time");
+                $data[$index]['label'] = pq($liHtml)->attr("label");
+                $data[$index]['data-time'] = pq($liHtml)->attr("data-time");
                 $content = pq($liHtml)->html();
                 $contentArr = $this->processContent($content);
                 $key = 0 ;
@@ -69,13 +69,13 @@ class  ZhiBoBa{
                     $liveArr[$key]['href'] = pq($aHtml)->attr("href");
                     $key++;
                 }
+                $data[$index] = array_merge($data[$index],$contentArr);
+                $data[$index]['live'] = $liveArr;
             }
-            $data = array_merge($data,$contentArr);
-            $data['live'] = $liveArr;
             break;
         }
         print_r($data);
-        return $data;
+        return 1;
     }
 
 
