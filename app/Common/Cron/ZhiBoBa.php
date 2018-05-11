@@ -50,15 +50,72 @@ class  ZhiBoBa{
     {
         $grabUrl = !empty($url) ? $url : $this->url;
         $client = new Client();
-        $res = $client->request('GET', $grabUrl);
-        $body =  $res->getBody();
-        return $body;
-
-       // \phpQuery::newDocumentFile($grabUrl);
-       // return  pq("body")->html();
+        $res  = $client->request('GET', $grabUrl);
+        $body = $res->getBody()->getContents();
+        \phpQuery::newDocumentHTML($body);
+        foreach( pq(".box") as $html){
+            $data = [];
+            $data['title'] = pq($html)->find('h2')->html();
+            $liList = pq($html)->find("li");
+            foreach($liList as $liHtml){
+                $liveArr = [];
+                $data['label'] = pq($liHtml)->attr("label");
+                $data['data-time'] = pq($liHtml)->attr("data-time");
+                $content = pq($liHtml)->html();
+                $contentArr = $this->processContent($content);
+                foreach(pq($liHtml)->find("a") as $aHtml){
+                    $liveArr['text'] = pq($aHtml)->text();
+                    $liveArr['href'] = pq($aHtml)->attr("href");
+                }
+            }
+            $data = array_merge($data,$contentArr,$liveArr);
+            break;
+        }
+        print_r($data);
+        return $data;
     }
 
 
+    /**
+     * 处理content内容
+     * @param $content
+     * @return array
+     */
+    public function processContent($content)
+    {
+        if(empty($content)){
+            return [];
+        }
+        //匹配超链接字符串
+        preg_match("/<a.*\/a>/i",$content,$matches);
+       //匹配图片链接地址
+        preg_match_all("/src=(.*)>/iU", $content, $imagesMatch);
+        $linkHtml = isset($matches[0]) ? $matches[0]:'';
+        $imagesList = isset($imagesMatch[1]) ?  $imagesMatch[1] : [];
+        if(!empty($linkHtml)){
+            $content = str_replace($linkHtml,'',$content);
+        }
+        $contentTag = strip_tags($content);
+        $contentArr = explode(' ',$contentTag);
+        unset($contentArr[0]);
+        $contentArr = array_filter($contentArr,function($val){
+            if(empty($val) || $val=='-'){
+                return false;
+            }
+            return true;
+        });
+        $contentArr = array_values($contentArr);
+        if(count($contentArr) >= 3){
+            $teamMicro = isset($imagesList[0]) ? $imagesList[0] : '';
+            $visitingTeam = isset($imagesList[1]) ? $imagesList[1] : '';
+            array_splice($contentArr,2,0,["2" => $teamMicro]);
+            array_splice($contentArr,5,0,["5" => $visitingTeam]);
+        }
+        if(count($contentArr) < 3){
+            $contentArr = array_pad($contentArr,5,'');
+        }
+        return $contentArr;
+    }
 
 }
 
