@@ -48,4 +48,13 @@ class CronController extends BaseController
       var_dump($result);
     }
 
+    /**
+     * [testDba description]
+     * @return [type] [description]
+     */
+    public function testDba()
+    {
+      $result = $this->zhiBoBa->testDba();
+    }
+
 }

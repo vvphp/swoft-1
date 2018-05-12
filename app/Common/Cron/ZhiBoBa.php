@@ -14,6 +14,7 @@ use App\Common\Tool\VerifCode;
 use Swoft\Task\Task;
 use Swoft\App;
 
+use App\Models\Logic\LiveTeamLogic;
 use GuzzleHttp\Client;
 
 require_once App::getAlias('@vendor') .'/electrolinux/phpquery/phpQuery/phpQuery.php';
@@ -70,8 +71,7 @@ class  ZhiBoBa{
                     $href = pq($aHtml)->attr("href");
                     $urlInfo = parse_url($href);
                     if(!isset($urlInfo['scheme'])){
-                        $href = trim($href,"/");
-                        $href = "https://".$href;
+                        $href = "https://".trim($href,"/");                       
                     }
                     $liveArr[$key]['href'] = $href;
                     $key++;
@@ -107,13 +107,13 @@ class  ZhiBoBa{
 
 
 
-        live_match_table
+        //live_match_table
 
 
-        live_play_link
+       // live_play_link
 
 
-        live_game_schedule
+       // live_game_schedule
 
     }
 
@@ -144,6 +144,21 @@ class  ZhiBoBa{
         }
 
     }
+
+
+
+    
+    public function testDba()
+    {
+        $data = [
+             'home_team' => 'NBA',
+             'visiting_team' => 'WNBA'
+        ];
+        $logic = App::getBean(LiveTeamLogic::class); 
+        $logic->saveLiveTeam($data);
+    }
+
+
 
     /**
      * 处理 label数据

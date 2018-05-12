@@ -10,7 +10,7 @@
 
 namespace App\Models\Logic;
 
-use App\Models\Entity\User;
+use App\Models\Entity\LiveTeam;
 
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
@@ -20,7 +20,7 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
  * 同时可以被controller server task使用
  *
  * @Bean()
- * @uses      UserLogic
+ * @uses      LiveTeamLogic
  * @version   2017年10月15日
  * @author    stelin <phpcrazy@126.com>
  * @copyright Copyright 2010-2016 swoft software
@@ -28,15 +28,19 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
  */
 class LiveTeamLogic
 {
-    /**
-     * @Reference("user")
-     *
-     * @var \App\Lib\DemoInterface
-     */
-    private $demoService;
-
-    public function saveLiveTeam()
+     
+    public function saveLiveTeam($data)
     {
+        if(!empty($data['home_team'])){
+            //先查一下球队是否已经在表里存在
+            $where = [
+                'team_name' => $value['home_team']
+            ];
+
+           $result =  LiveTeam::findOne($where, ['fields' => ['id']])->getResult();
+        
+           var_dump($result);
+        }
 
     }
 
