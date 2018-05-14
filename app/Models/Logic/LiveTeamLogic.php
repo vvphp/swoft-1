@@ -39,12 +39,12 @@ class LiveTeamLogic
         if(!empty($data['team_name'])){
             $result = $this->getTeamIdByName($data['team_name']);
             if(!empty($result)){
-                     return true;
+                 return $result['id'];
             }
          $ret = $this->saveTeamByData($data);
          return $ret;
         }
-      return false;
+      return 0;
     }
 
     /**

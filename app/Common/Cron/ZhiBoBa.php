@@ -15,6 +15,9 @@ use Swoft\Task\Task;
 use Swoft\App;
 
 use App\Models\Logic\LiveTeamLogic;
+use App\Models\Logic\LiveMatchLogic;
+use App\Models\Logic\LiveGameLogic;
+use App\Models\Logic\LivePlayLogic;
 use GuzzleHttp\Client;
 
 require_once App::getAlias('@vendor') .'/electrolinux/phpquery/phpQuery/phpQuery.php';
@@ -23,24 +26,36 @@ require_once App::getAlias('@vendor') .'/electrolinux/phpquery/phpQuery/phpQuery
  * @\Swoft\Bean\Annotation\Bean("ZhiBoBa")
  */
 class  ZhiBoBa{
-
-    /**
-     * @Inject()
-     * @var \Swoft\Redis\Redis
-     */
-    private $redis;
-
-    /**
-     * @\Swoft\Bean\Annotation\Inject("Valitron")
-     * @var \App\Common\Tool\Valitron
-     */
-    private $valitron;
-
     /**
      * 抓取URL
      * @var string
      */
     private $url = 'https://www.zhibo8.cc/';
+
+    /**
+     * 赛会ID
+     * @var int
+     */
+    private $match_id = 0;
+
+    /**
+     * 主队ID
+     * @var int
+     */
+    private $home_team_id = 0;
+
+    /**
+     * 客队ID
+     * @var int
+     */
+    private $visiting_team_id = 0;
+
+    /**
+     * 比赛ID
+     * @var int
+     */
+    private $game_id = 0;
+
 
     /**
      * 开始抓取
@@ -82,7 +97,6 @@ class  ZhiBoBa{
             $this->saveGrabData($data);
             break;
         }
-        file_put_contents('/home/www/test/data.log',var_export($data,true));
         print_r($data);
         return 1;
     }
@@ -95,27 +109,14 @@ class  ZhiBoBa{
     private  function saveGrabData($data)
     {
         if(empty($data)){
-             return true;
+               return true;
         }
         foreach($data as $index => $value){
                    $this->saveLiveTeam($value);
-
-
-
-
+                   $this->saveLiveMatch($value);
+                   $this->saveLiveGame($value);
+                   $this->saveLivePlayLink($value);
         }
-
-
-
-
-        //live_match_table
-
-
-       // live_play_link
-
-
-       // live_game_schedule
-
     }
 
     /**
@@ -137,7 +138,7 @@ class  ZhiBoBa{
                 'team_logo'  => $value['home_team_micro'],
                 'sports_category' => $sports_category
             ];
-            $logic->saveLiveTeam($live_team);
+           $this->home_team_id = $logic->saveLiveTeam($live_team);
         }
         if(!empty($value['visiting_team'])){
             $live_team = [
@@ -145,25 +146,62 @@ class  ZhiBoBa{
                 'team_logo'  => $value['visiting_team_micro'],
                 'sports_category' => $sports_category
             ];
-            $logic->saveLiveTeam($live_team);
+         $this->visiting_team_id = $logic->saveLiveTeam($live_team);
         }
         return true;
     }
 
-
-
-    
-    public function testDba()
+    /**
+     * 写入 赛会表 live_match_table
+     * @param $value
+     * @return boolean
+     */
+    private function saveLiveMatch($value)
     {
+        if(!isset($value['competition_category']) || empty($value['competition_category'])){
+            return false;
+        }
+        /* @var LiveMatchLogic $logic */
+        $logic = App::getBean(LiveMatchLogic::class);
+        $save = [
+            'competition_name'  => $value['competition_category'],
+        ];
+        $this->match_id =  $logic->saveLiveMatch($save);
+   }
 
-//        $data = [
-//             'home_team' => 'NBA',
-//             'visiting_team' => 'WNBA'
-//        ];
-//        $logic = App::getBean(LiveTeamLogic::class);
-//        $logic->saveLiveTeam($data);
+
+    /**
+     * 写入比赛 赛程表 live_game_schedule
+     * @param $value
+     */
+    private function saveLiveGame($value)
+    {
+        $game_date = trim($value['title']);
+        $data_time = str_replace($game_date,'',$value['data-time']);
+        $save = [
+               'match_id' => $this->match_id,
+               'live_member_id' => 1,
+               'game_date' => $game_date,
+               'data_time' => trim($data_time),
+               'label' => $value['label'],
+               'home_team_id' => $this->home_team_id,
+               'visiting_team_id' => $this->visiting_team_id
+         ];
+        /* @var LiveGameLogic $logic */
+        $logic = App::getBean(LiveGameLogic::class);
+        $this->game_id = $logic->saveLiveGame($save);
     }
 
+    /**
+     * 写入播放地址链接表 live_play_link
+     * @param $value
+     */
+    private function saveLivePlayLink($value)
+    {
+        /* @var LivePlayLogic $logic */
+        $logic = App::getBean(LivePlayLogic::class);
+        $logic->saveLivePlay($this->game_id,$value['live']);
+    }
 
 
     /**
@@ -178,10 +216,9 @@ class  ZhiBoBa{
         if(empty($labelArr)){
             return $label;
         }
-       return implode(',',$labelArr);
+        $label =  implode(',',$labelArr);
+        return trim($label,',');
     }
-
-
 
     /**
      * 处理content内容
