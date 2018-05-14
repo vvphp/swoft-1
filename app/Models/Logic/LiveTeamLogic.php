@@ -57,9 +57,10 @@ class LiveTeamLogic
         $where = [
             'team_name' => $team_name
         ];
-        $result =  LiveTeam::findOne($where, ['fields' => ['id']])->getResult()->toArray();
-        echo "getTeamIdByName:\r\n";
-        var_dump($result);
+        $result =  LiveTeam::findOne($where, ['fields' => ['id']])->getResult();
+        if(!empty($result)){
+            $result = $result->toArray();
+        }
         return $result;
     }
 
@@ -80,9 +81,6 @@ class LiveTeamLogic
             ],
         ];
        $result =  LiveTeam::batchInsert($values)->getResult();
-        echo "saveTeamByData:\r\n";
-        var_dump($result);
-
        return $result;
     }
 
