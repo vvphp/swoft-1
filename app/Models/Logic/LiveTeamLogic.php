@@ -28,38 +28,65 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
  */
 class LiveTeamLogic
 {
-     
+
+    /**
+     * 根据 team_name查询是否存在，如果不存在则插入，如果存在则直接返回true
+     * @param $data
+     * @return bool|mixed
+     */
     public function saveLiveTeam($data)
     {
         if(!empty($data['home_team'])){
-            //先查一下球队是否已经在表里存在
-            $where = [
-                'team_name' => $value['home_team']
-            ];
-
-           $result =  LiveTeam::findOne($where, ['fields' => ['id']])->getResult();
-        
-           var_dump($result);
+            $result = $this->getTeamIdByName($data['home_team']);
+            if(!empty($result)){
+                     return true;
+            }
+         $ret = $this->saveTeamByData($data);
+         return $ret;
         }
-
+      return false;
     }
 
-
-
-    public function getUserInfo(array $uids)
+    /**
+     * 根据 team_name 查询表中是否已经存在数据
+     * @param string $team_name
+     * @return mixed
+     */
+    public function getTeamIdByName($team_name='')
     {
-        $user = new User();
-        $user = [
-            'name' => 'boby',
-            'desc' => 'this is boby'
+        $where = [
+            'team_name' => $team_name
         ];
-
-        $data = [];
-        foreach ($uids as $uid) {
-            $user['uid'] = $uid;
-            $data[] = $user;
-        }
-
-        return $data;
+        $result =  LiveTeam::findOne($where, ['fields' => ['id']])->getResult()->toArray();
+        echo "getTeamIdByName:\r\n";
+        var_dump($result);
+        return $result;
     }
+
+
+    /**
+     * 插入数据
+     * @param $data
+     * @return mixed
+     */
+    public  function saveTeamByData($data)
+    {
+        $values = [
+            [
+                'team_name'         => $data['team_name'],
+                'team_logo'         => $data['team_logo'],
+                'sports_category'   => $data['sports_category'],
+                'add_date'          => time(),
+            ],
+        ];
+       $result =  LiveTeam::batchInsert($values)->getResult();
+        echo "saveTeamByData:\r\n";
+        var_dump($result);
+
+       return $result;
+    }
+
+
+
+
 }

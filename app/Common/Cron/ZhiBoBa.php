@@ -82,6 +82,7 @@ class  ZhiBoBa{
             $this->saveGrabData($data);
             break;
         }
+        file_put_contents('/home/www/test/data.log',var_export($data,true));
         print_r($data);
         return 1;
     }
@@ -97,7 +98,7 @@ class  ZhiBoBa{
              return true;
         }
         foreach($data as $index => $value){
-
+                   $this->saveLiveTeam($value);
 
 
 
@@ -118,31 +119,35 @@ class  ZhiBoBa{
     }
 
     /**
-     * 写入球队表
+     * 写入球队表 live_team_table
      * @param $value
+     * @return boolean
      */
     private function saveLiveTeam($value)
     {
-        //live_team_table
         if(empty($value['home_team']) && empty($value['visiting_team'])){
              return true;
         }
+        /* @var LiveTeamLogic $logic */
+        $logic = App::getBean(LiveTeamLogic::class);
+        $sports_category = $this->processLabel($value['label']);
         if(!empty($value['home_team'])){
-            //先查一下球队是否已经在表里存在
-            $where = [
-                'team_name' => $value['home_team']
-            ];
-
-
             $live_team = [
                 'team_name'  => $value['home_team'],
                 'team_logo'  => $value['home_team_micro'],
-                'add_date'   => time(),
-                'sports_category' => $this->processLabel($value['label'])
+                'sports_category' => $sports_category
             ];
-
+            $logic->saveLiveTeam($live_team);
         }
-
+        if(!empty($value['visiting_team'])){
+            $live_team = [
+                'team_name'  => $value['visiting_team'],
+                'team_logo'  => $value['visiting_team_micro'],
+                'sports_category' => $sports_category
+            ];
+            $logic->saveLiveTeam($live_team);
+        }
+        return true;
     }
 
 
