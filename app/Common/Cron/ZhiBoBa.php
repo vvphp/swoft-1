@@ -155,12 +155,13 @@ class  ZhiBoBa{
     
     public function testDba()
     {
-        $data = [
-             'home_team' => 'NBA',
-             'visiting_team' => 'WNBA'
-        ];
-        $logic = App::getBean(LiveTeamLogic::class); 
-        $logic->saveLiveTeam($data);
+
+//        $data = [
+//             'home_team' => 'NBA',
+//             'visiting_team' => 'WNBA'
+//        ];
+//        $logic = App::getBean(LiveTeamLogic::class);
+//        $logic->saveLiveTeam($data);
     }
 
 

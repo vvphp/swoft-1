@@ -36,8 +36,8 @@ class LiveTeamLogic
      */
     public function saveLiveTeam($data)
     {
-        if(!empty($data['home_team'])){
-            $result = $this->getTeamIdByName($data['home_team']);
+        if(!empty($data['team_name'])){
+            $result = $this->getTeamIdByName($data['team_name']);
             if(!empty($result)){
                      return true;
             }
