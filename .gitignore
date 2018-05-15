@@ -1,6 +1,8 @@
 runtime
+config/server.php
 public/devtool/
 runtime/logs/
 runtime/logs/swoole.log
 .env
 composer.lock
+composer.json

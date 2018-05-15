@@ -12,7 +12,7 @@ return [
         'pfile'      => env('PFILE', '/tmp/swoft.pid'),
         'pname'      => env('PNAME', 'php-swoft'),
         'tcpable'    => env('TCPABLE', true),
-        'cronable'   => env('CRONABLE', false),
+        'cronable'   => env('CRONABLE', true),
         'autoReload' => env('AUTO_RELOAD', true),
     ],
     'tcp'     => [
