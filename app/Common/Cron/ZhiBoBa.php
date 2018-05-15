@@ -95,9 +95,7 @@ class  ZhiBoBa{
                 $data[$index]['live'] = $liveArr;
             }
             $this->saveGrabData($data);
-            break;
         }
-        print_r($data);
         return 1;
     }
 
@@ -109,7 +107,7 @@ class  ZhiBoBa{
     private  function saveGrabData($data)
     {
         if(empty($data)){
-               return true;
+             return true;
         }
         foreach($data as $index => $value){
                    $this->saveLiveTeam($value);
