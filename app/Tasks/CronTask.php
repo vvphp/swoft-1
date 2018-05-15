@@ -32,7 +32,7 @@ class CronTask
 
     /**
      * crontab 直播吧抓取 定时任务
-     * 每一秒执行一次
+     * 每周日1点执行
      *
      * @Scheduled(cron="0 1 * * 0 *")
      */

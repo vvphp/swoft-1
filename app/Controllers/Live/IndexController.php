@@ -28,13 +28,15 @@ class IndexController
 {
 
     /**
+     * 赛事列表
      * @RequestMapping("/")
-     * @View(template="index/index")
-     * @return array
+     * @View(template="live/index/index",layout="layouts/live.php")
+     * @return Response
      */
-    public function index(): array
+    public function index()
     {
-        return array('eewrewr');
+        $data = [];
+        return $data;
     }
 
 }

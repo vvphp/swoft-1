@@ -1,96 +1,163 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title><?= $name ?></title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.geekzu.org/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #48cfad;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 100px;
-        }
-
-        .notes {
-            font-size: 25px;
-            margin-bottom: 5px;
-        }
-
-        .links {
-            margin-top: 30px;
-        }
-
-        .links > a {
-            color: #48cfad;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-sm {
-            margin-bottom: 5px;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
 <body>
-<div class="flex-center position-ref full-height">
-
+<div>
+    <header class="header">
+        赛程
+        <!--用户处于登录状态时，将该按钮隐藏-->
+        <a href="./login.html">
+            <!-- <i class="icon iconfont icon-wode my"></i> -->
+            <span class="my">登录</span>
+        </a>
+    </header>
     <div class="content">
-        <div class="title m-b-md">
-            <?= $name ?>
+        <div class="match">
+            <h2>今天 3月13日 星期二</h2>
+            <a href="./detail.html">
+                <div class="match-item">
+                    <div class="match-item-info">
+                        <div class="match-time">
+                            08: 00
+                            <img src="./imgs/match.png" width="25px" height="25px" />
+                        </div>
+                        <div>NBA常规赛</div>
+                    </div>
+                    <div class="match-item-teams isLive">
+                        <div>
+								<span>
+									<img src="./imgs/team1.png" width="25px" height="25px" />
+									马刺
+								</span>
+                            <span>79</span>
+                        </div>
+                        <div>
+								<span>
+									<img src="./imgs/team2.png" width="25px" height="25px" />
+									火箭
+								</span>
+                            <span>80</span>
+                        </div>
+                    </div>
+                    <div class="match-item-result isLive">
+                        <div>图片直播</div>
+                        <div>进行中</div>
+                    </div>
+                </div>
+            </a>
         </div>
+        <div class="match">
+            <h2>今天 3月14日 星期三</h2>
 
-        <?php foreach ($notes as $note): ?>
-            <div class="notes m-b-sm">
-                <?= $note ?>
-            </div>
-        <?php endforeach; ?>
-
-        <div class="links">
-            <?php foreach ($links as $link): ?>
-                <a href="<?= $link['link'] ?>"><?= $link['name'] ?></a>
-            <?php endforeach; ?>
+            <a href="./detail.html">
+                <div class="match-item">
+                    <div class="match-item-info normal-font">
+                        <div class="match-time">
+                            08: 00
+                            <img src="./imgs/match.png" width="25px" height="25px" />
+                        </div>
+                        <div>NBA常规赛</div>
+                    </div>
+                    <div class="match-item-teams">
+                        <div>
+								<span>
+									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
+								</span>
+                            <span>-</span>
+                        </div>
+                        <div>
+								<span>
+									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
+								</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                    <div class="match-item-result">
+                        <div>图片直播</div>
+                    </div>
+                </div>
+            </a>
+            <a href="./detail.html">
+                <div class="match-item">
+                    <div class="match-item-info normal-font">
+                        <div class="match-time">
+                            08: 00
+                            <img src="./imgs/match.png" width="25px" height="25px" />
+                        </div>
+                        <div>NBA常规赛</div>
+                    </div>
+                    <div class="match-item-teams">
+                        <div>
+								<span>
+									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
+								</span>
+                            <span>-</span>
+                        </div>
+                        <div>
+								<span>
+									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
+								</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                    <div class="match-item-result">
+                        <div>图片直播</div>
+                    </div>
+                </div>
+            </a>
+            <a href="./detail.html">
+                <div class="match-item">
+                    <div class="match-item-info normal-font">
+                        <div class="match-time">
+                            08: 00
+                            <img src="./imgs/match.png" width="25px" height="25px" />
+                        </div>
+                        <div>NBA常规赛</div>
+                    </div>
+                    <div class="match-item-teams">
+                        <div>
+								<span>
+									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
+								</span>
+                            <span>-</span>
+                        </div>
+                        <div>
+								<span>
+									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
+								</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                    <div class="match-item-result">
+                        <div>图片直播</div>
+                    </div>
+                </div>
+            </a>
+            <a href="./detail.html">
+                <div class="match-item">
+                    <div class="match-item-info normal-font">
+                        <div class="match-time">
+                            08: 00
+                            <img src="./imgs/match.png" width="25px" height="25px" />
+                        </div>
+                        <div>NBA常规赛</div>
+                    </div>
+                    <div class="match-item-teams">
+                        <div>
+								<span>
+									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
+								</span>
+                            <span>-</span>
+                        </div>
+                        <div>
+								<span>
+									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
+								</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                    <div class="match-item-result">
+                        <div>图片直播</div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </div>
-</body>
-</html>

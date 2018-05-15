@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/static/assert/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/static/assert/css/main.css" />
     <link rel="stylesheet" type="text/css" href="/static/assert/css/page.css" />
+    <link rel="stylesheet" type="text/css" href="/static/assert/css/list.css" />
     <link rel="stylesheet" href="/static/assert/iconfont/iconfont.css">
     <link rel="shortcut icon" href="/static/favicon.ico">
     <script src="/static/js/jquery-3.3.1.min.js"></script>
