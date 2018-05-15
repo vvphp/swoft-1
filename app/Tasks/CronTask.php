@@ -10,15 +10,12 @@
 
 namespace App\Tasks;
 
-use App\Lib\DemoInterface;
-use App\Models\Entity\User;
 use Swoft\App;
 use Swoft\Bean\Annotation\Inject;
-use Swoft\HttpClient\Client;
-use Swoft\Redis\Redis;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use Swoft\Task\Bean\Annotation\Scheduled;
 use Swoft\Task\Bean\Annotation\Task;
+
 
 /**
  * cron task
@@ -28,15 +25,23 @@ use Swoft\Task\Bean\Annotation\Task;
 class CronTask
 {
     /**
+     * @\Swoft\Bean\Annotation\Inject("ZhiBoBa")
+     * @var \App\Common\Cron\ZhiBoBa
+     */
+    private $zhiBoBa;
+
+    /**
      * crontab 直播吧抓取 定时任务
      * 每一秒执行一次
      *
-     * @Scheduled(cron="* * * * * *")
+     * @Scheduled(cron="0 1 * * 0 *")
      */
     public function cronZhiBo8Task()
     {
-        echo time() . "每一秒执行一次  \n";
-        return 'cron';
+        echo "grab zhiboba start ";
+        $result = $this->zhiBoBa->beginGrab();
+        var_dump($result);
+        echo "grab zhiboba end ";
     }
 
 }
