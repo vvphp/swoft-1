@@ -10,9 +10,12 @@
 
 namespace App\Models\Logic;
 
+use Swoft\App;
 use App\Models\Entity\LiveGameSchedule;
+use App\Models\Entity\LiveMatchTable;
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
+use App\Models\Logic\LiveMatchLogic;
 
 /**
  * @Bean()
@@ -97,5 +100,99 @@ class LiveGameLogic
        return $result;
     }
 
+
+    /**
+     * 根据时间段查询赛事数据
+     * @param $startDate
+     * @param $endDate
+     * @return array|mixed
+     */
+    public function getGameDataByDate($startDate,$endDate)
+    {
+        $where = [
+            'game_date','between',$startDate,$endDate
+        ];
+        $fields = ['id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
+        $result = LiveGameSchedule::findAll($where, ['fields' => $fields,'orderby' => ['id' => 'DESC']])->getResult();
+        if(empty($result)){
+              return [];
+        }
+        $result = $result->toArray();
+        return $result;
+    }
+
+    /**
+     * 查询赛事列表数据
+     * @return array
+     */
+    public function getGameData()
+    {
+        $currDate = date('Y-m-d');
+        $endDate  = date('Y-m-d',strtotime("+2 Month"));
+        $result = $this->getGameDataByDate($currDate,$endDate);
+        $match_id_list = array_column($result,'match_id');
+        $team_id_list  = array_column($result,'home_team_id');
+        $game_id_list  = array_column($result,'id');
+        $team_id_list  = array_merge($team_id_list,array_column($result,'visiting_team_id'));
+
+        $match_id_list = array_unique($match_id_list);
+        $match_id_list = array_filter($match_id_list);
+
+        $team_id_list = array_unique($team_id_list);
+        $team_id_list = array_filter($team_id_list);
+
+        /* @var LiveMatchLogic $matchLogic */
+        $matchLogic = App::getBean(LiveMatchLogic::class);
+        $matchData =  $matchLogic->getMatchDataByIdList($match_id_list);
+
+        /* @var LiveTeamLogic $teamLogic */
+        $teamLogic = App::getBean(LiveTeamLogic::class);
+        $teamData = $teamLogic->getTeamDataByIdList($team_id_list);
+
+        /* @var LivePlayLogic $playLogic */
+        $playLogic = App::getBean(LivePlayLogic::class);
+        $playData =  $playLogic->getPlayDataByIdList($game_id_list);
+
+        $data =  $this->processGameData($result,$matchData,$teamData,$playData);
+        return $data;
+    }
+
+
+    /**
+     * 整理赛事列表数据
+     * @param $gameData
+     * @param $matchData
+     * @param $teamData
+     * @param $playData
+     * @return array  $data
+     */
+    public function processGameData($gameData,$matchData,$teamData,$playData)
+    {
+        $data = [];
+        $teamList = [];
+        $playList = [];
+        $matchList = array_column($matchData,'competition_name','id');
+        foreach($teamData as $key => $value){
+            $teamId = $value['id'];
+            $teamList[$teamId] = $value;
+        }
+        foreach($playData as $key => $value){
+            $game_id = $value['game_id'];
+            $playList[$game_id][] = $value;
+        }
+        foreach($gameData as $index => $item ){
+            $gameId = $item['id'];
+            $matchId = $item['match_id'];
+            $home_team_id = $item['home_team_id'];
+            $visiting_team_id = $item['visiting_team_id'];
+            $data[$gameId] = $item;
+            $data[$gameId]['competition_name'] = isset($matchList[$matchId]) ? $matchList[$matchId] : '';
+            $data[$gameId]['home_team'] = isset($teamList[$home_team_id]) ? $teamList[$home_team_id] : [];
+            $data[$gameId]['visiting_team'] = isset($teamList[$visiting_team_id]) ? $teamList[$visiting_team_id] : [];
+            $data[$gameId]['play_links'] = isset($playList[$gameId]) ? $playList[$gameId] : [];
+        }
+        unset($teamData,$matchData,$playData,$gameData);
+        return $data;
+    }
 
 }

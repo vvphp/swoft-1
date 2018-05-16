@@ -64,6 +64,28 @@ class LiveTeamLogic
         return $result;
     }
 
+    /**
+     * 根据ID 数组查询
+     * @param array $teme_id_list
+     * @return array
+     */
+    public function getTeamDataByIdList(array $teme_id_list)
+    {
+       if(empty($teme_id_list)){
+            return [];
+       }
+      $where = [
+            'id' => $teme_id_list
+        ];
+      $fields = ['id','team_name','team_logo'];
+      $result =  LiveTeam::findAll($where, ['fields' => $fields])->getResult();
+      if(empty($result)){
+           return [];
+      }
+     $result = $result->toArray();
+     return $result;
+    }
+
 
     /**
      * 插入数据

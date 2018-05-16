@@ -64,6 +64,28 @@ class LivePlayLogic
     }
 
     /**
+     * @param array $game_id_list
+     * @return array
+     */
+    public function getPlayDataByIdList(array $game_id_list)
+    {
+       if(empty($game_id_list)){
+             return [];
+        }
+        $where = [
+            'game_id' => $game_id_list
+        ];
+        $fields = ['game_id','play_platform','play_url','id'];
+        $result =  LivePlayLink::findAll($where, ['fields' => $fields])->getResult();
+        if(empty($result)){
+              return [];
+        }
+        $result = $result->toArray();
+        return $result;
+    }
+
+
+    /**
      * 插入数据
      * @param $item
      * @return mixed

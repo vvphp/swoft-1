@@ -60,6 +60,31 @@ class LiveMatchLogic
         return $result;
     }
 
+
+    /**
+     * 根据ID 数组查询
+     * @param array $match_id_list
+     * @return array
+     */
+    public function getMatchDataByIdList(array $match_id_list)
+    {
+        if(empty($match_id_list)){
+            return [];
+        }
+        $where = [
+            'id' => $match_id_list
+        ];
+        $fields = ['id','competition_name'];
+        $result =  LiveMatchTable::findAll($where, ['fields' => $fields])->getResult();
+        if(empty($result)){
+              return [];
+        }
+        $result = $result->toArray();
+        return $result;
+    }
+
+
+
     /**
      * 插入数据
      * @param $data

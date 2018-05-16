@@ -19,6 +19,7 @@ use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
+use App\Models\Logic\LiveGameLogic;
 
 /**
  * Class IndexController
@@ -35,7 +36,10 @@ class IndexController
      */
     public function index()
     {
-        $data = [];
+        /* @var LiveGameLogic $logic */
+        $logic = App::getBean(LiveGameLogic::class);
+        $data = $logic->getGameData();
+        print_r($data);
         return $data;
     }
 
