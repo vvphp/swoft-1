@@ -10,7 +10,7 @@
 
 namespace App\Models\Logic;
 
-use App\Models\Entity\LiveTeam;
+use App\Models\Entity\LiveTeamTable;
 
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
@@ -57,7 +57,7 @@ class LiveTeamLogic
         $where = [
             'team_name' => $team_name
         ];
-        $result =  LiveTeam::findOne($where, ['fields' => ['id']])->getResult();
+        $result =  LiveTeamTable::findOne($where, ['fields' => ['id']])->getResult();
         if(!empty($result)){
             $result = $result->toArray();
         }
@@ -78,7 +78,7 @@ class LiveTeamLogic
             'id' => $teme_id_list
         ];
       $fields = ['id','team_name','team_logo'];
-      $result =  LiveTeam::findAll($where, ['fields' => $fields])->getResult();
+      $result =  LiveTeamTable::findAll($where, ['fields' => $fields])->getResult();
       if(empty($result)){
            return [];
       }
@@ -102,11 +102,8 @@ class LiveTeamLogic
                 'add_date'          => time(),
             ],
         ];
-       $result =  LiveTeam::batchInsert($values)->getResult();
+       $result =  LiveTeamTable::batchInsert($values)->getResult();
        return $result;
     }
-
-
-
 
 }

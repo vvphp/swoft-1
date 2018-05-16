@@ -46,7 +46,6 @@ class LiveGameLogic
     }
 
 
-
     /**
      * 根据 $where 条件 查询
      * @param array $where
@@ -171,7 +170,7 @@ class LiveGameLogic
         $data = [];
         $teamList = [];
         $playList = [];
-        $matchList = array_column($matchData,'competition_name','id');
+        $matchList = array_column($matchData,'competitionName','id');
         foreach($teamData as $key => $value){
             $teamId = $value['id'];
             $teamList[$teamId] = $value;
