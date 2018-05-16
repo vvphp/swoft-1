@@ -113,7 +113,7 @@ class LiveGameLogic
             'game_date','between',$startDate,$endDate
         ];
         $fields = ['id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
-        $result = LiveGameSchedule::findAll($where, ['fields' => $fields,'orderby' => ['id' => 'DESC']])->getResult();
+        $result = LiveGameSchedule::findAll($where, ['fields' => $fields,'orderby' => ['id' => 'ASC']])->getResult();
         if(empty($result)){
               return [];
         }
@@ -130,10 +130,10 @@ class LiveGameLogic
         $currDate = date('Y-m-d');
         $endDate  = date('Y-m-d',strtotime("+2 Month"));
         $result = $this->getGameDataByDate($currDate,$endDate);
-        $match_id_list = array_column($result,'match_id');
-        $team_id_list  = array_column($result,'home_team_id');
+        $match_id_list = array_column($result,'matchId');
+        $team_id_list  = array_column($result,'homeTeamId');
         $game_id_list  = array_column($result,'id');
-        $team_id_list  = array_merge($team_id_list,array_column($result,'visiting_team_id'));
+        $team_id_list  = array_merge($team_id_list,array_column($result,'visitingTeamId'));
 
         $match_id_list = array_unique($match_id_list);
         $match_id_list = array_filter($match_id_list);
@@ -177,14 +177,14 @@ class LiveGameLogic
             $teamList[$teamId] = $value;
         }
         foreach($playData as $key => $value){
-            $game_id = $value['game_id'];
+            $game_id = $value['gameId'];
             $playList[$game_id][] = $value;
         }
         foreach($gameData as $index => $item ){
             $gameId = $item['id'];
-            $matchId = $item['match_id'];
-            $home_team_id = $item['home_team_id'];
-            $visiting_team_id = $item['visiting_team_id'];
+            $matchId = $item['matchId'];
+            $home_team_id = $item['homeTeamId'];
+            $visiting_team_id = $item['visitingTeamId'];
             $data[$gameId] = $item;
             $data[$gameId]['competition_name'] = isset($matchList[$matchId]) ? $matchList[$matchId] : '';
             $data[$gameId]['home_team'] = isset($teamList[$home_team_id]) ? $teamList[$home_team_id] : [];
