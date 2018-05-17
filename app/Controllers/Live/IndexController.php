@@ -40,7 +40,7 @@ class IndexController
         $logic = App::getBean(LiveGameLogic::class);
         $data = $logic->getGameData();
         print_r($data);
-        return $data;
+        return ['data' => $data];
     }
 
 }

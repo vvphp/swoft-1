@@ -190,6 +190,12 @@ class LiveGameLogic
             $data[$gameId]['visiting_team'] = isset($teamList[$visiting_team_id]) ? $teamList[$visiting_team_id] : [];
             $data[$gameId]['play_links'] = isset($playList[$gameId]) ? $playList[$gameId] : [];
         }
+        $reData = [];
+        foreach($data as $index => $item){
+              $gameDate = $item['gameDate'];
+              $reData[$gameDate][] = $item;
+        }
+
         unset($teamData,$matchData,$playData,$gameData);
         return $data;
     }
