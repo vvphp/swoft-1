@@ -196,8 +196,8 @@ class LiveGameLogic
               $reData[$gameDate][] = $item;
         }
 
-        unset($teamData,$matchData,$playData,$gameData);
-        return $data;
+        unset($teamData,$matchData,$playData,$gameData,$data);
+        return $reData;
     }
 
 }

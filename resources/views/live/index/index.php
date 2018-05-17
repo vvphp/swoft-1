@@ -8,34 +8,48 @@
             <span class="my">登录</span>
         </a>
     </header>
-    <div class="content">
 
-        <div class="match">
-            <h2>今天 3月13日 星期二</h2>
+    <div class="content">
+       <?php  foreach($data as $key => $value){ ?>
+           <div class="match">
+            <h2>今天 <?php echo $item['gameDate']; ?> 星期二</h2>
+            <?php   foreach($value as $index => $item){ ?>
             <a href="./detail.html">
                 <div class="match-item">
                     <div class="match-item-info">
                         <div class="match-time">
-                            08: 00
+                            <?php echo $item['dataTime']; ?>
                             <img src="./imgs/match.png" width="25px" height="25px" />
                         </div>
-                        <div>NBA常规赛</div>
+                        <div><?php echo $item['competition_name']; ?></div>
                     </div>
                     <div class="match-item-teams isLive">
+
+                     <?php if($item['homeTeamId'] > 0): ?>
                         <div>
 								<span>
-									<img src="./imgs/team1.png" width="25px" height="25px" />
-									马刺
+                                    <?php if($item['home_team']['teamLogo']): ?>
+									   <img src="<?php echo $item['home_team']['teamLogo']; ?>" width="25px" height="25px" />
+									<?php endif; ?>
+
+									<?php echo $item['home_team']['teamName']; ?>
 								</span>
                             <span>79</span>
                         </div>
+                     <?php endif; ?>
+
+                     <?php if($item['visitingTeamId'] > 0): ?>
                         <div>
-								<span>
+							 <span>
+                                 <?php if($item['visiting_team']['teamLogo']){ ?>
 									<img src="./imgs/team2.png" width="25px" height="25px" />
-									火箭
-								</span>
-                            <span>80</span>
+								<?php }  ?>
+                                    <?php echo $item['visiting_team']['teamName']; ?>
+							 </span>
+                         <span>80</span>
                         </div>
+                     <?php endif; ?>
+
                     </div>
                     <div class="match-item-result isLive">
                         <div>图片直播</div>
@@ -43,124 +57,8 @@
                     </div>
                 </div>
             </a>
+            <?php } ?>
         </div>
-
-        <div class="match">
-            <h2>今天 3月14日 星期三</h2>
-
-            <a href="./detail.html">
-                <div class="match-item">
-                    <div class="match-item-info normal-font">
-                        <div class="match-time">
-                            08: 00
-                            <img src="./imgs/match.png" width="25px" height="25px" />
-                        </div>
-                        <div>NBA常规赛</div>
-                    </div>
-                    <div class="match-item-teams">
-                        <div>
-								<span>
-									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
-								</span>
-                            <span>-</span>
-                        </div>
-                        <div>
-								<span>
-									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
-								</span>
-                            <span>-</span>
-                        </div>
-                    </div>
-                    <div class="match-item-result">
-                        <div>图片直播</div>
-                    </div>
-                </div>
-            </a>
-            <a href="./detail.html">
-                <div class="match-item">
-                    <div class="match-item-info normal-font">
-                        <div class="match-time">
-                            08: 00
-                            <img src="./imgs/match.png" width="25px" height="25px" />
-                        </div>
-                        <div>NBA常规赛</div>
-                    </div>
-                    <div class="match-item-teams">
-                        <div>
-								<span>
-									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
-								</span>
-                            <span>-</span>
-                        </div>
-                        <div>
-								<span>
-									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
-								</span>
-                            <span>-</span>
-                        </div>
-                    </div>
-                    <div class="match-item-result">
-                        <div>图片直播</div>
-                    </div>
-                </div>
-            </a>
-            <a href="./detail.html">
-                <div class="match-item">
-                    <div class="match-item-info normal-font">
-                        <div class="match-time">
-                            08: 00
-                            <img src="./imgs/match.png" width="25px" height="25px" />
-                        </div>
-                        <div>NBA常规赛</div>
-                    </div>
-                    <div class="match-item-teams">
-                        <div>
-								<span>
-									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
-								</span>
-                            <span>-</span>
-                        </div>
-                        <div>
-								<span>
-									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
-								</span>
-                            <span>-</span>
-                        </div>
-                    </div>
-                    <div class="match-item-result">
-                        <div>图片直播</div>
-                    </div>
-                </div>
-            </a>
-            <a href="./detail.html">
-                <div class="match-item">
-                    <div class="match-item-info normal-font">
-                        <div class="match-time">
-                            08: 00
-                            <img src="./imgs/match.png" width="25px" height="25px" />
-                        </div>
-                        <div>NBA常规赛</div>
-                    </div>
-                    <div class="match-item-teams">
-                        <div>
-								<span>
-									<img src="./imgs/team1.png" width="25px" height="25px" /> 马刺
-								</span>
-                            <span>-</span>
-                        </div>
-                        <div>
-								<span>
-									<img src="./imgs/team2.png" width="25px" height="25px" /> 火箭
-								</span>
-                            <span>-</span>
-                        </div>
-                    </div>
-                    <div class="match-item-result">
-                        <div>图片直播</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
+       <?php  } ?>
     </div>
 </div>
