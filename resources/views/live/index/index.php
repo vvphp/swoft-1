@@ -12,7 +12,7 @@
     <div class="content">
        <?php  foreach($data as $key => $value){ ?>
            <div class="match">
-            <h2><?php if($item['gameDate'] == date('Y-m-d')){ echo '今天';} ?> <?php echo $item['gameDate'];?> <?php echo  $item['weekDay']; ?></h2>
+            <h2><?php if($key == date('Y-m-d')){ echo '今天';} ?> <?php echo $key;?> <?php echo  $item['weekDay']; ?></h2>
             <?php   foreach($value as $index => $item){ ?>
             <a href="./detail.html">
                 <div class="match-item">
@@ -51,7 +51,6 @@
                         <li><a href="<?php echo $pv['playUrl'] ?>" target="_blank"> <?php echo $pv['playPlatform'] ?></a></li>
                         <?php } ?>
                     </div>
-
                 </div>
             </a>
             <?php } ?>
