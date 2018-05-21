@@ -1,6 +1,6 @@
 <?php
 /**
- * 直播项目，首页.
+ * 直播项目，详情.
  *
  * @link https://swoft.org
  * @document https://doc.swoft.org
@@ -22,24 +22,20 @@ use Swoft\Http\Message\Server\Response;
 use App\Models\Logic\LiveGameLogic;
 
 /**
- * Class IndexController
- * @Controller(prefix="/live")
+ * Class GameController
+ * @Controller(prefix="/game")
  */
-class IndexController
+class GameController
 {
 
     /**
-     * 赛事列表
-     * @RequestMapping("/")
-     * @View(template="live/index/index",layout="layouts/live.php")
+     * 文字直播
+     * @RequestMapping("wenzi/detail")
      * @return Response
      */
-    public function index()
+    public function wenziDetail()
     {
-        /* @var LiveGameLogic $logic */
-        $logic = App::getBean(LiveGameLogic::class);
-        $data = $logic->getGameData();
-        return ['data' => $data];
+        echo 'dfdsfdsfsdfsdfds';
     }
 
 }
