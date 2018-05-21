@@ -10,6 +10,8 @@
 
 namespace App\Controllers\Live;
 
+use App\Common\Tool\Valitron;
+use App\Lib\Valitron\Validator;
 use Swoft\App;
 use Swoft\Core\Coroutine;
 use Swoft\Http\Server\Bean\Annotation\Controller;
@@ -34,15 +36,18 @@ class GameController
     /**
      * 文字直播
      * @RequestMapping("wenzi/detail/{game_id}")
-     *
-     * @Integer(from=ValidatorFrom::GET, name="game_id", min=1, max=10000, default=1)
-     *
      * @param Request $request
      * @param int     $game_id
      * @return Response
      */
     public function wenziDetail(Request $request,int $game_id)
     {
+       $checkGameId = Valitron::valitronNumeric($game_id);
+        if(is_array($checkGameId)){
+            $msgArr = array_pop($checkGameId);
+            return view("live/exception/error", ['msg' => $msgArr[0],'Jump'=> App::$properties['BASEURL']]);
+        }
+
         echo  $game_id;
     }
 

@@ -136,6 +136,27 @@ class Valitron{
         }
     }
 
+    /**
+     * 数字验证
+     * @param $numeric
+     * @param int $min
+     * @param int $max
+     * @return array|bool
+     */
+    public function valitronNumeric($numeric,$min=1,$max=10000)
+    {
+        $data = ['numeric' => $numeric];
+        $Validator = new Validator($data);
+        $Validator->rule("required",['numeric']);  //不能为空
+        $Validator->rule("numeric", ['numeric']);  //只能是数字
+        $Validator->rule("min",$min,['numeric']);  //最小为1
+        $Validator->rule("max",$max,['numeric']);  //最大为max
+        if ($Validator->validate()){
+              return true;
+        }else{
+            return $Validator->errors();
+        }
+    }
 
 
 }
