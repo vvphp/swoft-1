@@ -35,8 +35,7 @@ class GameController
      * 文字直播
      * @RequestMapping("wenzi/detail/{game_id}")
      *
-     * @Integer(from=ValidatorFrom::GET, name="game_id", min=1, max=10000, default=0)
-     * @Integer(from=ValidatorFrom::GET, name="id", min=5, max=10, default=7)
+     * @Integer(from=ValidatorFrom::GET, name="game_id", min=1, max=10000, default=1)
      *
      * @param Request $request
      * @param int     $game_id
@@ -44,28 +43,7 @@ class GameController
      */
     public function wenziDetail(Request $request,int $game_id)
     {
-        $game_id  = $request->query('game_id');
         echo  $game_id;
-    }
-
-    /**
-     * @RequestMapping("integer/{id}")
-     *
-     * @Integer(from=ValidatorFrom::GET, name="id", min=5, max=10, default=7)
-     * @Integer(from=ValidatorFrom::POST, name="id", min=5, max=10, default=8)
-     * @Integer(from=ValidatorFrom::PATH, name="id", min=5, max=10)
-     *
-     * @param Request $request
-     * @param int     $id
-     *
-     * @return array
-     */
-    public function integer(Request $request, int $id)
-    {
-        $get  = $request->query('id');
-        $post = $request->post('id');
-
-        return [$get, $post, $id];
     }
 
 
