@@ -12,9 +12,8 @@
     <div class="content">
        <?php  foreach($data as $key => $value){ ?>
            <div class="match">
-            <h2><?php if($key == date('Y-m-d')){ echo '今天';} ?> <?php echo $key;?> <?php echo  $item['weekDay']; ?></h2>
+            <h2><?php if($key == date('Y-m-d')){ echo '今天';} ?> <?php echo $key;?> <?php echo  $value[0]['weekDay']; ?></h2>
             <?php   foreach($value as $index => $item){ ?>
-            <a href="./detail.html">
                 <div class="match-item">
                     <div class="match-item-info">
                         <div class="match-time">
@@ -52,7 +51,7 @@
                         <?php } ?>
                     </div>
                 </div>
-            </a>
+
             <?php } ?>
         </div>
        <?php  } ?>
