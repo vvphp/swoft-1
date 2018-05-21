@@ -60,6 +60,8 @@
     flex-direction: column;
     justify-content: center;
     color: #888;
+    line-height: 25px;
+    width: 300px;
 }
 .match-item .match-item-result.isLive {
     color: red;
