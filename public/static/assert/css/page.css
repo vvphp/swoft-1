@@ -49,3 +49,9 @@ input, button {
     color: #fff;
     margin-top: 30px;
 }
+
+.match-item-result li{
+    float: left;
+    list-style-type: none;
+    margin-left: 10px;
+}

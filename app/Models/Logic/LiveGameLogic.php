@@ -171,6 +171,7 @@ class LiveGameLogic
         $teamList = [];
         $playList = [];
         $matchList = array_column($matchData,'competitionName','id');
+        $weekArr = array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
         foreach($teamData as $key => $value){
             $teamId = $value['id'];
             $teamList[$teamId] = $value;
@@ -184,6 +185,8 @@ class LiveGameLogic
             $matchId = $item['matchId'];
             $home_team_id = $item['homeTeamId'];
             $visiting_team_id = $item['visitingTeamId'];
+            $weekW = date('w',strtotime($item['gameDate']));
+            $item['weekDay'] = $weekArr[$weekW];
             $data[$gameId] = $item;
             $data[$gameId]['competition_name'] = isset($matchList[$matchId]) ? $matchList[$matchId] : '';
             $data[$gameId]['home_team'] = isset($teamList[$home_team_id]) ? $teamList[$home_team_id] : [];
