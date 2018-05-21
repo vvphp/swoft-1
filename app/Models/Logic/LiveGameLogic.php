@@ -112,7 +112,7 @@ class LiveGameLogic
             'game_date','between',$startDate,$endDate
         ];
         $fields = ['id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
-        $result = LiveGameSchedule::findAll($where, ['fields' => $fields,'orderby' => ['id' => 'ASC']])->getResult();
+        $result = LiveGameSchedule::findAll($where, ['fields' => $fields,'orderby' => ['game_date' => 'ASC']])->getResult();
         if(empty($result)){
               return [];
         }

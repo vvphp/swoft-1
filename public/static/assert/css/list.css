@@ -56,7 +56,7 @@
 .match-item .match-item-result {
     font-size: .8rem;
     width: 85px;
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
     justify-content: center;
     color: #888;

@@ -12,7 +12,7 @@
     <div class="content">
        <?php  foreach($data as $key => $value){ ?>
            <div class="match">
-            <h2>今天 <?php echo $item['gameDate'];?> <?php echo  $item['weekDay']; ?></h2>
+            <h2><?php if($item['gameDate'] == date('Y-m-d')){ echo '今天';} ?> <?php echo $item['gameDate'];?> <?php echo  $item['weekDay']; ?></h2>
             <?php   foreach($value as $index => $item){ ?>
             <a href="./detail.html">
                 <div class="match-item">
@@ -47,8 +47,9 @@
 
                     </div>
                     <div class="match-item-result isLive">
-                        <div>图片直播</div>
-                        <div>进行中</div>
+                        <?php foreach($item['play_links'] as $pK => $pv){ ?>
+                        <li><a href="<?php echo $pv['playUrl'] ?>" target="_blank"> <?php echo $pv['playPlatform'] ?></a></li>
+                        <?php } ?>
                     </div>
 
                 </div>
