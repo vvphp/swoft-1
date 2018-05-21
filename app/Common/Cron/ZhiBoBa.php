@@ -85,6 +85,10 @@ class  ZhiBoBa{
                     $liveArr[$key]['text'] = pq($aHtml)->text();
                     $href = pq($aHtml)->attr("href");
                     $urlInfo = parse_url($href);
+                    if(!isset($urlInfo['host'])){
+                        $href = $grabUrl.trim($href,"/");
+                    }
+                    $urlInfo = parse_url($href);
                     if(!isset($urlInfo['scheme'])){
                         $href = "https://".trim($href,"/");                       
                     }

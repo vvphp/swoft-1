@@ -49,6 +49,7 @@
                         <?php foreach($item['play_links'] as $pK => $pv){ ?>
                         <li><a href="<?php echo $pv['playUrl'] ?>" target="_blank"> <?php echo $pv['playPlatform'] ?></a></li>
                         <?php } ?>
+                        <li><a href="/live/wenzi/detail"  target="_blank"> VV直播</a></li>
                     </div>
                 </div>
 
