@@ -25,6 +25,7 @@ use Swoft\Bean\Annotation\Integer;
 use Swoft\Bean\Annotation\ValidatorFrom;
 use Swoft\Http\Message\Server\Response;
 use Swoft\Http\Message\Server\Request;
+use Swoft\Exception\BadMethodCallException;
 
 /**
  * Class GameController
@@ -36,16 +37,20 @@ class GameController
     /**
      * 文字直播
      * @RequestMapping("wenzi/detail/{game_id}")
+     * @throws BadMethodCallException
      * @param Request $request
      * @param int     $game_id
      * @return Response
      */
     public function wenziDetail(Request $request,int $game_id)
     {
-       $checkGameId = Valitron::valitronNumeric($game_id);
-        if(is_array($checkGameId)){
-            $msgArr = array_pop($checkGameId);
-            return view("live/exception/error", ['msg' => $msgArr[0],'Jump'=> App::$properties['BASEURL']]);
+        if(empty($game_id)){
+            throw new BadMethodCallException('非法请求 ');
+        }
+        $check = Valitron::valitronNumeric($game_id);
+        if(is_array($check)){
+            $msgArr = array_pop($check);
+            throw new BadMethodCallException($msgArr[0]);
         }
 
         echo  $game_id;
