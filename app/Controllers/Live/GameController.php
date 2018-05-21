@@ -18,8 +18,11 @@ use Swoft\Log\Log;
 use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
+
+use Swoft\Bean\Annotation\Integer;
+use Swoft\Bean\Annotation\ValidatorFrom;
 use Swoft\Http\Message\Server\Response;
-use App\Models\Logic\LiveGameLogic;
+use Swoft\Http\Message\Server\Request;
 
 /**
  * Class GameController
@@ -30,12 +33,18 @@ class GameController
 
     /**
      * 文字直播
-     * @RequestMapping("wenzi/detail")
+     * @RequestMapping("wenzi/detail/{game_id}")
+     *
+     * @Integer(from=ValidatorFrom::GET, name="game_id", min=1, max=10000, default=0)
+     *
+     * @param Request $request
+     * @param int     $game_id
      * @return Response
      */
-    public function wenziDetail()
+    public function wenziDetail(Request $request,int $game_id)
     {
-        echo 'dfdsfdsfsdfsdfds';
+        $game_id  = $request->query('game_id');
+        echo  $game_id;
     }
 
 }
