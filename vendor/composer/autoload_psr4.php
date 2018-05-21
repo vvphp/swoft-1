@@ -14,7 +14,6 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
-    'Swoole\\' => array($vendorDir . '/eaglewu/swoole-ide-helper/src'),
     'Swoft\\WebSocket\\Server\\' => array($vendorDir . '/swoft/websocket-server/src'),
     'Swoft\\View\\' => array($vendorDir . '/swoft/view/src'),
     'Swoft\\Test\\' => array($baseDir . '/test'),

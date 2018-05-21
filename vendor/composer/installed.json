@@ -1,58 +1,5 @@
 [
     {
-        "name": "zendframework/zend-mime",
-        "version": "2.7.0",
-        "version_normalized": "2.7.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/zendframework/zend-mime.git",
-            "reference": "5db38e92f8a6c7c5e25c8afce6e2d0bd49340c5f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/zendframework/zend-mime/5db38e92f8a6c7c5e25c8afce6e2d0bd49340c5f.zip",
-            "reference": "5db38e92f8a6c7c5e25c8afce6e2d0bd49340c5f",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0",
-            "zendframework/zend-stdlib": "^2.7 || ^3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7.21 || ^6.3",
-            "zendframework/zend-coding-standard": "~1.0.0",
-            "zendframework/zend-mail": "^2.6"
-        },
-        "suggest": {
-            "zendframework/zend-mail": "Zend\\Mail component"
-        },
-        "time": "2017-11-28T15:02:22+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.7-dev",
-                "dev-develop": "2.8-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Zend\\Mime\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "description": "Create and parse MIME messages and parts",
-        "homepage": "https://github.com/zendframework/zend-mime",
-        "keywords": [
-            "ZendFramework",
-            "mime",
-            "zf"
-        ]
-    },
-    {
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -696,84 +643,6 @@
         ]
     },
     {
-        "name": "swoft/i18n",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-i18n.git",
-            "reference": "f895495b2a857cb6fad27c677ca36ff01e8f727f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-i18n/f895495b2a857cb6fad27c677ca36ff01e8f727f.zip",
-            "reference": "f895495b2a857cb6fad27c677ca36ff01e8f727f",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-03-06T14:50:23+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\I18n\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "I18n Translations Component for Swoft",
-        "keywords": [
-            "i18n",
-            "php",
-            "swoft",
-            "swoole",
-            "translation"
-        ]
-    },
-    {
-        "name": "eaglewu/swoole-ide-helper",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/eaglewu/swoole-ide-helper.git",
-            "reference": "a36f8b10e322adb19a9299a5708a972208953007"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/eaglewu/swoole-ide-helper/a36f8b10e322adb19a9299a5708a972208953007.zip",
-            "reference": "a36f8b10e322adb19a9299a5708a972208953007",
-            "shasum": ""
-        },
-        "time": "2018-04-08T01:53:39+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Swoole\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "authors": [
-            {
-                "name": "eagle",
-                "email": "eaglewudi@gmail.com"
-            }
-        ],
-        "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名"
-    },
-    {
         "name": "swoft/http-message",
         "version": "v1.0.0",
         "version_normalized": "1.0.0.0",
@@ -948,51 +817,6 @@
         "keywords": [
             "php",
             "rpc",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "swoft/http-client",
-        "version": "v1.0.5",
-        "version_normalized": "1.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-http-client.git",
-            "reference": "1b3881b844762afd62c3a41ed05b67587db819cf"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-client/1b3881b844762afd62c3a41ed05b67587db819cf.zip",
-            "reference": "1b3881b844762afd62c3a41ed05b67587db819cf",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0",
-            "swoft/http-message": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-12T15:26:41+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\HttpClient\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "HTTP Client Component for Swoft",
-        "keywords": [
-            "client",
-            "http",
-            "http-client",
-            "php",
             "swoft",
             "swoole"
         ]
@@ -3157,105 +2981,6 @@
         ]
     },
     {
-        "name": "swoft/db",
-        "version": "v1.1.10",
-        "version_normalized": "1.1.10.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-db.git",
-            "reference": "2f3781d75ead3548fd06c9e6dfbc11201e3dd067"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/2f3781d75ead3548fd06c9e6dfbc11201e3dd067.zip",
-            "reference": "2f3781d75ead3548fd06c9e6dfbc11201e3dd067",
-            "shasum": ""
-        },
-        "require": {
-            "ext-pdo": "*",
-            "swoft/console": "^1.0",
-            "swoft/framework": "^1.0.15",
-            "swoft/service-governance": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "friendsofphp/php-cs-fixer": "^2.10",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-05-07T15:37:41+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Db\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "Active Record",
-            "db",
-            "orm",
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "swoft/redis",
-        "version": "v1.0.7",
-        "version_normalized": "1.0.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-redis.git",
-            "reference": "bce9394f9692181d8e0bc34eded311d63ea33caa"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-redis/bce9394f9692181d8e0bc34eded311d63ea33caa.zip",
-            "reference": "bce9394f9692181d8e0bc34eded311d63ea33caa",
-            "shasum": ""
-        },
-        "require": {
-            "psr/simple-cache": "^1.0.0",
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7",
-            "swoft/service-governance": "^1.0"
-        },
-        "time": "2018-05-07T15:57:12+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\Redis\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "Redis Component for Swoft",
-        "keywords": [
-            "php",
-            "redis",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "text/template",
         "version": "v2.4.0",
         "version_normalized": "2.4.0.0",
@@ -3634,5 +3359,275 @@
             "rest",
             "web service"
         ]
+    },
+    {
+        "name": "zendframework/zend-mime",
+        "version": "2.7.1",
+        "version_normalized": "2.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/zendframework/zend-mime.git",
+            "reference": "52ae5fa9f12845cae749271034a2d594f0e4c6f2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/zendframework/zend-mime/52ae5fa9f12845cae749271034a2d594f0e4c6f2.zip",
+            "reference": "52ae5fa9f12845cae749271034a2d594f0e4c6f2",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6 || ^7.0",
+            "zendframework/zend-stdlib": "^2.7 || ^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7.21 || ^6.3",
+            "zendframework/zend-coding-standard": "~1.0.0",
+            "zendframework/zend-mail": "^2.6"
+        },
+        "suggest": {
+            "zendframework/zend-mail": "Zend\\Mail component"
+        },
+        "time": "2018-05-14T19:02:50+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.7-dev",
+                "dev-develop": "2.8-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Zend\\Mime\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "Create and parse MIME messages and parts",
+        "homepage": "https://github.com/zendframework/zend-mime",
+        "keywords": [
+            "ZendFramework",
+            "mime",
+            "zf"
+        ]
+    },
+    {
+        "name": "swoft/http-client",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-http-client.git",
+            "reference": "cb768475aa6e84f0cd011ac4751c7308616d4d22"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-client/cb768475aa6e84f0cd011ac4751c7308616d4d22.zip",
+            "reference": "cb768475aa6e84f0cd011ac4751c7308616d4d22",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0",
+            "swoft/http-message": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-15T11:31:33+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\HttpClient\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "HTTP Client Component for Swoft",
+        "keywords": [
+            "client",
+            "http",
+            "http-client",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/db",
+        "version": "v1.1.11",
+        "version_normalized": "1.1.11.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-db.git",
+            "reference": "6ea48c4007e0480c53e8343711ed92f22644bdf2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/6ea48c4007e0480c53e8343711ed92f22644bdf2.zip",
+            "reference": "6ea48c4007e0480c53e8343711ed92f22644bdf2",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "swoft/console": "^1.0",
+            "swoft/framework": "^1.0.15",
+            "swoft/service-governance": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "friendsofphp/php-cs-fixer": "^2.10",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-13T15:57:25+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Db\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "Active Record",
+            "db",
+            "orm",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/redis",
+        "version": "v1.0.8",
+        "version_normalized": "1.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-redis.git",
+            "reference": "e0adf8ba1d6d97a8870a0eff336570c38ae8f51f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-redis/e0adf8ba1d6d97a8870a0eff336570c38ae8f51f.zip",
+            "reference": "e0adf8ba1d6d97a8870a0eff336570c38ae8f51f",
+            "shasum": ""
+        },
+        "require": {
+            "psr/simple-cache": "^1.0.0",
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7",
+            "swoft/service-governance": "^1.0"
+        },
+        "time": "2018-05-13T16:06:18+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\Redis\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Redis Component for Swoft",
+        "keywords": [
+            "php",
+            "redis",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/i18n",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-i18n.git",
+            "reference": "3081cf117ad24b2c26d6250cbdf59947542fa8be"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-i18n/3081cf117ad24b2c26d6250cbdf59947542fa8be.zip",
+            "reference": "3081cf117ad24b2c26d6250cbdf59947542fa8be",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-03-19T15:10:34+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\I18n\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "I18n Translations Component for Swoft",
+        "keywords": [
+            "i18n",
+            "php",
+            "swoft",
+            "swoole",
+            "translation"
+        ]
+    },
+    {
+        "name": "eaglewu/swoole-ide-helper",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/eaglewu/swoole-ide-helper.git",
+            "reference": "118f1d44e9ef3877ab22b5df57a84f1dfaa0b30b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/eaglewu/swoole-ide-helper/118f1d44e9ef3877ab22b5df57a84f1dfaa0b30b.zip",
+            "reference": "118f1d44e9ef3877ab22b5df57a84f1dfaa0b30b",
+            "shasum": ""
+        },
+        "time": "2018-05-16T13:12:21+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "eagle",
+                "email": "eaglewudi@gmail.com"
+            }
+        ],
+        "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名"
     }
 ]
