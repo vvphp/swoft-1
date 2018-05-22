@@ -31,7 +31,7 @@ class IndexController
     /**
      * 赛事列表
      * @RequestMapping("/")
-     * @View(template="live/index/index",layout="layouts/live.php")
+     * @View(template="zhibo/index/index",layout="layouts/zhibo.php")
      * @return Response
      */
     public function index()
