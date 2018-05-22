@@ -18,12 +18,12 @@
                 <ul class="ent">
                     <?php   foreach($value as $index => $item){ ?>
                     <li class="lite" type="other "label="<?php echo $item['label'] ?>" >
-                        <h2><a href="/zhibo/detail/<?php echo $item['id'] ?>" title="<?php echo $item['dataTime']; echo $item['competition_name'];?>   <?php echo $item['home_team']['teamName']; ?> - <?php echo $item['visiting_team']['teamName']; ?>"  >
-
-                                <table id='124530'>
+                        <h2><a href="/zhibo/detail/<?php echo $item['id'] ?>" title="<?php echo $item['dataTime']; ?>   <?php echo $item['competition_name'];?>   <?php echo $item['home_team']['teamName']; ?> - <?php echo $item['visiting_team']['teamName']; ?>"  >
+                                <table id='<?php echo $item['id'] ?>'>
                                  <tr>
-                                        <td class="s_time" ><?php echo $item['dataTime']; ?></td><td><div><?php echo $item['home_team']['teamName']; ?></div></td><td ><div class="s_name"><?php echo $item['competition_name']; ?></div><div class="s_keyword">CCTV5+</div></td><td><div><?php echo $item['visiting_team']['teamName']; ?></div></td><td><div class="remind">进行中</div></td><td><div class="hideTime" style="display:none;">  <?php echo $item['gameDate'].$item['dataTime']; ?></div></td>
-                                    </tr></table>
+                                        <td class="s_time" ><?php echo $item['dataTime']; ?></td><td><div><?php echo $item['home_team']['teamName']; ?></div></td><td ><div class="s_name"><?php echo $item['competition_name']; ?></div><div class="s_keyword">CCTV5+</div></td><td><div><?php echo $item['visiting_team']['teamName']; ?></div></td><td><div class="remind">进行中</div></td><td><div class="hideTime" style="display:none;">  <?php echo $item['gameDate']; ?>  <?php echo $item['dataTime']; ?></div></td>
+                                    </tr>
+                                    </table>
                             </a></h2>
                     </li>
                     <?php } ?> 
@@ -32,6 +32,5 @@
         </div><!--end panel-->
     </div><!--end content-->
 </div><!--end module-->
-<?php } ?> 
-
+<?php } ?>  
 </body>
