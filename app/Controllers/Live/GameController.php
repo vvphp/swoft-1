@@ -38,6 +38,7 @@ class GameController
      * 文字直播
      * @RequestMapping("wenzi/detail/{game_id}")
      * @throws BadMethodCallException
+     * @View(template="live/game/wenziDetail",layout="layouts/live.php")
      * @param Request $request
      * @param int     $game_id
      * @return Response
@@ -45,16 +46,17 @@ class GameController
     public function wenziDetail(Request $request,int $game_id)
     {
         if(empty($game_id)){
-            throw new BadMethodCallException('非法请求 ');
+            throw new BadMethodCallException('非法请求!!!');
         }
-        $check = Valitron::valitronNumeric($game_id);
-        if(is_array($check)){
-            $msgArr = array_pop($check);
-            throw new BadMethodCallException($msgArr[0]);
-        }
+
+        //查询比赛信息 并放入缓存
+
+        //连接websocket
+
+        //websocket push
+
 
         echo  $game_id;
     }
-
 
 }
