@@ -12,15 +12,11 @@
     <meta name="Description" content="直播吧是知名体育平台,为足球迷,篮球迷等体育用户提供直播,新闻资讯,数据,论坛社区,原创报道,视频集锦等服务" />
     <meta name="apple-itunes-app" content="app-id=1221949580" />
     <meta name="baidu-tc-cerfication" content="af2b65cca836092742410cc25f50af21" />
-    <link rel="shortcut icon" href="https://www.zhibo8.cc/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="https://m.zhibo8.cc/images/icon120@2x.png"/>
-    <link rel="apple-touch-icon" href="https://m.zhibo8.cc/images/icon120@2x.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="https://m.zhibo8.cc/images/icon120@2x.png" />
-    <link rel="stylesheet" type="text/css" href="https://m.zhibo8.cc/v2test/css/style.css" />
-    <script type="text/javascript" name="baidu-tc-cerfication" data-appid="5350162" src="https://apps.bdimg.com/cloudaapi/lightapp.js"></script>
-    <script src="https://static4style.qiumibao.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://m.zhibo8.cc/v2test/js/main.js"></script>
-    <script src="https://m.zhibo8.cc/v2test/js/jquery.lazyload.js"></script>
-    <!-- AFP两段式代码-公用代码 -->
-    <script type="text/javascript" src="https://afpmm.alicdn.com/g/mm/afp-cdn/JS/w.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/page.css" />
+    <script type="text/javascript" name="baidu-tc-cerfication" data-appid="5350162" src="/static/zhibo8/js/lightapp.js"></script>
+    <script src="/static/zhibo8/js/jquery.min.js"></script>
+    <script src="/static/zhibo8/js/js/main.js"></script>
+    <script src="/static/zhibo8/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/static/zhibo8/js/w.js"></script>
 </head>
