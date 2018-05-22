@@ -156,13 +156,13 @@ class LiveGameLogic
 
         /* @var LiveTeamLogic $teamLogic */
         $teamLogic = App::getBean(LiveTeamLogic::class);
-        $teamData = $teamLogic->getTeamDataByIdList($team_id_list);
+        $teamList = $teamLogic->getTeamDataByIdList($team_id_list);
 
         /* @var LivePlayLogic $playLogic */
         $playLogic = App::getBean(LivePlayLogic::class);
         $playData =  $playLogic->getPlayDataByIdList($game_id_list);
 
-        $data =  $this->processGameData($result,$matchData,$teamData,$playData);
+        $data =  $this->processGameListData($result,$matchData,$teamList,$playData);
         return $data;
     }
 
@@ -214,21 +214,16 @@ class LiveGameLogic
      * 整理赛事列表数据
      * @param $gameData
      * @param $matchData
-     * @param $teamData
+     * @param $teamList
      * @param $playData
      * @return array  $data
      */
-    public function processGameData($gameData,$matchData,$teamData,$playData)
+    public function processGameListData($gameData,$matchData,$teamList,$playData)
     {
         $data = [];
-        $teamList = [];
         $playList = [];
         $matchList = array_column($matchData,'competitionName','id');
         $weekArr = array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
-        foreach($teamData as $key => $value){
-            $teamId = $value['id'];
-            $teamList[$teamId] = $value;
-        }
         foreach($playData as $key => $value){
             $game_id = $value['gameId'];
             $playList[$game_id][] = $value;

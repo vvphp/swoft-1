@@ -71,19 +71,22 @@ class LiveTeamLogic
      */
     public function getTeamDataByIdList(array $team_id_list)
     {
+       $teamList = [];
        if(empty($team_id_list)){
-            return [];
+            return $teamList;
        }
-      $where = [
-            'id' => $team_id_list
-        ];
+      $where = ['id' => $team_id_list];
       $fields = ['id','team_name','team_logo'];
       $result =  LiveTeamTable::findAll($where, ['fields' => $fields])->getResult();
       if(empty($result)){
-           return [];
+           return $teamList;
       }
-     $result = $result->toArray();
-     return $result;
+     $teamData = $result->toArray();
+     foreach($teamData as $key => $value){
+            $teamId = $value['id'];
+            $teamList[$teamId] = $value;
+        }
+       return $teamList;
     }
 
 
