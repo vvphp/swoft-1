@@ -48,6 +48,7 @@ class GameController
         if(empty($game_id)){
             throw new BadMethodCallException('非法请求!!!');
         }
+        return ['data' => []];
 
         //查询比赛信息 并放入缓存
 
