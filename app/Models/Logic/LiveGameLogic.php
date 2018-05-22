@@ -16,6 +16,8 @@ use App\Models\Entity\LiveMatchTable;
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use App\Models\Logic\LiveMatchLogic;
+use App\Models\Logic\LiveNarratorLogic;
+use App\Models\Logic\LiveCommentaryLogic;
 
 /**
  * @Bean()
@@ -49,11 +51,15 @@ class LiveGameLogic
     /**
      * 根据 $where 条件 查询
      * @param array $where
+     * @param array $fields
      * @return mixed
      */
-    public function getGameIdByWhere($where)
+    public function getGameIdByWhere($where,$fields=[])
     {
         $filter = [];
+        if(isset($where['id'])){
+             $filter[ 'id'] = $where['id'];
+        }
         if(isset($where['match_id'])){
             $filter[ 'match_id'] = $where['match_id'];
         }
@@ -69,7 +75,10 @@ class LiveGameLogic
         if(isset($where['visiting_team_id'])){
             $filter[ 'visiting_team_id'] = $where['visiting_team_id'];
         }
-        $result =  LiveGameSchedule::findOne($filter, ['fields' => ['id']])->getResult();
+        if(empty($fields)){
+            $fields = ['id'];
+        }
+        $result =  LiveGameSchedule::findOne($filter, ['fields' => $fields ])->getResult();
         if(!empty($result)){
             $result = $result->toArray();
         }
@@ -120,11 +129,12 @@ class LiveGameLogic
         return $result;
     }
 
+
     /**
      * 查询赛事列表数据
      * @return array
      */
-    public function getGameData()
+    public function getGameListData()
     {
         $currDate = date('Y-m-d');
         $endDate  = date('Y-m-d',strtotime("+2 Month"));
@@ -155,6 +165,49 @@ class LiveGameLogic
         $data =  $this->processGameData($result,$matchData,$teamData,$playData);
         return $data;
     }
+
+
+    /**
+     * 根据ID 查询赛事信息
+     * @param int $game_id
+     * @return array
+     */
+    public function getGameDataById(int $game_id)
+    {
+        if(empty($game_id)){
+             return [];
+        }
+        $where = [ 'id' => $game_id ];
+        $fields = ['id','live_member_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
+        $gameData = $this->getGameIdByWhere($where,$fields);
+        $teamData = [];
+        $narratorData = [];
+        $commentaryData = [];
+        //球队信息
+        if(!empty($gameData['homeTeamId']) && !empty($gameData['visitingTeamId'])){
+             $teamIdList = array($gameData['homeTeamId'],$gameData['visitingTeamId']);
+             /* @var LiveTeamLogic $teamLogic */
+             $teamLogic = App::getBean(LiveTeamLogic::class);
+             $teamData = $teamLogic->getTeamDataByIdList($teamIdList);
+        }
+        //解说员信息
+        if($gameData['liveMemberId']){
+            /* @var LiveNarratorLogic $narratorLogic */
+            $narratorLogic = App::getBean(LiveNarratorLogic::class);
+            $narratorData = $narratorLogic->getNarratorById($gameData['liveMemberId']);
+        }
+       //比赛解说详情信息
+       if($gameData['liveStatus'] > 1){
+           /* @var LiveCommentaryLogic $commentaryLogicLogic */
+           $commentaryLogicLogic = App::getBean(LiveCommentaryLogic::class);
+           $commentaryData =  $commentaryLogicLogic->getCommentaryByGameId($gameData['id']);
+       }
+        $gameData['commentaryData'] = $commentaryData;
+        $gameData['narratorData'] = $narratorData;
+        $gameData['teamData'] = $teamData;
+        return $gameData;
+    }
+
 
 
     /**
@@ -198,7 +251,6 @@ class LiveGameLogic
               $gameDate = $item['gameDate'];
               $reData[$gameDate][] = $item;
         }
-
         unset($teamData,$matchData,$playData,$gameData,$data);
         return $reData;
     }

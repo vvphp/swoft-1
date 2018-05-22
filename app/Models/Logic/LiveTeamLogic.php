@@ -66,16 +66,16 @@ class LiveTeamLogic
 
     /**
      * 根据ID 数组查询
-     * @param array $teme_id_list
+     * @param array $team_id_list
      * @return array
      */
-    public function getTeamDataByIdList(array $teme_id_list)
+    public function getTeamDataByIdList(array $team_id_list)
     {
-       if(empty($teme_id_list)){
+       if(empty($team_id_list)){
             return [];
        }
       $where = [
-            'id' => $teme_id_list
+            'id' => $team_id_list
         ];
       $fields = ['id','team_name','team_logo'];
       $result =  LiveTeamTable::findAll($where, ['fields' => $fields])->getResult();

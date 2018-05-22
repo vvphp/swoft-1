@@ -26,6 +26,7 @@ use Swoft\Bean\Annotation\ValidatorFrom;
 use Swoft\Http\Message\Server\Response;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Exception\BadMethodCallException;
+use App\Models\Logic\LiveGameLogic;
 
 /**
  * Class GameController
@@ -48,9 +49,17 @@ class GameController
         if(empty($game_id)){
             throw new BadMethodCallException('非法请求!!!');
         }
-        return ['data' => []];
-
         //查询比赛信息 并放入缓存
+        /* @var LiveGameLogic $logic */
+        $logic = App::getBean(LiveGameLogic::class);
+        $data  = $logic->getGameDataById($game_id);
+
+        echo '<pre>';
+        print_r($data);
+
+        return [ 'data' => $data ];
+
+
 
         //连接websocket
 
