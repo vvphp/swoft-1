@@ -39,7 +39,7 @@ class DetailController
      * 文字直播
      * @RequestMapping("wenzi/{game_id}")
      * @throws BadMethodCallException
-     * @View(template="zhibo/detail/wenzi",layout="layouts/detail.php")
+     * @View(template="zhibo/detail/wenzi")
      * @param Request $request
      * @param int     $game_id
      * @return Response

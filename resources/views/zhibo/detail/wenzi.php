@@ -1,81 +1,7 @@
+<?php $this->include('layouts/zhibo/detailHead') ?>
 <body>
-<div class="menu">
-    <div class="container">
-        <div class="logo">
-            <a title="直播吧" href="//www.zhibo8.cc/"><img alt="直播吧" src="//tu.qiumibao.com/logo/logo_o3x_02.png"></a>
-         </div>
-        <div class="nav">
-            <ul>
-                <li><a href="//www.zhibo8.cc/">首页</a></li>
-                <li><a href="//bbs.zhibo8.cc/" target="_blank" >论坛</a></li>
-                <li>
-                    <a href="//www.zhibo8.cc/nba/" target="_blank">NBA视频</a>
-                    <ul class="child_navs">
-                        <li><a href="//www.zhibo8.cc/nba/index_old.htm" target="_blank">旧版页面</a></li>
-                        <li><a href="//www.zhibo8.cc/nba/luxiang.htm" target="_blank">录像页面</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="//www.zhibo8.cc/zuqiu/" target="_blank">足球视频</a>
-                    <ul class="child_navs">
-                        <li><a href="//www.zhibo8.cc/zuqiu/index_old.htm" target="_blank">旧版页面</a></li>
-                        <li><a href="//www.zhibo8.cc/zuqiu/luxiang.htm" target="_blank">录像页面</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="//news.zhibo8.cc/nba/" target="_blank">NBA新闻</a>
-                    <ul class="child_navs">
-                        <li><a href="//news.zhibo8.cc/nba/more.htm" target="_blank">滚动新闻</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="//news.zhibo8.cc/zuqiu/" target="_blank">足球新闻</a>
-                    <ul class="child_navs">
-                        <li><a href="//news.zhibo8.cc/zuqiu/more.htm" target="_blank">滚动新闻</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="//tu.zhibo8.cc/" target="_blank">图片</a>
-                    <ul class="child_navs l_width">
-                        <li><a href="//tu.zhibo8.cc/nba" target="_blank">NBA图片</a></li>
-                        <li><a href="//tu.zhibo8.cc/zuqiu" target="_blank">足球图片</a></li>
-                    </ul>
-                </li>
-                <li><a href="//www.zhibo8.cc/olympic/" target="_blank" >综合</a></li>
-                <!--                <li><a href="//quanzi.zhibo8.cc/" target="_blank">圈子</a></li>-->
-                <li><a href="//guess.zhibo8.cc/" target="_blank">竞猜</a></li>
-                <li><a href="http://www.188bifen.com" target="_blank">比分</a></li>
-                <li>
-                    <a href="//data.zhibo8.cc/pc_main_data/" target="_blank">数据</a>
-                    <ul class="child_navs l_width">
-                        <li><a href="//data.zhibo8.cc/nbaData/database/#/" target="_blank">NBA资料库</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="//data.zhibo8.cc/" target="_blank">资料</a>
-                </li>
-                <li>
-                    <a href="http://www.wanjiashe.com/" target="_blank">游戏</a>
-                    <ul class="child_navs l_width">
-                        <li><a href="http://skzc.wanjiashe.com/" target="_blank">实况中超</a></li>
-                        <li><a href="http://zcfy.wanjiashe.com/" target="_blank">中超风云</a></li>
-                        <li><a href="http://nbaftx.wanjiashe.com/" target="_blank">NBA范特西</a></li>
-                        <li><a href="http://kyzq.wanjiashe.com/" target="_blank">狂野足球</a></li>
-                        <li><a href="http://ftx2.wanjiashe.com/" target="_blank">范特西2</a></li>
-                        <li><a href="http://xdlq.wanjiashe.com/" target="_blank">兄弟篮球2</a></li>
-                        <li><a href="http://ogzq2.wanjiashe.com/" target="_blank">欧冠足球2</a></li>
-                        <li><a href="http://mklq.wanjiashe.com/" target="_blank">萌卡篮球</a></li>
-                        <li><a href="http://glgs.wanjiashe.com/" target="_blank">灌篮高手</a></li>
-                        <li><a href="http://zqds.wanjiashe.com/" target="_blank">足球大师2017</a></li>
-                    </ul>
-                </li>
-                <!--                <li><a href="//www.zhibo8.cc/caipiao.htm" target="_blank">彩票</a></li>-->
-                <li><a href="//home.zhibo8.cc" target="_blank">个人</a></li>
-                <li class="new_ch"><a href="//daogou.zhibo8.cc/" target="_blank">商城<span>new</span></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+<?php $this->include('layouts/zhibo/menu') ?>
+
 <div class="wrap mtop20">
     <div class="zb_left">
         <div class="bifen radt5">
@@ -152,9 +78,8 @@
             <div class="tselect">
                 <a href="javascript:;" data-class="zhibo" class="tbar current">直播</a>
                 <a href="javascript:;" data-class="shuju" class="tbar">数据</a>
-                <a href="javascript:;" data-class="jingcai" class="tbar">竞猜</a>
+                <a href="javascript:;" data-class="jingcai" class="tbar">聊天室</a>
 
-                <a href="//m.zhibo8.cc/feedback/" target="_blank" class="fankui rad3">反馈</a>
             </div>
 
             <div style="clear:both;"></div>
@@ -720,27 +645,6 @@
             </ul>
         </div>
 
-        <div id="left_bottom_advert" class="mtop5" style="padding-top: 5px;">
-            <div id="iframe-ad">
-                <iframe id="ac_im86_69274110" name="ac_im86_69274110" src="//afpeng.alimama.com/ex?a=mm_119500411_19076741_69274110&sp=0&cb=_acM.r" width="500" height="200" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true" style="display:block;margin:0"></iframe>
-
-                <iframe id="ac_im86_69274114" name="ac_im86_69274114" src="//afpeng.alimama.com/ex?a=mm_119500411_19076741_69274114&sp=0&cb=_acM.r" width="500" height="200" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true" style="display:block;margin:10px 0 0"></iframe>
-            </div>
-        </div>
-        <script>
-            $(window).scroll( function() {
-                var scrollTop = window.pageYOffset
-                    || document.documentElement.scrollTop
-                    || document.body.scrollTop
-                    || 0;
-                var offset = $("#left_bottom_advert").offset();
-                if(scrollTop>offset.top){
-                    $("#iframe-ad").css({'position':'fixed','top':'0px','left':offset.left+'px','margin-top':'51px','z-index':'999'});
-                }else{
-                    $("#iframe-ad").css({'position':'relative','top':'','left':'','margin-top':'0','z-index':'0'});
-                }
-            });
-        </script>
     </div>
 
     <div class="zb_right">
@@ -814,18 +718,4 @@
 <script src="https://www.zhibo8.cc/js/2016/bk2016.js"></script>
 <script src="https://www.zhibo8.cc/js/2016/ndanmu.js"></script>
 
-<!-- div style="display: none;"><script src='//v12.cnzz.com/stat.php?id=709406&web_id=709406&show=pic1' language='JavaScript' charset='gb2312'></script></div -->
-
-<script language="javascript" type="text/javascript" src="https://www.zhibo8.cc/js/ad_display.js"></script>
-<script language="javascript" type="text/javascript" src="https://www.zhibo8.cc/js/ad_data.js"></script>
-
-<!-- 69320078：内页右下角富媒体 类型：固定 尺寸：300x250 -->
-<script type="text/javascript">//<![CDATA[
-    ac_as_id = "mm_119500411_19076741_69320078";
-    ac_format = 1;
-    ac_mode = 1;
-    ac_group_id = 1;
-    ac_server_base_url = "afpeng.alimama.com/";
-    //]]></script>
-<script type="text/javascript" src="https://afpmm.alicdn.com/g/mm/afp-cdn/JS/k.js"></script>
 
