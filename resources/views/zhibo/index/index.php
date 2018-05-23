@@ -1,4 +1,5 @@
 <body>
+
 <div class="menu">
     <div class="container">
         <div class="logo">
@@ -6,53 +7,53 @@
          </div>
         <div class="nav">
             <ul>
-                <li><a href="//www.zhibo8.cc/">首页</a></li>
-                <li><a href="//bbs.zhibo8.cc/" target="_blank" >论坛</a></li>
+                <li><a href="/">首页</a></li>
+                <li><a href="https://bbs.zhibo8.cc/" target="_blank" >论坛</a></li>
                 <li>
-                    <a href="//www.zhibo8.cc/nba/" target="_blank">NBA视频</a>
+                    <a href="https://www.zhibo8.cc/nba/" target="_blank">NBA视频</a>
                     <ul class="child_navs">
-                        <li><a href="//www.zhibo8.cc/nba/index_old.htm" target="_blank">旧版页面</a></li>
-                        <li><a href="//www.zhibo8.cc/nba/luxiang.htm" target="_blank">录像页面</a></li>
+                        <li><a href="https://www.zhibo8.cc/nba/index_old.htm" target="_blank">旧版页面</a></li>
+                        <li><a href="https://www.zhibo8.cc/nba/luxiang.htm" target="_blank">录像页面</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="//www.zhibo8.cc/zuqiu/" target="_blank">足球视频</a>
+                    <a href="https://www.zhibo8.cc/zuqiu/" target="_blank">足球视频</a>
                     <ul class="child_navs">
-                        <li><a href="//www.zhibo8.cc/zuqiu/index_old.htm" target="_blank">旧版页面</a></li>
-                        <li><a href="//www.zhibo8.cc/zuqiu/luxiang.htm" target="_blank">录像页面</a></li>
+                        <li><a href="https://www.zhibo8.cc/zuqiu/index_old.htm" target="_blank">旧版页面</a></li>
+                        <li><a href="https://www.zhibo8.cc/zuqiu/luxiang.htm" target="_blank">录像页面</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="//news.zhibo8.cc/nba/" target="_blank">NBA新闻</a>
+                    <a href="https://news.zhibo8.cc/nba/" target="_blank">NBA新闻</a>
                     <ul class="child_navs">
-                        <li><a href="//news.zhibo8.cc/nba/more.htm" target="_blank">滚动新闻</a></li>
+                        <li><a href="https://news.zhibo8.cc/nba/more.htm" target="_blank">滚动新闻</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="//news.zhibo8.cc/zuqiu/" target="_blank">足球新闻</a>
+                    <a href="https://news.zhibo8.cc/zuqiu/" target="_blank">足球新闻</a>
                     <ul class="child_navs">
-                        <li><a href="//news.zhibo8.cc/zuqiu/more.htm" target="_blank">滚动新闻</a></li>
+                        <li><a href="https://news.zhibo8.cc/zuqiu/more.htm" target="_blank">滚动新闻</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="//tu.zhibo8.cc/" target="_blank">图片</a>
+                    <a href="https://tu.zhibo8.cc/" target="_blank">图片</a>
                     <ul class="child_navs l_width">
-                        <li><a href="//tu.zhibo8.cc/nba" target="_blank">NBA图片</a></li>
-                        <li><a href="//tu.zhibo8.cc/zuqiu" target="_blank">足球图片</a></li>
+                        <li><a href="https://tu.zhibo8.cc/nba" target="_blank">NBA图片</a></li>
+                        <li><a href="https://tu.zhibo8.cc/zuqiu" target="_blank">足球图片</a></li>
                     </ul>
                 </li>
-                <li><a href="//www.zhibo8.cc/olympic/" target="_blank" >综合</a></li>
-                <!--                <li><a href="//quanzi.zhibo8.cc/" target="_blank">圈子</a></li>-->
-                <li><a href="//guess.zhibo8.cc/" target="_blank">竞猜</a></li>
+                <li><a href="https://www.zhibo8.cc/olympic/" target="_blank" >综合</a></li>
+
+                <li><a href="https://guess.zhibo8.cc/" target="_blank">竞猜</a></li>
                 <li><a href="http://www.188bifen.com" target="_blank">比分</a></li>
                 <li>
-                    <a href="//data.zhibo8.cc/pc_main_data/" target="_blank">数据</a>
+                    <a href="https://data.zhibo8.cc/pc_main_data/" target="_blank">数据</a>
                     <ul class="child_navs l_width">
-                        <li><a href="//data.zhibo8.cc/nbaData/database/#/" target="_blank">NBA资料库</a></li>
+                        <li><a href="https://data.zhibo8.cc/nbaData/database/#/" target="_blank">NBA资料库</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="//data.zhibo8.cc/" target="_blank">资料</a>
+                    <a href="https://data.zhibo8.cc/" target="_blank">资料</a>
                 </li>
                 <li>
                     <a href="http://www.wanjiashe.com/" target="_blank">游戏</a>
@@ -69,13 +70,15 @@
                         <li><a href="http://zqds.wanjiashe.com/" target="_blank">足球大师2017</a></li>
                     </ul>
                 </li>
-                <!--                <li><a href="//www.zhibo8.cc/caipiao.htm" target="_blank">彩票</a></li>-->
-                <li><a href="//home.zhibo8.cc" target="_blank">个人</a></li>
-                <li class="new_ch"><a href="//daogou.zhibo8.cc/" target="_blank">商城<span>new</span></a></li>
+
+                <li><a href="https://home.zhibo8.cc" target="_blank">个人</a></li>
+                <li class="new_ch"><a href="https://daogou.zhibo8.cc/" target="_blank">商城<span>new</span></a></li>
             </ul>
         </div>
     </div>
 </div>
+
+
 <div class="container margin_top_20">
     <div id="recommend" class="left">
         <div class="r_video left"><ul><li class="head ico_fb"><a   href="https://www.zhibo8.cc/zuqiu/" target="_blank">天下足球-温格:枪手风云</a><span></span><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-ac6a2f0-svideo.htm" target="_blank">小白凌晨一点不舍离开</a></li><li><a   href="https://www.zhibo8.cc/zuqiu/2018/0523-majing-jijin.htm" target="_blank">托雷斯破门-马竞3:2尼日利亚</a><span>|</span><a   href="https://www.zhibo8.cc/zuqiu/2018/0523-daa1a0f-svideo.htm" target="_blank">离别！足坛传奇感人告别时</a></li><li><a   href="https://www.zhibo8.cc/zuqiu/2018/0523-xiaobai.htm" target="_blank">传奇！小白巴萨生涯全进球</a><span>|</span><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-dd47049-svideo.htm" target="_blank">无缘世界杯！二弟赛季29球集</a></li><li><a   href="https://www.zhibo8.cc/zuqiu/2018/0523-meixi.htm" target="_blank">无所不能！梅西赛季48球集</a><span>|</span><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-b763866-svideo.htm" target="_blank">马塞洛与小伙伴挑战头球接力</a></li><li><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-050672c-svideo.htm" target="_blank">美女：内马尔博格巴最时尚</a><span>|</span><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-bb4768d-svideo.htm" target="_blank">伊布：兹拉坦从来不会犯错</a></li><li><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-de560c7-svideo.htm" target="_blank">告别枪手！卡索拉魔幻控球</a><span>|</span><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-pierluo-jijin.htm" target="_blank">因扎吉戴帽-皮尔洛告别赛7-7</a></li><li><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-b27604f-svideo.htm" target="_blank">感人！睡皮被自己儿子换下</a><span>|</span><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-jier-jijin.htm" target="_blank">附加赛狼堡总分4-1保级成功</a></li><li><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-b928580-svideo.htm" target="_blank">报复！伊布手扇对手头染红</a><span>|</span><a   href="https://www.zhibo8.cc/zuqiu/2018/0522-16f113b-svideo.htm" target="_blank">来感受一下老马的赛前热身</a></li></ul></div><div class="r_news right"><ul><li class="head "><a   href="https://news.zhibo8.cc/zuqiu/" target="_blank">古兹曼替罗梅罗进阿名单</a><span></span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-23/5b045ab34a08d.htm" target="_blank">米兰财政和解协议遭拒</a></li><li><a   href="https://news.zhibo8.cc/zuqiu/2018-05-23/5b049384b904b.htm" target="_blank">埃梅里个人宣布加入阿森纳</a><span>|</span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-23/5b04b15163179.htm" target="_blank">那不勒斯有望今天签安切洛蒂</a></li><li><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b040827388a5.htm" target="_blank">齐祖：论战术我非最好教练</a><span>|</span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-23/5b0490fc42814.htm" target="_blank">温格：曾三次拒绝皇马的帅位</a></li><li><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b0421867a212.htm" target="_blank">纳因戈兰：我配得上世界杯</a><span>|</span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b0439eca8a47.htm" target="_blank">C罗领衔ESPN百大知名运动员</a></li><li><a   href="https://news.zhibo8.cc/zuqiu/2018-05-23/5b048d83da448.htm" target="_blank">凯恩：英格兰可赢得世界杯</a><span>|</span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b03cc92783ac.htm" target="_blank">凯恩任英格兰队长征战世界杯</a></li><li><a   href="https://news.zhibo8.cc/zuqiu/2018-05-23/5b04b687e0d2e.htm" target="_blank">池忠国亲承转会费为1亿元 </a><span>|</span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b0416312236d.htm" target="_blank">C罗：红军三叉戟让我想起BBC</a></li><li><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b03dcd53aa32.htm" target="_blank">官方：法夫尔出任多特主帅</a><span>|</span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b040c14896ec.htm" target="_blank">外媒评无缘世界杯23人大名单</a></li><li><a   href="https://news.zhibo8.cc/zuqiu/2018-05-22/5b04304482bd4.htm" target="_blank">哈姆希克：或该离开拿波里</a><span>|</span><a   href="https://news.zhibo8.cc/zuqiu/2018-05-23/5b04a8e15cae1.htm" target="_blank">礼仪小姐拒握手：工作不允许</a></li></ul></div><div class="line clear"></div>
@@ -88,6 +91,7 @@
             <ul><li><a  tid="21471" href="https://tu.zhibo8.cc/nba" target="_blank">图-徐冬冬支持勇士</a><span>|</span><a  tid="32984" href="https://tu.zhibo8.cc/home/album/40957" target="_blank">图-明星艺人勇蜜</a></li><li><a  tid="8422" href="https://bbs.zhibo8.cc/forum/topic?tid=2326021" target="_blank">打无球詹进攻如何</a><span>|</span><a  tid="19681" href="https://bbs.zhibo8.cc/forum/topic?tid=2326009" target="_blank">证明你是个老球迷</a></li><li><a  tid="83" href="https://tu.zhibo8.cc/home/album/40843" target="_blank">湖人总冠军</a><span>|</span><a  tid="19680" href="https://bbs.zhibo8.cc/forum/topic?tid=2320378" target="_blank">聊世界杯知识赢正品足球</a></li><li><a  tid="20619" href="https://bbs.zhibo8.cc/forum/topic?tid=2326455" target="_blank">德国总是夺冠热门</a><span>|</span><a  tid="20620" href="https://bbs.zhibo8.cc/forum/topic?tid=2325933" target="_blank">为何不看好阿根廷</a></li><li><a  tid="18895" href="https://news.zhibo8.cc/zuqiu/2018-02-26/5a93b317643d9.htm" target="_blank">直播吧编辑招聘</a><span>|</span><a  tid="19682" href="https://tu.zhibo8.cc/zuqiu" target="_blank">ESPN百大知名运动员</a></li></ul>        </div>
     </div>
 </div>
+
 
 <div class="container margin_top_10 ovs">
     <div class="schedule_container left">
@@ -884,343 +888,5 @@
 
 
     </div>
-    <div class="bbs_container right">
-        <div class="box">
-            <div class="titlebar">
-                <h2><a href="//bbs.zhibo8.cc/forum/list/?fid=8" target="_blank">天下足球</a></h2>
-                <a class="more" href="//bbs.zhibo8.cc/forum/list/?fid=8" target="_blank"> 更多</a> </div>
-            <div class="content">
-                <ul>
-                    <li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c6c253210.htm" target="_blank" title="拉涅利：埃梅里能在枪手获得成功">拉涅利：埃梅里能在枪手获得成功</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c40fd6438.htm" target="_blank" title="粤媒：许家印对卡帅仍保有信任">粤媒：许家印对卡帅仍保有信任</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c38adf618.htm" target="_blank" title="德甲官方盘点从未降级的球队">德甲官方盘点从未降级的球队</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c2b18e71a.htm" target="_blank" title="挪威国脚：中国足球仅因钱而出名">挪威国脚：中国足球仅因钱而出名</a></li><li id="-"><a href="https://bbs.zhibo8.cc/forum/list/?fid=233" target="_blank" title="【论坛】看到这件球衣，你最先想到谁">【论坛】看到这件球衣，你最先想到谁</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c24062d78.htm" target="_blank" title="C罗：传过50人来皇马但一个没来">C罗：传过50人来皇马但一个没来</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c22d2f6ac.htm" target="_blank" title="多特vs洛杉矶FC首发：格策领衔">多特vs洛杉矶FC首发：格策领衔</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c17219b1b.htm" target="_blank" title="塞尔电台：托雷斯接近加盟J联赛">塞尔电台：托雷斯接近加盟J联赛</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04c0edd3e87.htm" target="_blank" title="里皮重立军规发“不养老”警告">里皮重立军规发“不养老”警告</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b03be5f9334c.htm" target="_blank" title="巡礼冰岛：团队足球与维京战吼">巡礼冰岛：团队足球与维京战吼</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04bfa4cf9f3.htm" target="_blank" title="成耀东：在国青坚决反对球员文身">成耀东：在国青坚决反对球员文身</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04bf2e1f6de.htm" target="_blank" title="詹俊：埃梅里临场指挥或强于温格">詹俊：埃梅里临场指挥或强于温格</a></li><li id="-"><a href="https://bbs.zhibo8.cc/forum/list/?fid=240" target="_blank" title="【论坛】虽然我喜欢利物浦，但是不得不承认皇马实力更强一点">【论坛】虽然我喜欢利物浦，但是不得不承认皇马实力更强一点</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04bdf02ebe3.htm" target="_blank" title="郑智为国家队百场出战在即">郑智为国家队百场出战在即</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04bdc384557.htm" target="_blank" title="蓝军解雇孔蒂或将赔偿九百万镑">蓝军解雇孔蒂或将赔偿九百万镑</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04bc5586264.htm" target="_blank" title="鲁能U21备战奥运选拔赛">鲁能U21备战奥运选拔赛</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04bb9e71aca.htm" target="_blank" title="日媒：今日宣布小白加盟神户">日媒：今日宣布小白加盟神户</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b9873db37.htm" target="_blank" title="马特乌斯：蒂亚戈的发挥让我失望">马特乌斯：蒂亚戈的发挥让我失望</a></li><li id="-"><a href="https://bbs.zhibo8.cc/forum/list/?fid=8" target="_blank" title="【论坛】西法阿三个国家的落选阵容，你觉得哪个更强">【论坛】西法阿三个国家的落选阵容，你觉得哪个更强</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b839c7ef4.htm" target="_blank" title="卡西、诺伊尔穿尤文球衣致敬布冯">卡西、诺伊尔穿尤文球衣致敬布冯</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b8305bb3f.htm" target="_blank" title="镜报：埃梅里的转会发言权有限">镜报：埃梅里的转会发言权有限</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b7d5180ae.htm" target="_blank" title="张近东贺信国米：盼重返欧洲之巅">张近东贺信国米：盼重返欧洲之巅</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b687e0d2e.htm" target="_blank" title="申鑫老总：池忠国亲承转会费1亿">申鑫老总：池忠国亲承转会费1亿</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b276cdf20.htm" target="_blank" title="阿尔巴：防守梅西我会全力以赴">阿尔巴：防守梅西我会全力以赴</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b165379a7.htm" target="_blank" title="索斯盖特：愿意给年轻人更多机会">索斯盖特：愿意给年轻人更多机会</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04b15163179.htm" target="_blank" title="迪马：安帅有望今天签约那不勒斯">迪马：安帅有望今天签约那不勒斯</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04ac7f0688c.htm" target="_blank" title="拜利：下赛季以更强姿态回归">拜利：下赛季以更强姿态回归</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04ac7b1d829.htm" target="_blank" title="古兹曼顶替罗梅罗进入阿23人名单">古兹曼顶替罗梅罗进入阿23人名单</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04a99d904c1.htm" target="_blank" title="卫报：瓜帅关注德里赫特">卫报：瓜帅关注德里赫特</a></li><li id="-"><a href="http://news.zhibo8.cc/zuqiu/2018-05-23/5b04a936628d4.htm" target="_blank" title="吉格斯：希望拉姆塞在新帅下提升">吉格斯：希望拉姆塞在新帅下提升</a></li>                </ul>
-            </div>
-        </div>
-        <div class="box">
-            <div class="titlebar">
-                <h2><a href="//bbs.zhibo8.cc/forum/list/?fid=62" target="_blank">篮球公园</a></h2>
-                <a class="more" href="//bbs.zhibo8.cc/forum/list/?fid=62" target="_blank"> 更多</a> </div>
-            <div class="content">
-                <ul>
-                    <li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c6ca69a03.htm" target="_blank" title="克莱受伤已返回更衣室">克莱受伤已返回更衣室</a></li><li id="-"><a href="https://bbs.zhibo8.cc/forum/topic?tid=2326165" target="_blank" title="【论坛】杨毅对骑凯判罚的看法，我觉得挺对的">【论坛】杨毅对骑凯判罚的看法，我觉得挺对的</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c599ca921.htm" target="_blank" title="火箭本赛季第五次首节得分不到20">火箭本赛季第五次首节得分不到20</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c564aa1d6.htm" target="_blank" title="迈尔斯-伦纳德女友晒合照">迈尔斯-伦纳德女友晒合照</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c46b7caf6.htm" target="_blank" title="哈登4秒无人防守 不出手反传球">哈登4秒无人防守 不出手反传球</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c3c46657f.htm" target="_blank" title="KD季后赛运动战进球数升至第22">KD季后赛运动战进球数升至第22</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c39bb144a.htm" target="_blank" title="大加索尔晒图祝女友生日快乐">大加索尔晒图祝女友生日快乐</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c2e4b27c4.htm" target="_blank" title="追梦生涯季后赛抢断追平比卢普斯">追梦生涯季后赛抢断追平比卢普斯</a></li><li id="-"><a href="https://bbs.zhibo8.cc/forum/topic?tid=2326271" target="_blank" title="【论坛】保罗多项数据季后赛新低，他真的老了吗">【论坛】保罗多项数据季后赛新低，他真的老了吗</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c258a5a42.htm" target="_blank" title="LBJ：儿子会比LBJ先成亿万富翁">LBJ：儿子会比LBJ先成亿万富翁</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c1fcb800d.htm" target="_blank" title="阿里扎生涯季后赛三分数升至第28">阿里扎生涯季后赛三分数升至第28</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c19f51711.htm" target="_blank" title="火箭开场5分18秒拿到首分">火箭开场5分18秒拿到首分</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c151cf90a.htm" target="_blank" title="哈登生涯季后赛得分升至第44位">哈登生涯季后赛得分升至第44位</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04c02fd3d46.htm" target="_blank" title="勇士开场5分钟内打出12-0">勇士开场5分钟内打出12-0</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04bf524f0c1.htm" target="_blank" title="KD生涯季后赛篮板数升至第52位">KD生涯季后赛篮板数升至第52位</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04be4e3d691.htm" target="_blank" title="情况不妙？库里赛前命中通道三分">情况不妙？库里赛前命中通道三分</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04bdff9d601.htm" target="_blank" title="小学生赛前和工作人员跳交谊舞">小学生赛前和工作人员跳交谊舞</a></li><li id="-"><a href="https://bbs.zhibo8.cc/forum/topic?tid=2326275" target="_blank" title="【论坛】詹姆斯现在的中距离准度较杜兰特还有差距吗">【论坛】詹姆斯现在的中距离准度较杜兰特还有差距吗</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04bc29d8655.htm" target="_blank" title="浓眉封盖奥尼尔获年度最佳盖帽">浓眉封盖奥尼尔获年度最佳盖帽</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04bc198e8ac.htm" target="_blank" title="湖人官方祝贺库兹马&球哥">湖人官方祝贺库兹马&球哥</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04bb86b55cf.htm" target="_blank" title="詹姆斯有效命中率为58.6%">詹姆斯有效命中率为58.6%</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04bb4785c8b.htm" target="_blank" title="巴恩斯祝贺DSJ入选新秀二阵">巴恩斯祝贺DSJ入选新秀二阵</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04ba8a44d63.htm" target="_blank" title="奥尼尔：伊戈缺阵对勇士影响巨大">奥尼尔：伊戈缺阵对勇士影响巨大</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04b9941ab3e.htm" target="_blank" title="他乡遇故知！周琦与小丁睢冉聚餐">他乡遇故知！周琦与小丁睢冉聚餐</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04b92c11075.htm" target="_blank" title="大宝贝格伦-戴维斯因被捕">大宝贝格伦-戴维斯因被捕</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04b929cb0ed.htm" target="_blank" title="小托马斯&哈特调侃库兹马晒照">小托马斯&哈特调侃库兹马晒照</a></li><li id="-"><a href="https://bbs.zhibo8.cc/forum/list/?fid=62" target="_blank" title="【论坛】如果为詹姆斯竖立一座雕像，该用哪个动作呢">【论坛】如果为詹姆斯竖立一座雕像，该用哪个动作呢</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04b829599e7.htm" target="_blank" title="名记：卢尼代替一哥首发出战">名记：卢尼代替一哥首发出战</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04b729a7e83.htm" target="_blank" title="贝尔坦斯：愿意出战世界杯资格赛">贝尔坦斯：愿意出战世界杯资格赛</a></li><li id="-"><a href="http://news.zhibo8.cc/nba/2018-05-23/5b04b46401036.htm" target="_blank" title="火箭季后赛金州客场战绩0胜7负">火箭季后赛金州客场战绩0胜7负</a></li>                </ul>
-            </div>
-        </div>
-        <div class="advert margin_top_10">
-            <iframe id="ac_im86_67236160" name="ac_im86_67236160" src="//afpeng.alimama.com/ex?a=mm_119500411_19076741_67236160&sp=0&cb=_acM.r" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true" ></iframe>
-        </div>
-    </div>
-
-    <script>
-        var screenwidth=screen.availWidth;
-        console.log("screenwidth:"+screenwidth);
-        var minWidth=1279;
-        function ad_left(){
-            if(screenwidth>minWidth) {
-                document.writeln("<iframe id=\'ac_im86_67228385\' name=\'ac_im86_67228385\' src=\'//afpeng.alimama.com/ex?a=mm_119500411_19076741_67228385&sp=0&cb=_acM.r\' width=\'120\' height=\'600\' frameborder=\'0\' marginwidth=\'0\' marginheight=\'0\' scrolling=\'no\' allowtransparency=\'true\' ></iframe>");
-            }
-        }
-        function ad_right(){
-            if(screenwidth>minWidth) {
-                document.writeln("<iframe id=\'ac_im86_67236047\' name=\'ac_im86_67236047\' src=\'//afpeng.alimama.com/ex?a=mm_119500411_19076741_67236047&sp=0&cb=_acM.r\' width=\'120\' height=\'600\' frameborder=\'0\' marginwidth=\'0\' marginheight=\'0\' scrolling=\'no\' allowtransparency=\'true\' ></iframe>");
-            }
-        }
-    </script>
-
 </div>
 
-<div id="channels" class="container txt_center"> <a href="//www.zhibo8.cc/index2.htm" target="_blank">点此查看近期更多赛程</a> </div>
-
-<div class="footer container">
-    <div id="links"> 合作网站: <a href="//m.zhibo8.cc/" title="直播吧手机版" target="_blank">手机直播吧</a>&nbsp;&nbsp; <a href="http://www.188hi.com/" target="_blank">188Hi网址导航</a>&nbsp;&nbsp; <a href="http://www.hao123.com/" target="_blank">Hao123网址导航</a>&nbsp;&nbsp; <a href="//www.zhibo8.cc/link.htm" target="_blank">进入友情链接</a> <br />
-        <a href="//www.zhibo8.cc/contact.htm" target="_blank"><font color="red">联系我们</font></a>&nbsp;&nbsp;&nbsp;&nbsp; <a href="//www.zhibo8.cc/mianze.htm" target="_blank">免责声明</a> <a href="//pl.zhibo8.cc/usercenter/web/userService.html" target="_blank">用户协议</a> <a href="//www.zhibo8.cc/web/privacyPolicyPc.html" target="_blank">隐私政策</a> <a href="//www.zhibo8.cc/baocuo.htm" target="_blank">报错反馈</a> <a href="//m.zhibo8.cc/feedback/" target="_blank">投诉反馈</a>&nbsp;&nbsp;<a href="http://report.12377.cn:13225/toreportinputNormal_anis.do" target="_blank" rel="external nofollow">网上有害信息举报专区</a></div>
-    <div id="copyright"><a href="/">直播吧</a>所有视频均链接到各大视频网站播放，本站不提供任何视听上传服务，如有异议请与我们取得联系。<br>闽网文（2016）5589-096号  闽B2-20160123  闽ICP备15018471号-2 <br><img src="//static4style.qiumibao.com/common/img/policy_icon.jpg" /> 闽公网安备 35020302001925号</div>
-</div>
-
-<script src="https://static4style.qiumibao.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://www.zhibo8.cc/js/v2/common.js" type="text/javascript"></script>
-<script src="https://www.zhibo8.cc/js/v2/index_main.js"></script>
-
-<script src="https://www.zhibo8.cc/js/adv-slide-toggle.js" ></script>
-
-<script>
-    $(function(){
-        $(".icon16-close").click(function(){
-            $("#popautoapp").hide();
-            return false;
-        });
-        if(navigator.userAgent.indexOf('Mobile')>-1 || navigator.userAgent.indexOf('mobile')>-1 || navigator.userAgent.indexOf('Android')>-1 || navigator.userAgent.indexOf('iPad')>-1 || navigator.userAgent.indexOf('iPhone')>-1){
-            $("#popautoapp").hide();
-        }
-    });
-</script>
-
-<style>
-    .pop-autoapp {
-        width: 130px;
-        height: 180px;
-        /*position: fixed;*/
-        left: 50%;
-        margin-left: 510px;
-        top: 90px;
-        /*top:690px;*/
-        position: absolute;
-    }
-    .pop-autoapp a:link, .pop-autoapp a:visited {
-        color: #666666;
-        background-color: #efefef;
-        text-decoration: none;
-    }
-    .pop-autoapp a:hover {
-        color: #666666;
-        background-color: #d0d0d0;
-        text-decoration: none;
-    }
-    .pop-autoapp a {
-        display: block;
-        width: 130px;
-        height: 180px;
-        text-align: center;
-        font-size: 12px;
-    }
-    .pop-autoapp a div {
-        line-height: 24px;
-    }
-
-    .pop-autoapp span.icon16 {
-        width: 30px;
-        height: 15px;
-        display: inline-block;
-        padding: 0;
-        overflow: hidden;
-        cursor: pointer;
-        border: solid 1px #ccc;
-        margin-bottom: 1px;
-        text-align: center;
-    }
-    .pop-autoapp a .pop-autoapp-close {
-        line-height: 15px;
-        height: 18px;
-        margin-bottom: 3px;
-        text-align: right;
-        background-color: #ffffff;
-    }
-    .pop-autoapp a .pop-autoapp-close {
-        text-align: right;
-    }
-</style>
-
-
-<style>
-    .ui-icon {
-        width: 18px;
-        height: 18px;
-    }
-    .ui-icon-shadow {
-        -moz-box-shadow: 0 1px 0 rgba(255,255,255,.4);
-        -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.4);
-        box-shadow: 0 1px 0 rgba(255,255,255,.4);
-    }
-    .ui-icon-delete {
-        background-position: -73px -1px;
-    }
-    .ui-icon, .ui-icon-searchfield:after {
-        background-color: #666;
-        background-color: rgba(0,0,0,.4);
-        background-image: url(//code.jquery.com/mobile/1.3.0/images/icons-18-white.png);
-        background-repeat: no-repeat;
-        -webkit-border-radius: 9px;
-        border-radius: 9px;
-    }
-</style>
-<script>
-    function setDomainCookie(name,value,domain)
-    {
-        var Days = 30;
-        var exp = new Date();
-        exp.setTime(exp.getTime() + Days*24*60*60*1000);
-        document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";domain=" + domain + ";path=/";
-    }
-    var browser={
-        versions:function(){
-            var u = navigator.userAgent, app = navigator.appVersion;
-            return {         //移动终端浏览器版本信息
-                trident: u.indexOf('Trident') > -1, //IE内核
-                presto: u.indexOf('Presto') > -1, //opera内核
-                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
-                iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
-                iPad: u.indexOf('iPad') > -1, //是否iPad
-                webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
-                JUC: u.indexOf('UCWEB') > -1 ||  u.indexOf('JUC') > -1 || u.indexOf('rv:1.2.3.4') > -1 || u.indexOf('Firefox/1.') > -1
-            };
-        }(),
-        language:(navigator.browserLanguage || navigator.language).toLowerCase()
-    }
-    $(function(){
-        if(browser.versions.android){
-            $("body").css("margin-top",'40px');
-            $("#m_adv").show();
-            $("#m_close").click(function(){
-                $("#m_adv").hide();
-                $("body").css("margin-top",'0');
-            });
-            $("#m_adv").click(function(){
-                window.location = '//m.zhibo8.cc/download/?dev=android';
-            });
-        }
-    })
-
-
-    function IsMobile() {
-        if(screen==undefined||screen.width>1200 || browser.versions.iPad==true){
-            return false;
-        }
-        if (browser.versions.android == true || browser.versions.iPhone == true || browser.versions.JUC == true ) {
-            return true;
-        }
-        return false;
-    }
-
-    if (IsMobile()){
-        $(".headeradvert").html('<span onclick="click_span_m()" style="display:block; width:320px; margin:0 auto; text-align:center; color:#fff; background: #4998e7;font-size:55px; line-height:70px;border-radius: 16px;">触屏版</span>');
-    }
-
-    function click_span_m() {
-        if (IsMobile()){
-            setDomainCookie("defaultJumpDomain", "m",".zhibo8.cc");
-        }
-        window.location.href = "//m.zhibo8.cc";
-    }
-</script>
-
-
-<style>
-    .bf-box {
-        position:fixed;
-        border:2px solid #ccc;
-        background:#fff;
-        font-size:12px;
-        width:auto;
-        z-index:1;
-        display:none;
-    }
-    .bf-triangle {
-        display:block;
-        position:relative;
-        left:60px;
-        top:-16px;
-        z-index:20;
-    }
-    .bf-triangle .t-border,
-    .bf-triangle .t-inset {
-        left:0px;
-        top:0px;
-        width:0;
-        height:0;
-        font-size:0;
-        overflow:hidden;
-        position:absolute;
-        border-width:8px;
-        border-style:dashed dashed solid dashed ;
-    }
-    .bf-triangle .t-border {
-        border-color:transparent transparent #ccc transparent;
-        top:-2px;
-    }
-    .bf-triangle .t-inset {
-        border-color: transparent transparent #fff transparent ;
-    }
-    .bf-content {
-        padding:3px;
-        margin:3px;
-        text-align:center;
-        line-height:18px;
-    }
-    .bf-content p {
-        margin:0;
-        padding:0;
-        height: 20px;
-    }
-    .bf-content .bf-period {
-        width:60px;
-        float:left;
-    }
-    .bf-content .bf-nba {
-        float:left;
-        padding-left:10px;
-        border-left:2px #ccc solid;
-        min-width: 150px;
-    }
-    .bf-content .bf-nba span {
-        display:inline-block;
-        width:30px;
-    }
-    .bf-content .bf-zuqiu1 {
-        text-align:left;
-        float:left;
-        border-right:2px #ccc solid;
-        min-width:150px;
-        min-height:50px;
-    }
-    .bf-content .bf-zuqiu2 {
-        text-align:right;
-        float:left;
-        border-left:2px #ccc solid;
-        min-width:150px;
-        min-height:50px;
-    }
-    .bf-content span {
-        display: inline-block;
-        vertical-align: middle;
-        width: 15px;
-        height: 20px;
-        background: transparent url("//static4style.oss-cn-hangzhou.aliyuncs.com/txt_pc_img/event_bg2.png") no-repeat 1px 3px;
-        margin:0 3px;
-    }
-
-    .bf-content span.red {
-        background: transparent url("//static4style.oss-cn-hangzhou.aliyuncs.com/txt_pc_img/event_bg2.png") no-repeat 1px -93px;
-    }
-    .bf-content span.wulong {
-        background: transparent url("//static4style.oss-cn-hangzhou.aliyuncs.com/txt_pc_img/event_bg2.png") no-repeat 1px -240px;
-    }
-    .bf-content span.huang2 {
-        background: transparent url("//static4style.oss-cn-hangzhou.aliyuncs.com/txt_pc_img/event_bg2.png") no-repeat 1px -210px;
-    }
-    .bf-content .bf-clear {
-        clear:both;
-    }
-
-</style>
-
-<div class="bf-box">
-    <div class="bf-triangle">
-        <div class="t-border"></div>
-        <div class="t-inset"></div>
-    </div>
-
-    <div class="bf-content">
-        <div class="bf-zuqiu1"></div>
-        <div class="bf-period"></div>
-        <div class="bf-zuqiu2"></div>
-        <div class="bf-clear"></div>
-    </div>
-</div>
-
-
-<script src="/js/fbjs/bf4.js"></script>
-
-
-<div style="display: none">
-    <script src="//v12.cnzz.com/stat.php?id=709406&amp;web_id=709406&amp;show=pic1" language="JavaScript" charset="gb2312"></script>
-</div>
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?3212511d67978fc36e99a8ba103a1cc8";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
