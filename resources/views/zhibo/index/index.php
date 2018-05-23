@@ -91,7 +91,7 @@
         <?php  foreach($data as $key => $value){ ?>
         <div class="box">
             <div class="titlebar">
-                <h2 title="<?php echo $key; ?>"><?php echo date('m月d日',strtotime($key)).'&nbsp;&nbsp;'.$value[0]['weekDay']; ?></h2>
+                <h2 title="<?php echo $key; ?>"><?php echo date('m月d日',strtotime($key)).'&nbsp;'.$value[0]['weekDay']; ?></h2>
             </div>
             <div class="content">
                 <ul>
@@ -109,16 +109,6 @@
             </div>
         </div>
        <?php } ?>
-        <div class="box">
-            <div class="titlebar">
-                <h2 title="2018-05-28">05月28日 星期一</h2>
-            </div>
-            <div class="content">
-                <ul>
-                    <li label="NBA,骑士,凯尔特人,篮球" id="saishi123940" data-time="2018-05-28 08:30">08:30 <b>NBA东部决赛7 凯尔特人(2) <img src="//duihui.qiumibao.com/nba/kaierteren.png" > <span> - </span> <img src="//duihui.qiumibao.com/nba/qishi.png" > 骑士(2)</b> <a href="/zhibo/nba/2018/0528123940.htm" target="_blank">如有需要 QQ直播 互动直播</a> <a href="https://wenzi.zhibo8.cc/zhibo/nba/2018/0528123940.htm" target="_blank">文字</a> <a href="//www.zhibo8.cc/shouji.htm" target="_blank">手机看直播</a>  <a href="http://www.188bifen.com/lanqiubifen.htm" target="_blank">比分</a> <a href="http://nbaftx.wanjiashe.com/game.php?sid=51" target="_blank">NBA范特西51服</a> </li>
-                </ul>
-            </div>
-        </div>
     </div>
 </div>
 
