@@ -91,7 +91,7 @@
         <?php  foreach($data as $key => $value){ ?>
         <div class="box">
             <div class="titlebar">
-                <h2 title="<?php echo $key; ?>"><?php echo date('m月d日',strtotime($key)).'&nbsp;&nbsp;'.$key.'&nbsp;&nbsp;'.$value[0]['weekDay']; ?></h2>
+                <h2 title="<?php echo $key; ?>"><?php echo date('m月d日',strtotime($key)).'&nbsp;&nbsp;'.$value[0]['weekDay']; ?></h2>
             </div>
             <div class="content">
                 <ul>
