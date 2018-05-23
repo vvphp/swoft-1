@@ -77,9 +77,7 @@
         <div class="topbar">
             <div class="tselect">
                 <a href="javascript:;" data-class="zhibo" class="tbar current">直播</a>
-                <a href="javascript:;" data-class="shuju" class="tbar">数据</a>
                 <a href="javascript:;" data-class="jingcai" class="tbar">聊天室</a>
-
             </div>
 
             <div style="clear:both;"></div>
@@ -96,6 +94,17 @@
                     </ul>
                 </div>
             </div>
+
+
+
+            <div class="jingcai">
+                <ul id="livebox">
+                    <li id="jiazaizhong"><div class="livetext">aaaaaaaaaaaaaaaa，敬请关注！</div></li>
+                </ul>
+            </div>
+
+
+
 
             <div id="dmbox">
                 <canvas id="danmu2"></canvas>
@@ -170,104 +179,6 @@
 
                 <div class="shoufa_text text_box">
                 </div>
-            </div>
-
-            <div class="shuju mtop5" ms-controller="statistics">
-                <div class="db1" ms-repeat="statistics" ms-if-loop="$key=='host'">
-                    <div class="sj_head">{{$val.team_name_cn}}实时技术统计<div>首发球员蓝色背景标识<br>场上球员红色名字标识</div></div>
-
-                    <div class="sj_table tmtop">
-                        <div class="touming"></div>
-
-                        <table>
-                            <tr class="th">
-                                <td>球员</td>
-                                <td>位置</td>
-                                <td>出场时间</td>
-                                <td>投篮</td>
-                                <td>三分</td>
-                                <td>罚球</td>
-                                <td>前篮板</td>
-                                <td>后篮板</td>
-                                <td>总篮板</td>
-                                <td>助攻</td>
-                                <td>抢断</td>
-                                <td>盖帽</td>
-                                <td>失误</td>
-                                <td>犯规</td>
-                                <td>+/-</td>
-                                <td>得分</td>
-                            </tr>
-                            <tr ms-repeat="$val.on">
-                                <td ms-css-background="el.position == '首发' ? '#d6ebfd' : ''" ms-css-color="el.on_line ? 'red' : ''">{{el.player_name_cn | plink(p_host) | html}}</td>
-                                <td>{{el.pos}}</td>
-                                <td>{{el.minutes}}</td>
-                                <td>{{el.field}}</td>
-                                <td>{{el.three}}</td>
-                                <td>{{el.free}}</td>
-                                <td>{{el.off}}</td>
-                                <td>{{el.def}}</td>
-                                <td>{{el['off+def']}}</td>
-                                <td>{{el.ass}}</td>
-                                <td>{{el.ste}}</td>
-                                <td>{{el.blo}}</td>
-                                <td>{{el.turn}}</td>
-                                <td>{{el.fouls}}</td>
-                                <td>{{el.plusMinus}}</td>
-                                <td>{{el.points}}</td>
-                            </tr>
-                            <tr ms-repeat="$val.off" ms-if-loop="el.player_id>0">
-                                <td>{{el.player_name_cn | plink(p_host) | html}}</td>
-                                <td>{{el.pos}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr class="th" ms-if="$val.on.size()>=5">
-                                <td>总计</td>
-                                <td></td>
-                                <td>{{$val.total.minutes}}</td>
-                                <td>{{$val.total.field}}</td>
-                                <td>{{$val.total.three}}</td>
-                                <td>{{$val.total.free}}</td>
-                                <td>{{$val.total.off}}</td>
-                                <td>{{$val.total.def}}</td>
-                                <td>{{$val.total['off+def']}}</td>
-                                <td>{{$val.total.ass}}</td>
-                                <td>{{$val.total.ste}}</td>
-                                <td>{{$val.total.blo}}</td>
-                                <td>{{$val.total.turn}}</td>
-                                <td>{{$val.total.fouls}}</td>
-                                <td>{{$val.total.plusMinus}}</td>
-                                <td>{{$val.total.points}}</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="sj_foot tmtop" ms-controller="score_team" ms-if="$val.on.size()>=5">
-                        <div class="touming"></div>
-
-                        快攻得分 {{score_team.host.fast_points}}<span>|</span>内线得分 {{score_team.host.points_paint}}<span>|</span>利用对方失误得分 {{score_team.host.off_turnovers}}<span>|</span>最大领先分数 {{score_team.host.biggest}}<br />技术犯规 {{score_team.host.tec_fouls}}<span>|</span>恶意犯规 {{score_team.host.flag}}<span>|</span>六犯离场 {{score_team.host.disqualifications}}<span>|</span>被逐离场 {{score_team.host.ejections}}
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="paixu tmtop mtop5">
-                <div class="touming" style="margin-top:30px;height:240px;"></div>
-                <div class="px_line"></div>
-                <div class="cls"></div>
             </div>
         </div>
     </div>
