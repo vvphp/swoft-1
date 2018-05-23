@@ -96,7 +96,6 @@
             </div>
 
 
-
             <div class="jingcai">
                 <ul id="livebox">
                     <li id="jiazaizhong"><div class="livetext">aaaaaaaaaaaaaaaa，敬请关注！</div></li>
@@ -104,11 +103,10 @@
             </div>
 
 
-
-
             <div id="dmbox">
                 <canvas id="danmu2"></canvas>
             </div>
+
         </div>
 
         <div class="dmsend" ms-controller="dmsend">
@@ -122,65 +120,6 @@
 
             <p class="dmnote" ms-if="note != ''" ms-text="note"></p>
         </div>
-
-
-        <div id="mdata">
-            <div class="chang mtop5 tmtop" style="display:none;">
-                <div class="touming" style="margin-top:35px;height:429px;"></div>
-                <div class="tmpic"><img style="margin-top:60px;" src="//static4style.qiumibao.com/txt_pc_img/loading.png" alt="" /></div>
-
-                <div class="chang_tit">
-                    <span class="fl home_team_name">主队</span>
-                    <span style="margin-left:218px;line-height:40px;">场上球员</span>
-                    <span class="fr visit_team_name">客队</span>
-                </div>
-
-                <div class="chang_mid" ms-controller="roster_oncourt">
-                    <div class="qy_1">
-                        <div class="qy_con" ms-repeat="roster_oncourt.host" ms-if-loop="$key!='team_info'">
-                            <div class="qy_img">
-                                <img src="//static4style.qiumibao.com/txt_pc_img/player.gif" alt="" /><a ms-attr-title="$val.player_name" target="_blank" ms-class="host{{$key}}">
-                                </a>
-                            </div>
-
-                            <div class="qy_des" ms-visible="roster_oncourt_is_show">
-                                <span class="float_left"><a target="_blank" ms-if-loop="$val.player_name">{{$val.player_name | plink(p_host) | html}}</a></span>
-                                <span class="float_right">{{$val.points}}分 {{$val.fouls}}犯规</span>
-
-                                <p>
-                                    <period ms-if-loop="$val.period">第{{$val.period}}节</period>  <game_clock ms-if-loop="$val.game_clock">还有{{$val.game_clock}}</game_clock><br><event ms-if-loop="$val.event">{{$val.event}}</event>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="qy_2">
-                        <div class="qy_con" ms-repeat="roster_oncourt.guest" ms-if-loop="$key!='team_info'">
-                            <div class="qy_img">
-                                <img src="//static4style.qiumibao.com/txt_pc_img/player.gif" alt="" /><a ms-attr-title="$val.player_name" target="_blank" ms-class="guest{{$key}}">
-                                </a>
-                            </div>
-
-                            <div class="qy_des" ms-visible="roster_oncourt_is_show">
-                                <span class="float_left"><a target="_blank" ms-if-loop="$val.player_name">{{$val.player_name | plink(p_guest) | html}}</a></span>
-                                <span class="float_right">{{$val.points}}分 {{$val.fouls}}犯规</span>
-
-                                <p>
-                                    <period ms-if-loop="$val.period">第{{$val.period}}节</period>  <game_clock ms-if-loop="$val.game_clock">还有{{$val.game_clock}}</game_clock><br><event ms-if-loop="$val.event">{{$val.event}}</event>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cls"></div>
-                </div>
-
-                <div class="chang_bot"></div>
-
-                <div class="shoufa_text text_box">
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="zb_right">
@@ -188,8 +127,6 @@
     </div>
 
     <div class="cls"></div>
-
-    <div style="height:20px;"></div>
 </div>
 
 <div id="overDiv" class="close" ></div>
