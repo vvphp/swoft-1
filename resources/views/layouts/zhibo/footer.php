@@ -5,23 +5,8 @@
 </div>
 
 
-
-<script src="https://static4style.qiumibao.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://www.zhibo8.cc/js/v2/common.js" type="text/javascript"></script>
-<script src="https://www.zhibo8.cc/js/v2/index_main.js"></script>
-<script src="https://www.zhibo8.cc/js/adv-slide-toggle.js" ></script>
-
-<script>
-  $(function(){
-    $(".icon16-close").click(function(){
-      $("#popautoapp").hide();
-      return false;
-    });
-    if(navigator.userAgent.indexOf('Mobile')>-1 || navigator.userAgent.indexOf('mobile')>-1 || navigator.userAgent.indexOf('Android')>-1 || navigator.userAgent.indexOf('iPad')>-1 || navigator.userAgent.indexOf('iPhone')>-1){
-      $("#popautoapp").hide();
-    }
-  });
-</script>
+<script src="/static/zhibo8/js/jquery.min.js"></script>
+<script src="/static/zhibo8/js/common.js" type="text/javascript"></script>
 
 <style>
   .pop-autoapp {
@@ -76,10 +61,7 @@
   .pop-autoapp a .pop-autoapp-close {
     text-align: right;
   }
-</style>
 
-
-<style>
   .ui-icon {
     width: 18px;
     height: 18px;
@@ -100,73 +82,7 @@
     -webkit-border-radius: 9px;
     border-radius: 9px;
   }
-</style>
-<script>
-  function setDomainCookie(name,value,domain)
-  {
-    var Days = 30;
-    var exp = new Date();
-    exp.setTime(exp.getTime() + Days*24*60*60*1000);
-    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";domain=" + domain + ";path=/";
-  }
-  var browser={
-    versions:function(){
-      var u = navigator.userAgent, app = navigator.appVersion;
-      return {         //移动终端浏览器版本信息
-        trident: u.indexOf('Trident') > -1, //IE内核
-        presto: u.indexOf('Presto') > -1, //opera内核
-        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
-        iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
-        iPad: u.indexOf('iPad') > -1, //是否iPad
-        webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
-        JUC: u.indexOf('UCWEB') > -1 ||  u.indexOf('JUC') > -1 || u.indexOf('rv:1.2.3.4') > -1 || u.indexOf('Firefox/1.') > -1
-      };
-    }(),
-    language:(navigator.browserLanguage || navigator.language).toLowerCase()
-  }
-  $(function(){
-    if(browser.versions.android){
-      $("body").css("margin-top",'40px');
-      $("#m_adv").show();
-      $("#m_close").click(function(){
-        $("#m_adv").hide();
-        $("body").css("margin-top",'0');
-      });
-      $("#m_adv").click(function(){
-        window.location = '//m.zhibo8.cc/download/?dev=android';
-      });
-    }
-  })
 
-
-  function IsMobile() {
-    if(screen==undefined||screen.width>1200 || browser.versions.iPad==true){
-      return false;
-    }
-    if (browser.versions.android == true || browser.versions.iPhone == true || browser.versions.JUC == true ) {
-      return true;
-    }
-    return false;
-  }
-
-  if (IsMobile()){
-    $(".headeradvert").html('<span onclick="click_span_m()" style="display:block; width:320px; margin:0 auto; text-align:center; color:#fff; background: #4998e7;font-size:55px; line-height:70px;border-radius: 16px;">触屏版</span>');
-  }
-
-  function click_span_m() {
-    if (IsMobile()){
-      setDomainCookie("defaultJumpDomain", "m",".zhibo8.cc");
-    }
-    window.location.href = "//m.zhibo8.cc";
-  }
-</script>
-
-
-<style>
   .bf-box {
     position:fixed;
     border:2px solid #ccc;
@@ -264,34 +180,3 @@
   }
 
 </style>
-
-<div class="bf-box">
-  <div class="bf-triangle">
-    <div class="t-border"></div>
-    <div class="t-inset"></div>
-  </div>
-
-  <div class="bf-content">
-    <div class="bf-zuqiu1"></div>
-    <div class="bf-period"></div>
-    <div class="bf-zuqiu2"></div>
-    <div class="bf-clear"></div>
-  </div>
-</div>
-
-
-<script src="/js/fbjs/bf4.js"></script>
-
-
-<div style="display: none">
-  <script src="//v12.cnzz.com/stat.php?id=709406&amp;web_id=709406&amp;show=pic1" language="JavaScript" charset="gb2312"></script>
-</div>
-<script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?3212511d67978fc36e99a8ba103a1cc8";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
