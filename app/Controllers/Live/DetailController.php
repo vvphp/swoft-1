@@ -30,21 +30,21 @@ use App\Models\Logic\LiveGameLogic;
 
 /**
  * Class GameController
- * @Controller(prefix="/game")
+ * @Controller(prefix="/live/detail")
  */
-class GameController
+class DetailController
 {
 
     /**
      * 文字直播
-     * @RequestMapping("wenzi/detail/{game_id}")
+     * @RequestMapping("wenzi/{game_id}")
      * @throws BadMethodCallException
-     * @View(template="live/game/wenziDetail",layout="layouts/live.php")
+     * @View(template="zhibo/detail/wenzi",layout="layouts/detail.php")
      * @param Request $request
      * @param int     $game_id
      * @return Response
      */
-    public function wenziDetail(Request $request,int $game_id)
+    public function wenzi(Request $request,int $game_id)
     {
         if(empty($game_id)){
             throw new BadMethodCallException('非法请求!!!');

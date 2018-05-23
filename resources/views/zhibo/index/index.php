@@ -103,6 +103,7 @@
                         <?php foreach($item['play_links'] as $pk => $pl){ ?>
                             <a href="<?php echo $pl['playUrl'] ?>" target="_blank"><?php echo $pl['playPlatform'] ?></a>
                         <?php }  ?>
+                           <a href="/live/detail/wenzi/<?php echo $item['id']; ?>" target="_blank">雷子直播</a>
                     </li>
                  <?php } ?>
                 </ul>
