@@ -172,40 +172,86 @@ class LiveGameLogic
      * @param int $game_id
      * @return array
      */
-    public function getGameDataById(int $game_id)
+    public function getGameDataByGameId(int $game_id)
     {
         if(empty($game_id)){
-             return [];
+              return [];
         }
         $where = [ 'id' => $game_id ];
-        $fields = ['id','live_member_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
+        $fields = ['id','match_id','live_member_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
         $gameData = $this->getGameIdByWhere($where,$fields);
-        $teamData = [];
+        if(empty($gameData)){
+             return [];
+        }
+        return $gameData;
+    }
+
+    /**
+     * 根据ID 整理赛事信息
+     * @param int $game_id
+     * @return array
+     */
+    public function processGameDataById(int $game_id)
+    {
+        $gameData = $this->getGameDataByGameId($game_id);
+        if(empty($gameData)){
+             return [];
+        }
+        //球队信息
+        $teamData = $this->processTeamData($gameData['homeTeamId'],$gameData['visitingTeamId']);
         $narratorData = [];
         $commentaryData = [];
-        //球队信息
-        if(!empty($gameData['homeTeamId']) && !empty($gameData['visitingTeamId'])){
-             $teamIdList = array($gameData['homeTeamId'],$gameData['visitingTeamId']);
-             /* @var LiveTeamLogic $teamLogic */
-             $teamLogic = App::getBean(LiveTeamLogic::class);
-             $teamData = $teamLogic->getTeamDataByIdList($teamIdList);
-        }
         //解说员信息
         if($gameData['liveMemberId']){
             /* @var LiveNarratorLogic $narratorLogic */
             $narratorLogic = App::getBean(LiveNarratorLogic::class);
             $narratorData = $narratorLogic->getNarratorById($gameData['liveMemberId']);
-        }
-       //比赛解说详情信息
-       if($gameData['liveStatus'] > 1){
+         }
+         //比赛解说详情信息
+        if($gameData['liveStatus'] > 1){
            /* @var LiveCommentaryLogic $commentaryLogicLogic */
            $commentaryLogicLogic = App::getBean(LiveCommentaryLogic::class);
            $commentaryData =  $commentaryLogicLogic->getCommentaryByGameId($gameData['id']);
-       }
-        $gameData['commentaryData'] = $commentaryData;
-        $gameData['narratorData'] = $narratorData;
-        $gameData['teamData'] = $teamData;
-        return $gameData;
+        }
+         //播放地址信息
+         /* @var LivePlayLogic $playLogic */
+         $playLogic = App::getBean(LivePlayLogic::class);
+         $playData =  $playLogic->getPlayDataById($gameData['id']);
+
+          /* @var LiveMatchLogic $matchLogic */
+          $matchLogic = App::getBean(LiveMatchLogic::class);
+          $matchData =  $matchLogic->getMatchDataById($gameData['match_id']);
+
+         $gameData = array_merge($gameData,$teamData);
+         $gameData['commentaryData'] = $commentaryData;
+         $gameData['narratorData'] = $narratorData;
+         $gameData['playData'] = $playData;
+         $game_id['matchData'] = $matchData;
+         return $gameData;
+    }
+
+
+    /**
+     * 获取 主场和客场球队信息
+     * @param $homeTeamId
+     * @param $visitingTeamId
+     * @return mixed
+     */
+    public function processTeamData($homeTeamId,$visitingTeamId)
+    {
+        //球队信息
+        $teamData = [];
+        if(!empty($homeTeamId) && !empty($visitingTeamId)){
+            $teamIdList = array($homeTeamId,$visitingTeamId);
+            /* @var LiveTeamLogic $teamLogic */
+            $teamLogic = App::getBean(LiveTeamLogic::class);
+            $teamData = $teamLogic->getTeamDataByIdList($teamIdList);
+        }
+        $data['hometeamName'] = isset($teamData[$homeTeamId]) ? $teamData[$homeTeamId]['teamName'] : '';
+        $data['hometeamLogo'] = isset($teamData[$homeTeamId]) && !empty($teamData[$homeTeamId]['teamLogo']) ? $teamData[$homeTeamId]['teamLogo']: '/static/zhibo8/images/qitazhudui.png';
+        $data['visitingteamName'] = isset($teamData[$visitingTeamId]) ? $teamData[$visitingTeamId]['teamName']: '';
+        $data['visitingteamLogo'] = isset($teamData[$visitingTeamId]) && !empty($teamData[$visitingTeamId]['teamLogo']) ? $teamData[$visitingTeamId]['teamLogo'] : '/static/zhibo8/images/qitakedui.png';
+        return $data;
     }
 
 

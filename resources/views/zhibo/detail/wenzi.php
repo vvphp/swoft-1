@@ -7,13 +7,14 @@
         <div class="bifen radt5">
             <div class="bf_top">
                 <div class="team_1">
-                    <p><a href="javascript:;" id="t1a"><img id="t1" src="//duihui.qiumibao.com/zuqiu/qitazhudui.png" alt="" /></a></p>
-                    <span class="home_team_name">主队</span>
+                    <p><a href="javascript:;" id="t1a">
+                            <img id="t1" src="<?php echo $data['hometeamLogo'] ?>" alt="" /></a></p>
+                            <span class="home_team_name"><?php echo $data['hometeamName'] ?></span>
                 </div>
 
                 <div class="bf_box tmtop">
                     <div class="touming"></div>
-                    <div class="tmpic"><img src="//static4style.qiumibao.com/txt_pc_img/loading.png" alt="" /></div>
+                    <div class="tmpic"><img src="https://static4style.qiumibao.com/txt_pc_img/loading.png" alt="" /></div>
 
                     <div class="time_score">
                         <div class="host_score">0</div>
@@ -63,19 +64,17 @@
                 </div>
 
                 <div class="team_2">
-                    <p><a href="javascript:;" id="t2a"><img id="t2" src="//duihui.qiumibao.com/zuqiu/qitakedui.png" alt="" /></a></p>
-                    <span class="visit_team_name">客队</span>
+                    <p><a href="javascript:;" id="t2a"><img id="t2" src="<?php echo $data['visitingteamLogo']; ?>" alt="" /></a></p>
+                    <span class="visit_team_name"><?php echo $data['visitingteamName']; ?></span>
                 </div>
             </div>
 
             <div class="bf_bottom rad3">
                 <div class="video">
                     <font color="red"><strong>直播信号</strong></font>:
-                    <a href="http://sports.qq.com/kbsweb/game.htm?mid=100002:20184904" target="_blank" t="none">QQ直播(无插件)</a>
-                    <a href="http://sports.qq.com/kbsweb/game.htm?mid=100002:20184904" target="_blank" style="display: none;" plug="only_plug">QQ直播(腾讯视频插件)</a>
-                    <a href="https://wenzi.zhibo8.cc/zhibo/nba/2018/0523124692.htm" target="_blank">互动图文直播</a>
-                    <a href="http://www.zhibo8.cc/shouji.htm" target="_blank">新版手机客户端</a>
-                    <a href="http://www.188bifen.com/lanqiubifen.htm" target="_blank">比分直播</a>
+                    <?php foreach($data['playData'] as $plKey => $plVal){ ?>
+                      <a href="<?php echo $plVal['play_url'] ?>" target="_blank"><?php echo $plVal['play_platform']; ?></a>
+                    <?php } ?>
                 </div>
                 <div class="cls"></div>
             </div>
@@ -91,8 +90,6 @@
         </div>
 
         <div class="tmtop">
-            <div class="touming"></div>
-            <div class="tmpic"><img src="https://static4style.qiumibao.com/txt_pc_img/loading.png" alt="" /></div>
 
             <div class="zhibo">
                 <div class="zhibo_text">
@@ -112,15 +109,11 @@
             </div>
 
 
-            <div id="dmbox">
-                <canvas id="danmu2"></canvas>
-            </div>
-
         </div>
 
         <div class="dmsend" ms-controller="dmsend">
             <div class="dmsub">
-                弹幕 <span class="dmspan" ms-click="danmu_switch" ms-class="dmspan_gray: gray"> &nbsp; </span>
+                聊天 <span class="dmspan" ms-click="danmu_switch" ms-class="dmspan_gray: gray"> &nbsp; </span>
 
                 <input type="text" class="dmtext rad3" ms-keyup="enterkey">
 
@@ -176,11 +169,10 @@
     var total_score_h = '';
     var total_score_v = '';
     var open_txt = '0';
-
-    var rooms = [{"id":1,"name":"球迷房间"},{"id":2,"name":"彩民房间"}];
 </script>
 
-<script src="/static/zhibo8/js/bk2016.js"></script>
+<!--<script src="/static/zhibo8/js/bk2016.js"></script> -->
+
 <script src="/static/zhibo8/js/ndanmu.js"></script>
 
 <script type="text/javascript">

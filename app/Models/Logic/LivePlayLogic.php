@@ -23,6 +23,9 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
  */
 class LivePlayLogic
 {
+
+    private  $fields = ['game_id','play_platform','play_url','id'];
+
     /**
      * @param $game_id
      * @param $data
@@ -64,6 +67,7 @@ class LivePlayLogic
     }
 
     /**
+     * 根据game_id 批量查询
      * @param array $game_id_list
      * @return array
      */
@@ -75,14 +79,32 @@ class LivePlayLogic
         $where = [
             'game_id' => $game_id_list
         ];
-        $fields = ['game_id','play_platform','play_url','id'];
-        $result =  LivePlayLink::findAll($where, ['fields' => $fields])->getResult();
+        $result =  LivePlayLink::findAll($where, ['fields' => $this->fields])->getResult();
         if(empty($result)){
               return [];
         }
         $result = $result->toArray();
         return $result;
     }
+
+    /**
+     * 根据game_id 单个查询
+     * @param int $id
+     * @return array|mixed
+     */
+    public function getPlayDataById(int $id)
+    {
+       if(empty($id)){
+           return [];
+       }
+        $result = LivePlayLink::findById($id,['fields' => $this->fields])->getResult();
+        if(empty($result)){
+            return [];
+        }
+        $result = $result->toArray();
+        return $result;
+    }
+
 
 
     /**

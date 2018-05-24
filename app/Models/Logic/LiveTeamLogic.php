@@ -75,7 +75,7 @@ class LiveTeamLogic
        if(empty($team_id_list)){
             return $teamList;
        }
-      $where = ['id' => $team_id_list];
+      $where  = ['id' => $team_id_list];
       $fields = ['id','team_name','team_logo'];
       $result =  LiveTeamTable::findAll($where, ['fields' => $fields])->getResult();
       if(empty($result)){
@@ -88,7 +88,6 @@ class LiveTeamLogic
         }
        return $teamList;
     }
-
 
     /**
      * 插入数据

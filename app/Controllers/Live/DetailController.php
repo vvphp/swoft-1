@@ -52,7 +52,10 @@ class DetailController
         //查询比赛信息 并放入缓存
         /* @var LiveGameLogic $logic */
         $logic = App::getBean(LiveGameLogic::class);
-        $data  = $logic->getGameDataById($game_id);
+        $data  = $logic->processGameDataById($game_id);
+        if(empty($data)){
+            throw new BadMethodCallException('非法请求!!!');
+        }
 
         echo '<pre>';
         print_r($data);

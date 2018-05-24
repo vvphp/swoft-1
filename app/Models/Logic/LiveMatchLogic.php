@@ -60,6 +60,23 @@ class LiveMatchLogic
         return $result;
     }
 
+    /**
+     * 根据ID查询赛会表
+     * @param $id
+     * @return \Swoft\Core\ResultInterface
+     */
+    public function getMatchDataById($id)
+    {
+        if(empty($id)){
+            return [];
+        }
+        $result = LiveMatchTable::findById($id,['fields' => ['competition_name']])->getResult();
+        if(!empty($result)){
+            $result = $result->toArray();
+        }
+        return $result;
+    }
+
 
     /**
      * 根据ID 数组查询
