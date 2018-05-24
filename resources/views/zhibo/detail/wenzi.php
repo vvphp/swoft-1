@@ -73,7 +73,7 @@
                 <div class="video">
                     <font color="red"><strong>直播信号</strong></font>:
                     <?php foreach($data['playData'] as $plKey => $plVal){ ?>
-                      <a href="<?php echo $plVal['play_url'] ?>" target="_blank"><?php echo $plVal['play_platform']; ?></a>
+                      <a href="<?php echo $plVal['playUrl'] ?>" target="_blank"><?php echo $plVal['playPlatform']; ?></a>
                     <?php } ?>
                 </div>
                 <div class="cls"></div>

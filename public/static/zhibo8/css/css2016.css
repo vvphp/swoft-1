@@ -160,6 +160,7 @@ a:active{color:#f00;}
 	font-size:14px;
 	height:35px;
 	overflow:hidden;
+    visibility: visible;
 }
 .bf_table{margin-top:10px;}
 .bf_table table{
@@ -277,7 +278,6 @@ a:active{color:#f00;}
 	border-right:1px solid #bcbcbc;
 	border-bottom:1px solid #bcbcbc;
 	border-left:1px solid #bcbcbc;
-    display: none;
 }
 
 .zhobo ul{
@@ -385,7 +385,7 @@ padding:5px 0;
 	left:540px;
 }
 
-.chatRoom .score{
+.chatRoom ..score{
     position:absolute;
     top:0;
     left:540px;
