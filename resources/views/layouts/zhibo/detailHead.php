@@ -8,10 +8,10 @@
     <meta name="mobile-agent" content="format=html5;url=http://m.zhibo8.cc/zhibo/nba/2018/0523124692.htm">
     <meta name="keywords" content="CUBA,其他,篮球,华中科大,太原理工">
     <meta name="Description" content="直播信号:QQ直播(无插件)QQ直播(腾讯视频插件)互动图文直播新版手机客户端比分直播">
-    <link rel="stylesheet" type="text/css" href="https://www.zhibo8.cc/js/2016/css/css2016.css">
-    <link rel="stylesheet" type="text/css" href="https://www.zhibo8.cc/js/2016/comment/pinglun.css">
-    <link rel="stylesheet" type="text/css" href="https://www.zhibo8.cc/css/v2/common.css" />
-    <script src="https://www.zhibo8.cc/js/jquery1.11.1.min.js"></script>
-    <script src="https://static4style.qiumibao.com/txt_m_js/avalon.js"></script>
-    <script src="https://www.zhibo8.cc/js/v2/common.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/css2016.css">
+    <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/pinglun.css">
+    <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/v2common.css" />
+    <script src="/static/zhibo8/js/jquery1.11.1.min.js"></script>
+    <script src="/static/zhibo8/js/avalon.js"></script>
+    <script src="/static/zhibo8/js/common.js" type="text/javascript"></script>
 </head>

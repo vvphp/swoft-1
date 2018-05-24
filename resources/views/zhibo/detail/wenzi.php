@@ -69,7 +69,14 @@
             </div>
 
             <div class="bf_bottom rad3">
-                <div class="video"><font color="red"><strong>直播信号</strong></font>:    <a href="http://sports.qq.com/kbsweb/game.htm?mid=100002:20184904" target="_blank" t="none">QQ直播(无插件)</a>   <a href="http://sports.qq.com/kbsweb/game.htm?mid=100002:20184904" target="_blank" style="display: none;" plug="only_plug">QQ直播(腾讯视频插件)</a>  <a href="https://wenzi.zhibo8.cc/zhibo/nba/2018/0523124692.htm" target="_blank">互动图文直播</a> <a href="http://www.zhibo8.cc/shouji.htm" target="_blank">新版手机客户端</a> <a href="http://www.188bifen.com/lanqiubifen.htm" target="_blank">比分直播</a><!-- 以下为附加信息 --></div>
+                <div class="video">
+                    <font color="red"><strong>直播信号</strong></font>:
+                    <a href="http://sports.qq.com/kbsweb/game.htm?mid=100002:20184904" target="_blank" t="none">QQ直播(无插件)</a>
+                    <a href="http://sports.qq.com/kbsweb/game.htm?mid=100002:20184904" target="_blank" style="display: none;" plug="only_plug">QQ直播(腾讯视频插件)</a>
+                    <a href="https://wenzi.zhibo8.cc/zhibo/nba/2018/0523124692.htm" target="_blank">互动图文直播</a>
+                    <a href="http://www.zhibo8.cc/shouji.htm" target="_blank">新版手机客户端</a>
+                    <a href="http://www.188bifen.com/lanqiubifen.htm" target="_blank">比分直播</a>
+                </div>
                 <div class="cls"></div>
             </div>
         </div>
@@ -77,7 +84,7 @@
         <div class="topbar">
             <div class="tselect">
                 <a href="javascript:;" data-class="zhibo" class="tbar current">直播</a>
-                <a href="javascript:;" data-class="jingcai" class="tbar">聊天室</a>
+                <a href="javascript:;" data-class="chatRoom" class="tbar">聊天室</a>
             </div>
 
             <div style="clear:both;"></div>
@@ -85,7 +92,7 @@
 
         <div class="tmtop">
             <div class="touming"></div>
-            <div class="tmpic"><img src="//static4style.qiumibao.com/txt_pc_img/loading.png" alt="" /></div>
+            <div class="tmpic"><img src="https://static4style.qiumibao.com/txt_pc_img/loading.png" alt="" /></div>
 
             <div class="zhibo">
                 <div class="zhibo_text">
@@ -96,10 +103,12 @@
             </div>
 
 
-            <div class="jingcai">
-                <ul id="livebox">
-                    <li id="jiazaizhong"><div class="livetext">aaaaaaaaaaaaaaaa，敬请关注！</div></li>
-                </ul>
+            <div class="chatRoom">
+                <div class="zhibo_text">
+                    <ul id="livebox">
+                        <li id="jiazaizhong"><div class="livetext">aaaaaaawerewrewr直播暂未开始，敬请关注！</div></li>
+                    </ul>
+                </div>
             </div>
 
 
@@ -171,7 +180,22 @@
     var rooms = [{"id":1,"name":"球迷房间"},{"id":2,"name":"彩民房间"}];
 </script>
 
-<script src="https://www.zhibo8.cc/js/2016/bk2016.js"></script>
-<script src="https://www.zhibo8.cc/js/2016/ndanmu.js"></script>
+<script src="/static/zhibo8/js/bk2016.js"></script>
+<script src="/static/zhibo8/js/ndanmu.js"></script>
+
+<script type="text/javascript">
+  $(".tbar").click(function(){
+      $(".tbar").removeClass('current');
+      $(this).addClass('current');
+       var strClass = $(this).data('class');
+       if(strClass == 'chatRoom'){
+          $(".chatRoom").show();
+          $(".zhibo").hide()
+      }else{
+           $(".chatRoom").hide();
+           $(".zhibo").show()
+       }
+   });
+</script>
 
 
