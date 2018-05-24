@@ -67,39 +67,21 @@ class LivePlayLogic
     }
 
     /**
-     * 根据game_id 批量查询
-     * @param array $game_id_list
+     * 根据game_id 查询 [如果传的是数组，则表示批量查询]
+     * @param $game_id
      * @return array
      */
-    public function getPlayDataByIdList(array $game_id_list)
+    public function getPlayDataById($game_id)
     {
-       if(empty($game_id_list)){
+       if(empty($game_id)){
              return [];
         }
         $where = [
-            'game_id' => $game_id_list
+            'game_id' => $game_id
         ];
         $result =  LivePlayLink::findAll($where, ['fields' => $this->fields])->getResult();
         if(empty($result)){
               return [];
-        }
-        $result = $result->toArray();
-        return $result;
-    }
-
-    /**
-     * 根据game_id 单个查询
-     * @param int $id
-     * @return array|mixed
-     */
-    public function getPlayDataById(int $id)
-    {
-       if(empty($id)){
-           return [];
-       }
-        $result = LivePlayLink::findById($id,['fields' => $this->fields])->getResult();
-        if(empty($result)){
-            return [];
         }
         $result = $result->toArray();
         return $result;

@@ -160,7 +160,7 @@ class LiveGameLogic
 
         /* @var LivePlayLogic $playLogic */
         $playLogic = App::getBean(LivePlayLogic::class);
-        $playData =  $playLogic->getPlayDataByIdList($game_id_list);
+        $playData =  $playLogic->getPlayDataById($game_id_list);
 
         $data =  $this->processGameListData($result,$matchData,$teamList,$playData);
         return $data;
@@ -218,15 +218,15 @@ class LiveGameLogic
          $playLogic = App::getBean(LivePlayLogic::class);
          $playData =  $playLogic->getPlayDataById($gameData['id']);
 
-          /* @var LiveMatchLogic $matchLogic */
+         /* @var LiveMatchLogic $matchLogic */
           $matchLogic = App::getBean(LiveMatchLogic::class);
-          $matchData =  $matchLogic->getMatchDataById($gameData['match_id']);
+          $matchData =  $matchLogic->getMatchDataById($gameData['matchId']);
 
          $gameData = array_merge($gameData,$teamData);
          $gameData['commentaryData'] = $commentaryData;
          $gameData['narratorData'] = $narratorData;
          $gameData['playData'] = $playData;
-         $game_id['matchData'] = $matchData;
+         $gameData['matchData'] = $matchData;
          return $gameData;
     }
 

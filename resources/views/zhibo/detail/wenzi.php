@@ -18,7 +18,7 @@
 
                     <div class="time_score">
                         <div class="host_score">0</div>
-                        <div class="mtime rad3" ms-controller="bifen">{{bifen.period_cn}}</div>
+                        <div class="mtime rad3" ms-controller="bifen"><?php echo $data['matchData']['competitionName']; ?></div>
                         <div class="visit_score">0</div>
                     </div>
 
