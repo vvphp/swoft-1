@@ -100,7 +100,7 @@
                            <div class="livetext">直播暂未开始，敬请关注！</div>
                         </li>
                     <?php } ?>
-                    
+
                     </ul>
                 </div>
             </div>
@@ -139,7 +139,7 @@
   
 <script type="text/javascript">
      var liveStatus = "<?php echo $data['liveStatus']; ?>";
-     var commentaryData = "<?php echo json_encode($data['commentaryData']); ?>";
+     var commentaryData = <?php echo json_encode($data['commentaryData']); ?>;
 </script>
  
 

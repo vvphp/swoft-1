@@ -20,7 +20,7 @@ use Swoole\WebSocket\Server;
 /**
  * Class LiveController - This is an controller for handle websocket
  * @package App\WebSocket
- * @WebSocket("")
+ * @WebSocket("/live")
  */
 class LiveController implements HandlerInterface
 {
@@ -53,7 +53,7 @@ class LiveController implements HandlerInterface
      */
     public function onOpen(Server $server, Request $request, int $fd)
     {
-        // $server->push($fd, 'hello, welcome! :)');
+         $server->push($fd, 'hello, welcome! :)');
     }
 
     /**
@@ -63,7 +63,7 @@ class LiveController implements HandlerInterface
      */
     public function onMessage(Server $server, Frame $frame)
     {
-        // $server->push($frame->fd, 'hello, I have received your message: ' . $frame->data);
+          $server->push($frame->fd, 'hello, I have received your message: ' . $frame->data);
     }
 
     /**
