@@ -20,47 +20,8 @@
                         <div class="host_score">0</div>
                         <div class="mtime rad3" ms-controller="bifen"><?php echo $data['matchData']['competitionName']; ?></div>
                         <div class="visit_score">0</div>
-                    </div>
-
-                    <div class="cls"></div>
-
-                    <div class="bf_table" ms-controller="bifen">
-                        <table width="270">
-                            <tr>
-                                <td style="width:70px;"></td>
-                                <td>1st</td>
-                                <td>2nd</td>
-                                <td>3rd</td>
-                                <td>4th</td>
-                                <td ms-if="bifen.quarter>=5">加1</td>
-                                <td ms-if="bifen.quarter>=6">加2</td>
-                                <td ms-if="bifen.quarter>=7">加3</td>
-                                <td ms-if="bifen.quarter>=8">加4</td>
-                            </tr>
-                            <tr>
-                                <td class="home_team_name">主队</td>
-                                <td>{{bifen.team1_scores[0]}}</td>
-                                <td>{{bifen.team1_scores[1]}}</td>
-                                <td>{{bifen.team1_scores[2]}}</td>
-                                <td>{{bifen.team1_scores[3]}}</td>
-                                <td ms-if="bifen.quarter>=5">{{bifen.team1_scores[4]}}</td>
-                                <td ms-if="bifen.quarter>=6">{{bifen.team1_scores[5]}}</td>
-                                <td ms-if="bifen.quarter>=7">{{bifen.team1_scores[6]}}</td>
-                                <td ms-if="bifen.quarter>=8">{{bifen.team1_scores[7]}}</td>
-                            </tr>
-                            <tr>
-                                <td class="visit_team_name">客队</td>
-                                <td>{{bifen.team2_scores[0]}}</td>
-                                <td>{{bifen.team2_scores[1]}}</td>
-                                <td>{{bifen.team2_scores[2]}}</td>
-                                <td>{{bifen.team2_scores[3]}}</td>
-                                <td ms-if="bifen.quarter>=5">{{bifen.team2_scores[4]}}</td>
-                                <td ms-if="bifen.quarter>=6">{{bifen.team2_scores[5]}}</td>
-                                <td ms-if="bifen.quarter>=7">{{bifen.team2_scores[6]}}</td>
-                                <td ms-if="bifen.quarter>=8">{{bifen.team2_scores[7]}}</td>
-                            </tr>
-                        </table>
-                    </div>
+                    </div> 
+                    <div class="cls"></div> 
                 </div>
 
                 <div class="team_2">

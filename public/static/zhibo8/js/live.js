@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var html =''; 
-	//预加载历史直播数据
+	var wsUri = 'ws://47.95.14.113:9400/live';
+	//预加载历史直播数据 start
      if(commentaryData){
      	  commentaryData.forEach(function(val,key){
      	        console.log(val.content,key);
@@ -15,8 +16,25 @@ $(document).ready(function(){
      	    }); 
      	  $(".zhibo>.zhibo_text>#livebox").html(html);
       }
-
-     //liveStatus : 1:未开始 2:正在直播,3:已结束 
-
+    //预加载历史直播数据 end  
+    
+ //liveStatus : 1:未开始 2:正在直播,3:已结束  
+ //websocket start
+	    var ws = new WebSocket(wsUri);   
+		ws.onopen = function(evt) {  
+		    console.log("Connection open ...");  
+		    ws.send("Hello WebSockets!");  
+		};  
+		  
+		ws.onmessage = function(evt) {  
+		    console.log("Received Message: " + evt.data);  
+		    console.log(evt);
+		    ws.close();  
+		};  
+		  
+		ws.onclose = function(evt) {  
+		    console.log("Connection closed.");  
+		};   
+ //websocket end  
 
 })
