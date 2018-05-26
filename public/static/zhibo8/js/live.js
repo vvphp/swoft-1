@@ -5,7 +5,7 @@ $(document).ready(function(){
      	  commentaryData.forEach(function(val,key){
      	        console.log(val.content,key);
      	        var content = val.content;
-     	        var html +=` 
+     	         html+=` 
 						  <li class="">
 						  <div class="username">${narratorData.nikename}</div>
 						  <div class="livetext">${content}</div>

@@ -122,32 +122,7 @@ var danmu = {
 				//over = 0;
 			}
 			
-			
-/*
-			//计算长度
-			if (this.queue[i].width == 0) {
-				this.queue[i].width = Math.round(this.cans.measureText(this.queue[i].text).width);
-			}
-
-			if ((this.queue[i].left + this.queue[i].width) < 0) {
-				//delete(this.queue[i]); //删除已飘过
-
-				unset_ids.unshift(i);
-			} else {
-				this.queue[i].left -= this.speed;
-				
-				this.cans.fillText(this.queue[i].text, this.queue[i].left, this.queue[i].top);
-
-				if (this.last_id[this.queue[i].line] == this.queue[i].id) {
-					if ((this.queue[i].left + this.queue[i].width + this.text_margin) < this.box_width) {
-
-						this.last_id[this.queue[i].line] = 0; //清除
-						this.line_next.push(this.queue[i].line); //添加下一条
-					}
-				}
-
-				//over = 0;
-			}*/
+ 
 		}
 		this.cans.restore();
 

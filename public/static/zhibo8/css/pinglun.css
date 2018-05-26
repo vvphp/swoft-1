@@ -533,10 +533,7 @@ top:25px !important;
     height: 0; display: none;
 }
 
-
-.ms-controller,.ms-important,[ms-controller],[ms-important]{
-	visibility: hidden;
-}
+ 
 
 .advert_p_editor_bottom{
     display: inline-block;

@@ -133,10 +133,8 @@
                 <input type="text" class="dmtext rad3" ms-keyup="enterkey">
 
                 <input type="button" value="发送" class="dmbtn rad3" ms-click="danmu_send" ms-class="dmbtn_gray: gray">
-            </div>
-
-            <p class="dmnote" ms-if="note != ''" ms-text="note"></p>
-        </div>
+            </div> 
+         </div>
     </div>
 
     <div class="zb_right">
@@ -153,7 +151,6 @@
 </script>
  
 
-<script src="/static/zhibo8/js/ndanmu.js"></script>
 <script src="/static/zhibo8/js/live.js"></script>
 <script type="text/javascript">
   $(".tbar").click(function(){
