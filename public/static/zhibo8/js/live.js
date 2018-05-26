@@ -3,8 +3,7 @@ $(document).ready(function(){
 	var wsUri = 'ws://47.95.14.113:9400/live';
 	//预加载历史直播数据 start
      if(commentaryData){
-     	  commentaryData.forEach(function(val,key){
-     	        console.log(val.content,key);
+     	  commentaryData.forEach(function(val,key){     	        
      	        var content = val.content;
      	         html+=` 
 						  <li class="">
@@ -19,7 +18,8 @@ $(document).ready(function(){
     //预加载历史直播数据 end  
     
  //liveStatus : 1:未开始 2:正在直播,3:已结束  
- //websocket start
+ if(liveStatus == 2){
+         //websocket start
 	    var ws = new WebSocket(wsUri);   
 		ws.onopen = function(evt) {  
 		    console.log("Connection open ...");  
@@ -29,12 +29,11 @@ $(document).ready(function(){
 		ws.onmessage = function(evt) {  
 		    console.log("Received Message: " + evt.data);  
 		    console.log(evt);
-		    ws.close();  
-		};  
+		  };  
 		  
 		ws.onclose = function(evt) {  
 		    console.log("Connection closed.");  
 		};   
- //websocket end  
-
+    //websocket end  
+   }
 })
