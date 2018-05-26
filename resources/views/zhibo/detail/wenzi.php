@@ -94,10 +94,19 @@
             <div class="zhibo">
                 <div class="zhibo_text">
                     <ul id="livebox">  
-
                      <?php if($data['liveStatus'] == '1'){ ?>                
                         <li id="jiazaizhong">
+                            <?php if(strtotime($data['gameDate'].' '.$data['dataTime']) < time() ): ?>
                            <div class="livetext">直播暂未开始，敬请关注！</div>
+                            <?php else:?>
+                                <div class="livetext">暂无直播数据！</div>
+                            <?php endif; ?>
+                        </li>
+                    <?php } ?>
+
+                    <?php if($data['liveStatus'] > 1){ ?>                
+                        <li id="jiazaizhong">
+                           <div class="livetext">正在加载中....请稍后</div>
                         </li>
                     <?php } ?>
 
@@ -140,6 +149,7 @@
 <script type="text/javascript">
      var liveStatus = "<?php echo $data['liveStatus']; ?>";
      var commentaryData = <?php echo json_encode($data['commentaryData']); ?>;
+     var narratorData = <?php echo json_encode($data['narratorData']); ?>;
 </script>
  
 
