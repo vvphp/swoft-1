@@ -12,6 +12,7 @@ return array(
     'Zend\\Mime\\' => array($vendorDir . '/zendframework/zend-mime/src'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Swoft\\WebSocket\\Server\\' => array($vendorDir . '/swoft/websocket-server/src'),

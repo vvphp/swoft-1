@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
     '40725293a2ac2c3dc06eda78738e3ff6' => $vendorDir . '/swoft/framework/src/Helper/Functions.php',
     '8e4f694d7da0e33450e63833b9a75993' => $vendorDir . '/swoft/http-message/src/Helper/Functions.php',
     'cc37a1befbed2103104b095911899e94' => $vendorDir . '/swoft/console/src/Helper/Functions.php',
@@ -25,7 +26,7 @@ return array(
     '0f7264010dfe4b150414d6c16fc2a53e' => $vendorDir . '/swoft/task/src/Helper/Functions.php',
     '7f06e18cf5332466ea24ff7f629eec8e' => $vendorDir . '/swoft/devtool/src/Helper/Functions.php',
     '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
-    'd0b12a6e9f0416b1f736e52ca82d7ae3' => $vendorDir . '/swoft/db/src/Helper/Functions.php',
     '078453678d5904c08fc98526b0a1fdfd' => $vendorDir . '/swoft/i18n/src/Helper/Functions.php',
+    'd0b12a6e9f0416b1f736e52ca82d7ae3' => $vendorDir . '/swoft/db/src/Helper/Functions.php',
     '507d652ffd041175c4dcafb9af7b13f2' => $baseDir . '/app/Swoft.php',
 );

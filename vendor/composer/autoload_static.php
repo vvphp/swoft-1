@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '40725293a2ac2c3dc06eda78738e3ff6' => __DIR__ . '/..' . '/swoft/framework/src/Helper/Functions.php',
         '8e4f694d7da0e33450e63833b9a75993' => __DIR__ . '/..' . '/swoft/http-message/src/Helper/Functions.php',
         'cc37a1befbed2103104b095911899e94' => __DIR__ . '/..' . '/swoft/console/src/Helper/Functions.php',
@@ -26,8 +27,8 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         '0f7264010dfe4b150414d6c16fc2a53e' => __DIR__ . '/..' . '/swoft/task/src/Helper/Functions.php',
         '7f06e18cf5332466ea24ff7f629eec8e' => __DIR__ . '/..' . '/swoft/devtool/src/Helper/Functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        'd0b12a6e9f0416b1f736e52ca82d7ae3' => __DIR__ . '/..' . '/swoft/db/src/Helper/Functions.php',
         '078453678d5904c08fc98526b0a1fdfd' => __DIR__ . '/..' . '/swoft/i18n/src/Helper/Functions.php',
+        'd0b12a6e9f0416b1f736e52ca82d7ae3' => __DIR__ . '/..' . '/swoft/db/src/Helper/Functions.php',
         '507d652ffd041175c4dcafb9af7b13f2' => __DIR__ . '/../..' . '/app/Swoft.php',
     );
 
@@ -49,6 +50,7 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Translation\\' => 30,
             'Swoft\\WebSocket\\Server\\' => 23,
@@ -136,6 +138,10 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
         'Symfony\\Component\\Yaml\\' => 
         array (
