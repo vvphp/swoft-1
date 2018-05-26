@@ -93,8 +93,14 @@
 
             <div class="zhibo">
                 <div class="zhibo_text">
-                    <ul id="livebox">
-                        <li id="jiazaizhong"><div class="livetext">直播暂未开始，敬请关注！</div></li>
+                    <ul id="livebox">  
+
+                     <?php if($data['liveStatus'] == '1'){ ?>                
+                        <li id="jiazaizhong">
+                           <div class="livetext">直播暂未开始，敬请关注！</div>
+                        </li>
+                    <?php } ?>
+                    
                     </ul>
                 </div>
             </div>
@@ -130,51 +136,15 @@
 
     <div class="cls"></div>
 </div>
-
-<div id="overDiv" class="close" ></div>
-
-
-<div id="liveguess" ms-controller="liveguess" style="display:none;width:0;height:0;overflow:hidden;">
-    <li ms-repeat="array" class="jcbox">
-        <div class="username">{{el.username}}</div>
-
-        <div style="margin-left:50px;">
-            <div class="jcli_tit">{{el.title}}</div>
-
-            <div class="jcli_box">
-                <div class="jcli_rp" ms-repeat-son="el.items">
-                    <div class="rad3 jcli_rp_tit" ms-if-loop="el.status=='normal' && el.terminaltime>now_time()" onclick="touzhu($(this).attr('value'))" ms-attr-value="son.guess_id+'|'+son.id+'|'+son.odds+'|'+el.maxgold">{{son.optName}} ({{son.odds}})</div>
-                    <div class="rad3 jcli_rp_tit" ms-if-loop="el.status!='normal' || el.terminaltime<now_time()" style="background-color:#AFB1B1;cursor:default;">{{son.optName}} ({{son.odds}})</div>
-                </div>
-
-                <div class="cls"></div>
-            </div>
-        </div>
-    </li>
-</div>
-
-
-
-<script>
-    var p_host        = '华中科大';
-    var p_guest       = '太原理工';
-    var p_game_date   = '2018-05-23';
-    var p_saishi_id   = '124692';//p_saishi_id
-    var p_match_time  = '2018-05-23 18:00';
-
-    var p_host_img    = 'lanqiuzhudui';
-    var p_visit_img   = 'lanqiukedui';
-    var filename      = '2018-nba-0523124692';
-    var txt_live      = '1';
-    var total_score_h = '';
-    var total_score_v = '';
-    var open_txt = '0';
+  
+<script type="text/javascript">
+     var liveStatus = "<?php echo $data['liveStatus']; ?>";
+     var commentaryData = "<?php echo json_encode($data['commentaryData']); ?>";
 </script>
-
-<!--<script src="/static/zhibo8/js/bk2016.js"></script> -->
+ 
 
 <script src="/static/zhibo8/js/ndanmu.js"></script>
-
+<script src="/static/zhibo8/js/live.js"></script>
 <script type="text/javascript">
   $(".tbar").click(function(){
       $(".tbar").removeClass('current');
