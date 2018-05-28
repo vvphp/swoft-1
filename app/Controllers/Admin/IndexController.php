@@ -23,22 +23,18 @@ use App\Models\Logic\LiveGameLogic;
 
 /**
  * Class IndexController
- * @Controller(prefix="/admin")
+ * @Controller(prefix="/admin/index")
  */
 class IndexController
 {
-
     /**
      * 赛事列表
-     * @View(template="admin/index")
+     * @View(template="zhibo/detail/wenzi")
      * @return Response
      */
     public function index()
     {
-        /* @var LiveGameLogic $logic */
-        $logic = App::getBean(LiveGameLogic::class);
-        $data = $logic->getGameListData();
-        return ['data' => $data];
+
     }
 
 }
