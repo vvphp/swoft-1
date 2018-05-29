@@ -23,6 +23,7 @@ use App\Middlewares\ControllerMiddleware;
 use Swoft\Http\Message\Server\Request;
 use App\Models\Logic\LiveAdminUserLogic;
 use Swoft\Bean\Annotation\Bean;
+use Swoft\Http\Server\Bean\Annotation\RequestMethod;
 use App\Common\Tool\Util;
 
 /**
@@ -74,7 +75,7 @@ class IndexController
         $adminLogic = App::getBean(LiveAdminUserLogic::class);
         $check = $adminLogic->checkUserByPass($userName,$passwd);
         if(empty($check)){
-            return Util::showMsg(['msg' => Util::getMsg('login_error')],'error','0');
+            return Util::showMsg(['msg' => Util::getMsg('login_error')],'login_error','0');
         }
 
     }

@@ -28,7 +28,7 @@
             </div>
             <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input name="subsignin" type="submit" onclick="submit()" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+                    <input name="subsignin" type="button" onclick="subData()" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
                     <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
                 </div>
             </div>
@@ -41,7 +41,7 @@
 <?php $this->include('layouts/admin/footer') ?>
 
 <script type="text/javascript">
-    function submit()
+    function subData()
     {
         var userName = $("#userName").val();
         var passwd   = $("#passwd").val();
