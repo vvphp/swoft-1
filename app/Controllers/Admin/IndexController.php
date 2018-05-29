@@ -16,10 +16,8 @@ use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 use Swoft\Log\Log;
 use Swoft\View\Bean\Annotation\View;
-use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
-use App\Models\Logic\LiveGameLogic;
 
 /**
  * Class IndexController
@@ -27,9 +25,11 @@ use App\Models\Logic\LiveGameLogic;
  */
 class IndexController
 {
+
     /**
-     * 赛事列表
-     * @View(template="zhibo/detail/wenzi")
+     * 后台首页
+     * @RequestMapping();
+     * @View(template="admin/index")
      * @return Response
      */
     public function index()
