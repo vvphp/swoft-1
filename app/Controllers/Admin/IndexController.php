@@ -65,8 +65,7 @@ class IndexController
     {
         $post = $request->post();
         if(empty($post) || empty($post['userName']) || empty($post['passwd'])){
-            $response->redirect("/admin/index/login");
-            return ;
+            return Util::showMsg([],'login_error_empty_data','0');
         }
         $userName = trim($post['userName']);
         $passwd   = trim($post['passwd']);
@@ -75,7 +74,7 @@ class IndexController
         $adminLogic = App::getBean(LiveAdminUserLogic::class);
         $check = $adminLogic->checkUserByPass($userName,$passwd);
         if(empty($check)){
-            return Util::showMsg(['msg' => Util::getMsg('login_error')],'login_error','0');
+            return Util::showMsg([],'login_error','0');
         }
 
     }

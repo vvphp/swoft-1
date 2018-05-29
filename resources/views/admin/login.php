@@ -60,6 +60,10 @@
             dataType: 'json',
             success: function(data){
                 console.log(data);
+                 alert(data.msg);
+                 if(data.status == '1'){
+                    window.location.href="/admin/index/index";
+                 }
             }
         });
 

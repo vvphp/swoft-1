@@ -38,11 +38,15 @@ class Util{
         $msg  = self::getMsg($msgCode,[],$language);
         $sCode = 'success';
         if(empty($code)){
-            $sCode = 'error';
+             $sCode = 'error';
         }
         $code = self::getCode($sCode,$language);
-        $data = JsonHelper::encode($data);
-        return  ResponseHelper::formatData($data,$msg,$code);
+        $ret = [
+            'data' => $data,
+            'msg'  => $msg,
+            'code' => $code
+        ];
+        return json_encode($ret);
     }
 
     /**
