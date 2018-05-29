@@ -30,11 +30,12 @@ class ControllerMiddleware implements MiddlewareInterface
 {
 
     /**
-     * 允许不登录 直接访问的地址
+     * 允许直接访问的地址
      * @var array
      */
     private $allowAccess = [
-        '/admin/index/index'
+        '/admin/index/login',
+        '/admin/index/sigin'
     ];
 
     /**
