@@ -56,9 +56,9 @@
         $.ajax({
             type: 'POST',
             url: '/admin/index/signin',
-            data: {"userName":userName,"passwd":passwd},
-            dataType: 'json',
+            data: {"userName":userName,"passwd":passwd}
             success: function(data){
+                data = JSON.parse(data);
                 console.log(data);
                  alert(data.msg);
                  if(data.status == '1'){
