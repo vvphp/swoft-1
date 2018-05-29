@@ -40,4 +40,25 @@ class IndexController
        return [];
     }
 
+    /**
+     * 登录页
+     * @RequestMapping();
+     * @View(template="admin/login")
+     * @return Response
+     */
+    public function login()
+    {
+         return [];
+    }
+
+    /**
+     * 登录处理
+     * @RequestMapping();
+     * @return Response
+     */
+    public function sigin()
+    {
+           return [];
+    }
+
 }

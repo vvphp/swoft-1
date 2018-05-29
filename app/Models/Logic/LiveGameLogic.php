@@ -16,7 +16,7 @@ use App\Models\Entity\LiveMatchTable;
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use App\Models\Logic\LiveMatchLogic;
-use App\Models\Logic\LiveNarratorLogic;
+use App\Models\Logic\LiveAdminUserLogic;
 use App\Models\Logic\LiveCommentaryLogic;
 
 /**
@@ -203,9 +203,9 @@ class LiveGameLogic
         $commentaryData = [];
         //解说员信息
         if($gameData['liveMemberId']){
-            /* @var LiveNarratorLogic $narratorLogic */
-            $narratorLogic = App::getBean(LiveNarratorLogic::class);
-            $narratorData = $narratorLogic->getNarratorById($gameData['liveMemberId']);
+            /* @var LiveAdminUserLogic $adminLogic */
+            $adminLogic = App::getBean(LiveAdminUserLogic::class);
+            $narratorData = $adminLogic->getUserDataById($gameData['liveMemberId']);
          }
          //比赛解说详情信息
         if($gameData['liveStatus'] > 1){

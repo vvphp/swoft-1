@@ -44,6 +44,12 @@ class ControllerMiddleware implements MiddlewareInterface
     static $adminCookie = 'adminLogin';
 
     /**
+     * 跳转登录地址URL
+     * @var string
+     */
+    static $loginUrl = '/admin/index/login';
+
+    /**
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @param \Psr\Http\Server\RequestHandlerInterface $handler
      * @return \Psr\Http\Message\ResponseInterface
@@ -53,7 +59,7 @@ class ControllerMiddleware implements MiddlewareInterface
     {
        $auth = $this->checkLogin($request);
        if($auth == false){
-            return \response()->withStatus(302,'http://www.baidu.com');
+            return \response()->redirect(self::$loginUrl);
        }
         return  $handler->handle($request);
      }

@@ -1,4 +1,5 @@
 ﻿<?php $this->include('layouts/admin/head') ?>
+</head>
 <body>
 <?php $this->include('layouts/admin/header') ?>
 

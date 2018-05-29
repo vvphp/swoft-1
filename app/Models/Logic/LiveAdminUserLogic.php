@@ -1,6 +1,6 @@
 <?php
 /**
- * 解说员表 逻辑层
+ * 管理员表 逻辑层
  *
  * @link https://swoft.org
  * @document https://doc.swoft.org
@@ -10,6 +10,7 @@
 
 namespace App\Models\Logic;
 
+use App\Models\Entity\LiveAdminUser;
 use App\Models\Entity\LiveNarratorTable;
 
 use Swoft\Bean\Annotation\Bean;
@@ -18,26 +19,26 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
 /**
  *
  * @Bean()
- * @uses      LiveNarratorLogic
+ * @uses      LivAdminUserLogic
  * @version   2018年05月22日
  * @author    zxr <strive965432@gmail.com>
  * @copyright Copyright 2010-2016 swoft software
  * @license   PHP Version 7.x {@link http://www.php.net/license/3_0.txt}
  */
-class LiveNarratorLogic
+class LiveAdminUserLogic
 {
     /**
-     * 根据 user_id 查询表中直播员信息
+     * 根据 user_id 查询表中用户信息
      * @param int $user_id
      * @return mixed
      */
-    public function getNarratorById(int $user_id)
+    public function getUserDataById(int $user_id)
     {
         $where = [
             'id' => $user_id
         ];
         $fields = ['id','name','nikename'];
-        $result =  LiveNarratorTable::findOne($where, ['fields' => $fields])->getResult();
+        $result =  LiveAdminUser::findOne($where, ['fields' => $fields])->getResult();
         if(!empty($result)){
             $result = $result->toArray();
         }
