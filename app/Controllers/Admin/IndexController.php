@@ -18,6 +18,8 @@ use Swoft\Log\Log;
 use Swoft\View\Bean\Annotation\View;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
+use Swoft\Http\Message\Bean\Annotation\Middleware;
+use App\Middlewares\ControllerMiddleware;
 
 /**
  * Class IndexController

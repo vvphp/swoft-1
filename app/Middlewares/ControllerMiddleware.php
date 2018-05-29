@@ -28,6 +28,21 @@ use Swoft\Http\Message\Middleware\MiddlewareInterface;
  */
 class ControllerMiddleware implements MiddlewareInterface
 {
+
+    /**
+     * 允许不登录 直接访问的地址
+     * @var array
+     */
+    private $allowAccess = [
+        '/admin/index/index'
+    ];
+
+    /**
+     * 后台登录的cookie名
+     * @var string
+     */
+    static $adminCookie = 'adminLogin';
+
     /**
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @param \Psr\Http\Server\RequestHandlerInterface $handler
@@ -36,9 +51,29 @@ class ControllerMiddleware implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        echo '###';
-        print_r($request);
-        $response = $handler->handle($request);
-        return $response->withAddedHeader('Controller-Sub-Middleware', 'success');
+       $auth = $this->checkLogin($request);
+       if($auth == false){
+            return \response()->withStatus(302,'http://www.baidu.com');
+       }
+        return  $handler->handle($request);
+     }
+
+    /**
+     * 检查是否登录
+     * @param ServerRequestInterface $request
+     * @return  boolean
+     */
+    private function checkLogin(ServerRequestInterface $request)
+    {
+        $path = $request->getUri()->getPath();
+        if(in_array($path,$this->allowAccess)){
+             return true;
+        }
+        $cookie = $request->getCookieParams();
+        $cookieName = self::$adminCookie;
+        if(!isset($cookie[$cookieName]) || empty($cookie[$cookieName])){
+             return false;
+        }
     }
+
 }
