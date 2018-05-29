@@ -56,12 +56,11 @@
         $.ajax({
             type: 'POST',
             url: '/admin/index/signin',
-            data: {"userName":userName,"passwd":passwd}
+            data: {"userName":userName,"passwd":passwd},
             success: function(data){
                 data = JSON.parse(data);
-                console.log(data);
                  alert(data.msg);
-                 if(data.status == '1'){
+                 if(data.code == '1'){
                     window.location.href="/admin/index/index";
                  }
             }
