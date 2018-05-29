@@ -23,5 +23,6 @@ return [
     'login_verify_error' => '验证码不正确',
     'login_input_code'   => '请输入验证码',
     'login_phone_error'  => '手机号不正确,请重新输入',
-    'login_phone_empty'  => '手机号不能为空'
+    'login_phone_empty'  => '手机号不能为空',
+    'login_error'        => '用户名或密码不正确'
 ];

@@ -6,24 +6,17 @@
 <div class="header"></div>
 <div class="loginWraper">
     <div id="loginform" class="loginBox">
-        <form class="form form-horizontal" action="index.html" method="post">
+        <form class="form form-horizontal">
             <div class="row cl">
                 <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
                 <div class="formControls col-xs-8">
-                    <input id="" name="" type="text" placeholder="账户" class="input-text size-L">
+                    <input id="userName" name="userName" type="text" placeholder="账户" class="input-text size-L">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
                 <div class="formControls col-xs-8">
-                    <input id="" name="" type="password" placeholder="密码" class="input-text size-L">
-                </div>
-            </div>
-            <div class="row cl">
-                <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-                    <img src="images/VerifyCode.aspx.png">
-                    <a id="kanbuq" href="javascript:;">看不清，换一张</a>
+                    <input id="passwd" name="passwd" type="password" placeholder="密码"  class="input-text size-L">
                 </div>
             </div>
             <div class="row cl">
@@ -35,7 +28,7 @@
             </div>
             <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+                    <input name="subsignin" type="submit" onclick="submit()" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
                     <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
                 </div>
             </div>
@@ -43,9 +36,35 @@
     </div>
 </div>
 
-<div class="footer">Copyright 你的公司名称 by H-ui.admin.page.v3.0</div>
+<div class="footer">Copyright 图文直播系统 by H-ui.admin.page.v3.0</div>
 
 <?php $this->include('layouts/admin/footer') ?>
+
+<script type="text/javascript">
+    function submit()
+    {
+        var userName = $("#userName").val();
+        var passwd   = $("#passwd").val();
+        if(userName.length == 0 || passwd == 0){
+            alert("请输入用户名和密码");
+            return false;
+        }
+        if(userName.length < 3 || passwd < 6){
+            alert("请输入正确的用户名和密码");
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/admin/index/signin',
+            data: {"userName":userName,"passwd":passwd},
+            dataType: 'json',
+            success: function(data){
+                console.log(data);
+            }
+        });
+
+    }
+</script>
 
 </body>
 </html>

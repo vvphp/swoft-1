@@ -35,7 +35,7 @@ class ControllerMiddleware implements MiddlewareInterface
      */
     private $allowAccess = [
         '/admin/index/login',
-        '/admin/index/sigin'
+        '/admin/index/signin'
     ];
 
     /**

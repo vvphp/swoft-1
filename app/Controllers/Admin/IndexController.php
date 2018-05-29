@@ -20,6 +20,10 @@ use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
 use Swoft\Http\Message\Bean\Annotation\Middleware;
 use App\Middlewares\ControllerMiddleware;
+use Swoft\Http\Message\Server\Request;
+use App\Models\Logic\LiveAdminUserLogic;
+use Swoft\Bean\Annotation\Bean;
+use App\Common\Tool\Util;
 
 /**
  * Class IndexController
@@ -48,17 +52,31 @@ class IndexController
      */
     public function login()
     {
-         return [];
+          return [];
     }
 
     /**
      * 登录处理
-     * @RequestMapping();
+     * @RequestMapping(route="signin", method={RequestMethod::POST})
      * @return Response
      */
-    public function sigin()
+    public function signin(Request $request,Response $response)
     {
-           return [];
+        $post = $request->post();
+        if(empty($post) || empty($post['userName']) || empty($post['passwd'])){
+            $response->redirect("/admin/index/login");
+            return ;
+        }
+        $userName = trim($post['userName']);
+        $passwd   = trim($post['passwd']);
+
+        /* @var LiveAdminUserLogic $adminLogic */
+        $adminLogic = App::getBean(LiveAdminUserLogic::class);
+        $check = $adminLogic->checkUserByPass($userName,$passwd);
+        if(empty($check)){
+            return Util::showMsg(['msg' => Util::getMsg('login_error')],'error','0');
+        }
+
     }
 
 }

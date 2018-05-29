@@ -45,4 +45,25 @@ class LiveAdminUserLogic
         return $result;
     }
 
+
+    /**
+     * 检查用户名和密码是否正确
+     * @param $userName
+     * @param $passWord
+     * @return array
+     */
+    public function checkUserByPass($userName,$passWord)
+    {
+        $where = [
+            'user_name' => $userName,
+            'password'  => $passWord
+        ];
+        $fields = ['id','is_live','status','add_date','name','nikename','last_login_date'];
+        $result =  LiveAdminUser::findOne($where, ['fields' => $fields])->getResult();
+        if(!empty($result)){
+            $result = $result->toArray();
+        }
+        return $result;
+    }
+
 }
