@@ -22,6 +22,7 @@ use Swoft\Http\Message\Server\Response;
 /**
  * Class IndexController
  * @Controller(prefix="/admin/index")
+ * @Middleware(class=ControllerMiddleware::class)
  */
 class IndexController
 {
@@ -34,7 +35,7 @@ class IndexController
      */
     public function index()
     {
-
+       return [];
     }
 
 }
