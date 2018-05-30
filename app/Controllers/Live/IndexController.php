@@ -36,9 +36,11 @@ class IndexController
      */
     public function index()
     {
+        $startDate = date('Y-m-d');
+        $endDate  = date('Y-m-d',strtotime("+2 Month"));
         /* @var LiveGameLogic $logic */
         $logic = App::getBean(LiveGameLogic::class);
-        $data = $logic->getGameListData();
+        $data = $logic->getGameListDataByDate($startDate,$endDate);
         return ['data' => $data];
     }
 

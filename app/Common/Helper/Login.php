@@ -41,6 +41,9 @@ class  Login{
             return [];
         }
         $userInfo = DES1::decrypt($cookData);
+        if(!empty($userInfo)){
+             $userInfo = json_decode($userInfo,true);
+        }
         return $userInfo;
     }
 

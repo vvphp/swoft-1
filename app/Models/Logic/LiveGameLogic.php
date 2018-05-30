@@ -18,6 +18,7 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use App\Models\Logic\LiveMatchLogic;
 use App\Models\Logic\LiveAdminUserLogic;
 use App\Models\Logic\LiveCommentaryLogic;
+use Swoft\Bean\Annotation\Inject;
 
 /**
  * @Bean()
@@ -30,115 +31,74 @@ use App\Models\Logic\LiveCommentaryLogic;
 class LiveGameLogic
 {
     /**
+     *
+     * @Inject()
+     * @var LiveGameDao
+     */
+     private  $LiveGameDao;
+
+
+    /**
      * 先判断是否存在，如果不存在则插入，如果存在则直接返回true
      * @param $data
      * @return bool|mixed
      */
     public function saveLiveGame($data)
     {
-      if(empty($data) || empty($data['game_date']) || empty($data['data_time']) || empty($data['match_id'])){
+        if(empty($data) || empty($data['game_date']) || empty($data['data_time']) || empty($data['match_id'])){
             return 0 ;
         }
-       $result = $this->getGameIdByWhere($data);
-       if(!empty($result)){
-            return $result['id'];
-       }
-      $ret = $this->saveGameByData($data);
-      return $ret;
+        return $this->LiveGameDao->saveLiveGame($data);
     }
 
-
     /**
-     * 根据 $where 条件 查询
-     * @param array $where
-     * @param array $fields
-     * @return mixed
+     * 根据ID 查询赛事信息
+     * @param int $game_id
+     * @return array
      */
-    public function getGameIdByWhere($where,$fields=[])
+    public function getGameDataByGameId(int $game_id)
     {
-        $filter = [];
-        if(isset($where['id'])){
-             $filter[ 'id'] = $where['id'];
+        if(empty($game_id)){
+            return [];
         }
-        if(isset($where['match_id'])){
-            $filter[ 'match_id'] = $where['match_id'];
-        }
-        if(isset($where['game_date'])){
-            $filter[ 'game_date'] = $where['game_date'];
-        }
-        if(isset($where['data_time'])){
-            $filter[ 'data_time'] = $where['data_time'];
-        }
-        if(isset($where['home_team_id'])){
-            $filter[ 'home_team_id'] = $where['home_team_id'];
-        }
-        if(isset($where['visiting_team_id'])){
-            $filter[ 'visiting_team_id'] = $where['visiting_team_id'];
-        }
-        if(empty($fields)){
-            $fields = ['id'];
-        }
-        $result =  LiveGameSchedule::findOne($filter, ['fields' => $fields ])->getResult();
-        if(!empty($result)){
-            $result = $result->toArray();
-        }
-        return $result;
-    }
-
-    /**
-     * 插入数据
-     * @param $data
-     * @return mixed
-     */
-    public  function saveGameByData($data)
-    {
-        $values = [
-            [
-              'match_id' => $data['match_id'],
-              'live_member_id' => $data['live_member_id'],
-              'game_date' => $data['game_date'],
-              'data_time' => $data['data_time'],
-              'label' => $data['label'],
-              'home_team_id' => $data['home_team_id'],
-              'visiting_team_id' => $data['visiting_team_id'],
-              'add_date'    => time()
-            ],
-        ];
-       $result =  LiveGameSchedule::batchInsert($values)->getResult();
-       return $result;
+        return $this->LiveGameDao->getGameDataByGameId($game_id);
     }
 
 
     /**
-     * 根据时间段查询赛事数据
+     * 根据时间查询赛事列表
      * @param $startDate
      * @param $endDate
-     * @return array|mixed
+     * @return array
      */
-    public function getGameDataByDate($startDate,$endDate)
+    public function getGameListDataByDate($startDate,$endDate)
     {
-        $where = [
-              'game_date','between',$startDate,$endDate
-         ];
-        $fields = ['id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
-        $result = LiveGameSchedule::findAll($where, ['fields' => $fields,'orderby' => ['game_date' => 'ASC','data_time' => 'ASC']])->getResult();
-        if(empty($result)){
-              return [];
-        }
-        $result = $result->toArray();
-        return $result;
+        $result = $this->LiveGameDao->getGameDataByDate($startDate,$endDate);
+        return  $this->getGameListData($result);
     }
 
+    /**
+     * 根据条件查询赛事列表
+     * @param $where
+     * @param array $fields
+     * @param array $orderBy
+     * @param $start
+     * @param $limit
+     * @return array
+     */
+    public function getGameListDataByWhere($where=[],$orderBy=[],$start=0,$limit=10)
+    {
+        $result = $this->LiveGameDao->getGameListDataByWhere($where,$orderBy,$start,$limit);
+        return  $this->getGameListData($result);
+    }
 
     /**
      * 查询赛事列表数据
+     * @param array $result
      * @return array
      */
-    public function getGameListData()
+    public function getGameListData($result)
     {
-        $currDate = date('Y-m-d');
-        $endDate  = date('Y-m-d',strtotime("+2 Month"));
-        $result = $this->getGameDataByDate($currDate,$endDate);
         $match_id_list = array_column($result,'matchId');
         $team_id_list  = array_column($result,'homeTeamId');
         $game_id_list  = array_column($result,'id');
@@ -167,24 +127,6 @@ class LiveGameLogic
     }
 
 
-    /**
-     * 根据ID 查询赛事信息
-     * @param int $game_id
-     * @return array
-     */
-    public function getGameDataByGameId(int $game_id)
-    {
-        if(empty($game_id)){
-              return [];
-        }
-        $where = [ 'id' => $game_id ];
-        $fields = ['id','match_id','live_member_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
-        $gameData = $this->getGameIdByWhere($where,$fields);
-        if(empty($gameData)){
-             return [];
-        }
-        return $gameData;
-    }
 
     /**
      * 根据ID 整理赛事信息

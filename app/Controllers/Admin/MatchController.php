@@ -11,24 +11,15 @@
 namespace App\Controllers\Admin;
 
 use Swoft\App;
-use Swoft\Core\Coroutine;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
-use Swoft\Log\Log;
 use Swoft\View\Bean\Annotation\View;
-use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
-use Swoft\Http\Message\Bean\Annotation\Middleware;
-use App\Middlewares\ControllerMiddleware;
 use Swoft\Http\Message\Server\Request;
-use App\Models\Logic\LiveAdminUserLogic;
 use Swoft\Bean\Annotation\Bean;
-use Swoft\Http\Server\Bean\Annotation\RequestMethod;
-use App\Common\Tool\Util;
-use Swoft\Http\Message\Cookie\Cookie;
-use Swoft\Helper\JsonHelper;
-use App\Common\Helper\Login;
-use App\Common\McrYpt\DES1;
+
+use App\Models\Logic\LiveGameLogic;
+
 
 /**
  * Class MatchController
@@ -37,7 +28,6 @@ use App\Common\McrYpt\DES1;
  */
 class MatchController
 {
-
     /**
      * 后台赛事列表
      * @RequestMapping();
@@ -46,7 +36,12 @@ class MatchController
      */
     public function index()
     {
-         return [];
+        /* @var LiveGameLogic $matchLogic */
+        $matchLogic = App::getBean(LiveGameLogic::class);
+        $data = $matchLogic->getGameListDataByWhere();
+
+        print_r($data);
+         return ['data' => $data];
      }
 
 
