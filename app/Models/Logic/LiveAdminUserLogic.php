@@ -11,7 +11,6 @@
 namespace App\Models\Logic;
 
 use App\Models\Entity\LiveAdminUser;
-use App\Models\Entity\LiveNarratorTable;
 
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;

@@ -25,7 +25,6 @@ use App\Models\Logic\LiveAdminUserLogic;
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Http\Server\Bean\Annotation\RequestMethod;
 use App\Common\Tool\Util;
-use App\Common\Mcrypt\Mcrypt;
 use Swoft\Http\Message\Cookie\Cookie;
 use Swoft\Helper\JsonHelper;
 use App\Common\Helper\Login;
@@ -37,6 +36,12 @@ use App\Common\Helper\Login;
  */
 class IndexController
 {
+
+    /**
+     * @\Swoft\Bean\Annotation\Inject("AesCrypt")
+     * @var \App\Common\Mcrypt\AesCrypt
+     */
+     private $aesCrypt;
 
     /**
      * 后台首页
@@ -73,7 +78,8 @@ class IndexController
         if(empty($post) || empty($userName) || empty($passwd)){
             return Util::showMsg([],'login_error_empty_data','0');
         }
-        $passwd   = Mcrypt::encode($passwd);
+
+        $passwd  = $this->aesCrypt->encrypt($passwd);
 
         var_dump($passwd);
 
