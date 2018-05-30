@@ -6,6 +6,8 @@
  */
 namespace App\Common\Helper;
 use Swoft\App;
+use Psr\Http\Message\ServerRequestInterface;
+use App\Common\McrYpt\DES1;
 
 class  Login{
 
@@ -22,11 +24,39 @@ class  Login{
     public static function getAdminCookieName()
     {
         $config = self::getConfig();
-         return isset($config['adminCookie']) ? $config['adminCookie']:'aaa';
+         return isset($config['adminCookie']) ? $config['adminCookie']:'adminLogin';
     }
 
+    /**
+     * 获取当前登录用户信息
+     * @param ServerRequestInterface $request
+     * @return array|bool|string
+     */
+    public static function getAdminUserInfo(ServerRequestInterface $request)
+    {
+        $cookieName = self::getAdminCookieName();
+        $cookie = $request->getCookieParams();
+        $cookData = isset($cookie[$cookieName]) ? trim($cookie[$cookieName]) : '';
+        if(empty($cookData)){
+            return [];
+        }
+        $userInfo = DES1::decrypt($cookData);
+        return $userInfo;
+    }
 
-
+    /**
+     * 是否登录
+     * @param ServerRequestInterface $request
+     * @return bool
+     */
+    public function isAuth(ServerRequestInterface $request)
+    {
+        $userInfo = self::getAdminUserInfo($request);
+        if(empty($userInfo) || !isset($userInfo['id']) ){
+             return false;
+        }
+         return true;
+    }
 
  }
 

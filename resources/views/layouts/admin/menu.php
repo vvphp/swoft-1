@@ -6,7 +6,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 赛事管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="article-list.html" title="资讯管理">赛事列表</a></li>
+                    <li><a href="/admin/match/index" title="资讯管理">赛事列表</a></li>
                 </ul>
             </dd>
         </dl>

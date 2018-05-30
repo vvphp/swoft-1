@@ -15,6 +15,7 @@ use App\Models\Entity\LiveAdminUser;
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use App\Models\Dao\LiveAdminUserDao;
+use Swoft\Bean\Annotation\Inject;
 
 /**
  *

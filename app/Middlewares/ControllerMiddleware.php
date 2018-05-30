@@ -15,6 +15,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Http\Message\Middleware\MiddlewareInterface;
+use App\Common\Helper\Login;
+
 
 /**
  * the sub middleware of controler
@@ -39,16 +41,16 @@ class ControllerMiddleware implements MiddlewareInterface
     ];
 
     /**
-     * 后台登录的cookie名
-     * @var string
-     */
-    static $adminCookie = 'adminLogin';
-
-    /**
      * 跳转登录地址URL
      * @var string
      */
-    static $loginUrl = '/admin/index/login';
+   public static $loginUrl = '/admin/index/login';
+
+    /**
+     * 跳转到后台首页
+     * @var string
+     */
+   public static $adminIndex = "/admin/index/index";
 
     /**
      * @param \Psr\Http\Message\ServerRequestInterface $request
@@ -58,30 +60,56 @@ class ControllerMiddleware implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-       $auth = $this->checkLogin($request);
-       if($auth == false){
+       $checkPath = $this->checkCurrentPath($request);
+       $auth = $this->auth($request);
+       if($checkPath == false && $auth == false){
             return \response()->redirect(self::$loginUrl);
        }
+       $redirect = $this->checkRedirectIndexUrl($request);
+       if($redirect){
+           return \response()->redirect(self::$adminIndex);
+        }
         return  $handler->handle($request);
      }
 
     /**
-     * 检查是否登录
+     * 检查当前路径
      * @param ServerRequestInterface $request
-     * @return  boolean
+     * @return bool
      */
-    private function checkLogin(ServerRequestInterface $request)
+    private function checkCurrentPath(ServerRequestInterface $request)
     {
         $path = $request->getUri()->getPath();
         if(in_array($path,$this->allowAccess)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 如果登录后，再访问登录页面 就直接跳转到后台首页
+     * @param ServerRequestInterface $request
+     */
+    public function checkRedirectIndexUrl(ServerRequestInterface $request)
+    {
+        $path = $request->getUri()->getPath();
+        $auth = $this->auth($request);
+        if(strcasecmp($path,self::$loginUrl) === 0 && !empty($auth)){
              return true;
         }
-        $cookie = $request->getCookieParams();
-        $cookieName = self::$adminCookie;
-        if(!isset($cookie[$cookieName]) || empty($cookie[$cookieName])){
-             return false;
-        }
-        return true;
+        return false;
     }
+
+
+    /**
+     * 检查是否登录
+     * @param ServerRequestInterface $request
+     * @return bool
+     */
+    public function auth(ServerRequestInterface $request)
+    {
+        return  Login::isAuth($request);
+    }
+
 
 }
