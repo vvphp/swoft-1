@@ -8,7 +8,7 @@
  * @license https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace App\Models\Logic;
+namespace App\Models\Dao;
 
 use Swoft\App;
 use App\Models\Entity\LiveGameSchedule;

@@ -18,7 +18,9 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use App\Models\Logic\LiveMatchLogic;
 use App\Models\Logic\LiveAdminUserLogic;
 use App\Models\Logic\LiveCommentaryLogic;
+
 use Swoft\Bean\Annotation\Inject;
+use App\Models\Dao\LiveGameDao;
 
 /**
  * @Bean()
@@ -89,15 +91,16 @@ class LiveGameLogic
     public function getGameListDataByWhere($where=[],$orderBy=[],$start=0,$limit=10)
     {
         $result = $this->LiveGameDao->getGameListDataByWhere($where,$orderBy,$start,$limit);
-        return  $this->getGameListData($result);
+        return  $this->getGameListData($result,false);
     }
 
     /**
      * 查询赛事列表数据
      * @param array $result
+     * @param bool $isTimeSub
      * @return array
      */
-    public function getGameListData($result)
+    public function getGameListData($result,$isTimeSub=true)
     {
         $match_id_list = array_column($result,'matchId');
         $team_id_list  = array_column($result,'homeTeamId');
@@ -122,7 +125,7 @@ class LiveGameLogic
         $playLogic = App::getBean(LivePlayLogic::class);
         $playData =  $playLogic->getPlayDataById($game_id_list);
 
-        $data =  $this->processGameListData($result,$matchData,$teamList,$playData);
+        $data =  $this->processGameListData($result,$matchData,$teamList,$playData,$isTimeSub);
         return $data;
     }
 
@@ -204,9 +207,10 @@ class LiveGameLogic
      * @param $matchData
      * @param $teamList
      * @param $playData
+     * @param $isTimeSub
      * @return array  $data
      */
-    public function processGameListData($gameData,$matchData,$teamList,$playData)
+    public function processGameListData($gameData,$matchData,$teamList,$playData,$isTimeSub=true)
     {
         $data = [];
         $playList = [];
@@ -229,12 +233,15 @@ class LiveGameLogic
             $data[$gameId]['visiting_team'] = isset($teamList[$visiting_team_id]) ? $teamList[$visiting_team_id] : [];
             $data[$gameId]['play_links'] = isset($playList[$gameId]) ? $playList[$gameId] : [];
         }
+        unset($teamData,$matchData,$playData,$gameData);
+        if($isTimeSub == false){
+              return $data;
+        }
         $reData = [];
         foreach($data as $index => $item){
               $gameDate = $item['gameDate'];
               $reData[$gameDate][] = $item;
         }
-        unset($teamData,$matchData,$playData,$gameData,$data);
         return $reData;
     }
 

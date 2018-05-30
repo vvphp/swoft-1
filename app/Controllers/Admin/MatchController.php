@@ -17,7 +17,8 @@ use Swoft\View\Bean\Annotation\View;
 use Swoft\Http\Message\Server\Response;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Bean\Annotation\Bean;
-
+use Swoft\Http\Message\Bean\Annotation\Middleware;
+use App\Middlewares\ControllerMiddleware;
 use App\Models\Logic\LiveGameLogic;
 
 
