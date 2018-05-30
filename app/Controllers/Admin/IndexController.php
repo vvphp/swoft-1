@@ -38,10 +38,10 @@ class IndexController
 {
 
     /**
-     * @\Swoft\Bean\Annotation\Inject("AesCrypt")
-     * @var \App\Common\Mcrypt\AesCrypt
+     * @\Swoft\Bean\Annotation\Inject("DES1")
+     * @var \App\Common\McrYpt\DES1
      */
-     private $aesCrypt;
+     private $DES1;
 
     /**
      * 后台首页
@@ -74,18 +74,17 @@ class IndexController
     {
         $post = $request->post();
         $userName = isset($post['userName']) ? trim($post['userName']) : '';
-        $passwd   = isset($post['passwd']) ? trim($post['passwd']) : '';
-        if(empty($post) || empty($userName) || empty($passwd)){
+        $passWord   = isset($post['passwd']) ? trim($post['passwd']) : '';
+        if(empty($post) || empty($userName) || empty($passWord)){
             return Util::showMsg([],'login_error_empty_data','0');
         }
+        $passWord  = $this->DES1->encrypt($passWord);
 
-        $passwd  = $this->aesCrypt->encrypt($passwd);
-
-        var_dump($passwd);
+        var_dump($passWord);
 
         /* @var LiveAdminUserLogic $adminLogic */
         $adminLogic = App::getBean(LiveAdminUserLogic::class);
-        $check = $adminLogic->checkUserByPass($userName,$passwd);
+        $check = $adminLogic->checkUserByPass($userName,$passWord);
         if(empty($check)){
             return Util::showMsg([],'login_error','0');
         }
