@@ -81,6 +81,7 @@ class ControllerMiddleware implements MiddlewareInterface
         if(!isset($cookie[$cookieName]) || empty($cookie[$cookieName])){
              return false;
         }
+        return true;
     }
 
 }

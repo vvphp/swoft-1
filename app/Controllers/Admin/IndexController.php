@@ -74,21 +74,18 @@ class IndexController
             return Util::showMsg([],'login_error_empty_data','0');
         }
         $passWord  = DES1::encrypt($passWord);
-        var_dump($passWord);
-
         /* @var LiveAdminUserLogic $adminLogic */
         $adminLogic = App::getBean(LiveAdminUserLogic::class);
         $check = $adminLogic->checkUserByPass($userName,$passWord);
         if(empty($check)){
             return Util::showMsg([],'login_error','0');
         }
-
+        //update last_login_date
+        $adminLogic->updateUserDataById($check['id'],['last_login_date'=>time()]);
         //set cookie
-        echo  Login::getAdminCookieName()."####";
-
         $loginData = JsonHelper::encode($check);
         $retJson = Util::showMsg([],'login_success','1');
-        $cookie = new Cookie(Login::getAdminCookieName(),Mcrypt::encode($loginData));
+        $cookie = new Cookie(Login::getAdminCookieName(),DES1::encrypt($loginData));
         $response->withCookie($cookie)->withContent($retJson)->send();
     }
 
