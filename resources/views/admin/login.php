@@ -58,14 +58,13 @@
             url: '/admin/index/signin',
             data: {"userName":userName,"passwd":passwd},
             success: function(data){
-                data = JSON.parse(data);
-                 alert(data.msg);
+                  data = JSON.parse(data);
+                  alert(data.msg);
                  if(data.code == '1'){
                     window.location.href="/admin/index/index";
                  }
             }
         });
-
     }
 </script>
 

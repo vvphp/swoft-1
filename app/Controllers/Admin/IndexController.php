@@ -25,6 +25,10 @@ use App\Models\Logic\LiveAdminUserLogic;
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Http\Server\Bean\Annotation\RequestMethod;
 use App\Common\Tool\Util;
+use App\Common\Mcrypt\Mcrypt;
+use Swoft\Http\Message\Cookie\Cookie;
+use Swoft\Helper\JsonHelper;
+use App\Common\Helper\Login;
 
 /**
  * Class IndexController
@@ -64,11 +68,14 @@ class IndexController
     public function signin(Request $request,Response $response)
     {
         $post = $request->post();
-        if(empty($post) || empty($post['userName']) || empty($post['passwd'])){
+        $userName = isset($post['userName']) ? trim($post['userName']) : '';
+        $passwd   = isset($post['passwd']) ? trim($post['passwd']) : '';
+        if(empty($post) || empty($userName) || empty($passwd)){
             return Util::showMsg([],'login_error_empty_data','0');
         }
-        $userName = trim($post['userName']);
-        $passwd   = trim($post['passwd']);
+        $passwd   = Mcrypt::encode($passwd);
+
+        var_dump($passwd);
 
         /* @var LiveAdminUserLogic $adminLogic */
         $adminLogic = App::getBean(LiveAdminUserLogic::class);
@@ -76,7 +83,13 @@ class IndexController
         if(empty($check)){
             return Util::showMsg([],'login_error','0');
         }
+        //set cookie
+        echo  Login::getAdminCookieName()."####";
 
+        $loginData = JsonHelper::encode($check);
+        $retJson = Util::showMsg([],'login_success','1');
+        $cookie = new Cookie(Login::getAdminCookieName(),Mcrypt::encode($loginData));
+        $response->withCookie($cookie)->withContent($retJson)->send();
     }
 
 }

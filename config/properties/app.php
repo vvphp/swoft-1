@@ -39,6 +39,10 @@ return [
         'logHttpRequestToConsole' => true,
       ],
 
+     'systemParameter' => [
+           'adminCookie' => 'adminLogin'
+     ],
+
     'env'          => 'Base',
     'db'           => require __DIR__ . DS . 'db.php',
     'cache'        => require __DIR__ . DS . 'cache.php',
