@@ -6,22 +6,14 @@
  */
 namespace App\Common\McrYpt;
 
-use Swoft\Bean\Annotation\Inject;
-
-
-/**
- * @\Swoft\Bean\Annotation\Bean("DES1")
- */
 class DES1 {
-
-    static $key = '123456';
-
+    static $key = 'zxr';
     /**
      * @param $input
      * @param int $type
      * @return string
      */
-    public  function encrypt($input, $type = 0) {
+    public static  function encrypt($input, $type = 0) {
         $key = self::$key;
         $size = mcrypt_get_block_size('des', 'ecb');
         $input = self::_pkcs5Pad($input, $size);
@@ -40,7 +32,7 @@ class DES1 {
      * @param int $type
      * @return bool|string
      */
-    public function decrypt($encrypted, $type = 0) {
+    public static function decrypt($encrypted, $type = 0) {
         $key = self::$key;
         $encrypted = $type == 0 ? base64_decode($encrypted) : self::Hex2bin($encrypted);
         $td = mcrypt_module_open('des','','ecb','');
@@ -54,7 +46,7 @@ class DES1 {
         mcrypt_generic_deinit($td);
         //结束
         mcrypt_module_close($td);
-        $y=self::_pkcs5Unpad($decrypted);
+        $y = self::_pkcs5Unpad($decrypted);
         return $y;
     }
 

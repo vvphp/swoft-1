@@ -28,6 +28,7 @@ use App\Common\Tool\Util;
 use Swoft\Http\Message\Cookie\Cookie;
 use Swoft\Helper\JsonHelper;
 use App\Common\Helper\Login;
+use App\Common\McrYpt\DES1;
 
 /**
  * Class IndexController
@@ -36,12 +37,6 @@ use App\Common\Helper\Login;
  */
 class IndexController
 {
-
-    /**
-     * @\Swoft\Bean\Annotation\Inject("DES1")
-     * @var \App\Common\McrYpt\DES1
-     */
-     private $DES1;
 
     /**
      * 后台首页
@@ -78,8 +73,7 @@ class IndexController
         if(empty($post) || empty($userName) || empty($passWord)){
             return Util::showMsg([],'login_error_empty_data','0');
         }
-        $passWord  = $this->DES1->encrypt($passWord);
-
+        $passWord  = DES1::encrypt($passWord);
         var_dump($passWord);
 
         /* @var LiveAdminUserLogic $adminLogic */
@@ -88,6 +82,7 @@ class IndexController
         if(empty($check)){
             return Util::showMsg([],'login_error','0');
         }
+
         //set cookie
         echo  Login::getAdminCookieName()."####";
 
