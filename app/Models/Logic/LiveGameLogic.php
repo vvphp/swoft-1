@@ -105,6 +105,7 @@ class LiveGameLogic
         $match_id_list = array_column($result,'matchId');
         $team_id_list  = array_column($result,'homeTeamId');
         $game_id_list  = array_column($result,'id');
+        $live_member_id_list = array_column($result,'liveMemberId');
         $team_id_list  = array_merge($team_id_list,array_column($result,'visitingTeamId'));
 
         $match_id_list = array_unique($match_id_list);
@@ -125,7 +126,11 @@ class LiveGameLogic
         $playLogic = App::getBean(LivePlayLogic::class);
         $playData =  $playLogic->getPlayDataById($game_id_list);
 
-        $data =  $this->processGameListData($result,$matchData,$teamList,$playData,$isTimeSub);
+        /* @var LiveAdminUserLogic $adminLogic */
+        $adminLogic = App::getBean(LiveAdminUserLogic::class);
+        $narratorData = $adminLogic->getUserDataById($live_member_id_list);
+
+        $data =  $this->processGameListData($result,$matchData,$teamList,$playData,$narratorData,$isTimeSub);
         return $data;
     }
 
@@ -207,10 +212,11 @@ class LiveGameLogic
      * @param $matchData
      * @param $teamList
      * @param $playData
+     * @param $narratorData
      * @param $isTimeSub
      * @return array  $data
      */
-    public function processGameListData($gameData,$matchData,$teamList,$playData,$isTimeSub=true)
+    public function processGameListData($gameData,$matchData,$teamList,$playData,$narratorData,$isTimeSub=true)
     {
         $data = [];
         $playList = [];
@@ -225,6 +231,7 @@ class LiveGameLogic
             $matchId = $item['matchId'];
             $home_team_id = $item['homeTeamId'];
             $visiting_team_id = $item['visitingTeamId'];
+            $liveMemberId     = $item['liveMemberId'];
             $weekW = date('w',strtotime($item['gameDate']));
             $item['weekDay'] = $weekArr[$weekW];
             $data[$gameId] = $item;
@@ -232,6 +239,7 @@ class LiveGameLogic
             $data[$gameId]['home_team'] = isset($teamList[$home_team_id]) ? $teamList[$home_team_id] : [];
             $data[$gameId]['visiting_team'] = isset($teamList[$visiting_team_id]) ? $teamList[$visiting_team_id] : [];
             $data[$gameId]['play_links'] = isset($playList[$gameId]) ? $playList[$gameId] : [];
+            $data[$gameId]['narratorData'] = isset($narratorData[$liveMemberId]) ? $narratorData[$liveMemberId] : [];
         }
         unset($teamData,$matchData,$playData,$gameData);
         if($isTimeSub == false){

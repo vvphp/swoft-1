@@ -55,7 +55,7 @@
                         <td class="text-l"><a href="/admin/match/matchList/?competition_name=<?php echo $item['competition_name']; ?>"> <?php echo $item['competition_name']; ?></a></td>
                         <td><?php echo !empty($item['home_team']) ? $item['home_team']['teamName'].'--'.$item['visiting_team']['teamName'] : $item['competition_name']; ?></td>
                         <td><?php echo $item['gameDate'].' '.$item['dataTime'] ?></td>
-                        <td><?php echo $item['liveMemberId'] ?></td>
+                        <td><?php echo isset($item['narratorData']['name']) ? $item['narratorData']['name']:''; ?></td>
                         <td><?php echo $liveStatus[$item['liveStatus']]; ?></td>
                         <td class="f-14 td-manage">
                             <?php foreach($item['play_links'] as $plk => $plv){ ?>

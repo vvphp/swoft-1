@@ -41,9 +41,21 @@ class LiveAdminUserLogic
      * @param int $user_id
      * @return mixed
      */
-    public function getUserDataById(int $user_id)
+    public function getUserDataById($user_id)
     {
-         return $this->adminUserDao->getUserDataById($user_id);
+        $data = [];
+        if(empty($user_id)){
+              return $data;
+        }
+         $result = $this->adminUserDao->getUserDataById($user_id);
+         if(!is_array($user_id)){
+               return $result;
+         }
+        array_walk($result,function($value,$key)use ($data){
+            $data[$value['id']] = $value;
+        });
+        unset($result);
+        return $data;
     }
 
     /**

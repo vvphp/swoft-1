@@ -32,17 +32,16 @@ class LiveAdminUserDao
      * @param int $user_id
      * @return mixed
      */
-    public function getUserDataById(int $user_id)
+    public function getUserDataById($user_id)
     {
-        $where = [
-            'id' => $user_id
-        ];
+        $where = ['id' => $user_id ];
         $fields = ['id','name','nikename'];
-        $result =  LiveAdminUser::findOne($where, ['fields' => $fields])->getResult();
-        if(!empty($result)){
-            $result = $result->toArray();
+        if(is_array($user_id)){
+              $result =  LiveAdminUser::findAll($where, ['fields' => $fields])->getResult();
+        }else{
+              $result =  LiveAdminUser::findOne($where, ['fields' => $fields])->getResult();
         }
-        return $result;
+        return empty($result) ? [] : $result->toArray();
     }
 
 
@@ -60,10 +59,7 @@ class LiveAdminUserDao
         ];
         $fields = ['id','is_live','status','add_date','name','nikename','last_login_date'];
         $result =  LiveAdminUser::findOne($where, ['fields' => $fields])->getResult();
-        if(!empty($result)){
-            $result = $result->toArray();
-        }
-        return $result;
+        return empty($result) ? [] : $result->toArray();
     }
 
 
@@ -75,8 +71,7 @@ class LiveAdminUserDao
      */
     public function updateUserDataById($id,$data)
     {
-        $result  =  LiveAdminUser::updateOne($data,['id' => $id])->getResult();
-        return $result;
+        return  LiveAdminUser::updateOne($data,['id' => $id])->getResult();
     }
 
 
