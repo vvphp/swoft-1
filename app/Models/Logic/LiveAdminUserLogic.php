@@ -51,7 +51,7 @@ class LiveAdminUserLogic
          if(!is_array($user_id)){
                return $result;
          }
-        array_walk($result,function($value,$key)use ($data){
+        array_walk($result,function($value,$key)use (&$data){
             $data[$value['id']] = $value;
         });
         unset($result);

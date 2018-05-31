@@ -114,6 +114,9 @@ class LiveGameLogic
         $team_id_list = array_unique($team_id_list);
         $team_id_list = array_filter($team_id_list);
 
+        $live_member_id_list = array_unique($live_member_id_list);
+        $live_member_id_list = array_filter($live_member_id_list);
+
         /* @var LiveMatchLogic $matchLogic */
         $matchLogic = App::getBean(LiveMatchLogic::class);
         $matchData =  $matchLogic->getMatchDataByIdList($match_id_list);
