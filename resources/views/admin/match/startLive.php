@@ -7,19 +7,18 @@
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 语音直播</button>
+                <button onClick="article_save_submit();" class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 语音直播</button>
                 <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
                 <button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button>
                 <button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;暂停直播&nbsp;&nbsp;</button>
             </div>
         </div>
 
-
-
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>第几节：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select name="" class="select">
+                    <option value="0">赛前</option>
                     <option value="0">1</option>
                     <option value="1">2</option>
                     <option value="2">3</option>
@@ -61,9 +60,7 @@
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
-                <button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
-                <button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 发送</button>
             </div>
         </div>
     </form>
@@ -96,7 +93,7 @@
 
         var uploader = WebUploader.create({
             auto: true,
-            swf: 'lib/webuploader/0.1.5/Uploader.swf',
+            swf: '/static/h-ui/lib/webuploader/0.1.5/Uploader.swf',
 
             // 文件接收服务端。
             server: 'fileupload.php',
