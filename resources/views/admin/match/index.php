@@ -38,10 +38,10 @@
                     <tr class="text-c">
                         <th width="25"><input type="checkbox" name="checkAll" value="" id="checkAll"></th>
                         <th width="80">ID</th>
-                        <th>赛会名称</th>
-                        <th width="80">赛事</th>
-                        <th width="80">比赛时间</th>
-                        <th width="120">解说员</th>
+                        <th width="80">赛会名称</th>
+                        <th width="120">赛事</th>
+                        <th width="120">比赛时间</th>
+                        <th width="80">解说员</th>
                         <th width="75">直播状态</th>
                         <th width="120">直播平台</th>
                         <th width="120">操作</th>
@@ -52,11 +52,11 @@
                         <tr class="text-c">
                         <td><input type="checkbox" value="<?php echo $item['id']; ?>" name="id"></td>
                         <td><?php echo $item['id']; ?></td>
-                        <td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10001')" title="查看"><?php echo $item['competition_name']; ?></u></td>
+                        <td class="text-l"><a href="/admin/match/matchList/?competition_name=<?php echo $item['competition_name']; ?>"> <?php echo $item['competition_name']; ?></a></td>
                         <td><?php echo !empty($item['home_team']) ? $item['home_team']['teamName'].'--'.$item['visiting_team']['teamName'] : $item['competition_name']; ?></td>
                         <td><?php echo $item['gameDate'].' '.$item['dataTime'] ?></td>
                         <td><?php echo $item['liveMemberId'] ?></td>
-                        <td><?php echo $item['liveStatus']; ?></td>
+                        <td><?php echo $liveStatus[$item['liveStatus']]; ?></td>
                         <td class="f-14 td-manage">
                             <?php foreach($item['play_links'] as $plk => $plv){ ?>
                                 <a style="text-decoration:none" href="<?php echo $plv['playUrl']; ?>" title="<?php echo $plv['playPlatform']; ?>"><i class="Hui-iconfont"><?php echo $plv['playPlatform']; ?></i></a>

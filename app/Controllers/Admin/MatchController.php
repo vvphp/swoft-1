@@ -29,6 +29,7 @@ use App\Models\Logic\LiveGameLogic;
  */
 class MatchController
 {
+    private $liveStatus = ['','未开始','正在直播','已结束'];
     /**
      * 后台赛事列表
      * @RequestMapping();
@@ -42,7 +43,7 @@ class MatchController
         $data = $matchLogic->getGameListDataByWhere();
 
         print_r($data);
-         return ['data' => $data];
+        return ['data' => $data,'liveStatus' => $this->liveStatus];
      }
 
 
