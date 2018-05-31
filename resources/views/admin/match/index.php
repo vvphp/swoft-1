@@ -36,41 +36,38 @@
                 <table class="table table-border table-bordered table-bg table-hover table-sort">
                     <thead>
                     <tr class="text-c">
-                        <th width="25"><input type="checkbox" name="" value=""></th>
+                        <th width="25"><input type="checkbox" name="checkAll" value="" id="checkAll"></th>
                         <th width="80">ID</th>
                         <th>赛会名称</th>
                         <th width="80">赛事</th>
                         <th width="80">比赛时间</th>
                         <th width="120">解说员</th>
                         <th width="75">直播状态</th>
+                        <th width="120">直播平台</th>
                         <th width="120">操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="text-c">
-                        <td><input type="checkbox" value="" name=""></td>
-                        <td>10001</td>
-                        <td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10001')" title="查看">资讯标题</u></td>
-                        <td>行业动态</td>
-                        <td>H-ui</td>
-                        <td>2014-6-11 11:11:42</td>
-                        <td>21212</td>
-                        <td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>
+                    <?php foreach($data as $index => $item){ ?>
+                        <tr class="text-c">
+                        <td><input type="checkbox" value="<?php echo $item['id']; ?>" name="id"></td>
+                        <td><?php echo $item['id']; ?></td>
+                        <td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10001')" title="查看"><?php echo $item['competition_name']; ?></u></td>
+                        <td><?php echo !empty($item['home_team']) ? $item['home_team']['teamName'].'--'.$item['visiting_team']['teamName'] : $item['competition_name']; ?></td>
+                        <td><?php echo $item['gameDate'].' '.$item['dataTime'] ?></td>
+                        <td><?php echo $item['liveMemberId'] ?></td>
+                        <td><?php echo $item['liveStatus']; ?></td>
+                        <td class="f-14 td-manage">
+                            <?php foreach($item['play_links'] as $plk => $plv){ ?>
+                                <a style="text-decoration:none" href="<?php echo $plv['playUrl']; ?>" title="<?php echo $plv['playPlatform']; ?>"><i class="Hui-iconfont"><?php echo $plv['playPlatform']; ?></i></a>
+                            <?php } ?>
+                        </td>
+                        <td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="开始直播"><i class="Hui-iconfont">&#xe6de;</i></a>
                             <a style="text-decoration:none" class="ml-5" onClick="article_edit('资讯编辑','article-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-                            <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                            <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                        </td>
                     </tr>
-                    <tr class="text-c">
-                        <td><input type="checkbox" value="" name=""></td>
-                        <td>10002</td>
-                        <td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10002')" title="查看">资讯标题</u></td>
-                        <td>行业动态</td>
-                        <td>H-ui</td>
-                        <td>2014-6-11 11:11:42</td>
-                        <td>21212</td>
-                        <td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a>
-                            <a style="text-decoration:none" class="ml-5" onClick="article_edit('资讯编辑','article-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-                            <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                    </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>

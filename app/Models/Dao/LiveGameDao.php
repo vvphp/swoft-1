@@ -29,7 +29,7 @@ use App\Models\Logic\LiveCommentaryLogic;
  */
 class LiveGameDao
 {
-    private  $fields = ['id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
+    private  $fields = ['id','live_member_id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
 
     /**
      * 先判断是否存在，如果不存在则插入，如果存在则直接返回true
