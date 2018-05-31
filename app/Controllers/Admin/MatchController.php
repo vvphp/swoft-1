@@ -20,6 +20,7 @@ use Swoft\Bean\Annotation\Bean;
 use Swoft\Http\Message\Bean\Annotation\Middleware;
 use App\Middlewares\ControllerMiddleware;
 use App\Models\Logic\LiveGameLogic;
+use Swoft\Exception\BadMethodCallException;
 
 
 /**
@@ -30,6 +31,7 @@ use App\Models\Logic\LiveGameLogic;
 class MatchController
 {
     private $liveStatus = ['','未开始','正在直播','已结束'];
+
     /**
      * 后台赛事列表
      * @RequestMapping();
@@ -41,10 +43,33 @@ class MatchController
         /* @var LiveGameLogic $matchLogic */
         $matchLogic = App::getBean(LiveGameLogic::class);
         $data = $matchLogic->getGameListDataByWhere();
-
-        print_r($data);
         return ['data' => $data,'liveStatus' => $this->liveStatus];
      }
+
+
+    /**
+     * 开始直播
+     * @RequestMapping("startLive/{game_id}");
+     * @throws BadMethodCallException
+     * @View(template="admin/match/startLive")     *
+     * @param $request
+     * @param $game_id
+     * @return Response
+     */
+    public function startLive(Request $request,int $game_id)
+    {
+        if(empty($game_id)){
+            throw new BadMethodCallException('非法请求!!!');
+        }
+        //查询比赛信息 并放入缓存
+        /* @var LiveGameLogic $logic */
+        $logic = App::getBean(LiveGameLogic::class);
+        $data  = $logic->processGameDataById($game_id);
+
+        return ['data' => $data];
+    }
+
+
 
 
 }

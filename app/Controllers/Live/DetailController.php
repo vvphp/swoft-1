@@ -56,10 +56,6 @@ class DetailController
         if(empty($data)){
             throw new BadMethodCallException('非法请求!!!');
         }
-
-        echo '<pre>';
-        print_r($data);
-
         return [ 'data' => $data ];
 
 
