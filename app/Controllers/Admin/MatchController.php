@@ -66,6 +66,8 @@ class MatchController
         $logic = App::getBean(LiveGameLogic::class);
         $data  = $logic->processGameDataById($game_id);
 
+        print_r($data);
+
         return ['data' => $data];
     }
 

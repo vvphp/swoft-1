@@ -7,17 +7,16 @@
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">                
-                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
-                <button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button>
-                <button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;暂停直播&nbsp;&nbsp;</button>
+                <button onClick="startlive();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
+                <button onClick="endtlive();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button> 
             </div>
         </div>
  
          <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button onClick="article_save_submit();" class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 语音直播</button> 
+                <button  class="btn btn-secondary radius" id="start-record-btn" type="button"><i class="Hui-iconfont">&#xe632;</i> 开始语音直播</button> 
 
-                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 暂停语音直播</button>
+                <button  class="btn btn-primary radius" id="pause-record-btn" type="button"><i class="Hui-iconfont">&#xe632;</i> 暂停语音直播</button>
             </div>
          </div>
 
@@ -67,6 +66,8 @@
                 <script id="editor" type="text/plain" style="width:100%;height:200px;"></script>
             </div>
         </div>
+        <p id="recording-instructions">按下 <strong>开始语音直播</strong> 按钮并按提示给予相关权限。</p>
+
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
@@ -87,7 +88,10 @@
 <script type="text/javascript" src="/static/h-ui/lib/ueditor/1.4.3/ueditor.config.js"></script>
 <script type="text/javascript" src="/static/h-ui/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
 <script type="text/javascript" src="/static/h-ui/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript">
+
+<script type="text/javascript" src="/static/admin/live.js"></script>
+
+<script type="text/javascript"> 
     $(function(){
         $('.skin-minimal input').iCheck({
             checkboxClass: 'icheckbox-blue',
