@@ -6,13 +6,23 @@
     <form class="form form-horizontal" id="form-article-add">
 
         <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button onClick="article_save_submit();" class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 语音直播</button>
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">                
                 <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
                 <button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button>
                 <button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;暂停直播&nbsp;&nbsp;</button>
             </div>
         </div>
+ 
+         <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                <button onClick="article_save_submit();" class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 语音直播</button> 
+
+                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 暂停语音直播</button>
+            </div>
+         </div>
+
+
+
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>第几节：</label>
