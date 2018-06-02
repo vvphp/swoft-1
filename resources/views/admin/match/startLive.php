@@ -75,6 +75,7 @@
 
 
         <div class="row cl">
+            <input type="hidden" value="<?php echo $game_id; ?>" name="game_id">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                 <button onClick="sendData();" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 发送</button>
             </div>
@@ -100,7 +101,15 @@
 
    function sendData()
    {
-           
+        $.ajax({
+             type: "POST",
+             url: "/admin/match/saveDetails",
+             data: $("form").serialize(),
+             dataType: "json",
+             success: function(data){
+                         console.log(data);
+                       }
+         });
    }
 
 

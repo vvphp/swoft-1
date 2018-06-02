@@ -68,7 +68,21 @@ class MatchController
 
         print_r($data);
 
-        return ['data' => $data];
+        return ['data' => $data,'game_id' => $game_id];
+    }
+
+
+    /**
+     * 保存直播解说数据
+     * @RequestMapping();
+     * @throws BadMethodCallException      
+     * @param $request      
+     * @return Response
+     */
+    public function saveDetails(Request $request)
+    {
+           $data = $request->post();
+           print_r($data);
     }
 
 
