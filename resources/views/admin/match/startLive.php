@@ -26,9 +26,9 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>第几节：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="" class="select">
+				<select name="timeframe" class="select">
                     <option value="0">赛前</option>
-                    <option value="0">1</option>
+                    <option value="1">1</option>
                     <option value="1">2</option>
                     <option value="2">3</option>
                     <option value="2">4</option>
@@ -40,11 +40,11 @@
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>赛次：</label>
             <div class="formControls col-xs-8 col-sm-9 skin-minimal">
                 <div class="radio-box">
-                    <input name="sex" type="radio" id="sex-1" checked>
+                    <input name="half_time" value="0" type="radio" id="sex-1" checked>
                     <label for="sex-1">上半场</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="sex-2" name="sex">
+                    <input type="radio" value="1" id="sex-2" name="half_time">
                     <label for="sex-2">下半场</label>
                 </div>
             </div>
@@ -53,7 +53,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>球队：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="" class="select">
+				<select name="team" class="select">
                     <option value="0">骑士</option>
                     <option value="1">勇士</option>
                 </select>
@@ -66,12 +66,17 @@
                 <script id="editor" type="text/plain" style="width:100%;height:200px;"></script>
             </div>
         </div>
-        <p id="recording-instructions">按下 <strong>开始语音直播</strong> 按钮并按提示给予相关权限。</p>
+
+        <div class="row cl">            
+              <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                 <p id="recording-instructions">按下 <strong>开始语音直播</strong> 按钮并按提示给予相关权限。</p>
+           </div>
+        </div>
 
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 发送</button>
+                <button onClick="sendData();" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 发送</button>
             </div>
         </div>
     </form>
@@ -92,6 +97,13 @@
 <script type="text/javascript" src="/static/admin/live.js"></script>
 
 <script type="text/javascript"> 
+
+   function sendData()
+   {
+           
+   }
+
+
     $(function(){
         $('.skin-minimal input').iCheck({
             checkboxClass: 'icheckbox-blue',
