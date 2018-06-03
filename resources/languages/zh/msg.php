@@ -26,5 +26,6 @@ return [
     'login_phone_empty'  => '手机号不能为空',
     'login_error'        => '用户名或密码不正确',
     'login_success'        => '登录成功',
-    'login_error_empty_data' => '请输入用户名和密码'
+    'login_error_empty_data' => '请输入用户名和密码',
+    'live_data_add_failure'  => '直播数据不能为空'
 ];

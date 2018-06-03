@@ -14,6 +14,8 @@ use App\Models\Entity\LiveCommentary;
 
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
+use Swoft\Bean\Annotation\Inject;
+use App\Models\Dao\LiveCommentaryDao;
 
 /**
  *
@@ -26,6 +28,15 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
  */
 class LiveCommentaryLogic
 {
+
+     /**
+     *
+     * @Inject()
+     * @var LiveCommentaryDao
+     */
+     private  $LiveCommentAryDao;
+
+
     /**
      * 根据 game_id 查询表中解说信息
      * @param int $game_id
@@ -52,6 +63,21 @@ class LiveCommentaryLogic
         }
         return $result;
     }
+
+
+    /**
+     * [saveCommentary 保存解说详情]
+     * @param  [type] $game_id [description]
+     * @param  [type] $data    [description]
+     * @return [type]          [description]
+     */
+    public function saveCommentary($game_id,$data)
+    { 
+      if(empty($game_id)){
+             return 0;
+        }
+     return  $this->LiveCommentAryDao->saveCommentary($game_id,$data);
+  }
 
 
 }

@@ -53,9 +53,9 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>球队：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="team" class="select">
-                    <option value="0">骑士</option>
-                    <option value="1">勇士</option>
+				<select name="team_id" class="select">
+                    <option value="<?php echo $data['homeTeamId']; ?>"><?php echo $data['hometeamName']; ?></option>
+                    <option value="<?php echo $data['visitingTeamId']; ?>"><?php echo $data['visitingteamName']; ?></option>
                 </select>
 				</span> </div>
         </div>
