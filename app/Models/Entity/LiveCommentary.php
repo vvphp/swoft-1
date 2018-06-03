@@ -44,6 +44,24 @@ class LiveCommentary extends Model
     private $addDate;
 
     /**
+     * @var int $timeframe 比赛节点
+     * @Column(name="timeframe", type="tinyint", default=0)
+     */
+    private $timeframe;
+
+    /**
+     * @var int $halfTime 上下半场 0:上半场 1:下半场
+     * @Column(name="half_time", type="tinyint", default=0)
+     */
+    private $halfTime;
+
+    /**
+     * @var int $teamId 球队ID
+     * @Column(name="team_id", type="tinyint", default=0)
+     */
+    private $teamId;
+
+    /**
      * @param int $value
      * @return $this
      */
@@ -91,6 +109,42 @@ class LiveCommentary extends Model
     }
 
     /**
+     * 比赛节点
+     * @param int $value
+     * @return $this
+     */
+    public function setTimeframe(int $value): self
+    {
+        $this->timeframe = $value;
+
+        return $this;
+    }
+
+    /**
+     * 上下半场 0:上半场 1:下半场
+     * @param int $value
+     * @return $this
+     */
+    public function setHalfTime(int $value): self
+    {
+        $this->halfTime = $value;
+
+        return $this;
+    }
+
+    /**
+     * 球队ID
+     * @param int $value
+     * @return $this
+     */
+    public function setTeamId(int $value): self
+    {
+        $this->teamId = $value;
+
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -123,6 +177,33 @@ class LiveCommentary extends Model
     public function getAddDate()
     {
         return $this->addDate;
+    }
+
+    /**
+     * 比赛节点
+     * @return int
+     */
+    public function getTimeframe()
+    {
+        return $this->timeframe;
+    }
+
+    /**
+     * 上下半场 0:上半场 1:下半场
+     * @return int
+     */
+    public function getHalfTime()
+    {
+        return $this->halfTime;
+    }
+
+    /**
+     * 球队ID
+     * @return int
+     */
+    public function getTeamId()
+    {
+        return $this->teamId;
     }
 
 }
