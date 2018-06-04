@@ -138,10 +138,10 @@
                 alert(data.msg);
                 if(data.code == '1'){
                        switch (status){
-                           case '2':
+                           case 2:
                              $(".startLive").text("正在直播中");
-                               break;
-                           case '3':
+                             break;
+                           case 3:
                                $(".endLive").text("已结束");
                                break;
                        }
