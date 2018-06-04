@@ -16,6 +16,7 @@ use Swoft\WebSocket\Server\Bean\Annotation\WebSocket;
 use Swoft\WebSocket\Server\HandlerInterface;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;
+use App\Common\Tool\Base;
 
 /**
  * Class LiveController - This is an controller for handle websocket
@@ -24,6 +25,13 @@ use Swoole\WebSocket\Server;
  */
 class LiveController implements HandlerInterface
 {
+
+    /**
+     * @Inject()
+     * @var \Swoft\Redis\Redis
+     */
+    private $redis;
+
     /**
      * 在这里你可以验证握手的请求信息
      * - 必须返回含有两个元素的array
@@ -42,6 +50,8 @@ class LiveController implements HandlerInterface
     {
         // some validate logic ...
 
+        print_r($request->query());
+
         return [self::HANDSHAKE_OK, $response];
     }
 
@@ -53,6 +63,8 @@ class LiveController implements HandlerInterface
      */
     public function onOpen(Server $server, Request $request, int $fd)
     {
+        // $key = $this->getLiveUserKey();
+        // $this->redis->sAdd($key,$fd);
          $server->push($fd, 'hello, welcome! :)');
     }
 
@@ -75,4 +87,25 @@ class LiveController implements HandlerInterface
     {
         // do something. eg. record log
     }
+
+    /**
+     * @param $key
+     * @return string
+     */
+    public function getLiveRedisKey($key)
+    {
+        return Base::getKey('redisKey',$key);
+    }
+
+    /**
+     * 获取用户集合的key
+     * @return string
+     */
+    public function getLiveUserKey()
+    {
+        return  $this->getLiveRedisKey('live_game_detail_users');
+    }
+
+
+
 }

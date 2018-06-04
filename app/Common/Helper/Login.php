@@ -8,23 +8,17 @@ namespace App\Common\Helper;
 use Swoft\App;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Common\McrYpt\DES1;
+use App\Common\Tool\Base;
 
 class  Login{
-
-    public static function getConfig()
-    {
-        $config = App::$properties['systemParameter'];
-        return $config;
-    }
-
     /**
      * 后台登录的cookie 名
      * @return string
      */
     public static function getAdminCookieName()
     {
-        $config = self::getConfig();
-         return isset($config['adminCookie']) ? $config['adminCookie']:'adminLogin';
+        $cookie = Base::getKey('systemParameter','adminCookie');
+        return !empty($cookie) ? $cookie:'adminLogin';
     }
 
     /**

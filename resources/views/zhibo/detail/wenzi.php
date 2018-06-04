@@ -106,6 +106,7 @@
 </div>
   
 <script type="text/javascript">
+     var game_id = "<?php echo $data['id']; ?>";
      var liveStatus = "<?php echo $data['liveStatus']; ?>";
      var commentaryData = <?php echo json_encode($data['commentaryData']); ?>;
      var narratorData = <?php echo json_encode($data['narratorData']); ?>;
@@ -113,6 +114,7 @@
  
 
 <script src="/static/zhibo8/js/live.js"></script>
+
 <script type="text/javascript">
   $(".tbar").click(function(){
       $(".tbar").removeClass('current');

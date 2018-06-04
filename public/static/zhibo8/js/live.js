@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var html =''; 
-	var wsUri = 'ws://47.95.14.113:9400/live';
+	var wsUri = 'ws://47.95.14.113:9400/live/?game_id='+game_id;
 	//预加载历史直播数据 start
      if(commentaryData){
      	  commentaryData.forEach(function(val,key){     	        
@@ -21,9 +21,9 @@ $(document).ready(function(){
  if(liveStatus == 2){
          //websocket start
 	    var ws = new WebSocket(wsUri);   
-		ws.onopen = function(evt) {  
-		    console.log("Connection open ...");  
-		    ws.send("Hello WebSockets!");  
+		ws.onopen = function(evt) {
+		    console.log("Connection open ...");
+		    ws.send("Hello WebSockets!");
 		};  
 		  
 		ws.onmessage = function(evt) {  
@@ -31,8 +31,8 @@ $(document).ready(function(){
 		    console.log(evt);
 		  };  
 		  
-		ws.onclose = function(evt) {  
-		    console.log("Connection closed.");  
+		ws.onclose = function(evt) {
+		    console.log("Connection closed.");
 		};   
     //websocket end  
    }
