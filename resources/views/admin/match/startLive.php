@@ -114,15 +114,14 @@
        $.ajax({
            type: "GET",
            url: "/admin/match/getLiveUserNumber?game_id="+game_id,
-           dataType: "json",
            success: function(data){
                data = JSON.parse(data);
                var count = data.data.count;
                if(data.code == 0){
-                   alert(data.msg);
+                    alert(data.msg);
                }else{
-                  var text = $(".layui-layer-title").text()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>当前观看直播人数为"+count+"</font>";
-                  $(".layui-layer-title").html(text);
+                  var text = "开始直播&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>当前观看直播人数为"+count+"</font>";
+                  $(".layui-layer-title",parent.document).html(text);
                }
            }
        });

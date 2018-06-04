@@ -104,10 +104,12 @@ class MatchController
              //写websocket
              $gameUserListFd = $this->LiveHelper->getLiveUserListByGameId($data['game_id']);
              \Swoft::$server->sendToSome($data['editorValue'],$gameUserListFd);
+              return Util::showMsg([],'live_add_game_success');
         }else{
-            return Util::showMsg([],'live_data_add_failure','0');
+             return Util::showMsg([],'live_data_add_failure','0');
         }
     }
+
 
     /**
      * @return array
