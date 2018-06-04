@@ -7,21 +7,17 @@
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">                
-                <button onClick="setLiveStatus(2);" class="btn btn-primary radius startLive" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
-                <button onClick="setLiveStatus(3);" class="btn btn-secondary radius endLive " type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button>
+                <button onClick="setLiveStatus(2);" class="btn btn-primary radius startLive"  type="button"><i class="Hui-iconfont">&#xe632;</i> <?php echo $data['liveStatus'] == '2' ? '正在直播中': '开始直播'; ?></button>
+                <button onClick="setLiveStatus(3);" class="btn btn-secondary radius endLive " type="button"><i class="Hui-iconfont">&#xe632;</i> <?php echo $data['liveStatus'] == '3' ? '已结束': '结束直播'; ?></button>
             </div>
         </div>
  
          <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                 <button  class="btn btn-secondary radius" id="start-record-btn" type="button"><i class="Hui-iconfont">&#xe632;</i> 开始语音直播</button> 
-
                 <button  class="btn btn-primary radius" id="pause-record-btn" type="button"><i class="Hui-iconfont">&#xe632;</i> 暂停语音直播</button>
             </div>
          </div>
-
-
-
 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>第几节：</label>
