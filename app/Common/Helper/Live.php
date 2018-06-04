@@ -12,12 +12,14 @@ use Swoft\Bean\Annotation\Inject;
 
 class  Live
 {
+
     /**
      * @Inject()
      * @var \Swoft\Redis\Redis
      */
     private $redis;
- 
+
+
     /**
      * 获取用户集合的 redis key
      * @param int $game_id
