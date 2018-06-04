@@ -85,6 +85,7 @@
 <script type="text/javascript">
 
     setInterval("getLiveUserCount()",5000);
+
     /**
      * 提交直播数据
      */
@@ -96,10 +97,10 @@
              data: $("form").serialize(),
              success: function(data){
                  data = JSON.parse(data);
-                 if(data.code == 0){
+                 if(data.code== '-1'){
                       alert(data.msg);
                  }else{
-                    ue.setContent("");
+                  $("#editor").val("");
                  }
              }
          });
@@ -117,7 +118,7 @@
            success: function(data){
                data = JSON.parse(data);
                var count = data.data.count;
-               if(data.code == 0){
+               if(data.code == '-1'){
                     alert(data.msg);
                }else{
                   var text = "开始直播&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>当前观看直播人数为"+count+"</font>";
