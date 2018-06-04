@@ -29,7 +29,7 @@ use App\Models\Logic\LiveCommentaryLogic;
  */
 class LiveCommentaryDao
 {
-    private  $fields = ['id','game_id','content','add_date','timeframe','half_time','team_id'];
+    private  $fields = ['id','game_id','content','add_date','timeframe','team_id'];
 
 
     /**
@@ -44,7 +44,6 @@ class LiveCommentaryDao
               'game_id'   => $data['game_id'],
               'content'   => $data['editorValue'],
               'timeframe' => $data['timeframe'],
-              'half_time' => $data['half_time'],
               'team_id'   => $data['team_id'],
               'add_date'  => time()
             ],

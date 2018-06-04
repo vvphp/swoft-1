@@ -35,21 +35,6 @@
                 </select>
 				</span> </div>
         </div>
-
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>赛次：</label>
-            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                <div class="radio-box">
-                    <input name="half_time" value="0" type="radio" id="sex-1" checked>
-                    <label for="sex-1">上半场</label>
-                </div>
-                <div class="radio-box">
-                    <input type="radio" value="1" id="sex-2" name="half_time">
-                    <label for="sex-2">下半场</label>
-                </div>
-            </div>
-        </div>
-
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>球队：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">

@@ -88,15 +88,18 @@ class MatchController
        if(empty($data['game_id']) || empty($data['editorValue']) || empty($data['team_id'])){
             return Util::showMsg([],'live_data_add_failure','0');
        }
-      //写数据库
+       //写数据库
         /* @var LiveCommentaryLogic $logic */
         $logic = App::getBean(LiveCommentaryLogic::class);
         $result  = $logic->saveCommentary($data);
-        var_dump($result);
-           
-           //写websocket
-
-           print_r($data);
+        if($result){
+             //写websocket
+             print_r($data);
+             \Swoft::$server->sendToAll('hi, 大家好啊！');
+             \Swoft::$server->broadcast('hi 广播');
+        }
+         var_dump($result);
     }
+
  
 }
