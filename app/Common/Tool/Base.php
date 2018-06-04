@@ -43,6 +43,16 @@ class Base{
         return Base::getKey('redisKey',$key);
     }
 
+    /**
+     * 获取自定义的key
+     * @param string $key
+     * @return string
+     */
+    public static function getParameter($key='')
+    {
+        return Base::getKey('systemParameter',$key);
+    }
+
 
 }
 

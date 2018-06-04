@@ -10,6 +10,7 @@
 
 namespace App\Controllers\Admin;
 
+use HMinng\Log\Base\Base;
 use Swoft\App;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
@@ -25,8 +26,6 @@ use Swoft\Exception\BadMethodCallException;
 use App\Common\Tool\Util;
 use App\Common\Helper\Live;
 
-
-
 /**
  * Class MatchController
  * @Controller(prefix="/admin/match")
@@ -41,6 +40,12 @@ class MatchController
      * @var \App\Common\Helper\Live
      */
      private $LiveHelper;
+
+    /**
+     * 保存直播状态
+     * @var array
+     */
+     private static $gameStatus = [];
 
 
     /**
@@ -76,9 +81,6 @@ class MatchController
         /* @var LiveGameLogic $logic */
         $logic = App::getBean(LiveGameLogic::class);
         $data  = $logic->processGameDataById($game_id);
-
-        print_r($data);
-
         return ['data' => $data,'game_id' => $game_id];
     }
 
@@ -96,13 +98,25 @@ class MatchController
        if(empty($data['game_id']) || empty($data['editorValue']) || empty($data['team_id'])){
             return Util::showMsg([],'live_add_null_data','0');
        }
+        //如果未开始或已结束则不允许直接写数据
+        $gameStatus = self::$gameStatus;
+        $game_id    =  $data['game_id'];
+        if(!isset($gameStatus[$game_id])){
+            /* @var LiveGameLogic $gameLogic */
+            $gameLogic = App::getBean(LiveGameLogic::class);
+            $gameData = $gameLogic->getGameDataByGameId($data['game_id']);
+            $gameStatus[$game_id] = isset($gameData['liveStatus']) ? $gameData['liveStatus'] : '1';
+        }
+        if($gameStatus[$game_id] == '3' || $gameStatus[$game_id] == '1'){
+             return Util::showMsg([],'live_status_failure','0');
+        }
         //写数据库
         /* @var LiveCommentaryLogic $logic */
         $logic = App::getBean(LiveCommentaryLogic::class);
         $result  = $logic->saveCommentary($data);
         if($result){
              //写websocket
-             $gameUserListFd = $this->LiveHelper->getLiveUserListByGameId($data['game_id']);
+             $gameUserListFd = $this->LiveHelper->getLiveUserListByGameId($game_id);
              \Swoft::$server->sendToSome($data['editorValue'],$gameUserListFd);
               return Util::showMsg([],'live_add_game_success');
         }else{
@@ -110,8 +124,34 @@ class MatchController
         }
     }
 
+    /**
+     * 修改直播状态
+     * @param $request
+     * @return json
+     */
+    public function setLiveStatus(Request $request)
+    {
+        $game_id = $request->query('game_id');
+        $status  = $request->query('status');
+        $liveStatus = $this->LiveHelper->getLiveStatus();
+        if(empty($game_id) || empty($status) || !in_array($status,$liveStatus)){
+            return Util::showMsg([],'live_set_status_error_data','0');
+        }
+        $data = [
+            'live_status' => $status
+        ];
+        /* @var LiveGameLogic $gameLogic */
+        $gameLogic = App::getBean(LiveGameLogic::class);
+        $result = $gameLogic->updateGameDataById($game_id,$data);
+        if($result){
+            return Util::showMsg([],'live_set_status_success');
+        }
+         return Util::showMsg([],'live_set_status_error','0');
+    }
 
     /**
+     * 获取当前直播总数
+     * @param $request
      * @return array
      */
     public function getLiveUserNumber(Request $request)
@@ -123,5 +163,7 @@ class MatchController
         $count = $this->LiveHelper->getLiveUserNumber($game_id);
         return Util::showMsg(['count' => $count],'success');
     }
+
+
  
 }

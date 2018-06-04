@@ -66,6 +66,19 @@ class LiveGameLogic
         return $this->LiveGameDao->getGameDataByGameId($game_id);
     }
 
+    /**
+     * 修改数据
+     * @param $game_id
+     * @param $data
+     * @return  boolean
+     */
+    public function updateGameDataById($game_id,$data)
+    {
+        if(empty($game_id) || empty($data)){
+            return false;
+        }
+       return $this->LiveGameDao->updateGameDataById($game_id,$data);
+    }
 
     /**
      * 根据时间查询赛事列表

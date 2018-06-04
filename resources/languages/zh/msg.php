@@ -30,5 +30,9 @@ return [
     'live_add_null_data'     => '直播数据不能为空',
     'live_data_add_failure'  => '添加直播数据失败',
     'live_null_game_id'      => 'game_id不能为空',
-    'live_add_game_success'  => '添加直播数据成功'
+    'live_add_game_success'  => '添加直播数据成功',
+    'live_status_failure'    => '比赛未开始或已结束，无法发布直播数据',
+    'live_set_status_error_data' => '参数错误,修改直播状态失败',
+    'live_set_status_error'      => '修改赛事状态失败',
+    'live_set_status_success'    => '修改赛事状态成功'
 ];

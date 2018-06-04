@@ -49,19 +49,7 @@ class LiveCommentaryLogic
         if(empty($game_id)){
             return [];
         }
-        $where = [
-            'game_id' => $game_id
-        ];
-        $fields = ['id','content'];
-        $result =  LiveCommentary::findAll($where, ['fields'  => $fields,
-                                                    'orderby' => ['id' => 'DESC'],
-                                                    'offset'  => $start,
-                                                    'limit'   => $limit
-        ])->getResult();
-        if(!empty($result)){
-            $result = $result->toArray();
-        }
-        return $result;
+        return  $this->LiveCommentAryDao->getCommentaryByGameId($game_id,$start,$limit);
     }
 
 
@@ -72,8 +60,8 @@ class LiveCommentaryLogic
      */
     public function saveCommentary($data)
     {
-      return  $this->LiveCommentAryDao->saveCommentary($data);
-  }
+       return  $this->LiveCommentAryDao->saveCommentary($data);
+    }
 
 
 }

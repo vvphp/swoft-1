@@ -7,8 +7,8 @@
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">                
-                <button onClick="startlive();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
-                <button onClick="endtlive();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button> 
+                <button onClick="setLiveStatus(2);" class="btn btn-primary radius startLive" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
+                <button onClick="setLiveStatus(3);" class="btn btn-secondary radius endLive " type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button>
             </div>
         </div>
  
@@ -126,6 +126,32 @@
            }
        });
    }
+
+    /**
+     * 修改赛事状态
+     */
+    function setLiveStatus(status)
+    {
+        var game_id = $("#game_id").val();
+        $.ajax({
+            type: "POST",
+            url: "/admin/match/setLiveStatus?game_id="+game_id+"&status="+status,
+            success: function(data){
+                data = JSON.parse(data);
+                alert(data.msg);
+                if(data.code == '1'){
+                       switch (status){
+                           case '2':
+                             $(".startLive").text("正在直播中");
+                               break;
+                           case '3':
+                               $(".endLive").text("已结束");
+                               break;
+                       }
+                  }
+            }
+        });
+    }
 
 
 

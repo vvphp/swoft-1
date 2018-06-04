@@ -59,5 +59,14 @@ class  Live
         return $this->redis->sCard($key);
     }
 
+    /**
+     * 获取所有直播状态
+     * @return array
+     */
+    public function getLiveStatus()
+    {
+       return  Base::getParameter('live_status');
+    }
+
 
 }

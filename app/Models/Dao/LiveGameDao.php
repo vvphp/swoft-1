@@ -80,6 +80,18 @@ class LiveGameDao
     }
 
     /**
+     * 修改赛事数据
+     * @param $game_id
+     * @param $data
+     * @return boolean
+     */
+    public function updateGameDataById($game_id,$data)
+    {
+        return  LiveGameSchedule::updateOne($data, ['id' => $game_id])->getResult();
+    }
+
+
+    /**
      * 根据时间段查询赛事数据
      * @param $startDate
      * @param $endDate
