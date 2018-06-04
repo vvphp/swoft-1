@@ -160,6 +160,17 @@ class MatchController
         if(empty($game_id)){
              return Util::showMsg([],'live_null_game_id','0');
         }
+        //如果未开始或已结束则直接返回0
+        $gameStatus = self::$gameStatus;
+        if(!isset($gameStatus[$game_id])){
+            /* @var LiveGameLogic $gameLogic */
+            $gameLogic = App::getBean(LiveGameLogic::class);
+            $gameData = $gameLogic->getGameDataByGameId($game_id);
+            $gameStatus[$game_id] = isset($gameData['liveStatus']) ? $gameData['liveStatus'] : '1';
+        }
+        if($gameStatus[$game_id] != '2'){
+            return Util::showMsg(['count' => 0],'success');
+        }
         $count = $this->LiveHelper->getLiveUserNumber($game_id);
         return Util::showMsg(['count' => $count],'success');
     }
