@@ -94,17 +94,21 @@
              type: "POST",
              url: "/admin/match/saveDetails",
              data: $("form").serialize(),
-             dataType: "json",
              success: function(data){
-                         console.log(data);
-                       }
+                 data = JSON.parse(data);
+                 if(data.code == 0){
+                      alert(data.msg);
+                 }else{
+                    ue.setContent("");
+                 }
+             }
          });
    }
 
     /**
      * 获取用户总数
      */
-    function getLiveUserCount()
+  function getLiveUserCount()
    {
        var game_id = $("#game_id").val();
        $.ajax({
@@ -112,13 +116,19 @@
            url: "/admin/match/getLiveUserNumber?game_id="+game_id,
            dataType: "json",
            success: function(data){
+               data = JSON.parse(data);
                var count = data.data.count;
-               var text = $(".layui-layer-title").text()."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前观看直播人数为"+count;
-               $(".layui-layer-title").text(text);
-               console.log(data);
+               if(data.code == 0){
+                   alert(data.msg);
+               }else{
+                  var text = $(".layui-layer-title").text()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>当前观看直播人数为"+count+"</font>";
+                  $(".layui-layer-title").html(text);
+               }
            }
        });
    }
+
+
 
 
     $(function(){
