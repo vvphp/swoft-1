@@ -10,7 +10,6 @@
                 <button onClick="startlive();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
                 <button onClick="endtlive();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button> 
             </div>
-            <p id="showLiveNumber">当前观看直播人数为0</p>
         </div>
  
          <div class="row cl">
@@ -110,9 +109,12 @@
        var game_id = $("#game_id").val();
        $.ajax({
            type: "GET",
-           url: "/admin/match/getLiveUserNumber/?game_id="+game_id,
+           url: "/admin/match/getLiveUserNumber?game_id="+game_id,
            dataType: "json",
            success: function(data){
+               var count = data.data.count;
+               var text = $(".layui-layer-title").text()."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前观看直播人数为"+count;
+               $(".layui-layer-title").text(text);
                console.log(data);
            }
        });
