@@ -10,6 +10,7 @@
                 <button onClick="startlive();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 开始直播</button>
                 <button onClick="endtlive();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 结束直播</button> 
             </div>
+            <p id="showLiveNumber">当前观看直播人数为0</p>
         </div>
  
          <div class="row cl">
@@ -60,7 +61,7 @@
 
 
         <div class="row cl">
-            <input type="hidden" value="<?php echo $game_id; ?>" name="game_id">
+            <input type="hidden" value="<?php echo $game_id; ?>" id="game_id" name="game_id">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                 <button onClick="sendData();" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 发送</button>
             </div>
@@ -82,8 +83,12 @@
 
 <script type="text/javascript" src="/static/admin/live.js"></script>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 
+    setInterval("getLiveUserCount()",5000);
+    /**
+     * 提交直播数据
+     */
    function sendData()
    {
         $.ajax({
@@ -95,6 +100,22 @@
                          console.log(data);
                        }
          });
+   }
+
+    /**
+     * 获取用户总数
+     */
+    function getLiveUserCount()
+   {
+       var game_id = $("#game_id").val();
+       $.ajax({
+           type: "GET",
+           url: "/admin/match/getLiveUserNumber/?game_id="+game_id,
+           dataType: "json",
+           success: function(data){
+               console.log(data);
+           }
+       });
    }
 
 

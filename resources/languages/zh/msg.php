@@ -27,5 +27,7 @@ return [
     'login_error'        => '用户名或密码不正确',
     'login_success'        => '登录成功',
     'login_error_empty_data' => '请输入用户名和密码',
-    'live_data_add_failure'  => '直播数据不能为空'
+    'live_add_null_data'     => '直播数据不能为空',
+    'live_data_add_failure'  => '添加直播数据失败',
+    'live_null_game_id'      => 'game_id不能为空'
 ];

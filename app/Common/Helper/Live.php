@@ -48,5 +48,16 @@ class  Live
         return  $this->redis->smembers($key);
     }
 
+    /**
+     * 根据game_id 获取直播用户总数
+     * @param $game_id
+     * @return  int
+     */
+    public function getLiveUserNumber($game_id)
+    {
+        $key = self::getLiveUserKey($game_id);
+        return $this->redis->sCard($key);
+    }
+
 
 }

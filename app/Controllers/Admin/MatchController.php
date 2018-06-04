@@ -94,24 +94,32 @@ class MatchController
     {
        $data = $request->post();
        if(empty($data['game_id']) || empty($data['editorValue']) || empty($data['team_id'])){
-            return Util::showMsg([],'live_data_add_failure','0');
+            return Util::showMsg([],'live_add_null_data','0');
        }
-       //写数据库
+        //写数据库
         /* @var LiveCommentaryLogic $logic */
         $logic = App::getBean(LiveCommentaryLogic::class);
         $result  = $logic->saveCommentary($data);
         if($result){
              //写websocket
              $gameUserListFd = $this->LiveHelper->getLiveUserListByGameId($data['game_id']);
-             print_r($data);
-             print_r($gameUserListFd);
-
-             \Swoft::$server->sendToAll('hi, 大家好啊！');
-             \Swoft::$server->broadcast('hi 广播');
-             \Swoft::$server->sendToSome('hello ZXR',$gameUserListFd);
+             \Swoft::$server->sendToSome($data['editorValue'],$gameUserListFd);
+        }else{
+            return Util::showMsg([],'live_data_add_failure','0');
         }
-       var_dump($result);
     }
 
+    /**
+     * @return array
+     */
+    public function getLiveUserNumber(Request $request)
+    {
+        $game_id = $request->query('game_id');
+        if(empty($game_id)){
+             return Util::showMsg([],'live_null_game_id','0');
+        }
+        $count = $this->LiveHelper->getLiveUserNumber($game_id);
+        return Util::showMsg(['count' => $count],'success');
+    }
  
 }
