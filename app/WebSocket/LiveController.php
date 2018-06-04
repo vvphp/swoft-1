@@ -34,6 +34,11 @@ class LiveController implements HandlerInterface
      */
     private $redis;
 
+    /**
+     * @\Swoft\Bean\Annotation\Inject("LiveHelper")
+     * @var \App\Common\Helper\Live
+     */
+    private $LiveHelper;
 
     /**
      * 比赛ID
@@ -74,7 +79,7 @@ class LiveController implements HandlerInterface
      */
     public function onOpen(Server $server, Request $request, int $fd)
     {
-         $key = Live::getLiveUserKey($this->game_id);
+         $key = $this->LiveHelper->getLiveUserKey($this->game_id);
          $this->redis->sAdd($key,$fd);
          $server->push($fd, 'hello, welcome! :)');
     }
@@ -96,7 +101,7 @@ class LiveController implements HandlerInterface
      */
     public function onClose(Server $server, int $fd)
     {
-        $key = Live::getLiveUserKey($this->game_id);
+        $key = $this->LiveHelper->getLiveUserKey($this->game_id);
         $this->redis->sRem($key,$fd);
         // do something. eg. record log
     }

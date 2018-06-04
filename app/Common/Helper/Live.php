@@ -5,11 +5,14 @@
  * Time: 19:30
  */
 namespace App\Common\Helper;
-use Swoft\App;
-use Psr\Http\Message\ServerRequestInterface;
+
+use Swoft\Cache\Cache;
 use App\Common\Tool\Base;
 use Swoft\Bean\Annotation\Inject;
 
+/**
+ * @\Swoft\Bean\Annotation\Bean("LiveHelper")
+ */
 class  Live
 {
 

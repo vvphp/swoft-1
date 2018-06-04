@@ -37,6 +37,13 @@ class MatchController
     private $liveStatus = ['','未开始','正在直播','已结束'];
 
     /**
+     * @\Swoft\Bean\Annotation\Inject("LiveHelper")
+     * @var \App\Common\Helper\Live
+     */
+     private $LiveHelper;
+
+
+    /**
      * 后台赛事列表
      * @RequestMapping();
      * @View(template="admin/match/index")
@@ -95,13 +102,15 @@ class MatchController
         $result  = $logic->saveCommentary($data);
         if($result){
              //写websocket
-             $gameUserListFd = Live::getLiveUserListByGameId($data['game_id']);
+             $gameUserListFd = $this->LiveHelper->getLiveUserListByGameId($data['game_id']);
              print_r($data);
+             print_r($gameUserListFd);
+
              \Swoft::$server->sendToAll('hi, 大家好啊！');
              \Swoft::$server->broadcast('hi 广播');
              \Swoft::$server->sendToSome('hello ZXR',$gameUserListFd);
         }
-         var_dump($result);
+       var_dump($result);
     }
 
  
