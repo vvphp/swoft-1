@@ -17,6 +17,8 @@ use Swoft\WebSocket\Server\HandlerInterface;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;
 use App\Common\Tool\Base;
+use Swoft\Bean\Annotation\Inject;
+use App\Common\Helper\Live;
 
 /**
  * Class LiveController - This is an controller for handle websocket
@@ -31,6 +33,13 @@ class LiveController implements HandlerInterface
      * @var \Swoft\Redis\Redis
      */
     private $redis;
+
+
+    /**
+     * 比赛ID
+     * @var
+     */
+    private $game_id;
 
     /**
      * 在这里你可以验证握手的请求信息
@@ -48,11 +57,13 @@ class LiveController implements HandlerInterface
      */
     public function checkHandshake(Request $request, Response $response): array
     {
-        // some validate logic ...
-
-        print_r($request->query());
-
-        return [self::HANDSHAKE_OK, $response];
+        $query = $request->query();
+        if(isset($query['game_id']) && !empty($query['game_id'])){
+               $this->game_id = $query['game_id'];
+               return [self::HANDSHAKE_OK, $response];
+        }else{
+               return [self::HANDSHAKE_FAIL, $response];
+         }
     }
 
     /**
@@ -63,8 +74,8 @@ class LiveController implements HandlerInterface
      */
     public function onOpen(Server $server, Request $request, int $fd)
     {
-        // $key = $this->getLiveUserKey();
-        // $this->redis->sAdd($key,$fd);
+         $key = Live::getLiveUserKey($this->game_id);
+         $this->redis->sAdd($key,$fd);
          $server->push($fd, 'hello, welcome! :)');
     }
 
@@ -85,27 +96,9 @@ class LiveController implements HandlerInterface
      */
     public function onClose(Server $server, int $fd)
     {
+        $key = Live::getLiveUserKey($this->game_id);
+        $this->redis->sRem($key,$fd);
         // do something. eg. record log
     }
-
-    /**
-     * @param $key
-     * @return string
-     */
-    public function getLiveRedisKey($key)
-    {
-        return Base::getKey('redisKey',$key);
-    }
-
-    /**
-     * 获取用户集合的key
-     * @return string
-     */
-    public function getLiveUserKey()
-    {
-        return  $this->getLiveRedisKey('live_game_detail_users');
-    }
-
-
 
 }

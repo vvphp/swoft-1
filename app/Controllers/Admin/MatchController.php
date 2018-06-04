@@ -23,6 +23,7 @@ use App\Models\Logic\LiveGameLogic;
 use App\Models\Logic\LiveCommentaryLogic;
 use Swoft\Exception\BadMethodCallException;
 use App\Common\Tool\Util;
+use App\Common\Helper\Live;
 
 
 
@@ -94,9 +95,11 @@ class MatchController
         $result  = $logic->saveCommentary($data);
         if($result){
              //写websocket
+             $gameUserListFd = Live::getLiveUserListByGameId($data['game_id']);
              print_r($data);
              \Swoft::$server->sendToAll('hi, 大家好啊！');
              \Swoft::$server->broadcast('hi 广播');
+             \Swoft::$server->sendToSome('hello ZXR',$gameUserListFd);
         }
          var_dump($result);
     }

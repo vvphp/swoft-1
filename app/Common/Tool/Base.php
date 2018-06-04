@@ -24,11 +24,25 @@ class Base{
      * @param $key
      * @return string
      */
-    public static function getKey($sysName,$key)
+    public static function getKey($sysName,$key='')
     {
         $config = self::getConfig($sysName);
+        if(empty($key)){
+            return  $config;
+        }
         return $config[$key] ? $config[$key] : '';
     }
+
+    /**
+     * 获取redis KEY 配置
+     * @param $key
+     * @return string
+     */
+    public static function getRedisKey($key='')
+    {
+        return Base::getKey('redisKey',$key);
+    }
+
 
 }
 
