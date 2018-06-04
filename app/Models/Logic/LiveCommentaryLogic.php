@@ -67,16 +67,12 @@ class LiveCommentaryLogic
 
     /**
      * [saveCommentary 保存解说详情]
-     * @param  [type] $game_id [description]
      * @param  [type] $data    [description]
      * @return [type]          [description]
      */
-    public function saveCommentary($game_id,$data)
-    { 
-      if(empty($game_id)){
-             return 0;
-        }
-     return  $this->LiveCommentAryDao->saveCommentary($game_id,$data);
+    public function saveCommentary($data)
+    {
+      return  $this->LiveCommentAryDao->saveCommentary($data);
   }
 
 

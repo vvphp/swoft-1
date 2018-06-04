@@ -20,8 +20,10 @@ use Swoft\Bean\Annotation\Bean;
 use Swoft\Http\Message\Bean\Annotation\Middleware;
 use App\Middlewares\ControllerMiddleware;
 use App\Models\Logic\LiveGameLogic;
+use App\Models\Logic\LiveCommentaryLogic;
 use Swoft\Exception\BadMethodCallException;
 use App\Common\Tool\Util;
+
 
 
 /**
@@ -82,12 +84,15 @@ class MatchController
      */
     public function saveDetails(Request $request)
     {
-           $data = $request->post();
-           if(empty$data['game_id'] || empty($data['editorValue']) || empty($data['team_id'])){
-            return Util::showMsg([],'live_data_add_failure','0'); 
-           }
-           //写数据库
-            
+       $data = $request->post();
+       if(empty($data['game_id']) || empty($data['editorValue']) || empty($data['team_id'])){
+            return Util::showMsg([],'live_data_add_failure','0');
+       }
+      //写数据库
+        /* @var LiveCommentaryLogic $logic */
+        $logic = App::getBean(LiveCommentaryLogic::class);
+        $result  = $logic->saveCommentary($data);
+        var_dump($result);
            
            //写websocket
 

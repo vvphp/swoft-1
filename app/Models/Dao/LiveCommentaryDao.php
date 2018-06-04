@@ -29,27 +29,24 @@ use App\Models\Logic\LiveCommentaryLogic;
  */
 class LiveCommentaryDao
 {
-    private  $fields = ['id','live_member_id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
+    private  $fields = ['id','game_id','content','add_date','timeframe','half_time','team_id'];
 
 
     /**
      * 保存解说详情数据
-     * @param $game_id
-     * @param $data
+     * @param array $data
      * @return bool|mixed
      */
-    public function saveCommentary($game_id,$data)
+    public function saveCommentary($data)
     {
         $values = [
             [
-              'match_id' => $data['match_id'],
-              'live_member_id' => $data['live_member_id'],
-              'game_date' => $data['game_date'],
-              'data_time' => $data['data_time'],
-              'label' => $data['label'],
-              'home_team_id' => $data['home_team_id'],
-              'visiting_team_id' => $data['visiting_team_id'],
-              'add_date'    => time()
+              'game_id'   => $data['game_id'],
+              'content'   => $data['editorValue'],
+              'timeframe' => $data['timeframe'],
+              'half_time' => $data['half_time'],
+              'team_id'   => $data['team_id'],
+              'add_date'  => time()
             ],
         ];
         return  LiveCommentary::batchInsert($values)->getResult();
