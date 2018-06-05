@@ -19,10 +19,10 @@
         <article class="cl pd-20">
             <div class="text-c">
                 日期范围：
-                <input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
+                <input type="text" name="startDate"  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
                 -
                 <input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
-                <input type="text" name="" id="" placeholder=" 赛事名称" style="width:250px" class="input-text">
+                <input type="text" name="gameName" id="gameName" placeholder=" 赛事名称" style="width:250px" class="input-text">
                 <button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜赛事</button>
             </div>
             <div class="cl pd-5 bg-1 bk-gray mt-20">
@@ -68,6 +68,9 @@
                     </tr>
                     <?php } ?>
                     </tbody>
+
+                    <div id="page"></div>
+
                 </table>
             </div>
         </article>
@@ -92,14 +95,17 @@
     });
 
     laypage({
-        cont: 'pageData',//分页容器的id
+        cont: 'page',//分页容器的id
         pages: 5, //总页数
         curr:1, //当前页
         skin: 'yahei',  //当前页的颜色
         jump:function(e,first){
+            var gameName = $("#gameName").val();
+            var logmin   = $("#logmin").val();
+            var logmax   = $("#logmax").val();
             if(!first){
-                location.href = '#?pageNumber='+e.curr;
-            }
+                 window.location.href = '?page='+e.curr+"&gameName="+gameName+"&startDate="+logmin+"&endDate="+logmax;
+             }
         }
     });
 

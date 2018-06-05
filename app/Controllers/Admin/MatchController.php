@@ -52,10 +52,12 @@ class MatchController
      * 后台赛事列表
      * @RequestMapping();
      * @View(template="admin/match/index")
+     * @param $request
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        print_r($request->query());
         /* @var LiveGameLogic $matchLogic */
         $matchLogic = App::getBean(LiveGameLogic::class);
         $data = $matchLogic->getGameListDataByWhere();
