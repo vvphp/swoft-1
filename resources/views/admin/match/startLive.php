@@ -80,7 +80,6 @@
 
 <script type="text/javascript">
     setInterval("getLiveUserCount()",5000);
-    window.UEDITOR_HOME_URL = "/home/www/test/swoft/public/static/h-ui/lib/ueditor/1.4.3/php";
     var ue = UE.getEditor('editor');
 
     /**

@@ -47,7 +47,7 @@
                         <th width="120">操作</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="pageData">
                     <?php foreach($data as $index => $item){ ?>
                         <tr class="text-c">
                         <td><input type="checkbox" value="<?php echo $item['id']; ?>" name="id"></td>
@@ -63,7 +63,6 @@
                             <?php } ?>
                         </td>
                         <td class="f-14 td-manage"><a style="text-decoration:none"  onclick="article_add('开始直播','/admin/match/startLive/<?php echo $item['id']; ?>','10001')"  href="javascript:;" title="开始直播"><i class="Hui-iconfont">&#xe6de;</i></a>
-                            <a style="text-decoration:none" class="ml-5" onClick="article_edit('资讯赛事','article-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
                             <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
                         </td>
                     </tr>
@@ -92,6 +91,18 @@
         ]
     });
 
+    laypage({
+        cont: 'pageData',//分页容器的id
+        pages: 5, //总页数
+        curr:1, //当前页
+        skin: 'yahei',  //当前页的颜色
+        jump:function(e,first){
+            if(!first){
+                location.href = '#?pageNumber='+e.curr;
+            }
+        }
+    });
+
     /*资讯-添加*/
     function article_add(title,url,w,h){
         var index = layer.open({
@@ -101,15 +112,7 @@
         });
         layer.full(index);
     }
-    /*资讯-编辑*/
-    function article_edit(title,url,id,w,h){
-        var index = layer.open({
-            type: 2,
-            title: title,
-            content: url
-        });
-        layer.full(index);
-    }
+
     /*资讯-删除*/
     function article_del(obj,id){
         layer.confirm('确认要删除吗？',function(index){
@@ -127,53 +130,6 @@
             });
         });
     }
-
-    /*资讯-审核*/
-    function article_shenhe(obj,id){
-        layer.confirm('审核文章？', {
-                btn: ['通过','不通过','取消'],
-                shade: false,
-                closeBtn: 0
-            },
-            function(){
-                $(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_start(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-                $(obj).remove();
-                layer.msg('已发布', {icon:6,time:1000});
-            },
-            function(){
-                $(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_shenqing(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">未通过</span>');
-                $(obj).remove();
-                layer.msg('未通过', {icon:5,time:1000});
-            });
-    }
-    /*资讯-下架*/
-    function article_stop(obj,id){
-        layer.confirm('确认要下架吗？',function(index){
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_start(this,id)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已下架</span>');
-            $(obj).remove();
-            layer.msg('已下架!',{icon: 5,time:1000});
-        });
-    }
-
-    /*资讯-发布*/
-    function article_start(obj,id){
-        layer.confirm('确认要发布吗？',function(index){
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-            $(obj).remove();
-            layer.msg('已发布!',{icon: 6,time:1000});
-        });
-    }
-    /*资讯-申请上线*/
-    function article_shenqing(obj,id){
-        $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
-        $(obj).parents("tr").find(".td-manage").html("");
-        layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
-    }
 </script>
-<!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
