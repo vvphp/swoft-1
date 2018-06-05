@@ -57,12 +57,18 @@ class MatchController
      */
     public function index(Request $request)
     {
-        print_r($request->query());
         /* @var LiveGameLogic $matchLogic */
         $matchLogic = App::getBean(LiveGameLogic::class);
         $data = $matchLogic->getGameListDataByWhere();
-        return ['data' => $data,'liveStatus' => $this->liveStatus];
+
+       $queryArr =  $request->query();
+       $page = isset($queryArr['page']) ?  intval($queryArr['page']) : 1;
+       return ['data' => $data,'liveStatus' => $this->liveStatus,'page' => $page];
      }
+
+
+
+
 
 
     /**

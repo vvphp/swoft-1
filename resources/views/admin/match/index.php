@@ -97,7 +97,7 @@
     laypage({
         cont: 'page',//分页容器的id
         pages: 5, //总页数
-        curr:1, //当前页
+        curr: <?php echo $page; ?>, //当前页
         skin: 'yahei',  //当前页的颜色
         jump:function(e,first){
             var gameName = $("#gameName").val();
