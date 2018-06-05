@@ -68,10 +68,10 @@
                     </tr>
                     <?php } ?>
                     </tbody>
-
-                    <div id="page"></div>
-
                 </table>
+
+                <div id="page" style="margin-top: 30px; text-align: center"></div>
+
             </div>
         </article>
     </div>
@@ -85,18 +85,11 @@
 <script type="text/javascript" src="/static/h-ui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/static/h-ui/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-    $('.table-sort').dataTable({
-        "aaSorting": [[ 1, "desc" ]],//默认第几个排序
-        "bStateSave": true,//状态保存
-        "aoColumnDefs": [
-            //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-            {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
-        ]
-    });
-
     laypage({
         cont: 'page',//分页容器的id
         pages: 5, //总页数
+        skip: true,
+        groups: 3,
         curr: <?php echo $page; ?>, //当前页
         skin: 'yahei',  //当前页的颜色
         jump:function(e,first){
