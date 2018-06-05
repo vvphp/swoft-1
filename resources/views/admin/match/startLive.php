@@ -79,8 +79,8 @@
 <script type="text/javascript" src="/static/admin/live.js"></script>
 
 <script type="text/javascript">
-
     setInterval("getLiveUserCount()",5000);
+    var ue = UE.getEditor('editor');
 
     /**
      * 提交直播数据
@@ -96,7 +96,7 @@
                  if(data.code== '-1'){
                       alert(data.msg);
                  }else{
-                  $("#editor").val("");
+                      ue.setContent('');
                  }
              }
          });
@@ -152,14 +152,12 @@
 
 
 
-
     $(function(){
         $('.skin-minimal input').iCheck({
             checkboxClass: 'icheckbox-blue',
             radioClass: 'iradio-blue',
             increaseArea: '20%'
         });
-
 
         $list = $("#fileList"),
             $btn = $("#btn-star"),
@@ -260,7 +258,7 @@
             }
         });
 
-        var ue = UE.getEditor('editor');
+
 
     });
 </script>
