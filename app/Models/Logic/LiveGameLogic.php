@@ -40,15 +40,6 @@ class LiveGameLogic
      */
      private  $LiveGameDao;
 
-
-    /**
-     *
-     * @Inject()
-     * @var LiveTeamDao
-     */
-    private  $liveTeamDao;
-
-
     /**
      * 先判断是否存在，如果不存在则插入，如果存在则直接返回true
      * @param $data
@@ -112,8 +103,7 @@ class LiveGameLogic
      */
     public function getGameListDataByWhere($where=[],$orderBy=[],$start=0,$limit=10)
     {
-        $buildWhere = $this->buildWhere($where);
-        $result = $this->LiveGameDao->getGameListDataByWhere($buildWhere,$orderBy,$start,$limit);
+        $result = $this->LiveGameDao->getGameListDataByWhere($where,$orderBy,$start,$limit);
         return  $this->getGameListData($result,false);
     }
 
@@ -124,38 +114,8 @@ class LiveGameLogic
      */
     public function getGameCountByWhere($where=[])
     {
-        $buildWhere = $this->buildWhere($where);
-       return  $this->LiveGameDao->getGameCountByWhere($buildWhere);
+       return  $this->LiveGameDao->getGameCountByWhere($where);
     }
-
-
-    /**
-     * 绑定where 条件
-     * @param $where
-     * @return mixed
-     */
-   private function buildWhere($where)
-   {
-       $gameName  = isset($where['gameName']) ? trim($where['gameName']) : '';
-       $startDate = isset($where['startDate']) ? trim($where['startDate']) : '';
-       $endDate   = isset($where['endDate'])  ? trim($where['endDate']) : '';
-       $teamIdList = [];
-       if(!empty($gameName)){
-            $teamIdList = $this->liveTeamDao->getTeamIdByName($gameName,'like');
-            $teamIdList = array_column($teamIdList,'id');
-       }
-       if(!empty($teamIdList)){
-           $where['home_team_id'] = $teamIdList;
-           $where['visiting_team_id'] = $teamIdList;
-           unset($where['gameName']);
-       }
-       if(!empty($startDate) && !empty($endDate)){
-           $where['betweenDate'] = ['startDate' => $startDate, 'endDate' => $endDate];
-           unset($where['startDate'],$where['endDate']);
-       }
-       return $where;
-   }
-
 
 
     /**
@@ -270,8 +230,6 @@ class LiveGameLogic
         $data['visitingteamLogo'] = isset($teamData[$visitingTeamId]) && !empty($teamData[$visitingTeamId]['teamLogo']) ? $teamData[$visitingTeamId]['teamLogo'] : '/static/zhibo8/images/qitakedui.png';
         return $data;
     }
-
-
 
     /**
      * 整理赛事列表数据

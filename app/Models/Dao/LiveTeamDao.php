@@ -53,7 +53,7 @@ class LiveTeamDao
     public function getTeamIdByName($team_name='',$symbol='')
     {
         if($symbol == 'like'){
-            $where = ['team_name', 'like', "'%".$team_name."%'"];
+            $where = ['team_name', 'like', "%".$team_name."%"];
         }else{
             $where = ['team_name' => $team_name];
         }

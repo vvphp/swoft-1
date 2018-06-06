@@ -19,18 +19,14 @@
         <article class="cl pd-20">
             <div class="text-c">
                 日期范围：
-                <input type="text" name="startDate"  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
+                <input type="text" value="<?php echo isset($queryArr['startDate']) ? $queryArr['startDate'] : ''; ?>" name="startDate"  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
                 -
-                <input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
-                <input type="text" name="gameName" id="gameName" placeholder=" 赛事名称" style="width:250px" class="input-text">
-                <button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜赛事</button>
+                <input type="text" value="<?php echo isset($queryArr['endDate']) ? $queryArr['endDate'] : ''; ?>" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
+                <input type="text" name="gameName" id="gameName" value="<?php echo isset($queryArr['gameName']) ? $queryArr['gameName'] : ''; ?>" placeholder=" 赛事名称" style="width:250px" class="input-text">
+                <button name="search" id="search" class="btn btn-success" type="button"><i class="Hui-iconfont">&#xe665;</i> 搜赛事</button>
             </div>
             <div class="cl pd-5 bg-1 bk-gray mt-20">
-				<span class="l">
-				<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-				<a class="btn btn-primary radius" data-title="添加赛事" _href="article-add.html" onclick="article_add('添加赛事','/admin/match/add')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加赛事</a>
-				</span>
-                <span class="r">共有数据：<strong>54</strong> 条</span>
+                <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span>
             </div>
             <div class="mt-20">
                 <table class="table table-border table-bordered table-bg table-hover table-sort">
@@ -85,9 +81,15 @@
 <script type="text/javascript" src="/static/h-ui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/static/h-ui/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
+    $("#search").click(function(){
+        var gameName = $("#gameName").val();
+        var logmin   = $("#logmin").val();
+        var logmax   = $("#logmax").val();
+        window.location.href = "?page=1&gameName="+gameName+"&startDate="+logmin+"&endDate="+logmax;
+    })
     laypage({
         cont: 'page',//分页容器的id
-        pages: 5, //总页数
+        pages: <?php echo $countPage; ?>, //总页数
         skip: true,
         groups: 3,
         curr: <?php echo $page; ?>, //当前页

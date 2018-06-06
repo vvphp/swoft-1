@@ -12,12 +12,14 @@ namespace App\Models\Dao;
 
 use Swoft\App;
 use App\Models\Entity\LiveGameSchedule;
-use App\Models\Entity\LiveMatchTable;
 use Swoft\Bean\Annotation\Bean;
+use Swoft\Db\QueryBuilder;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
-use App\Models\Logic\LiveMatchLogic;
-use App\Models\Logic\LiveAdminUserLogic;
-use App\Models\Logic\LiveCommentaryLogic;
+use App\Models\Dao\LiveTeamDao;
+use Swoft\Bean\Annotation\Inject;
+use Swoft\Db\Db;
+use Swoft\Db\Query;
+
 
 /**
  * @Bean()
@@ -30,6 +32,14 @@ use App\Models\Logic\LiveCommentaryLogic;
 class LiveGameDao
 {
     private  $fields = ['id','live_member_id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
+
+    /**
+     *
+     * @Inject()
+     * @var LiveTeamDao
+     */
+    private  $liveTeamDao;
+
 
     /**
      * 先判断是否存在，如果不存在则插入，如果存在则直接返回true
@@ -116,8 +126,14 @@ class LiveGameDao
     public function getGameListDataByWhere($where,$orderBy=[],$start = 0,$limit = 10)
     {
        $where = $this->getWhere($where);
-       $result = LiveGameSchedule::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
-       return  empty($result) ? [] : $result->toArray();
+       if(isset($where['or_visiting_team_id'])){
+            $or_visiting_team_id = $where['or_visiting_team_id'];
+            $result =  Query::table(LiveGameSchedule::class)->condition($where)->whereIn('visiting_team_id',$or_visiting_team_id)->get()->getResult();
+            return $result;
+       }else{
+          $result = LiveGameSchedule::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
+           return  empty($result) ? [] : $result->toArray();
+       }
     }
 
     /**
@@ -140,9 +156,36 @@ class LiveGameDao
      */
     public function getGameDataByGameId(int $game_id)
     {
-        $where  = [ 'id' => $game_id ];
-        $fields = ['id','match_id','live_member_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
-        return  $this->getGameIdByWhere($where,$fields);
+        return  $this->getGameIdByWhere([ 'id' => $game_id ],$this->fields);
+    }
+
+
+
+    /**
+     * 绑定where 条件 针对一些特殊条件
+     * @param $where
+     * @return mixed
+     */
+    private function buildWhere($where)
+    {
+        $gameName  = isset($where['gameName']) ? trim($where['gameName']) : '';
+        $startDate = isset($where['startDate']) ? trim($where['startDate']) : '';
+        $endDate   = isset($where['endDate'])  ? trim($where['endDate']) : '';
+        $teamIdList = [];
+        if(!empty($gameName)){
+            $teamIdList = $this->liveTeamDao->getTeamIdByName($gameName,'like');
+            $teamIdList = array_column($teamIdList,'id');
+        }
+        if(!empty($teamIdList)){
+            $where['home_team_id'] = $teamIdList;
+            $where['or_visiting_team_id'] = $teamIdList;
+            unset($where['gameName']);
+        }
+        if(!empty($startDate) && !empty($endDate)){
+            $where['betweenDate'] = ['startDate' => $startDate, 'endDate' => $endDate];
+            unset($where['startDate'],$where['endDate']);
+        }
+        return $where;
     }
 
     /**
@@ -153,6 +196,7 @@ class LiveGameDao
     public function getWhere($where)
     {
         $filter = [];
+        $where = $this->buildWhere($where);
         if(isset($where['id'])){
             $filter['id'] = $where['id'];
         }
@@ -170,6 +214,9 @@ class LiveGameDao
         }
         if(isset($where['visiting_team_id'])){
              $filter['visiting_team_id'] = $where['visiting_team_id'];
+        }
+        if(isset($where['or_visiting_team_id'])){
+            $filter['or_visiting_team_id'] = $where['or_visiting_team_id'];
         }
         if(isset($where['betweenDate'])){
             $filter[] = ['game_date','between',$where['betweenDate']['startDate'],$where['betweenDate']['endDate']];

@@ -35,6 +35,8 @@ class MatchController
 {
     private $liveStatus = ['','未开始','正在直播','已结束'];
 
+    const LIMIT = 10;
+
     /**
      * @\Swoft\Bean\Annotation\Inject("LiveHelper")
      * @var \App\Common\Helper\Live
@@ -59,13 +61,19 @@ class MatchController
     {
         $queryArr =  $request->query();
         $page  = isset($queryArr['page']) && $queryArr['page']>=1 ?  intval($queryArr['page']) : 1;
-        $start = ($page-1)*10;
+        $start = ($page-1)*self::LIMIT;
         /* @var LiveGameLogic $matchLogic */
         $matchLogic = App::getBean(LiveGameLogic::class);
         $data = $matchLogic->getGameListDataByWhere($queryArr,[],$start);
         $count = $matchLogic->getGameCountByWhere($queryArr);
-        var_dump($count);
-        return ['data' => $data,'liveStatus' => $this->liveStatus,'page' => $page,'count' => $count];
+        $countPage = ceil($count/self::LIMIT);
+        return ['data' => $data,
+                'liveStatus' => $this->liveStatus,
+                'page'       => $page,
+                'count'      => $count,
+                'countPage'  => $countPage,
+                'queryArr'   => $queryArr
+        ];
      }
 
     /**
