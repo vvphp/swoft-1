@@ -22,11 +22,18 @@ $(document).ready(function(){
          //websocket start
 	    var ws = new WebSocket(wsUri);   
 		ws.onopen = function(evt) {
-		    console.log("Connection open ...");
-		    ws.send("Hello WebSockets!");
 		};  
 		  
-		ws.onmessage = function(evt) {  
+		ws.onmessage = function(evt) {
+			var html=`
+						  <li class="">
+						  <div class="username">${narratorData.nikename}</div>
+						  <div class="livetext">${evt.data}</div>
+						  <div class="period">109-97</div>
+						  <div class="score">第4节</div>
+						</li>`;
+			$(".zhibo>.zhibo_text>#livebox").prepend(html);
+
 		    console.log("Received Message: " + evt.data);  
 		    console.log(evt);
 		  };  

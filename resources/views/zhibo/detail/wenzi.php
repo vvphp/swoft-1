@@ -79,7 +79,7 @@
             <div class="chatRoom">
                 <div class="zhibo_text">
                     <ul id="livebox">
-                        <li id="jiazaizhong"><div class="livetext">aaaaaaawerewrewr直播暂未开始，敬请关注！</div></li>
+                        <li id="jiazaizhong"><div class="livetext">暂无聊天信息！</div></li>
                     </ul>
                 </div>
             </div>
