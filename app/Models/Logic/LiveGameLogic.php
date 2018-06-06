@@ -118,6 +118,18 @@ class LiveGameLogic
     }
 
     /**
+     * 根据条件查询总数
+     * @param array $where
+     * @return array
+     */
+    public function getGameCountByWhere($where=[])
+    {
+        $buildWhere = $this->buildWhere($where);
+       return  $this->LiveGameDao->getGameCountByWhere($buildWhere);
+    }
+
+
+    /**
      * 绑定where 条件
      * @param $where
      * @return mixed
