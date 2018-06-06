@@ -126,13 +126,12 @@ class LiveGameDao
     public function getGameListDataByWhere($where,$orderBy=[],$start = 0,$limit = 10)
     {
        $where = $this->getWhere($where);
-       if(isset($where['or_visiting_team_id'])){
-            $or_visiting_team_id = $where['or_visiting_team_id'];
-            $result =  Query::table(LiveGameSchedule::class)->condition($where)->whereIn('visiting_team_id',$or_visiting_team_id)->get()->getResult();
+       if(isset($where['visiting_team_id']) && isset($where['home_team_id']) && $where['home_team_id'] == $where['visiting_team_id']){
+            $result =  Query::table(LiveGameSchedule::class)->condition($where)->whereIn('visiting_team_id',$where['visiting_team_id'])->get()->getResult();
             return $result;
        }else{
           $result = LiveGameSchedule::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
-           return  empty($result) ? [] : $result->toArray();
+          return  empty($result) ? [] : $result->toArray();
        }
     }
 
@@ -178,7 +177,7 @@ class LiveGameDao
         }
         if(!empty($teamIdList)){
             $where['home_team_id'] = $teamIdList;
-            $where['or_visiting_team_id'] = $teamIdList;
+            $where['visiting_team_id'] = $teamIdList;
             unset($where['gameName']);
         }
         if(!empty($startDate) && !empty($endDate)){
@@ -214,9 +213,6 @@ class LiveGameDao
         }
         if(isset($where['visiting_team_id'])){
              $filter['visiting_team_id'] = $where['visiting_team_id'];
-        }
-        if(isset($where['or_visiting_team_id'])){
-            $filter['or_visiting_team_id'] = $where['or_visiting_team_id'];
         }
         if(isset($where['betweenDate'])){
             $filter[] = ['game_date','between',$where['betweenDate']['startDate'],$where['betweenDate']['endDate']];
