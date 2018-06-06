@@ -42,11 +42,11 @@
         </div>
 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>当前比分：</label>
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>当前比分：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" style="width: 100px;" value="" placeholder="" id="hometeamScore" name="hometeamScore">
+                <input type="text" class="input-text" style="width: 100px;" value="0" placeholder="主队比分" id="home_team_score" name="home_team_score">
                  ----
-                <input type="text" class="input-text" style="width: 100px;" value="" placeholder="" id="VisitingTeamScore" name="VisitingTeamScore">
+                <input type="text" class="input-text" style="width: 100px;" value="0" placeholder="客队比分" id="visiting_team_score" name="visiting_team_score">
             </div>
         </div>
 

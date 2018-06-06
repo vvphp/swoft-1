@@ -67,6 +67,8 @@ class LiveCommentaryDao
               'content'   => $data['editorValue'],
               'time_frame' => $data['timeframe'],
               'team_id'   => $data['team_id'],
+              'home_team_score' => $data['home_team_score'],
+              'visiting_team_score' => $data['visiting_team_score'],
               'add_date'  => time()
             ],
         ];

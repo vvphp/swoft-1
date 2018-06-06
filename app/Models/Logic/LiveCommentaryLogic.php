@@ -60,6 +60,9 @@ class LiveCommentaryLogic
      */
     public function saveCommentary($data)
     {
+        if(empty($data)){
+            return false;
+        }
        return  $this->LiveCommentAryDao->saveCommentary($data);
     }
 
