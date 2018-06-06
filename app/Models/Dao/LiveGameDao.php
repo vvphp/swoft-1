@@ -149,6 +149,12 @@ class LiveGameDao
     public function getGameCountByWhere($where)
     {
         $where = $this->getWhere($where);
+        if(isset($where['visiting_team_id']) && isset($where['home_team_id']) && $where['home_team_id'] == $where['visiting_team_id']){
+            $home_team_id = $where['home_team_id'];
+            unset($where['home_team_id'],$where['visiting_team_id']);
+            $result =  Query::table(LiveGameSchedule::class)->whereIn('home_team_id',$home_team_id)->whereIn('visiting_team_id',$home_team_id,QueryBuilder::LOGICAL_OR)->condition($where)->count('id')->getResult();
+            return $result;
+        }
         return  LiveGameSchedule::count('id',$where)->getResult();
     }
 
