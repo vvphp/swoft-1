@@ -14,6 +14,8 @@ use App\Models\Entity\LiveTeamTable;
 
 use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
+use Swoft\Bean\Annotation\Inject;
+use App\Models\Dao\LiveTeamDao;
 
 /**
  * 用户逻辑层
@@ -30,38 +32,37 @@ class LiveTeamLogic
 {
 
     /**
+     *
+     * @Inject()
+     * @var LiveTeamDao
+     */
+    private  $liveTeamDao;
+
+    /**
      * 根据 team_name查询是否存在，如果不存在则插入，如果存在则直接返回true
      * @param $data
      * @return bool|mixed
      */
     public function saveLiveTeam($data)
     {
-        if(!empty($data['team_name'])){
-            $result = $this->getTeamIdByName($data['team_name']);
-            if(!empty($result)){
-                 return $result['id'];
-            }
-         $ret = $this->saveTeamByData($data);
-         return $ret;
+        if(empty($data['team_name'])){
+             return 0;
         }
-      return 0;
+        return $this->liveTeamDao->saveLiveTeam($data);
     }
 
     /**
      * 根据 team_name 查询表中是否已经存在数据
      * @param string $team_name
+     * @param  string $symbol 符号，如果传like表示模糊查询，否则就是全等查询
      * @return mixed
      */
-    public function getTeamIdByName($team_name='')
+    public function getTeamIdByName($team_name='',$symbol='')
     {
-        $where = [
-            'team_name' => $team_name
-        ];
-        $result =  LiveTeamTable::findOne($where, ['fields' => ['id']])->getResult();
-        if(!empty($result)){
-            $result = $result->toArray();
+        if(empty($team_name)){
+             return [];
         }
-        return $result;
+        return   $this->liveTeamDao->getTeamIdByName($team_name,$symbol);
     }
 
     /**
@@ -71,22 +72,16 @@ class LiveTeamLogic
      */
     public function getTeamDataByIdList(array $team_id_list)
     {
-       $teamList = [];
-       if(empty($team_id_list)){
-            return $teamList;
-       }
-      $where  = ['id' => $team_id_list];
-      $fields = ['id','team_name','team_logo'];
-      $result =  LiveTeamTable::findAll($where, ['fields' => $fields])->getResult();
-      if(empty($result)){
-           return $teamList;
-      }
-     $teamData = $result->toArray();
-     foreach($teamData as $key => $value){
+        $teamList = [];
+        if(empty($team_id_list)){
+             return $teamList;
+        }
+       $teamData = $this->liveTeamDao->getTeamDataByIdList($team_id_list);
+       foreach($teamData as $key => $value){
             $teamId = $value['id'];
             $teamList[$teamId] = $value;
         }
-       return $teamList;
+        return $teamList;
     }
 
     /**
@@ -96,16 +91,10 @@ class LiveTeamLogic
      */
     public  function saveTeamByData($data)
     {
-        $values = [
-            [
-                'team_name'         => $data['team_name'],
-                'team_logo'         => $data['team_logo'],
-                'sports_category'   => $data['sports_category'],
-                'add_date'          => time(),
-            ],
-        ];
-       $result =  LiveTeamTable::batchInsert($values)->getResult();
-       return $result;
+        if(empty($data)){
+              return false;
+        }
+        return $this->liveTeamDao->saveTeamByData($data);
     }
 
 }

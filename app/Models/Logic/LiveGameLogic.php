@@ -1,6 +1,6 @@
 <?php
 /**
- * 赛程表 逻辑层
+ * 赛程表 逻辑层 逻辑业务处理
  *
  * @link https://swoft.org
  * @document https://doc.swoft.org
@@ -21,6 +21,7 @@ use App\Models\Logic\LiveCommentaryLogic;
 
 use Swoft\Bean\Annotation\Inject;
 use App\Models\Dao\LiveGameDao;
+use App\Models\Dao\LiveTeamDao;
 
 /**
  * @Bean()
@@ -38,6 +39,14 @@ class LiveGameLogic
      * @var LiveGameDao
      */
      private  $LiveGameDao;
+
+
+    /**
+     *
+     * @Inject()
+     * @var LiveTeamDao
+     */
+    private  $liveTeamDao;
 
 
     /**
@@ -103,9 +112,38 @@ class LiveGameLogic
      */
     public function getGameListDataByWhere($where=[],$orderBy=[],$start=0,$limit=10)
     {
-        $result = $this->LiveGameDao->getGameListDataByWhere($where,$orderBy,$start,$limit);
+        $buildWhere = $this->buildWhere($where);
+        $result = $this->LiveGameDao->getGameListDataByWhere($buildWhere,$orderBy,$start,$limit);
         return  $this->getGameListData($result,false);
     }
+
+    /**
+     * 绑定where 条件
+     * @param $where
+     * @return mixed
+     */
+   private function buildWhere($where)
+   {
+       $gameName  = isset($where['gameName']) ? trim($where['gameName']) : '';
+       $startDate = isset($where['startDate']) ? trim($where['startDate']) : '';
+       $endDate   = isset($where['endDate'])  ? trim($where['endDate']) : '';
+       $teamIdList = [];
+       if(!empty($gameName)){
+            $teamIdList = $this->liveTeamDao->getTeamIdByName($gameName,'like');
+       }
+       if(!empty($teamIdList)){
+           $where['home_team_id'] = $teamIdList;
+           $where['visiting_team_id'] = $teamIdList;
+           unset($where['gameName']);
+       }
+       if(!empty($startDate) && !empty($endDate)){
+           $where['betweenDate'] = ['startDate' => $startDate, 'endDate' => $endDate];
+           unset($where['startDate'],$where['endDate']);
+       }
+       return $where;
+   }
+
+
 
     /**
      * 查询赛事列表数据

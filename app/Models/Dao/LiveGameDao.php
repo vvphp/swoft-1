@@ -171,8 +171,10 @@ class LiveGameDao
         if(isset($where['visiting_team_id'])){
             $filter[ 'visiting_team_id'] = $where['visiting_team_id'];
         }
+        if(isset($where['betweenDate'])){
+            $filter['game_date'] = ['between',$where['betweenDate']['startDate'],$where['betweenDate']['endDate']];
+        }
         return $filter;
     }
-
 
 }
