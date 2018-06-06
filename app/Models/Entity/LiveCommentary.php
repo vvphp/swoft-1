@@ -50,6 +50,18 @@ class LiveCommentary extends Model
     private $timeFrame;
 
     /**
+     * @var int $homeTeamScore 主队比分
+     * @Column(name="home_team_score", type="tinyint", default=0)
+     */
+    private $homeTeamScore;
+
+    /**
+     * @var int $visitingTeamScore 客队比分
+     * @Column(name="visiting_team_score", type="tinyint", default=0)
+     */
+    private $visitingTeamScore;
+
+    /**
      * @var int $teamId 球队ID
      * @Column(name="team_id", type="tinyint", default=0)
      */
@@ -114,6 +126,29 @@ class LiveCommentary extends Model
         return $this;
     }
 
+    /**
+     * 主队比分
+     * @param int $value
+     * @return $this
+     */
+    public function setHomeTeamScore(int $value): self
+    {
+        $this->homeTeamScore = $value;
+
+        return $this;
+    }
+
+    /**
+     * 客队比分
+     * @param int $value
+     * @return $this
+     */
+    public function setVisitingTeamScore(int $value): self
+    {
+        $this->visitingTeamScore = $value;
+
+        return $this;
+    }
 
     /**
      * 球队ID
@@ -169,6 +204,24 @@ class LiveCommentary extends Model
     public function getTimeFrame()
     {
         return $this->timeFrame;
+    }
+
+    /**
+     * 主队比分
+     * @return int
+     */
+    public function getHomeTeamScore()
+    {
+        return $this->homeTeamScore;
+    }
+
+    /**
+     * 客队比分
+     * @return int
+     */
+    public function getVisitingTeamScore()
+    {
+        return $this->visitingTeamScore;
     }
 
     /**
