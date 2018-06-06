@@ -37,7 +37,7 @@ class LiveTeamDao
         if(!empty($data['team_name'])){
             $result = $this->getTeamIdByName($data['team_name']);
             if(!empty($result)){
-                 return $result['id'];
+                 return $result[0]['id'];
             }
            return  $this->saveTeamByData($data);
         }
@@ -53,11 +53,11 @@ class LiveTeamDao
     public function getTeamIdByName($team_name='',$symbol='')
     {
         if($symbol == 'like'){
-            $where = ['team_name', 'like', '%'.$team_name.'%'];
+            $where = ['team_name', 'like', "'%".$team_name."%'"];
         }else{
             $where = ['team_name' => $team_name];
         }
-        $result =  LiveTeamTable::findOne($where, ['fields' => ['id']])->getResult();
+        $result =  LiveTeamTable::findAll($where, ['fields' => ['id']])->getResult();
         return empty($result) ? [] : $result->toArray();
     }
 
