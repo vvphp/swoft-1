@@ -33,6 +33,10 @@ class LiveGameDao
 {
     private  $fields = ['id','live_member_id','match_id','game_date','data_time','label','home_team_id','visiting_team_id','live_status'];
 
+    private  $reNameFields = ['id','live_member_id' => 'liveMemberId','match_id' => 'matchId','game_date' => 'gameDate',
+        'home_team_id' => 'homeTeamId','visiting_team_id' => 'visitingTeamId','live_status' => 'liveStatus',
+        'label','data_time' => 'dataTime'];
+
     /**
      *
      * @Inject()
@@ -127,11 +131,9 @@ class LiveGameDao
     {
        $where = $this->getWhere($where);
        if(isset($where['visiting_team_id']) && isset($where['home_team_id']) && $where['home_team_id'] == $where['visiting_team_id']){
-            unset($where['visiting_team_id']);
-            $fields = ['id','live_member_id' => 'liveMemberId','match_id' => 'matchId','game_date' => 'gameDate',
-                      'home_team_id' => 'homeTeamId','visiting_team_id' => 'visitingTeamId','live_status' => 'liveStatus',
-                      'label','data_time' => 'dataTime'];
-            $result =  Query::table(LiveGameSchedule::class)->condition($where)->whereIn('visiting_team_id',$where['home_team_id'],QueryBuilder::LOGICAL_OR)->get($fields)->getResult();
+            $home_team_id = $where['home_team_id'];
+            unset($where['home_team_id'],$where['visiting_team_id']);
+            $result =  Query::table(LiveGameSchedule::class)->whereIn('home_team_id',$home_team_id)->whereIn('visiting_team_id',$home_team_id,QueryBuilder::LOGICAL_OR)->condition($where)->get($this->reNameFields)->getResult();
             return $result;
        }else{
           $result = LiveGameSchedule::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
@@ -187,6 +189,12 @@ class LiveGameDao
         if(!empty($startDate) && !empty($endDate)){
             $where['betweenDate'] = ['startDate' => $startDate, 'endDate' => $endDate];
             unset($where['startDate'],$where['endDate']);
+        }
+        if(!empty($startDate) && empty($endDate)){
+             $where['game_date'] = $startDate;
+        }
+        if(empty($startDate) && !empty($endDate)){
+            $where['game_date'] = $endDate;
         }
         return $where;
     }
