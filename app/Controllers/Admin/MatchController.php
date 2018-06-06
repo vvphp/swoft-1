@@ -188,6 +188,25 @@ class MatchController
         return Util::showMsg(['count' => $count],'success');
     }
 
+    /**
+     * 删除数据
+     * @param Request $request
+     * @return array
+     */
+    public function del(Request $request)
+    {
+        $id = intval($request->post('id'));
+        if(empty($id)){
+            return Util::showMsg([],'live_empty_id_error','0');
+        }
+        /* @var LiveGameLogic $gameLogic */
+        $gameLogic = App::getBean(LiveGameLogic::class);
+        $result = $gameLogic->delGameDataById($id);
+        if($result){
+            return Util::showMsg([],'public_del_success');
+        }
+        return Util::showMsg([],'public_del_error','0');
+    }
 
  
 }

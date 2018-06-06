@@ -131,7 +131,7 @@
     {
         var game_id = $("#game_id").val();
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "/admin/match/setLiveStatus?game_id="+game_id+"&status="+status,
             success: function(data){
                 data = JSON.parse(data);

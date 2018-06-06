@@ -34,5 +34,8 @@ return [
     'live_status_failure'    => '比赛未开始或已结束，无法发布直播数据',
     'live_set_status_error_data' => '参数错误,修改直播状态失败',
     'live_set_status_error'      => '修改赛事状态失败',
-    'live_set_status_success'    => '修改赛事状态成功'
+    'live_set_status_success'    => '修改赛事状态成功',
+    'live_empty_id_error'        => 'ID不能为空',
+    'public_del_success'         => '删除成功',
+    'public_del_error'           => '删除失败'
 ];

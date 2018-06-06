@@ -75,9 +75,19 @@ class LiveGameLogic
     public function updateGameDataById($game_id,$data)
     {
         if(empty($game_id) || empty($data)){
-            return false;
+             return false;
         }
        return $this->LiveGameDao->updateGameDataById($game_id,$data);
+    }
+
+    /**
+     * 删除赛事数据
+     * @param $game_id
+     * @return bool
+     */
+    public function delGameDataById($game_id)
+    {
+        return  $this->updateGameDataById($game_id,['live_status' => 0]);
     }
 
     /**

@@ -235,6 +235,12 @@ class LiveGameDao
         if(isset($where['betweenDate'])){
             $filter[] = ['game_date','between',$where['betweenDate']['startDate'],$where['betweenDate']['endDate']];
         }
+        if(!isset($where['live_status'])){
+              $filter[] = ['live_status','>',0];
+        }
+        if(isset($where['live_status'])){
+            $filter['live_status'] = $where['live_status'];
+        }
         return $filter;
     }
 

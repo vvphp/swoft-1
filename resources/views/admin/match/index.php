@@ -22,8 +22,8 @@
                 <input type="text" value="<?php echo isset($queryArr['startDate']) ? $queryArr['startDate'] : ''; ?>" name="startDate"  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
                 -
                 <input type="text" value="<?php echo isset($queryArr['endDate']) ? $queryArr['endDate'] : ''; ?>" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
-                <input type="text" name="gameName" id="gameName" value="<?php echo isset($queryArr['gameName']) ? $queryArr['gameName'] : ''; ?>" placeholder=" 赛事名称" style="width:250px" class="input-text">
-                <button name="search" id="search" class="btn btn-success" type="button"><i class="Hui-iconfont">&#xe665;</i> 搜赛事</button>
+                <input type="text" name="gameName" id="gameName" value="<?php echo isset($queryArr['gameName']) ? $queryArr['gameName'] : ''; ?>" placeholder="球队名称" style="width:250px" class="input-text">
+                <button name="search" id="search" class="btn btn-success" type="button"><i class="Hui-iconfont">&#xe665;</i> 搜比赛</button>
             </div>
             <div class="cl pd-5 bg-1 bk-gray mt-20">
                 <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span>
@@ -119,11 +119,16 @@
         layer.confirm('确认要删除吗？',function(index){
             $.ajax({
                 type: 'POST',
-                url: '',
-                dataType: 'json',
+                data:{'id':id}
+                url: '/admin/match/del',
                 success: function(data){
-                    $(obj).parents("tr").remove();
-                    layer.msg('已删除!',{icon:1,time:1000});
+                    data = JSON.parse(data);
+                    if(data.code == '1') {
+                        $(obj).parents("tr").remove();
+                        layer.msg('已删除!', {icon: 1, time: 1000});
+                    }else{
+                        layer.msg('删除失败!', {icon: 1, time: 1000});
+                    }
                 },
                 error:function(data) {
                     console.log(data.msg);
