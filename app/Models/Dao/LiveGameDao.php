@@ -127,7 +127,8 @@ class LiveGameDao
     {
        $where = $this->getWhere($where);
        if(isset($where['visiting_team_id']) && isset($where['home_team_id']) && $where['home_team_id'] == $where['visiting_team_id']){
-            $result =  Query::table(LiveGameSchedule::class)->condition($where)->whereIn('visiting_team_id',$where['visiting_team_id'])->get()->getResult();
+            unset($where['visiting_team_id']);
+            $result =  Query::table(LiveGameSchedule::class)->condition($where)->whereIn('visiting_team_id',$where['home_team_id'],QueryBuilder::LOGICAL_OR)->get()->getResult();
             return $result;
        }else{
           $result = LiveGameSchedule::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
