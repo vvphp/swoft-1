@@ -59,7 +59,7 @@
                             <?php } ?>
                         </td>
                         <td class="f-14 td-manage"><a style="text-decoration:none"  onclick="article_add('开始直播','/admin/match/startLive/<?php echo $item['id']; ?>','10001')"  href="javascript:;" title="开始直播"><i class="Hui-iconfont">&#xe6de;</i></a>
-                            <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                            <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'<?php echo $item['id'] ?>')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
                         </td>
                     </tr>
                     <?php } ?>
@@ -119,7 +119,7 @@
         layer.confirm('确认要删除吗？',function(index){
             $.ajax({
                 type: 'POST',
-                data:{'id':id}
+                data:{'id':id},
                 url: '/admin/match/del',
                 success: function(data){
                     data = JSON.parse(data);
