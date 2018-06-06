@@ -130,7 +130,7 @@ class LiveGameLogic
        $teamIdList = [];
        if(!empty($gameName)){
             $teamIdList = $this->liveTeamDao->getTeamIdByName($gameName,'like');
-             print_r($teamIdList);
+            $teamIdList = array_column($teamIdList,'id');
        }
        if(!empty($teamIdList)){
            $where['home_team_id'] = $teamIdList;

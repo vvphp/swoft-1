@@ -154,25 +154,25 @@ class LiveGameDao
     {
         $filter = [];
         if(isset($where['id'])){
-            $filter[ 'id'] = $where['id'];
+            $filter['id'] = $where['id'];
         }
         if(isset($where['match_id'])){
-            $filter[ 'match_id'] = $where['match_id'];
+            $filter['match_id'] = $where['match_id'];
         }
         if(isset($where['game_date'])){
-            $filter[ 'game_date'] = $where['game_date'];
+            $filter['game_date'] = $where['game_date'];
         }
         if(isset($where['data_time'])){
-            $filter[ 'data_time'] = $where['data_time'];
+            $filter['data_time'] = $where['data_time'];
         }
         if(isset($where['home_team_id'])){
-            $filter[ 'home_team_id'] = $where['home_team_id'];
+            $filter['home_team_id'] = $where['home_team_id'];
         }
         if(isset($where['visiting_team_id'])){
-            $filter[ 'visiting_team_id'] = $where['visiting_team_id'];
+             $filter['visiting_team_id'] = $where['visiting_team_id'];
         }
         if(isset($where['betweenDate'])){
-            $filter['game_date'] = ['between',$where['betweenDate']['startDate'],$where['betweenDate']['endDate']];
+            $filter[] = ['game_date','between',$where['betweenDate']['startDate'],$where['betweenDate']['endDate']];
         }
         return $filter;
     }
