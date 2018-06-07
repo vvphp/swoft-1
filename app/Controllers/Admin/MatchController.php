@@ -130,7 +130,12 @@ class MatchController
         if($result){
              //写websocket
              $gameUserListFd = $this->LiveHelper->getLiveUserListByGameId($game_id);
-             \Swoft::$server->sendToSome($data['editorValue'],$gameUserListFd);
+             $sendData    = [
+                'content' => $data['editorValue'],
+                'team_score' => $data['home_team_score'].'-'.$data['visiting_team_score'],
+                'time_frame' => $data['timeframe']
+             ];
+             \Swoft::$server->sendToSome(json_encode($sendData),$gameUserListFd);
               return Util::showMsg([],'live_add_game_success');
         }else{
              return Util::showMsg([],'live_data_add_failure','0');
