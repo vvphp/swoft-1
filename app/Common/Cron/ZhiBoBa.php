@@ -68,14 +68,14 @@ class  ZhiBoBa{
         $res  = $client->request('GET', $grabUrl);
         $body = $res->getBody()->getContents();
         \phpQuery::newDocumentHTML($body);
-        foreach( pq(".r_video") as $html){
-            $data = $this->processGrabNewsContent($html);
+        foreach( pq(".r_video a") as $html){
+            $data[] = $this->processGrabNewsContent($html);
         }
         print_r($data);
-        foreach( pq(".r_news") as $html){
-            $data = $this->processGrabNewsContent($html);
+        foreach( pq(".r_news a") as $html){
+            $data[] = $this->processGrabNewsContent($html);
         }
-        print_r($data); 
+        print_r($data);
     }
 
     /**
@@ -84,23 +84,16 @@ class  ZhiBoBa{
      */
     public function processGrabNewsContent($html)
     {
-        $data = [];
-        $liList = pq($html)->find("li");
-        foreach($liList as $index => $liHtml){
-            foreach(pq($liHtml)->find("a") as $aHtml){
-                $href = pq($aHtml)->attr("href");
-                $urlInfo = parse_url($href);
-                if(!isset($urlInfo['host'])){
-                    $href = $this->url.trim($href,"/");
-                }
-                $urlInfo = parse_url($href);
-                if(!isset($urlInfo['scheme'])){
-                    $href = "https://".trim($href,"/");
-                }
-                $data[] = ['text' =>  pq($aHtml)->text(), 'href' => $href];
-            }
-        }
-        return $data;
+      $href = pq($html)->attr("href");
+      $urlInfo = parse_url($href);
+      if(!isset($urlInfo['host'])){
+          $href = $this->url.trim($href,"/");
+      }
+      $urlInfo = parse_url($href);
+      if(!isset($urlInfo['scheme'])){
+         $href = "https://".trim($href,"/");
+      }
+       return ['text' => pq($html)->text(), 'href' => $href];
     }
 
 
