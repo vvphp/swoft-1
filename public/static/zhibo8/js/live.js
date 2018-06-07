@@ -25,15 +25,26 @@ $(document).ready(function(){
 		};  
 		  
 		ws.onmessage = function(evt) {
-			var html=`
+			var data = evt.data;
+			if(data.indexOf('{')>-1){
+			    data = JSON.parse(data);
+				var html=`
 						  <li class="">
 						  <div class="username">${narratorData.nikename}</div>
-						  <div class="livetext">${evt.data}</div>
-						  <div class="period">109-97</div>
-						  <div class="score">第4节</div>
+						  <div class="livetext">${data.content}</div>
+						  <div class="period">${data.team_score}</div>
+						  <div class="score">第${data.time_frame}节</div>
 						</li>`;
+			}else{
+				var html=`
+						  <li class="">
+						  <div class="username">${narratorData.nikename}</div>
+						  <div class="livetext">${data}</div>
+						    <div class="period"></div>
+						  <div class="score"></div>
+						</li>`;
+			}
 			$(".zhibo>.zhibo_text>#livebox").prepend(html);
-
 		    console.log("Received Message: " + evt.data);  
 		    console.log(evt);
 		  };  
