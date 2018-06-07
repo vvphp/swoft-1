@@ -88,6 +88,7 @@
 <script type="text/javascript" src="/static/h-ui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/static/h-ui/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
+    $("#labelClass").val("<?php echo (isset($queryArr['label'])) ? $queryArr['label'] : ''; ?>");
     $("#search").click(function(){
         var gameName = $("#gameName").val();
         var logmin   = $("#logmin").val();
@@ -111,6 +112,7 @@
              }
         }
     });
+
 
     /*资讯-添加*/
     function article_add(title,url,w,h){
