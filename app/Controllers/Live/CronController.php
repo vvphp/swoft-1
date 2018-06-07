@@ -48,6 +48,11 @@ class CronController extends BaseController
       var_dump($result);
     }
 
+    public function testNews()
+    {
+        $result = $this->zhiBoBa->beginGrabNews();
+    }
+
     /**
      * [testDba description]
      * @return [type] [description]

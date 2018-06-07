@@ -58,7 +58,57 @@ class  ZhiBoBa{
 
 
     /**
-     * 开始抓取
+     * 开始抓取新闻
+     * @param string $url
+     */
+    public function beginGrabNews($url='')
+    {
+        $grabUrl = !empty($url) ? $url : $this->url;
+        $client = new Client();
+        $res  = $client->request('GET', $grabUrl);
+        $body = $res->getBody()->getContents();
+        \phpQuery::newDocumentHTML($body);
+        foreach( pq(".r_video") as $html){
+            $data = $this->processGrabNewsContent($html);
+        }
+        print_r($data);
+        foreach( pq(".r_news") as $html){
+            $data = $this->processGrabNewsContent($html);
+        }
+        print_r($data); 
+    }
+
+    /**
+     * 处理新闻数据
+     * @param $html
+     */
+    public function processGrabNewsContent($html)
+    {
+        $data = [];
+        $liList = pq($html)->find("li");
+        foreach($liList as $index => $liHtml){
+            foreach(pq($liHtml)->find("a") as $aHtml){
+                $href = pq($aHtml)->attr("href");
+                $urlInfo = parse_url($href);
+                if(!isset($urlInfo['host'])){
+                    $href = $this->url.trim($href,"/");
+                }
+                $urlInfo = parse_url($href);
+                if(!isset($urlInfo['scheme'])){
+                    $href = "https://".trim($href,"/");
+                }
+                $data[] = ['text' =>  pq($aHtml)->text(), 'href' => $href];
+            }
+        }
+        return $data;
+    }
+
+
+
+
+
+    /**
+     * 开始抓取赛事列表
      * @param string $url
      * @return \phpQuery|\QueryTemplatesParse|\QueryTemplatesSource|\QueryTemplatesSourceQuery|string
      */
