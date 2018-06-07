@@ -18,6 +18,13 @@
     <div class="Hui-article">
         <article class="cl pd-20">
             <div class="text-c">
+                <span class="select-box inline">
+				<select name="label" id="labelClass" class="select">
+                    <option value="0">全部分类</option>
+                    <option value="篮球">篮球</option>
+                    <option value="足球">足球</option>
+                </select>
+				</span>
                 日期范围：
                 <input type="text" value="<?php echo isset($queryArr['startDate']) ? $queryArr['startDate'] : ''; ?>" name="startDate"  onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
                 -
@@ -85,7 +92,8 @@
         var gameName = $("#gameName").val();
         var logmin   = $("#logmin").val();
         var logmax   = $("#logmax").val();
-        window.location.href = "?page=1&gameName="+gameName+"&startDate="+logmin+"&endDate="+logmax;
+        var label    = $("#labelClass").val();
+        window.location.href = "?page=1&gameName="+gameName+"&startDate="+logmin+"&endDate="+logmax+"&label="+label;
     })
     laypage({
         cont: 'page',//分页容器的id

@@ -65,7 +65,7 @@ $(document).ready(function(){
 						</li>`;
 			}
 			$(".zhibo>.zhibo_text>#livebox").prepend(html);
-		    console.log("Received Message: " + evt.data);  		   
+		    console.log("Received Message: " + evt.data);
 		  };
 		 ws.onclose = function(evt) {
 		     console.log("Connection closed.");

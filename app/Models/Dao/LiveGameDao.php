@@ -241,6 +241,9 @@ class LiveGameDao
         if(isset($where['live_status'])){
             $filter['live_status'] = $where['live_status'];
         }
+       if(isset($where['label']) && !empty($where['label'])){
+           $filter[] =  ['label', 'like', "%".$where['label']."%"];
+       }
         return $filter;
     }
 
