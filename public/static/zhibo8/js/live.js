@@ -20,7 +20,8 @@ $(document).ready(function(){
      	    }); 
      	  $(".zhibo>.zhibo_text>#livebox").html(html);
       }
-    //预加载历史直播数据 end  
+    //预加载历史直播数据 end
+    
     
  //liveStatus : 1:未开始 2:正在直播,3:已结束  
  if(liveStatus == 2){
