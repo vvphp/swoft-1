@@ -57,10 +57,13 @@ class  ZhiBoBa{
      */
     private $game_id = 0;
 
+    private $newsCount = 0;
+
 
     /**
      * 开始抓取新闻
      * @param string $url
+     * @return int
      */
     public function beginGrabNews($url='')
     {
@@ -76,6 +79,7 @@ class  ZhiBoBa{
             $data[] = $this->processGrabNewsContent($html,0);
         }
        $this->saveNews($data);
+       return  $this->newsCount;
     }
 
     /**
@@ -106,7 +110,10 @@ class  ZhiBoBa{
         /* @var LiveNewsLogic $logic */
         $logic = App::getBean(LiveNewsLogic::class);
         foreach($data as $key => $val){
-             $logic->saveLiveNews($val);
+          $ret = $logic->saveLiveNews($val);
+          if($ret){
+                $this->newsCount++;
+            }
         }
     }
 
