@@ -5,12 +5,17 @@ $(document).ready(function(){
      if(commentaryData){
      	  commentaryData.forEach(function(val,key){     	        
      	        var content = val.content;
+                var time_frame = val.timeFrame;
+                var time_frame_text = `第${time_frame}节`;
+                if(time_frame == '0' || time_frame == 0){
+                      time_frame_text = '';
+                  }
      	         html+=` 
 						  <li class="">
 						  <div class="username">${narratorData.nikename}</div>
 						  <div class="livetext">${content}</div>
-						  <div class="period">109-97</div>
-						  <div class="score">第4节</div>
+						  <div class="period">${val.homeTeamScore}-${val.visitingTeamScore}</div>
+						  <div class="score">第${time_frame_text}节</div>
 						</li>`;
      	    }); 
      	  $(".zhibo>.zhibo_text>#livebox").html(html);
@@ -22,18 +27,22 @@ $(document).ready(function(){
          //websocket start
 	    var ws = new WebSocket(wsUri);   
 		ws.onopen = function(evt) {
-		};  
-		  
+		};
 		ws.onmessage = function(evt) {
 			var data = evt.data;
 			if(data.indexOf('{')>-1){
 			    data = JSON.parse(data);
+                var time_frame = data.time_frame;
+                var time_frame_text = `第${time_frame}节`;
+                if(time_frame == '0' || time_frame == 0){
+                      time_frame_text = '';
+                }
 				var html=`
 						  <li class="">
 						  <div class="username">${narratorData.nikename}</div>
 						  <div class="livetext">${data.content}</div>
 						  <div class="period">${data.team_score}</div>
-						  <div class="score">第${data.time_frame}节</div>
+						  <div class="score">${time_frame_text}</div>
 						</li>`;
 			}else{
 				var html=`
@@ -47,10 +56,9 @@ $(document).ready(function(){
 			$(".zhibo>.zhibo_text>#livebox").prepend(html);
 		    console.log("Received Message: " + evt.data);  
 		    console.log(evt);
-		  };  
-		  
-		ws.onclose = function(evt) {
-		    console.log("Connection closed.");
+		  };
+		 ws.onclose = function(evt) {
+		     console.log("Connection closed.");
 		};   
     //websocket end  
    }

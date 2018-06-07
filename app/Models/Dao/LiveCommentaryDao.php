@@ -29,7 +29,7 @@ use App\Models\Logic\LiveCommentaryLogic;
  */
 class LiveCommentaryDao
 {
-    private  $fields = ['id','game_id','content','time_frame','add_date','team_id'];
+    private  $fields = ['id','game_id','content','time_frame','add_date','team_id','home_team_score','visiting_team_score'];
 
     /**
      * 根据 game_id 查询表中解说信息

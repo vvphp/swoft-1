@@ -57,15 +57,6 @@ class DetailController
             throw new BadMethodCallException('非法请求!!!');
         }
         return [ 'data' => $data ];
-
-
-
-        //连接websocket
-
-        //websocket push
-
-
-        echo  $game_id;
     }
 
 }

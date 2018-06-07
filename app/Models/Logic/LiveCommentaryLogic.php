@@ -44,7 +44,7 @@ class LiveCommentaryLogic
      * @param int $limit
      * @return mixed
      */
-    public function getCommentaryByGameId(int $game_id,int $start = 0,int $limit=50)
+    public function getCommentaryByGameId(int $game_id,int $start = 0,int $limit=80)
     {
         if(empty($game_id)){
             return [];
