@@ -3,6 +3,8 @@ $(document).ready(function(){
 	var wsUri = 'ws://47.95.14.113:9400/live/?game_id='+game_id;
 	//预加载历史直播数据 start
      if(commentaryData){
+         var homeTeamScore = 0,
+             visitingTeamScore = 0;
      	  commentaryData.forEach(function(val,key){     	        
      	        var content = val.content;
                 var time_frame = val.timeFrame;
@@ -10,18 +12,24 @@ $(document).ready(function(){
                 if(time_frame == '0' || time_frame == 0){
                       time_frame_text = '';
                   }
+              if(key == 0){
+                 homeTeamScore = val.homeTeamScore;
+                 visitingTeamScore = val.visitingTeamScore;
+              }
      	         html+=` 
 						  <li class="">
 						  <div class="username">${narratorData.nikename}</div>
 						  <div class="livetext">${content}</div>
 						  <div class="period">${val.homeTeamScore}-${val.visitingTeamScore}</div>
-						  <div class="score">第${time_frame_text}节</div>
+						  <div class="score">${time_frame_text}</div>
 						</li>`;
      	    }); 
      	  $(".zhibo>.zhibo_text>#livebox").html(html);
+          $(".host_score").text(homeTeamScore);
+          $(".visit_score").text(visitingTeamScore);
       }
     //预加载历史直播数据 end
-    
+
     
  //liveStatus : 1:未开始 2:正在直播,3:已结束  
  if(liveStatus == 2){
@@ -45,6 +53,8 @@ $(document).ready(function(){
 						  <div class="period">${data.team_score}</div>
 						  <div class="score">${time_frame_text}</div>
 						</li>`;
+                $(".host_score").text(data.home_team_score);
+                $(".visit_score").text(data.visiting_team_score);
 			}else{
 				var html=`
 						  <li class="">
@@ -55,8 +65,7 @@ $(document).ready(function(){
 						</li>`;
 			}
 			$(".zhibo>.zhibo_text>#livebox").prepend(html);
-		    console.log("Received Message: " + evt.data);  
-		    console.log(evt);
+		    console.log("Received Message: " + evt.data);  		   
 		  };
 		 ws.onclose = function(evt) {
 		     console.log("Connection closed.");

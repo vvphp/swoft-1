@@ -133,6 +133,8 @@ class MatchController
              $sendData    = [
                 'content' => $data['editorValue'],
                 'team_score' => $data['home_team_score'].'-'.$data['visiting_team_score'],
+                'home_team_score' => $data['home_team_score'],
+                'visiting_team_score' => $data['visiting_team_score'],
                 'time_frame' => $data['timeframe']
              ];
              \Swoft::$server->sendToSome(json_encode($sendData),$gameUserListFd);
