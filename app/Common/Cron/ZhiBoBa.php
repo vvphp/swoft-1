@@ -18,6 +18,7 @@ use App\Models\Logic\LiveTeamLogic;
 use App\Models\Logic\LiveMatchLogic;
 use App\Models\Logic\LiveGameLogic;
 use App\Models\Logic\LivePlayLogic;
+use App\Models\Logic\LiveNewsLogic;
 use GuzzleHttp\Client;
 
 require_once App::getAlias('@vendor') .'/electrolinux/phpquery/phpQuery/phpQuery.php';
@@ -69,20 +70,20 @@ class  ZhiBoBa{
         $body = $res->getBody()->getContents();
         \phpQuery::newDocumentHTML($body);
         foreach( pq(".r_video a") as $html){
-            $data[] = $this->processGrabNewsContent($html);
+            $data[] = $this->processGrabNewsContent($html,1);
         }
-        print_r($data);
         foreach( pq(".r_news a") as $html){
-            $data[] = $this->processGrabNewsContent($html);
+            $data[] = $this->processGrabNewsContent($html,0);
         }
-        print_r($data);
+       $this->saveNews($data);
     }
 
     /**
      * 处理新闻数据
      * @param $html
+     * @param int $type
      */
-    public function processGrabNewsContent($html)
+    public function processGrabNewsContent($html,$type)
     {
       $href = pq($html)->attr("href");
       $urlInfo = parse_url($href);
@@ -93,9 +94,21 @@ class  ZhiBoBa{
       if(!isset($urlInfo['scheme'])){
          $href = "https://".trim($href,"/");
       }
-       return ['text' => pq($html)->text(), 'href' => $href];
+      return ['title' => pq($html)->text(), 'link' => $href, 'type' => $type];
     }
 
+    /**
+     * 保存新闻数据
+     * @param $data
+     */
+    public function saveNews($data)
+    {
+        /* @var LiveNewsLogic $logic */
+        $logic = App::getBean(LiveNewsLogic::class);
+        foreach($data as $key => $val){
+             $logic->saveLiveNews($val);
+        }
+    }
 
 
 
