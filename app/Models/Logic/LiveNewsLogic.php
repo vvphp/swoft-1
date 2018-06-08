@@ -49,4 +49,34 @@ class LiveNewsLogic
         return $this->LiveNewsDao->saveLiveNews($data);
    }
 
+    /**
+     * 查询新闻列表
+     * @param array $where
+     * @param array $orderBy
+     * @param int $start
+     * @param int $limit
+     * @return array
+     */
+    public function getNewsList($where=[],$orderBy=[],$start=0,$limit=10)
+    {
+       return   $this->LiveNewsDao->getNewsList($where,$orderBy,$start,$limit);
+    }
+
+
+    /**
+     * 根据类别查询新闻列表
+     * @param $type
+     * @param int $start
+     * @param int $limit
+     * @return array
+     */
+    public function getNewsListByType($type,$start=0,$limit=10)
+    {
+          $where = ['type' => $type];
+          $order = ['id' => 'DESC'];
+          return  $this->getNewsList($where,$order,$start,$limit);
+    }
+
+
+
 }

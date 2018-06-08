@@ -73,10 +73,16 @@ class  ZhiBoBa{
         $body = $res->getBody()->getContents();
         \phpQuery::newDocumentHTML($body);
         foreach( pq(".r_video a") as $html){
-            $data[] = $this->processGrabNewsContent($html,1);
+            $content = $this->processGrabNewsContent($html,1);
+            if(!empty($content)){
+                 $data[] = $content;
+            }
         }
         foreach( pq(".r_news a") as $html){
-            $data[] = $this->processGrabNewsContent($html,0);
+            $content = $this->processGrabNewsContent($html,0);
+            if(!empty($content)){
+                 $data[] = $content;
+            }
         }
        $this->saveNews($data);
        return  $this->newsCount;
@@ -86,6 +92,7 @@ class  ZhiBoBa{
      * 处理新闻数据
      * @param $html
      * @param int $type
+     * @return array
      */
     public function processGrabNewsContent($html,$type)
     {
@@ -98,7 +105,12 @@ class  ZhiBoBa{
       if(!isset($urlInfo['scheme'])){
          $href = "https://".trim($href,"/");
       }
-      return ['title' => pq($html)->text(), 'link' => $href, 'type' => $type];
+      $title = pq($html)->text();
+      if($title != '录像'){
+            return ['title' => $title, 'link' => $href, 'type' => $type];
+      }else{
+            return [];
+      }
     }
 
     /**

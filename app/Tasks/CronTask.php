@@ -34,29 +34,30 @@ class CronTask
      * crontab 直播吧抓取 定时任务
      * 每周日1点执行
      *
-     * @Scheduled(cron="* * 23 5 * *")
+     * @Scheduled(cron="0 0 23 *\/7 * *")
      */
     public function cronZhiBo8Task()
     {
-        echo "grab zhiboba start ";
-        $result = $this->zhiBoBa->beginGrab();
-        var_dump($result);
-        echo "grab zhiboba end ";
+        echo "grab zhiboba start \r\n";
+        $this->zhiBoBa->beginGrab();
+        echo "grab zhiboba end \r\n";
+        return true;
     }
 
 
     /**
-     * crontab 直播吧抓取 定时任务
-     * 每周日1点执行
+     * crontab 直播吧新闻抓取 定时任务
+     * 每10分钟执行
      *
-     * @Scheduled(cron="* 1 * * * *")
+     * @Scheduled(cron="0 *\/10 * * * *")
      */
     public function cronZhiBo8NewsTask()
     {
-        echo "grab zhiboba news start ";
+        echo "grab zhiboba news start \r\n";
         $result = $this->zhiBoBa->beginGrabNews();
         echo "共抓取".$result."条新闻";
-        echo "grab zhiboba news end ";
+        echo "grab zhiboba news end \r\n";
+        return true;
     }
 
 

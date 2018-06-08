@@ -25,6 +25,7 @@ use App\Models\Entity\LiveNews;
  */
 class LiveNewsDao
 {
+    private $fields = ['id','title','link','type','add_date'];
     /**
      * 根据 title 查询是否存在，如果不存在则插入，如果存在则直接返回true
      * @param $data
@@ -43,12 +44,25 @@ class LiveNewsDao
     }
 
     /**
+     * 查询新闻列表
+     * @param array $where
+     * @param array $orderBy
+     * @param int $start
+     * @param int $limit
+     * @return array
+     */
+    public function getNewsList($where=[],$orderBy=[],$start=0,$limit=10)
+    {
+        return  LiveNews::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
+    }
+
+    /**
      * 根据 title 查询表中是否已经存在数据
      * @param string $title
      * @param string $symbol
      * @return mixed
      */
-    public function getNewsIdByTitle($title='',$symbol='')
+    private function getNewsIdByTitle($title='',$symbol='')
     {
         if($symbol == 'like'){
             $where = ['title', 'like', "%".$title."%"];
@@ -64,7 +78,7 @@ class LiveNewsDao
      * @param $data
      * @return mixed
      */
-    public  function saveNewsByData($data)
+    private  function saveNewsByData($data)
     {
         $values = [
              [
