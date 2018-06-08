@@ -53,7 +53,8 @@ class LiveNewsDao
      */
     public function getNewsList($where=[],$orderBy=[],$start=0,$limit=10)
     {
-        return  LiveNews::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
+        $result = LiveNews::findAll($where, ['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
+         return empty($result) ? [] : $result->toArray();
     }
 
     /**

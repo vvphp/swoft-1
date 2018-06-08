@@ -53,11 +53,7 @@ class IndexController
         if($textNewsList)
             $textNewsList = array_chunk($textNewsList,16);
             $textNewsList[0] = isset($textNewsList[0]) ? array_chunk($textNewsList[0],2) : [];
-            $textNewsList[1] = isset($textNewsList[1]) ? array_chunk($textNewsList[1],2) : [];
-
-        echo '<pre>';
-       print_r($videoNewsList);
-
+            $textNewsList[1] = isset($textNewsList[1]) ? array_chunk($textNewsList[1],2) : []; 
         return ['data' => $data,'videoNewsList' => $videoNewsList,'textNewsList' => $textNewsList];
     }
 
