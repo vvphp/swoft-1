@@ -84,6 +84,7 @@ class  ZhiBoBa{
                  $data[] = $content;
             }
         }
+       krsort($data);
        $this->saveNews($data);
        return  $this->newsCount;
     }

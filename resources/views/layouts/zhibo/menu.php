@@ -1,7 +1,7 @@
 <div class="menu">
     <div class="container">
         <div class="logo">
-            <a title="直播吧" href="//www.zhibo8.cc/"><img alt="直播吧" src="https://tu.qiumibao.com/logo/logo_o3x_02.png"></a>
+            <a title="13520v.com" href="/"><img alt="直播吧" src="/static/zhibo8/images/logo.jpg"></a>
         </div>
         <div class="nav">
             <ul>
