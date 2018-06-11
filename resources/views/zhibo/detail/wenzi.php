@@ -104,7 +104,8 @@
      var game_id = "<?php echo $data['id']; ?>";
      var liveStatus = "<?php echo $data['liveStatus']; ?>";
      var commentaryData = <?php echo json_encode($data['commentaryData']); ?>;
-     var narratorData = <?php echo json_encode($data['narratorData']); ?>;
+     var chatData       = <?php echo json_encode($data['chatData']); ?>;
+     var narratorData   = <?php echo json_encode($data['narratorData']); ?>;
 </script>
  
 

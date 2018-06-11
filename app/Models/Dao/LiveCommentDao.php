@@ -26,7 +26,7 @@ use App\Models\Entity\LiveComment;
 class LiveCommentDao
 {
 
-    private $fields = ['id','game_id','nick_name','content','add_date'];
+    private $fields = ['id','game_id','nick_name','content','add_date','FROM_UNIXTIME(add_date) AS date'];
 
     /**
      * 保存聊天记录

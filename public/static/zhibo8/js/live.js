@@ -36,8 +36,19 @@ $(document).ready(function(){
 
 
   //加载历史聊天数据 start
-
-
+    if(chatData.length > 0){
+          var html = '';
+          chatData.forEach(function(val,key){
+               html+=` <li class="">
+						  <div class="username">${val.nickName}</div>
+						  <div class="livetext">${val.content}</div>
+						    <div class="period">${data.date}</div>
+						  <div class="score"></div>
+						</li>`;
+            });
+        $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong").hide();
+        $(".chatRoom>.zhibo_text>#livebox").html(html);
+    }
  //加载历史聊天数据 end
 
     

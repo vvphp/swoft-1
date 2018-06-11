@@ -60,8 +60,6 @@ class DetailController
         if(empty($data)){
             throw new BadMethodCallException('非法请求!!!');
         }
-        print_r($data);
-
         $this->game_id = $game_id;
         return [ 'data' => $data ];
     }
