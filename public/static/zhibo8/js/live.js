@@ -27,58 +27,36 @@ $(document).ready(function(){
      	  $(".zhibo>.zhibo_text>#livebox").html(html);
           $(".host_score").text(homeTeamScore);
           $(".visit_score").text(visitingTeamScore);
-      }
+      }else{
+         $(".zhibo>.zhibo_text>#livebox>#jiazaizhong>.livetext").hide();
+     }
     //预加载历史直播数据 end
 
     
- //liveStatus : 1:未开始 2:正在直播,3:已结束  
- if(liveStatus == 2){
-         //websocket start
-	    var ws = new WebSocket(wsUri);   
-		ws.onopen = function(evt) {
-		};
-		ws.onmessage = function(evt) {
-			var data = evt.data;
-			if(data.indexOf('{')>-1){
-			    data = JSON.parse(data);
-				var type = data.type;
-                //直播数据
-                if(type == 'live'){
-                    var time_frame = data.time_frame;
-                    var time_frame_text = `第${time_frame}节`;
-                    if(time_frame == '0' || time_frame == 0){
-                        time_frame_text = '';
-                    }
-                    var html=`
-						  <li class="">
-						  <div class="username">${narratorData.nikename}</div>
-						  <div class="livetext">${data.content}</div>
-						  <div class="period">${data.team_score}</div>
-						  <div class="score">${time_frame_text}</div>
-						</li>`;
-                    $(".host_score").text(data.home_team_score);
-                    $(".visit_score").text(data.visiting_team_score);
-                }else{
-                    console.log("zxr---Received Message: " + evt.data);
-                }
-			}else{
-				var html=`
-						  <li class="">
-						  <div class="username">${narratorData.nikename}</div>
-						  <div class="livetext">${data}</div>
-						    <div class="period"></div>
-						  <div class="score"></div>
-						</li>`;
-			}
-			$(".zhibo>.zhibo_text>#livebox").prepend(html);
+ //liveStatus : 1:未开始 2:正在直播,3:已结束
+//websocket start
+ var ws = new WebSocket(wsUri);
+ ws.onopen = function(evt) {
+ };
+ ws.onmessage = function(evt) {
+          var  data = JSON.parse(evt.data);
+	      var  type = data.type;
+          switch(type){
+              case 'live':
+                  //直播数据
+                    fillLiveData(data);
+                    break;
+              case 'chat':
+                //聊天数据
+                  fillChatData(data);
+                  break;
+              }
 		    console.log("Received Message: " + evt.data);
 		  };
 		 ws.onclose = function(evt) {
 		     console.log("Connection closed.");
 		};   
     //websocket end  
-   }
-
 
     /**
      * 发送聊天消息
@@ -105,5 +83,45 @@ $(document).ready(function(){
         });
 
     });
+
+
+    /**
+     * 渲染聊天数据
+     * @param data
+     */
+    function fillChatData(data)
+    {
+        var html=` <li class="">
+						  <div class="username">${data.nick_name}</div>
+						  <div class="livetext">${data.content}</div>
+						    <div class="period"></div>
+						  <div class="score">${data.time}</div>
+						</li>`;
+        $(".chatRoom>.zhibo_text>#livebox").prepend(html);
+    }
+
+
+    /**
+     *渲染直播数据
+     * @param data
+     */
+    function fillLiveData(data)
+    {
+        var time_frame = data.time_frame;
+        var time_frame_text = `第${time_frame}节`;
+        if(time_frame == '0' || time_frame == 0){
+            time_frame_text = '';
+        }
+        var html=`<li class="">
+						  <div class="username">${narratorData.nikename}</div>
+						  <div class="livetext">${data.content}</div>
+						  <div class="period">${data.team_score}</div>
+						  <div class="score">${time_frame_text}</div>
+						</li>`;
+        $(".host_score").text(data.home_team_score);
+        $(".visit_score").text(data.visiting_team_score);
+        $(".zhibo>.zhibo_text>#livebox").prepend(html);
+    }
+
 
 })
