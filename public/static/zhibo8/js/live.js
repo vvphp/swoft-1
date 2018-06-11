@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var html =''; 
+	var html ='';
+    var chatRoom = 1;
 	var wsUri = 'ws://47.95.14.113:9400/live/?game_id='+game_id;
 	//预加载历史直播数据 start
      if(commentaryData.length > 0){
@@ -39,6 +40,9 @@ $(document).ready(function(){
  ws.onopen = function(evt) {
  };
  ws.onmessage = function(evt) {
+          console.log("zxr:");
+          console.log(evt.data);
+
           var  data = JSON.parse(evt.data);
 	      var  type = data.type;
           switch(type){
@@ -85,6 +89,11 @@ $(document).ready(function(){
                  data = JSON.parse(data);
                 if(data.code== '-1') {
                     alert(data.msg);
+                }
+                if(chatRoom){
+                   $(".tselect>a").click();
+                   $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong>.livetext").hide();
+                   chatRoom = 0;
                 }
             },
         });
