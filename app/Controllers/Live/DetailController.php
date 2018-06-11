@@ -29,6 +29,7 @@ use App\Models\Logic\LiveGameLogic;
 use App\Models\Logic\LiveWebSocketPushLogic;
 use App\Models\Logic\LiveCommentLogic;
 use App\Common\Tool\Util;
+use Swoft\Http\Message\Cookie\Cookie;
 
 /**
  * Class GameController
@@ -61,7 +62,15 @@ class DetailController
             throw new BadMethodCallException('非法请求!!!');
         }
         $this->game_id = $game_id;
-        return [ 'data' => $data ];
+
+        $ret  =  [ 'data' => $data ];
+        $cookie = new Cookie('live_'.$game_id.'_',uniqid(),time()+3600,'/',$request->getUri()->getHost());
+
+        return  view("zhibo/detail/wenzi", $ret)->withCookie($cookie);
+
+        //$response->withCookie($cookie)->withContent($retJson)->send();
+
+       // return [ 'data' => $data ];
     }
 
 
