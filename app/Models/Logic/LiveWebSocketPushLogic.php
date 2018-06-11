@@ -73,9 +73,8 @@ class LiveWebSocketPushLogic
         $sendData    = [
             'type'       => $type,
             'content'    => $data['content'],
+            'nick_name'  => $data['nick_name'],
             'time'       => time(),
-            'user_name'  => $data['user_name'],
-            'user_id'    => $data['user_id']
         ];
         return   \Swoft::$server->sendToSome(json_encode($sendData),$gameUserListFd);
     }

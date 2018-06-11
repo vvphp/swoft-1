@@ -59,8 +59,7 @@ $(document).ready(function(){
                     $(".host_score").text(data.home_team_score);
                     $(".visit_score").text(data.visiting_team_score);
                 }else{
-
-
+                    console.log("zxr---Received Message: " + evt.data);
                 }
 			}else{
 				var html=`

@@ -27,6 +27,7 @@ use Swoft\Http\Message\Server\Request;
 use Swoft\Exception\BadMethodCallException;
 use App\Models\Logic\LiveGameLogic;
 use App\Models\Logic\LiveWebSocketPushLogic;
+use App\Models\Logic\LiveCommentLogic;
 use App\Common\Tool\Util;
 
 /**
@@ -79,20 +80,20 @@ class DetailController
         }catch(\Exception $e){
             return Util::showMsg([],$e->getMessage(),'0');
         }
-
-        var_dump($this->game_id);
-
-        /* @var LiveWebSocketPushLogic $logic */
-     //   $logic = App::getBean(LiveWebSocketPushLogic::class);
-      //  $result  = $logic->pushChatDetails($game_id,$data,'chat');
-
+        $data = [
+            'content' =>  mb_substr($chatContent,0,20),
+            'nick_name' => $nickName
+        ];
+        //save db
+        /* @var LiveCommentLogic $logic */
+        $logic = App::getBean(LiveCommentLogic::class);
+        $ret = $logic->saveComment($this->game_id,$data);
+        if($ret){
+            /* @var LiveWebSocketPushLogic $logic */
+            $logic = App::getBean(LiveWebSocketPushLogic::class);
+            $ret  = $logic->pushChatDetails($this->game_id,$data,'chat');
+        }
+        return Util::showMsg(['result' => $ret],'send_success');
     }
-
-
-
-
-
-
-
 
 }
