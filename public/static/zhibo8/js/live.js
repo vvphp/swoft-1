@@ -2,7 +2,14 @@ $(document).ready(function(){
 	var html ='';
     var chatRoom = 1;
 	var wsUri = 'ws://47.95.14.113:9400/live/?game_id='+game_id;
-	//预加载历史直播数据 start
+
+    //如果设置过昵称，则还是用原来的昵称
+    var nick_name = $.cookie('nick_name');
+    if(nick_name != null || nick_name!='null'){
+        $("#nickName").val(nick_name);
+    }
+
+    //预加载历史直播数据 start
      if(commentaryData.length > 0){
          var homeTeamScore = 0,
              visitingTeamScore = 0;
@@ -42,7 +49,7 @@ $(document).ready(function(){
                html+=` <li class="">
 						  <div class="username">${val.nickName}</div>
 						  <div class="livetext">${val.content}</div>
-						    <div class="period">${data.date}</div>
+						    <div class="period">${val.date}</div>
 						  <div class="score"></div>
 						</li>`;
             });
@@ -50,7 +57,6 @@ $(document).ready(function(){
         $(".chatRoom>.zhibo_text>#livebox").html(html);
     }
  //加载历史聊天数据 end
-
     
  //liveStatus : 1:未开始 2:正在直播,3:已结束
 //websocket start
@@ -75,7 +81,6 @@ $(document).ready(function(){
                   fillChatData(data);
                   break;
               }
-		    //console.log("Received Message: " + evt.data);
 		  };
 		 ws.onclose = function(evt) {
 		     console.log("Connection closed.");
@@ -92,14 +97,20 @@ $(document).ready(function(){
                nickName = window.prompt("请输入昵称");
                $("#nickName").val(nickName);
           }
-          if(chatContent.length<1 ){
-              alert("内容不能为空");
-              return false;
-          }
-          if(nickName.length>10 ){
+        if(nickName.length>10 ){
             alert("昵称太长,请重新输入");
+            $("#nickName").val('');
             return false;
-          }
+        }
+        if(nickName == 'null'){
+            alert("昵称非法");
+            $("#nickName").val('');
+            return false;
+        }
+        if(chatContent.length<1 ){
+            alert("内容不能为空");
+            return false;
+        }
          $.ajax({
             type: 'POST',
             url: "/live/detail/sendChat",
@@ -108,6 +119,9 @@ $(document).ready(function(){
                  data = JSON.parse(data);
                 if(data.code== '-1') {
                     alert(data.msg);
+                }
+                if($.cookie('nick_name') == null || $.cookie('nick_name') == 'null'){
+                      $.cookie('nick_name',nickName, { expires: 30, path: '/' });
                 }
                 if(chatRoom){
                    $("#chatContent").val('');
