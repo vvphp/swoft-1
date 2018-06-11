@@ -68,7 +68,11 @@ class LiveCommentLogic
        if(empty($orderBy)){
            $orderBy = ['id' => 'DESC'];
        }
-      return  $this->LiveCommentDao->getCommentListByGameId($game_id,$orderBy,$start,$limit);
+      $list =   $this->LiveCommentDao->getCommentListByGameId($game_id,$orderBy,$start,$limit);
+      foreach($list as $index => &$item){
+          $item['date'] = date('Y-m-d H:i:s',$item['addDate']);
+      }
+       return $list;
     }
 
 
