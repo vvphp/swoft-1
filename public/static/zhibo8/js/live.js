@@ -41,20 +41,27 @@ $(document).ready(function(){
 			var data = evt.data;
 			if(data.indexOf('{')>-1){
 			    data = JSON.parse(data);
-                var time_frame = data.time_frame;
-                var time_frame_text = `第${time_frame}节`;
-                if(time_frame == '0' || time_frame == 0){
-                      time_frame_text = '';
-                }
-				var html=`
+				var type = data.type;
+                //直播数据
+                if(type == 'live'){
+                    var time_frame = data.time_frame;
+                    var time_frame_text = `第${time_frame}节`;
+                    if(time_frame == '0' || time_frame == 0){
+                        time_frame_text = '';
+                    }
+                    var html=`
 						  <li class="">
 						  <div class="username">${narratorData.nikename}</div>
 						  <div class="livetext">${data.content}</div>
 						  <div class="period">${data.team_score}</div>
 						  <div class="score">${time_frame_text}</div>
 						</li>`;
-                $(".host_score").text(data.home_team_score);
-                $(".visit_score").text(data.visiting_team_score);
+                    $(".host_score").text(data.home_team_score);
+                    $(".visit_score").text(data.visiting_team_score);
+                }else{
+
+
+                }
 			}else{
 				var html=`
 						  <li class="">
@@ -72,4 +79,32 @@ $(document).ready(function(){
 		};   
     //websocket end  
    }
+
+
+    /**
+     * 发送聊天消息
+     */
+    $("#sendChat").click(function(){
+          var nickName = $("#nickName").val();
+          var chatContent = $("#chatContent").val();
+          while(nickName=="" || nickName.length<=1){
+               nickName = window.prompt("请输入昵称");
+               $("#nickName").val(nickName);
+          }
+          if(chatContent.length<1 ){
+              alert("内容不能为空");
+              return false;
+          }
+         $.ajax({
+            type: 'POST',
+            url: "/live/sendChat",
+            data: {"nickName":nickName,"chatContent":chatContent},
+            success: function(data){
+                 data = JSON.parse(data);
+                 console.log(data);
+            },
+        });
+        
+    });
+
 })

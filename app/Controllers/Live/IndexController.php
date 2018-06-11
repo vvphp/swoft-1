@@ -14,6 +14,7 @@ use Swoft\App;
 use Swoft\Core\Coroutine;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
+use Swoft\Http\Message\Server\Request;
 use Swoft\Log\Log;
 use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
@@ -56,5 +57,16 @@ class IndexController
             $textNewsList[1] = isset($textNewsList[1]) ? array_chunk($textNewsList[1],2) : [];
         return ['data' => $data,'videoNewsList' => $videoNewsList,'textNewsList' => $textNewsList];
     }
+
+    /**
+     * 发送聊天
+     * @param Request $request
+     */
+    public function sendChat(Request $request)
+    {
+       $post =  $request->post();
+       print_r($post);
+    }
+
 
 }

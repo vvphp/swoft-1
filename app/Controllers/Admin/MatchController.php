@@ -25,6 +25,7 @@ use App\Models\Logic\LiveCommentaryLogic;
 use Swoft\Exception\BadMethodCallException;
 use App\Common\Tool\Util;
 use App\Common\Helper\Live;
+use App\Models\Logic\LiveWebSocketPushLogic;
 
 /**
  * Class MatchController
@@ -128,17 +129,11 @@ class MatchController
         $logic = App::getBean(LiveCommentaryLogic::class);
         $result  = $logic->saveCommentary($data);
         if($result){
-             //写websocket
-             $gameUserListFd = $this->LiveHelper->getLiveUserListByGameId($game_id);
-             $sendData    = [
-                'content' => $data['editorValue'],
-                'team_score' => $data['home_team_score'].'-'.$data['visiting_team_score'],
-                'home_team_score' => $data['home_team_score'],
-                'visiting_team_score' => $data['visiting_team_score'],
-                'time_frame' => $data['timeframe']
-             ];
-             \Swoft::$server->sendToSome(json_encode($sendData),$gameUserListFd);
-              return Util::showMsg([],'live_add_game_success');
+            //写websocket
+            /* @var LiveWebSocketPushLogic $logic */
+            $logic = App::getBean(LiveWebSocketPushLogic::class);
+            $result  = $logic->pushMatchDetail($game_id,$data,'live');
+            return Util::showMsg(['result' => $result],'live_add_game_success');
         }else{
              return Util::showMsg([],'live_data_add_failure','0');
         }

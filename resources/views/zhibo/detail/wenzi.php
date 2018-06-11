@@ -90,16 +90,11 @@
         <div class="dmsend" ms-controller="dmsend">
             <div class="dmsub">
                 聊天 <span class="dmspan" ms-click="danmu_switch" ms-class="dmspan_gray: gray"> &nbsp; </span>
-
-                <input type="text" class="dmtext rad3" ms-keyup="enterkey">
-
-                <input type="button" value="发送" class="dmbtn rad3" ms-click="danmu_send" ms-class="dmbtn_gray: gray">
+                <input type="text" id="chatContent" class="dmtext rad3" ms-keyup="enterkey">
+                <input type="hidden" id="nickName" name="nickName">
+                <input type="button" value="发送" id="sendChat" class="dmbtn rad3" ms-click="danmu_send" ms-class="dmbtn_gray: gray">
             </div> 
          </div>
-    </div>
-
-    <div class="zb_right">
-        <script src="https://www.zhibo8.cc/js/2016/comment/pinglun.js" type="text/javascript"></script>
     </div>
 
     <div class="cls"></div>
