@@ -51,4 +51,26 @@ class LiveCommentLogic
        return   $this->LiveCommentDao->saveCommentData($game_id,$data);
     }
 
+
+    /**
+     * 根据 game_id查询消息列表
+     * @param $game_id
+     * @param $orderBy
+     * @param $start
+     * @param $limit
+     * @return array
+     */
+    public function getCommentListByGameId($game_id,$orderBy=[],$start=0,$limit=50)
+    {
+        if(empty($game_id)){
+            return [];
+        }
+       if(empty($orderBy)){
+           $orderBy = ['id' => 'DESC'];
+       }
+      return  $this->LiveCommentDao->getCommentListByGameId($game_id,$orderBy,$start,$limit);
+    }
+
+
+
 }

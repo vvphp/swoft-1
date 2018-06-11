@@ -212,6 +212,11 @@ class LiveGameLogic
            $commentaryLogicLogic = App::getBean(LiveCommentaryLogic::class);
            $commentaryData =  $commentaryLogicLogic->getCommentaryByGameId($gameData['id']);
         }
+          //聊天列表
+         /* @var LiveCommentLogic $commentLogic */
+         $commentLogic = App::getBean(LiveCommentLogic::class);
+         $chatData =  $commentLogic->getCommentListByGameId($game_id);
+
          //播放地址信息
          /* @var LivePlayLogic $playLogic */
          $playLogic = App::getBean(LivePlayLogic::class);
@@ -226,6 +231,7 @@ class LiveGameLogic
          $gameData['narratorData'] = $narratorData;
          $gameData['playData'] = $playData;
          $gameData['matchData'] = $matchData;
+         $gameData['chatData'] = $chatData;
          return $gameData;
     }
 

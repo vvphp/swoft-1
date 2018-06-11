@@ -26,6 +26,8 @@ use App\Models\Entity\LiveComment;
 class LiveCommentDao
 {
 
+    private $fields = ['id','game_id','nick_name','content','add_date'];
+
     /**
      * 保存聊天记录
      * @param int $game_id
@@ -44,5 +46,22 @@ class LiveCommentDao
          ];
         return  LiveComment::batchInsert($values)->getResult();
     }
+
+
+    /**
+     * 根据 game_id查询消息列表
+     * @param $game_id
+     * @param $orderBy
+     * @param $start
+     * @param $limit
+     * @return array
+     */
+    public function getCommentListByGameId($game_id,$orderBy=[],$start,$limit)
+    {
+        $result =  LiveComment::findAll(['game_id' => $game_id ],['fields' => $this->fields,'orderby' => $orderBy,'offset'=>$start,'limit' => $limit])->getResult();
+        return empty($result) ? [] : $result->toArray();
+    }
+
+
 
 }

@@ -24,14 +24,21 @@ $(document).ready(function(){
 						  <div class="period">${val.homeTeamScore}-${val.visitingTeamScore}</div>
 						  <div class="score">${time_frame_text}</div>
 						</li>`;
-     	    }); 
+     	    });
+          $(".zhibo>.zhibo_text>#livebox>#jiazaizhong").hide();
      	  $(".zhibo>.zhibo_text>#livebox").html(html);
           $(".host_score").text(homeTeamScore);
           $(".visit_score").text(visitingTeamScore);
       }else{
-         $(".zhibo>.zhibo_text>#livebox>#jiazaizhong>.livetext").hide();
+         $(".zhibo>.zhibo_text>#livebox>#jiazaizhong").show();
      }
     //预加载历史直播数据 end
+
+
+  //加载历史聊天数据 start
+
+
+ //加载历史聊天数据 end
 
     
  //liveStatus : 1:未开始 2:正在直播,3:已结束
@@ -49,11 +56,15 @@ $(document).ready(function(){
                     break;
               case 'chat':
                   //聊天数据
-                 // $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong>.livetext").hide();
+                  if(chatRoom){
+                      $(".tselect>a").click();
+                      $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong").hide();
+                         chatRoom = 0;
+                     }
                   fillChatData(data);
                   break;
               }
-		    console.log("Received Message: " + evt.data);
+		    //console.log("Received Message: " + evt.data);
 		  };
 		 ws.onclose = function(evt) {
 		     console.log("Connection closed.");
@@ -74,10 +85,10 @@ $(document).ready(function(){
               alert("内容不能为空");
               return false;
           }
-        if(nickName.length>10 ){
+          if(nickName.length>10 ){
             alert("昵称太长,请重新输入");
             return false;
-        }
+          }
          $.ajax({
             type: 'POST',
             url: "/live/detail/sendChat",
@@ -90,7 +101,7 @@ $(document).ready(function(){
                 if(chatRoom){
                    $("#chatContent").val('');
                    $(".tselect>a").click();
-                   $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong>.livetext").hide();
+                   $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong").hide();
                    chatRoom = 0;
                 }
             },
