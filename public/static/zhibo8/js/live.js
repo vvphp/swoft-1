@@ -40,9 +40,6 @@ $(document).ready(function(){
  ws.onopen = function(evt) {
  };
  ws.onmessage = function(evt) {
-          console.log("zxr:");
-          console.log(evt.data);
-
           var  data = JSON.parse(evt.data);
 	      var  type = data.type;
           switch(type){
@@ -91,6 +88,7 @@ $(document).ready(function(){
                     alert(data.msg);
                 }
                 if(chatRoom){
+                   $("#chatContent").val('');
                    $(".tselect>a").click();
                    $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong>.livetext").hide();
                    chatRoom = 0;
@@ -99,8 +97,19 @@ $(document).ready(function(){
         });
     });
 
-
     /**
+     * 回车事件
+     * @type {*|jQuery|HTMLElement}
+     */
+    var $inp = $('input');
+    $inp.keypress(function (e) {
+        var key = e.which; //e.which是按键的值
+        if (key == 13) {
+            $("#sendChat").click();
+        }
+    });
+
+        /**
      * 渲染聊天数据
      * @param data
      */

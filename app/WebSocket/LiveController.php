@@ -81,7 +81,7 @@ class LiveController implements HandlerInterface
     {
          $key = $this->LiveHelper->getLiveUserKey($this->game_id);
          $this->redis->sAdd($key,$fd);
-         $server->push($fd, 'hello, welcome! :)');
+        // $server->push($fd, 'hello, welcome! :)');
     }
 
     /**
