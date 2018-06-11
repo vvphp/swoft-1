@@ -91,7 +91,7 @@ class LiveController implements HandlerInterface
      */
     public function onMessage(Server $server, Frame $frame)
     {
-          $server->push($frame->fd, 'hello, I have received your message: ' . $frame->data);
+         // $server->push($frame->fd, 'hello, I have received your message: ' . $frame->data);
     }
 
     /**

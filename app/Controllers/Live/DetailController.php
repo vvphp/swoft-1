@@ -81,7 +81,7 @@ class DetailController
             return Util::showMsg([],$e->getMessage(),'0');
         }
         $data = [
-            'content' =>  mb_substr($chatContent,0,20),
+            'content' =>  mb_substr($chatContent,0,10),
             'nick_name' => $nickName
         ];
         //save db

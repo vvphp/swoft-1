@@ -47,7 +47,8 @@ $(document).ready(function(){
                     fillLiveData(data);
                     break;
               case 'chat':
-                //聊天数据
+                  //聊天数据
+                 // $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong>.livetext").hide();
                   fillChatData(data);
                   break;
               }
@@ -72,16 +73,21 @@ $(document).ready(function(){
               alert("内容不能为空");
               return false;
           }
+        if(nickName.length>10 ){
+            alert("昵称太长,请重新输入");
+            return false;
+        }
          $.ajax({
             type: 'POST',
             url: "/live/detail/sendChat",
             data: {"nickName":nickName,"chatContent":chatContent},
             success: function(data){
                  data = JSON.parse(data);
-                 console.log(data);
+                if(data.code== '-1') {
+                    alert(data.msg);
+                }
             },
         });
-
     });
 
 
@@ -94,10 +100,10 @@ $(document).ready(function(){
         var html=` <li class="">
 						  <div class="username">${data.nick_name}</div>
 						  <div class="livetext">${data.content}</div>
-						    <div class="period"></div>
-						  <div class="score">${data.time}</div>
+						    <div class="period">${data.date}</div>
+						  <div class="score"></div>
 						</li>`;
-        $(".chatRoom>.zhibo_text>#livebox").prepend(html);
+       $(".chatRoom>.zhibo_text>#livebox").prepend(html);
     }
 
 

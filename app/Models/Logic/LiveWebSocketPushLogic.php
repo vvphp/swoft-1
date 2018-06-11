@@ -75,6 +75,7 @@ class LiveWebSocketPushLogic
             'content'    => $data['content'],
             'nick_name'  => $data['nick_name'],
             'time'       => time(),
+            'date'       => date('Y-m-d H:i:s')
         ];
         return   \Swoft::$server->sendToSome(json_encode($sendData),$gameUserListFd);
     }
