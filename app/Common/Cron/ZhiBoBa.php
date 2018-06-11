@@ -67,6 +67,7 @@ class  ZhiBoBa{
      */
     public function beginGrabNews($url='')
     {
+        $this->newsCount = 0;
         $grabUrl = !empty($url) ? $url : $this->url;
         $client = new Client();
         $res  = $client->request('GET', $grabUrl);

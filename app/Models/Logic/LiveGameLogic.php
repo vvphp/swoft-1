@@ -103,6 +103,18 @@ class LiveGameLogic
     }
 
     /**
+     * 按时间条件修改比赛状态，
+     * @param $startDate
+     * @param $endDate
+     * @param $status
+     * @return array
+     */
+    public function updateGameStatus($startDate,$endDate,$status)
+    {
+       return  $this->LiveGameDao->updateGameStatus($startDate,$endDate,$status);
+    }
+
+    /**
      * 根据条件查询赛事列表
      * @param $where
      * @param array $fields
@@ -255,6 +267,7 @@ class LiveGameLogic
     {
         $data = [];
         $playList = [];
+        $currDate = date('Y-m-d');
         $matchList = array_column($matchData,'competitionName','id');
         $weekArr = array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
         foreach($playData as $key => $value){
@@ -262,6 +275,15 @@ class LiveGameLogic
             $playList[$game_id][] = $value;
         }
         foreach($gameData as $index => $item ){
+             if(in_array($item['liveStatus'],[0,3])){
+                   continue;
+             }
+            if($item['gameDate'] == $currDate){
+                 $gameTime = strtotime($currDate.' '.$item['dataTime'].':00');
+                 if($gameTime+3600*4 <=time()){
+                     continue;
+                 }
+            }
             $gameId = $item['id'];
             $matchId = $item['matchId'];
             $home_team_id = $item['homeTeamId'];

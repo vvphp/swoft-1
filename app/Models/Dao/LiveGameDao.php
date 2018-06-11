@@ -104,6 +104,19 @@ class LiveGameDao
         return  LiveGameSchedule::updateOne($data, ['id' => $game_id])->getResult();
     }
 
+    /**
+     * 按时间条件修改比赛状态，
+     * @param $startDate
+     * @param $endDate
+     * @param $status
+     * @return array
+     */
+    public function updateGameStatus($startDate,$endDate,$status)
+    {
+        $data = ['live_status' => $status];
+        $where  = ['game_date','between',$startDate,$endDate];
+        return  LiveGameSchedule::updateAll($data, $where)->getResult();
+    }
 
     /**
      * 根据时间段查询赛事数据

@@ -15,6 +15,7 @@ use Swoft\Bean\Annotation\Inject;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use Swoft\Task\Bean\Annotation\Scheduled;
 use Swoft\Task\Bean\Annotation\Task;
+use App\Models\Logic\LiveGameLogic;
 
 
 /**
@@ -34,7 +35,7 @@ class CronTask
      * crontab 直播吧抓取 定时任务
      * 每周日1点执行
      *
-     * @Scheduled(cron="0 0 23 *\/1 * *")
+     * @Scheduled(cron="0 0 0 * * *")
      */
     public function cronZhiBo8Task()
     {
@@ -59,6 +60,19 @@ class CronTask
         echo "grab zhiboba news end \r\n";
         return true;
     }
+
+    /**
+     * crontab 修改比赛状态，每天凌晨2点执行，将前一天的所有比赛状态改为已结束
+     *
+     * @Scheduled(cron="0 0 1 * * *")
+     */
+   public function cronUpdateGameStatus()
+   {
+       /* @var LiveGameLogic $logic */
+       $logic = App::getBean(LiveGameLogic::class);
+       $date = date('Y-m-d',strtotime("-1 days"));
+       $logic->updateGameStatus($date,$date,3);
+   }
 
 
 }
