@@ -63,14 +63,10 @@ class DetailController
         }
         $this->game_id = $game_id;
 
-        $ret  =  [ 'data' => $data ];
-        $cookie = new Cookie('live_'.$game_id.'_',uniqid(),time()+3600,'/',$request->getUri()->getHost());
-
-        return  view("zhibo/detail/wenzi", $ret)->withCookie($cookie);
-
-        //$response->withCookie($cookie)->withContent($retJson)->send();
-
-       // return [ 'data' => $data ];
+       // $ret  =  [ 'data' => $data ];
+       // $cookie = new Cookie('live_'.$game_id.'_',uniqid(),time()+3600,'/',$request->getUri()->getHost());
+       // return  view("zhibo/detail/wenzi", $ret)->withCookie($cookie);
+        return [ 'data' => $data ];
     }
 
 
