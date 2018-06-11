@@ -10,8 +10,7 @@
 
 namespace App\Controllers\Live;
 
-use App\Common\Tool\Valitron;
-use App\Lib\Valitron\Validator;
+
 use Swoft\App;
 use Swoft\Core\Coroutine;
 use Swoft\Http\Server\Bean\Annotation\Controller;
@@ -27,6 +26,8 @@ use Swoft\Http\Message\Server\Response;
 use Swoft\Http\Message\Server\Request;
 use Swoft\Exception\BadMethodCallException;
 use App\Models\Logic\LiveGameLogic;
+use App\Models\Logic\LiveWebSocketPushLogic;
+use App\Common\Tool\Util;
 
 /**
  * Class GameController
@@ -34,6 +35,8 @@ use App\Models\Logic\LiveGameLogic;
  */
 class DetailController
 {
+
+    private $game_id = 0;
 
     /**
      * 文字直播
@@ -56,7 +59,40 @@ class DetailController
         if(empty($data)){
             throw new BadMethodCallException('非法请求!!!');
         }
+        $this->game_id = $game_id;
         return [ 'data' => $data ];
     }
+
+
+    /**
+     * 发送聊天
+     * @param Request $request
+     * @return json
+     */
+    public function sendChat(Request $request)
+    {
+        $nickName =  $request->post('nickName');
+        $chatContent =  $request->post('chatContent');
+        try{
+            if(empty($nickName)) throw  new \Exception('not_empty_nick_name');
+            if(empty($chatContent))throw new \Exception('not_empty_chat_content');
+        }catch(\Exception $e){
+            return Util::showMsg([],$e->getMessage(),'0');
+        }
+
+        var_dump($this->game_id);
+
+        /* @var LiveWebSocketPushLogic $logic */
+     //   $logic = App::getBean(LiveWebSocketPushLogic::class);
+      //  $result  = $logic->pushChatDetails($game_id,$data,'chat');
+
+    }
+
+
+
+
+
+
+
 
 }

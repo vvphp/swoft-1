@@ -10,6 +10,7 @@
 
 namespace App\Controllers\Live;
 
+
 use Swoft\App;
 use Swoft\Core\Coroutine;
 use Swoft\Http\Server\Bean\Annotation\Controller;
@@ -22,6 +23,7 @@ use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
 use App\Models\Logic\LiveGameLogic;
 use App\Models\Logic\LiveNewsLogic;
+
 
 /**
  * Class IndexController
@@ -58,15 +60,6 @@ class IndexController
         return ['data' => $data,'videoNewsList' => $videoNewsList,'textNewsList' => $textNewsList];
     }
 
-    /**
-     * 发送聊天
-     * @param Request $request
-     */
-    public function sendChat(Request $request)
-    {
-       $post =  $request->post();
-       print_r($post);
-    }
 
 
 }

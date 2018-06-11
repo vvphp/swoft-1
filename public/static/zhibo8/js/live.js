@@ -97,14 +97,14 @@ $(document).ready(function(){
           }
          $.ajax({
             type: 'POST',
-            url: "/live/sendChat",
+            url: "/live/detail/sendChat",
             data: {"nickName":nickName,"chatContent":chatContent},
             success: function(data){
                  data = JSON.parse(data);
                  console.log(data);
             },
         });
-        
+
     });
 
 })

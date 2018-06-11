@@ -37,5 +37,7 @@ return [
     'live_set_status_success'    => '修改赛事状态成功',
     'live_empty_id_error'        => 'ID不能为空',
     'public_del_success'         => '删除成功',
-    'public_del_error'           => '删除失败'
+    'public_del_error'           => '删除失败',
+    'not_empty_nick_name'            => '昵称不能为空',
+    'not_empty_chat_content'         => '聊天内容不能为空'
 ];
