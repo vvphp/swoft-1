@@ -34,7 +34,7 @@ class CronTask
      * crontab 直播吧抓取 定时任务
      * 每周日1点执行
      *
-     * @Scheduled(cron="0 0 23 *\/7 * *")
+     * @Scheduled(cron="0 0 23 *\/1 * *")
      */
     public function cronZhiBo8Task()
     {
