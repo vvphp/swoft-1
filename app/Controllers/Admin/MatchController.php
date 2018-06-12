@@ -159,7 +159,16 @@ class MatchController
         $gameLogic = App::getBean(LiveGameLogic::class);
         $result = $gameLogic->updateGameDataById($game_id,$data);
         if($result){
-            return Util::showMsg([],'live_set_status_success');
+            if($status == '2'){
+                $data['editorValue'] = 'hello 大家好!';
+                $data['home_team_score'] = "0";
+                $data['visiting_team_score'] = "0";
+                $data['timeframe'] = "0";
+                /* @var LiveWebSocketPushLogic $logic */
+                $logic = App::getBean(LiveWebSocketPushLogic::class);
+                $logic->pushMatchDetail($game_id,$data,'live');
+          }
+          return Util::showMsg([],'live_set_status_success');
         }
          return Util::showMsg([],'live_set_status_error','0');
     }

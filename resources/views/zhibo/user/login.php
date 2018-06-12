@@ -21,7 +21,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">手机号</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="username" lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                        <input type="text" name="phone" lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -43,7 +43,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">手机号</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="username"lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                        <input type="text" name="phone"lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -55,7 +55,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">验证码</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="username" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" style="float: left;width: 53%">
+                        <input type="text" name="verCode" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" style="float: left;width: 53%">
                         <button class="layui-btn" style="float: left; margin-left: 10px;">获取验证码</button>
                     </div>
                 </div>
@@ -69,6 +69,8 @@
     </div>
  </div>
 
+<script src="/static/zhibo8/js/jquery1.11.1.min.js"></script>
+<script src="/static/zhibo8/js/jquery.md5.js"></script>
 <script src="/static/zhibo8/layui/layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
@@ -89,10 +91,17 @@
         form.on('submit(login)', function(data){
             layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
-            })
+            });
+            var token = data.field.phone+','+data.field.password+"zxr";
+            data.field.token = $.md5(token);
+            $.post("/live/user/sigin",data.field,function(res){
+                console.log(res);
+            });
             console.log(data);
             return false;
         });
+
+
     });
 </script>
 

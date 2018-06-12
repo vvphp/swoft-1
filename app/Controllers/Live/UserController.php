@@ -33,7 +33,7 @@ class UserController
 {
 
     /**
-     * 用户登录
+     * 用户登录模板
      * @RequestMapping();
      * @View(template="zhibo/user/login")
      * @return Response
@@ -41,6 +41,17 @@ class UserController
     public function login()
     {
         return [];
+    }
+
+    /**
+     * 用户登录处理
+     * @RequestMapping();
+     * @param $request
+     * @return Response
+     */
+    public function sigin(Request $request)
+    {
+        print_r($request->post());
     }
 
 
