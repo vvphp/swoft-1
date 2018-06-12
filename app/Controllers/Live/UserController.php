@@ -50,8 +50,12 @@ class UserController
      * @View(template="zhibo/user/login")
      * @return Response
      */
-    public function login()
+    public function login(Response $response)
     {
+        /** @var \Swoft\Session\SessionManager $sessionManager */
+        $sessionManager = \Swoft\App::getBean('sessionManager');
+        $data = ['aa' => 'ddd'];
+        $sessionManager->setSession($data);
         return [];
     }
 
@@ -68,7 +72,7 @@ class UserController
         $post = array_filter($post,'trim');
         $check = $this->valitron->verificationSigin($post);
         if(is_array($check)){
-            $msgArr = array_pop($result);
+            $msgArr = array_pop($check);
             return Util::showMsg([],$msgArr[0],'0');
         }
         /* @var LiveUserLogic $logic */
@@ -101,9 +105,8 @@ class UserController
         $post = $request->post();
         $post = array_filter($post,'trim');
         $check = $this->valitron->verificationRegister($post);
-        var_dump($check);
         if(is_array($check)){
-            $msgArr = array_pop($result);
+            $msgArr = array_pop($check);
             return Util::showMsg([],$msgArr[0],'0');
         }
         /* @var LiveUserLogic $logic */

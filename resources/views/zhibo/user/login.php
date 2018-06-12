@@ -63,7 +63,7 @@
                     <label class="layui-form-label">验证码</label>
                     <div class="layui-input-inline">
                         <input type="text" name="verCode" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" style="float: left;width: 53%">
-                        <button class="layui-btn" lay-button="" lay-filter="getCode" id="getCode" style="float: left; margin-left: 10px;">获取验证码</button>
+                        <button type="button" class="layui-btn"   lay-filter="getCode" id="getCode" style="float: left; margin-left: 10px;">获取验证码</button>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -124,12 +124,21 @@
             return false;
         });
 
+        /**
+         * 获取验证码
+          */
         $(document).on('click','#getCode',function(){
             var phone = $("#phone").val();
-            console.log(phone);
-            layer.msg('hello');
-        });
+            if (!phone.match(/^[1][3,4,5,7,8][0-9]{9}$/)) {
+                layer.msg('手机号不正确');
+                return false;
+            }
+            var data = {"phone":phone,'token':'1234'};
+            $.post("/live/user/sendCode",data.field,function(res){
+                console.log(res);
+            });
 
+        });
     });
 
 </script>
