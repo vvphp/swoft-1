@@ -101,6 +101,7 @@ class UserController
         $post = $request->post();
         $post = array_filter($post,'trim');
         $check = $this->valitron->verificationRegister($post);
+        var_dump($check);
         if(is_array($check)){
             $msgArr = array_pop($result);
             return Util::showMsg([],$msgArr[0],'0');
