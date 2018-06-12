@@ -87,20 +87,20 @@ $(document).ready(function(){
 		};   
     //websocket end  
 
+
     /**
      * 发送聊天消息
      */
     $("#sendChat").click(function(){
-        var index = layer.open({
+        layer.open({
             type: 2,
             title: '请登录',
-            content: 'https://www.baidu.com',
-            area: ['200px', '100px'],
+            content: '/live/user/login',
+            area: ['400px', '500px'],
             fix: false, //不固定
             maxmin: true,
             shade:0.4
         });
-        layer.full(index);
         return false;
 
 
