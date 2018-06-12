@@ -35,7 +35,7 @@ class CronTask
      * crontab 直播吧抓取 定时任务
      * 每周日1点执行
      *
-     * @Scheduled(cron="0 0 0 * * *")
+     * @Scheduled(cron="* 0 0 * * *")
      */
     public function cronZhiBo8Task()
     {
@@ -62,9 +62,9 @@ class CronTask
     }
 
     /**
-     * crontab 修改比赛状态，每天凌晨2点执行，将前一天的所有比赛状态改为已结束
+     * crontab 修改比赛状态，每天凌晨1点执行，将前一天的所有比赛状态改为已结束
      *
-     * @Scheduled(cron="0 0 1 * * *")
+     * @Scheduled(cron="* 0 1 * * *")
      */
    public function cronUpdateGameStatus()
    {
