@@ -16,7 +16,7 @@
         <li>注册</li>
     </ul>
     <div class="layui-tab-content">
-        <div class="layui-tab-item">
+        <div class="layui-tab-item layui-show">
             <form class="layui-form layui-form-pane" action="">
                 <div class="layui-form-item">
                     <label class="layui-form-label">手机号</label>
@@ -37,7 +37,35 @@
                 </div>
             </form>
         </div>
-        <div class="layui-tab-item"> 注册 </div>
+
+        <div class="layui-tab-item">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">手机号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">验证码</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                        <button class="layui-btn">获取验证码</button>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo2">注册</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
  </div>
 
