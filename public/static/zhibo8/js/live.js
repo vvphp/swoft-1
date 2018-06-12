@@ -96,7 +96,7 @@ $(document).ready(function(){
             type: 2,
             title: '请登录',
             content: '/live/user/login',
-            area: ['400px', '300px'],
+            area: ['400px', '350px'],
             fix: false, //不固定
             maxmin: true,
             shade:0.4
