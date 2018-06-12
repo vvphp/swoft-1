@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页</title>
-    <link rel="stylesheet" type="text/css" href="/static/zhibo8/layer/theme/default/layer.css" />
-    <link rel="stylesheet" type="text/css" href="/static/zhibo8/layer/theme/default/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/zhibo8/layui/layui/css/layui.css" />
 </head>
 <body>
 
@@ -27,7 +26,8 @@
 
 
 <script src="/static/zhibo8/js/jquery1.11.1.min.js"></script>
-<script src="/static/zhibo8/layer/layer.js"></script>
+<script src="/static/zhibo8/layui/layui/layui.all.js"></script>
+<script src="/static/zhibo8/layui/layui/layui.js"></script>
 <script type="text/javascript">
     layui.use(['form','layer','jquery'], function () {
         // 操作对象
