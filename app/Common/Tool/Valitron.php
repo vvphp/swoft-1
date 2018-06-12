@@ -159,6 +159,77 @@ class Valitron{
     }
 
 
+    /**
+     * 注册验证
+     * @param $data
+     * @return boolean
+     */
+    public function verificationRegister($data)
+    {
+        if(strlen($data['password']) < 6){
+            return [['login_password_length_min']];
+        }
+        if(strlen($data['password']) > 20){
+            return [['login_password_length_max']];
+        }
+        $Validator = new Validator($data);
+        $Validator->rule("required",['phone']);
+        $Validator->rule("required",['password']);
+        $Validator->rule("required",['nike_name']);
+        $Validator->rule("required",['token']);
+        $Validator->rule("required",['verCode']);
+        $Validator->rule('phone',['phone']); //检查电话
+        $Validator->rule('length',['verCode'],4);   //检查CODE
+        $message_list = array(
+            'phone.required' => 'login_phone_empty',
+            'phone.phone'    => 'login_phone_error',
+            'password.required'  => 'login_password_empty',
+            'nike_name.required' => 'login_input_nickName',
+            'verCode.required'   => 'login_input_code',
+            'verCode.length'     => 'login_verify_error',
+            'token.required'     => 'emptyCookie'
+        );
+        if ($Validator->validate($message_list)){
+                return true;
+        }else{
+              return $Validator->errors();
+        }
+    }
+
+    /**
+     * 登录验证
+     * @param $data
+     * @return array
+     */
+    public function verificationSigin($data)
+    {
+         if(strlen($data['password']) < 6){
+             return ['login_password_length_min'];
+         }
+        if(strlen($data['password']) > 20){
+            return ['login_password_length_max'];
+        }
+        $newToken = md5($data['phone'].','.$data['password'].'zxr');
+        $Validator = new Validator($data);
+        $Validator->rule("required",['phone']);
+        $Validator->rule("required",['password']);
+        $Validator->rule("required",['token']);
+        $Validator->rule('phone',['phone']);
+        $Validator->rule('equals',$newToken,['token']);
+        $message_list = array(
+            'phone.required' => 'login_phone_empty',
+            'phone.phone'    => 'login_phone_error',
+            'password.required' => 'login_password_empty',
+            'token.required'    => 'emptyCookie',
+            'token.equals'      => 'emptyCookie'
+        );
+        if ($Validator->validate($message_list)){
+               return true;
+        }else{
+            return $Validator->errors();
+        }
+    }
+
 }
 
 

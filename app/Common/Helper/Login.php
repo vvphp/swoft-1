@@ -22,6 +22,16 @@ class  Login{
     }
 
     /**
+     * 前台登录的cookie 名
+     * @return string
+     */
+    public static function getFrontCookieName()
+    {
+        $cookie = Base::getKey('systemParameter','frontCookie');
+        return !empty($cookie) ? $cookie:'frontLogin';
+    }
+
+    /**
      * 获取当前登录用户信息
      * @param ServerRequestInterface $request
      * @return array|bool|string

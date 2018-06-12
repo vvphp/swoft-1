@@ -43,7 +43,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">手机号</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="phone"lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                        <input type="text" id="phone" name="phone"lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -52,11 +52,18 @@
                         <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
                     </div>
                 </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">昵称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="nike_name" lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">验证码</label>
                     <div class="layui-input-inline">
                         <input type="text" name="verCode" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" style="float: left;width: 53%">
-                        <button class="layui-btn" style="float: left; margin-left: 10px;">获取验证码</button>
+                        <button class="layui-btn" id="getCode" style="float: left; margin-left: 10px;">获取验证码</button>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -87,7 +94,7 @@
             pass: [/(.+){6,12}$/, '密码必须6到12位']
         });
 
-        //监听提交
+        //监听登录
         form.on('submit(login)', function(data){
             layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
@@ -102,7 +109,29 @@
         });
 
 
+
+        //监听注册
+        form.on('submit(register)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            });
+            var token = data.field.phone+','+data.field.password+"zxr";
+            data.field.token = $.md5(token);
+            $.post("/live/user/register",data.field,function(res){
+                console.log(res);
+            });
+            console.log(data);
+            return false;
+        });
+
+        $(document).on('click','#getCode',function(){
+            var phone = $("#phone").val();
+            console.log(phone);
+            layer.msg('hello');
+        });
+
     });
+
 </script>
 
 </body>
