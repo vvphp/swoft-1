@@ -91,6 +91,19 @@ $(document).ready(function(){
      * 发送聊天消息
      */
     $("#sendChat").click(function(){
+        var index = layer.open({
+            type: 2,
+            title: '请登录',
+            content: 'https://www.baidu.com',
+            area: ['200px', '100px'],
+            fix: false, //不固定
+            maxmin: true,
+            shade:0.4
+        });
+        layer.full(index);
+        return false;
+
+
           var nickName = $("#nickName").val();
           var chatContent = $("#chatContent").val();
           while(nickName=="" || nickName.length<=1){
@@ -98,17 +111,17 @@ $(document).ready(function(){
                $("#nickName").val(nickName);
           }
         if(nickName.length>10 ){
-            alert("昵称太长,请重新输入");
+            layer.alert('昵称太长,请重新输入', {icon: 5});
             $("#nickName").val('');
             return false;
         }
         if(nickName == 'null'){
-            alert("昵称非法");
+            layer.alert('昵称非法', {icon: 5});
             $("#nickName").val('');
             return false;
         }
         if(chatContent.length<1 ){
-            alert("内容不能为空");
+            layer.alert('内容不能为空', {icon: 5});
             return false;
         }
          $.ajax({
@@ -118,7 +131,7 @@ $(document).ready(function(){
             success: function(data){
                  data = JSON.parse(data);
                 if(data.code== '-1') {
-                    alert(data.msg);
+                    layer.alert(data.msg, {icon: 5});
                 }
                 if($.cookie('nick_name') == null || $.cookie('nick_name') == 'null'){
                       $.cookie('nick_name',nickName, { expires: 30, path: '/' });

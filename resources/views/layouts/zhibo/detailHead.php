@@ -11,8 +11,10 @@
     <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/css2016.css">
     <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/pinglun.css">
     <link rel="stylesheet" type="text/css" href="/static/zhibo8/css/v2common.css" />
+    <link rel="stylesheet" type="text/css" href="/static/zhibo8/layer/theme/default/layer.css" />
     <script src="/static/zhibo8/js/jquery1.11.1.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+    <script src="/static/zhibo8/layer/layer.js"></script>
     <script src="/static/zhibo8/js/avalon.js"></script>
     <script src="/static/zhibo8/js/common.js" type="text/javascript"></script>
 </head>
