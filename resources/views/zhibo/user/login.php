@@ -90,6 +90,7 @@
             layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
             })
+            console.log(data);
             return false;
         });
     });
