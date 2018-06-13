@@ -27,7 +27,7 @@ use App\Models\Logic\LiveCodeLogic;
  * Class SmsController
  * @Controller(prefix="/live/code")
  */
-class CodeController extends BaseController
+class CodeController
 {
 
     /**

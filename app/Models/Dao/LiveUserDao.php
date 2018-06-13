@@ -37,7 +37,7 @@ class LiveUserDao
     public function getUserInfoByPhonePassword($phone,$password)
     {
         $where = ['phone' => $phone,'password' => $password ];
-        $result = LiveUserInfo::findAll($where, ['fields' => $this->fields])->getResult();
+        $result = LiveUserInfo::findOne($where, ['fields' => $this->fields])->getResult();
         return empty($result) ? [] : $result->toArray();
     }
 
@@ -52,6 +52,19 @@ class LiveUserDao
         $result = LiveUserInfo::findOne($where, ['fields' => $this->fields])->getResult();
         return empty($result) ? [] : $result->toArray();
     }
+
+    /**
+     * 根据用户ID批量查询
+     * @param array $userIdList
+     * @return array
+     */
+    public function getUserListByIdList(array $userIdList)
+    {
+        $where = ['id' => $userIdList];
+        $result = LiveUserInfo::findAll($where, ['fields' => ['id','nike_name']])->getResult();
+        return empty($result) ? [] : $result->toArray();
+    }
+
 
     /**
      * 根据手机号查询用户

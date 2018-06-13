@@ -82,15 +82,13 @@ class UserController
         /* @var LiveUserLogic $logic */
         $logic = App::getBean(LiveUserLogic::class);
         $password = $logic->generatePassword($post['password']);
-        $ret = $logic->getUserInfoByPhonePassword($post['phone'],$password);
-        print_r($ret);
-        if($ret){
-            $userInfo = isset($ret[0]) ? $ret[0] : [];
+        $userInfo = $logic->getUserInfoByPhonePassword($post['phone'],$password);
+        if($userInfo){
             //update last login date
             $logic->updateLastLoginTime($userInfo['id'],time());
             //set cookie
             $loginData = JsonHelper::encode($userInfo);
-            $retJson   = Util::showMsg([],'login_success');
+            $retJson   = Util::showMsg(['userInfo' => $userInfo],'login_success');
             $cookie = new Cookie(Login::getFrontCookieName(),DES1::encrypt($loginData));
             $response->withCookie($cookie)->withContent($retJson)->send();
         }else{

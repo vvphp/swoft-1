@@ -30,9 +30,7 @@ use App\Models\Logic\LiveGameLogic;
 use App\Models\Logic\LiveWebSocketPushLogic;
 use App\Models\Logic\LiveCommentLogic;
 use App\Common\Tool\Util;
-use Swoft\Http\Message\Cookie\Cookie;
-use App\Common\Helper\Login;
-use App\Common\McrYpt\DES1;
+
 
 /**
  * Class GameController
@@ -68,9 +66,6 @@ class DetailController
         /* @var LiveUserLogic $logic */
         $logic = App::getBean(LiveUserLogic::class);
         $userInfo = $logic->getLoginUserInfo($request);
-
-        print_r($userInfo);
-
         return [ 'data' => $data,'userInfo' => $userInfo ];
     }
 
@@ -82,17 +77,21 @@ class DetailController
      */
     public function sendChat(Request $request)
     {
-        $nickName =  $request->post('nickName');
         $chatContent =  $request->post('chatContent');
+        $user_id     =  $request->post('user_id');
+        /* @var LiveUserLogic $logic */
+        $logic = App::getBean(LiveUserLogic::class);
+        $userInfo = $logic->getLoginUserInfo($request);
         try{
-            if(empty($nickName)) throw  new \Exception('not_empty_nick_name');
             if(empty($chatContent))throw new \Exception('not_empty_chat_content');
+            if(empty($userInfo['id']))throw new \Exception('please_login');
+            if($user_id != $userInfo['id'])throw new \Exception('user_info_error');
         }catch(\Exception $e){
             return Util::showMsg([],$e->getMessage(),'0');
         }
         $data = [
             'content' =>  mb_substr($chatContent,0,10),
-            'nick_name' => $nickName
+            'user_id' => $user_id
         ];
         //save db
         /* @var LiveCommentLogic $logic */

@@ -29,7 +29,7 @@ use App\Common\Tool\Util;
  * Class SmsController
  * @Controller(prefix="/live/cron")
  */
-class CronController extends BaseController
+class CronController
 {
 
     /**

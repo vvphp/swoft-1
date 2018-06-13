@@ -16,6 +16,7 @@ use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use Swoft\Bean\Annotation\Inject;
 use App\Models\Dao\LiveCommentDao;
+use App\Models\Dao\LiveUserDao;
 
 /**
  *
@@ -36,6 +37,12 @@ class LiveCommentLogic
      */
     private  $LiveCommentDao;
 
+    /**
+     *
+     * @Inject()
+     * @var LiveUserDao
+     */
+    private $LiveUserDao;
 
     /**
      * 保存聊天室聊天记录
@@ -62,19 +69,25 @@ class LiveCommentLogic
      */
     public function getCommentListByGameId($game_id,$orderBy=[],$start=0,$limit=50)
     {
+        $userListInfo = [];
         if(empty($game_id)){
             return [];
         }
        if(empty($orderBy)){
            $orderBy = ['id' => 'DESC'];
        }
-      $list =   $this->LiveCommentDao->getCommentListByGameId($game_id,$orderBy,$start,$limit);
+      $list = $this->LiveCommentDao->getCommentListByGameId($game_id,$orderBy,$start,$limit);
+      $userIdList = array_column($list,'userId');
+      if($userIdList){
+         $userListInfo = $this->LiveUserDao->getUserListByIdList($userIdList);
+         $userListInfo = array_column($userListInfo,'nikeName','id');
+       }
       foreach($list as $index => &$item){
+          $userId = $item['userId'];
           $item['date'] = date('Y-m-d H:i:s',$item['addDate']);
+          $item['nickName'] = isset($userListInfo[$userId]) ? $userListInfo[$userId] : '老夫';
       }
        return $list;
     }
-
-
 
 }

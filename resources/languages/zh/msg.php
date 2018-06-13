@@ -48,5 +48,7 @@ return [
     'public_del_error'           => '删除失败',
     'not_empty_nick_name'            => '昵称不能为空',
     'not_empty_chat_content'         => '聊天内容不能为空',
-    'send_success'                   => '发送成功'
+    'send_success'                   => '发送成功',
+    'please_login'                   => '请登录',
+    'user_info_error'                => '用户数据非法,请重试'
 ];

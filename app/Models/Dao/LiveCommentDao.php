@@ -26,7 +26,7 @@ use App\Models\Entity\LiveComment;
 class LiveCommentDao
 {
 
-    private $fields = ['id','game_id','nick_name','content','add_date'];
+    private $fields = ['id','game_id','user_id','content','add_date'];
 
     /**
      * 保存聊天记录
@@ -39,7 +39,7 @@ class LiveCommentDao
         $values = [
              [
                 'game_id'   => $game_id,
-                'nick_name' => isset($data['nick_name']) ? $data['nick_name'] : '',
+                'user_id' => isset($data['user_id']) ? $data['user_id'] : '',
                 'content'   => isset($data['content']) ? $data['content'] : '',
                 'add_date'  => time(),
              ],

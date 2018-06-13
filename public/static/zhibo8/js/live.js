@@ -2,13 +2,6 @@ $(document).ready(function(){
 	var html ='';
     var chatRoom = 1;
 	var wsUri = 'ws://47.95.14.113:9400/live/?game_id='+game_id;
-
-    //如果设置过昵称，则还是用原来的昵称
-    var nick_name = $.cookie('nick_name');
-    if(nick_name != null || nick_name!='null'){
-        $("#nickName").val(nick_name);
-    }
-
     //预加载历史直播数据 start
      if(commentaryData.length > 0){
          var homeTeamScore = 0,
@@ -92,34 +85,19 @@ $(document).ready(function(){
      * 发送聊天消息
      */
     $("#sendChat").click(function(){
-        layer.open({
-            type: 2,
-            title: '请登录',
-            content: '/live/user/login',
-            area: ['410px', '400px'],
-            fix: false, //不固定
-            maxmin: true,
-            shade:0.4
-        });
-        return false;
-
-
-          var nickName = $("#nickName").val();
-          var chatContent = $("#chatContent").val();
-          while(nickName=="" || nickName.length<=1){
-               nickName = window.prompt("请输入昵称");
-               $("#nickName").val(nickName);
-          }
-        if(nickName.length>10 ){
-            layer.alert('昵称太长,请重新输入', {icon: 5});
-            $("#nickName").val('');
+        if(user_id == "0"){
+            layer.open({
+                type: 2,
+                title: '请登录',
+                content: '/live/user/login',
+                area: ['410px', '400px'],
+                fix: false, //不固定
+                maxmin: true,
+                shade:0.4
+            });
             return false;
         }
-        if(nickName == 'null'){
-            layer.alert('昵称非法', {icon: 5});
-            $("#nickName").val('');
-            return false;
-        }
+        var chatContent = $("#chatContent").val();
         if(chatContent.length<1 ){
             layer.alert('内容不能为空', {icon: 5});
             return false;
@@ -127,14 +105,11 @@ $(document).ready(function(){
          $.ajax({
             type: 'POST',
             url: "/live/detail/sendChat",
-            data: {"nickName":nickName,"chatContent":chatContent},
+            data: {"user_id":user_id,"chatContent":chatContent},
             success: function(data){
                  data = JSON.parse(data);
                 if(data.code== '-1') {
                     layer.alert(data.msg, {icon: 5});
-                }
-                if($.cookie('nick_name') == null || $.cookie('nick_name') == 'null'){
-                      $.cookie('nick_name',nickName, { expires: 30, path: '/' });
                 }
                 if(chatRoom){
                    $("#chatContent").val('');

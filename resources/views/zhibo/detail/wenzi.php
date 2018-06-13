@@ -106,6 +106,7 @@
      var commentaryData = <?php echo json_encode($data['commentaryData']); ?>;
      var chatData       = <?php echo json_encode($data['chatData']); ?>;
      var narratorData   = <?php echo json_encode($data['narratorData']); ?>;
+     var user_id = "<?php echo isset($userInfo['id']) ? $userInfo['id'] : '0'; ?>";
 </script>
  
 

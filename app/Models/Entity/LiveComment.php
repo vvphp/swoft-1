@@ -32,10 +32,10 @@ class LiveComment extends Model
     private $gameId;
 
     /**
-     * @var string $nickName 用户昵称
-     * @Column(name="nick_name", type="string", length=50, default="")
+     * @var string $userId 用户ID
+     * @Column(name="user_id", type="integer", default=0)
      */
-    private $nickName;
+    private $userId;
 
     /**
      * @var string $content 内容
@@ -73,13 +73,13 @@ class LiveComment extends Model
     }
 
     /**
-     * 用户昵称
-     * @param string $value
+     * 用户Id
+     * @param int $value
      * @return $this
      */
-    public function setNickName(string $value): self
+    public function setUserId(int $value): self
     {
-        $this->nickName = $value;
+        $this->userId = $value;
 
         return $this;
     }
@@ -126,12 +126,12 @@ class LiveComment extends Model
     }
 
     /**
-     * 用户昵称
+     * 用户ID
      * @return string
      */
-    public function getNickName()
+    public function getUserId()
     {
-        return $this->nickName;
+        return $this->userId;
     }
 
     /**

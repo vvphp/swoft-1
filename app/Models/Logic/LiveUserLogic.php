@@ -169,12 +169,15 @@ class LiveUserLogic
      */
     public function getLoginUserInfo($request)
     {
-        $userInfo = [];
+        $jsonUserStr = '';
         $userCookieData = $request->cookie(Login::getFrontCookieName());
         if($userCookieData){
-            $userInfo =  DES1::decrypt($userCookieData);
+            $jsonUserStr =  DES1::decrypt($userCookieData);
         }
-        return $userInfo;
+        if(!empty($jsonUserStr)){
+             $userInfo = json_decode($jsonUserStr,true);
+        }
+        return !isset($userInfo) ? [] : $userInfo;
     }
 
 }

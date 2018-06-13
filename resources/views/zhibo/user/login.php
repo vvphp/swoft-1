@@ -110,6 +110,7 @@
                 data = JSON.parse(res);
                 layer.msg(data.msg);
                 if(data.code == '1'){
+                    parent.user_id = data.data.userInfo.id;
                     //关闭当前窗口
                     setTimeout("closeLayer()",3000);
                 }
@@ -129,6 +130,7 @@
                 data = JSON.parse(res);
                 layer.msg(data.msg);
                 if(data.code == '1'){
+                    parent.user_id = data.data.userInfo.id;
                      //关闭当前窗口
                     setTimeout("closeLayer()",3000);
                 }
