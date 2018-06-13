@@ -90,6 +90,8 @@
         var $ = layui.jquery
             ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
 
+        var phoneCheck = true;
+
         //自定义验证规则
         form.verify({
             pass: [/(.+){6,20}$/, '密码必须6到20位']
@@ -97,29 +99,36 @@
 
         //监听登录
         form.on('submit(login)', function(data){
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            });
             var token = data.field.phone+','+data.field.password+"zxr";
             data.field.token = $.md5(token);
             $.post("/live/user/sigin",data.field,function(res){
-                console.log(res);
+                data = JSON.parse(res);
+                layer.msg(data.msg);
+                if(data.code == '1'){
+                    //关闭当前窗口
+                    layer.closeAll();
+                }
             });
-            console.log(data);
             return false;
         });
 
         //监听注册
         form.on('submit(register)', function(data){
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            });
+            if(phoneCheck == false){
+                layer.msg('手机号已存在');
+                return false;
+            }
             var token = data.field.phone+','+data.field.password+"zxr";
             data.field.token = $.md5(token);
             $.post("/live/user/register",data.field,function(res){
-                console.log(res);
+                data = JSON.parse(res);
+                layer.msg(data.msg);
+                if(data.code == '1'){
+                    //关闭当前窗口
+                   // layer.close(layer.index);
+                    layer.closeAll();
+                }
             });
-            console.log(data);
             return false;
         });
 
@@ -127,7 +136,7 @@
          *判断手机是否存在
          * */
         $("#register_phone").blur(function(){
-            var phone = $("#phone").val();
+            var phone = $("#register_phone").val();
             if(phone.length != 11){
                 return false;
             }
@@ -135,15 +144,19 @@
             $.post("/live/user/verifyingPhone",data,function(res){
                 data = JSON.parse(res);
                 if(data.code== '-1'){
+                    phoneCheck = false;
                     layer.msg(data.msg);
+                }else{
+                     phoneCheck = true;
                 }
             });
         });
+
         /**
          * 获取验证码
           */
         $(document).on('click','#getCode',function(){
-            var phone = $("#phone").val();
+            var phone = $("#register_phone").val();
             var token = $("#token").val();
             if(phone.length == 0){
                 layer.msg('请填写手机号');
@@ -151,6 +164,10 @@
             }
             if (!phone.match(/^[1][3,4,5,7,8][0-9]{9}$/)) {
                 layer.msg('手机号不正确');
+                return false;
+            }
+            if(phoneCheck == false){
+                layer.msg('手机号已存在');
                 return false;
             }
             var data = {"phone":phone,'token':token};
