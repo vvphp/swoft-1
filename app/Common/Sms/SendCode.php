@@ -8,8 +8,6 @@ namespace App\Common\Sms;
 
 use Swoft\Cache\Cache;
 use Swoft\Bean\Annotation\Inject;
-use App\Common\Tool\Valitron;
-use App\Common\Tool\Util;
 use App\Common\Tool\VerifCode;
 use Swoft\Task\Task;
 
@@ -43,19 +41,12 @@ class  SendCode{
     private $redis;
 
     /**
-     * @\Swoft\Bean\Annotation\Inject("Valitron")
-     * @var \App\Common\Tool\Valitron
-     */
-    private $valitron;
-
-
-    /**
      * 发短信之前的验证 ,同一手机号一天不能超过5次
      *
      * @param $phone
      * @return  bool
      */
-    public  function  sendBeforeCheck($phone)
+    public  function  checkGreaterTotalNumber($phone)
     {
         $incrKey = self::memberSmsCountKey($phone);
         $count =  $this->redis->get($incrKey);
@@ -65,64 +56,27 @@ class  SendCode{
         return true;
     }
 
-    /**
-     * 发短信之前 检查数据，手机号，token
-     * @param array $data
-     * @param array $field
-     * @return bool
-     * @throws \Exception
-     */
-    public function checkData($data=[],$field=[])
-    {
-        if(empty($data) || empty($field)){
-             return true;
-        }
-       $result = $this->valitron->valitronSendSms($data,$field);
-       if(is_array($result)){
-            $msgArr = array_pop($result);
-            throw new \Exception($msgArr[0] ?? '' );
-       }
-        $token = isset($data['token']) ?? '';
-        $getToken =  $this->redis->get($token);
-        $check = $this->valitron->valitronEquals($getToken,$token);
-        if($check == false){
-            throw new \Exception( Util::getMsg('Infoexpired'));
-        }
-       return true;
-    }
 
     /**
      * 发送短信
      * @param $phone
-     * @param string $token
+     * @param string $code
      * @return \App\Common\Sms\SimpleXMLElement|mixed
      * @throws \Exception
      */
-    public  function sendSms($phone,$token='')
+    public  function sendSms($phone,$code='')
     {
-        $countCheck = $this->sendBeforeCheck($phone);
-        if($countCheck == false){
-            throw new \Exception( Util::getMsg('smsSendLimit'));
+       if(empty($code)){
+             $code = $this->getCode($phone);
         }
-        try{
-            $data = ['phone' => $phone,'token'=>$token];
-            $field = ['phone'];
-            if(!empty($token)){
-                array_push($field,'token');
-            }
-            $this->checkData($data,$field);
-            $code = $this->getCode($phone);
-            //发短信放到task进程里去处理
-            $res  = Task::deliver('send', 'sendSms', [$phone, $code], Task::TYPE_CO);
-            if($res){
-                  $this->saveRedisCode($phone,$code);
-            }else{
-                throw new \Exception( Util::getMsg('smsCodeError'));
-            }
-        }catch(\Exception $e){
-             throw new \Exception( $e->getMessage());
+        //发短信放到task进程里去处理
+        $res  = Task::deliver('send', 'sendSms', [$phone, $code], Task::TYPE_CO);
+        if($res){
+            $this->saveRedisCode($phone,$code);
+            return true;
+        }else{
+             return false;
         }
-        return true;
     }
 
     /**
@@ -159,6 +113,7 @@ class  SendCode{
      * 将验证码保存到redis中
      * @param $phone
      * @param $code
+     * @return boolean
      */
     public  function saveRedisCode($phone,$code)
     {

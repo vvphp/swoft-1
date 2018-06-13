@@ -14,6 +14,7 @@ use Swoft\Bean\Annotation\Bean;
 use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use Swoft\Bean\Annotation\Inject;
 use App\Models\Dao\LiveUserDao;
+use App\Common\Tool\Util;
 
 /**
  * 用户逻辑层
@@ -35,6 +36,20 @@ class LiveUserLogic
      * @var LiveUserDao
      */
     private  $LiveUserDao;
+
+    /**
+     * @\Swoft\Bean\Annotation\Inject("Valitron")
+     * @var \App\Common\Tool\Valitron
+     */
+    private $valitron;
+
+    /**
+     * @\Swoft\Bean\Annotation\Inject("SendCode")
+     * @var \App\Common\Sms\SendCode
+     */
+    private $sendCode;
+
+
 
     /**
      * 根据 title 查询是否存在，如果不存在则插入，如果存在则直接返回true
@@ -92,6 +107,42 @@ class LiveUserLogic
         return  $this->LiveUserDao->updateLastLoginTime($userId,$date);
     }
 
+
+    /**
+     * 发送注册验证码
+     * @param $phone
+     * @param string $token
+     * @return json
+     */
+    public function sendRegisterCode($phone,$token='')
+    {
+        //检查手机格式
+        $check = $this->valitron->valitronPhone($phone);
+        if(is_array($check)){
+            $msgArr = array_pop($check);
+            return Util::showMsg([],$msgArr[0],'0');
+        }
+        //验证token
+        if(!empty($token)){
+            $session = session()->all();
+            $sessionToken = $session['_token'];
+            //token验证
+            $check = $this->valitron->valitronEquals($token,$sessionToken);
+            if(!$check){
+                return Util::showMsg([],'Infoexpired','0');
+            }
+        }
+        //不能超过5次
+        $countCheck = $this->sendCode->checkGreaterTotalNumber($phone);
+        if(!$countCheck){
+            return Util::showMsg([],'smsSendLimit','0');
+        }
+       $res =  $this->sendCode->sendSms($phone);
+       if(!$res){
+            return Util::showMsg([],'smsCodeError','0');
+        }
+        return Util::showMsg([],'smsSendSuccess','0');
+    }
 
     /**
      * 生成加密密码

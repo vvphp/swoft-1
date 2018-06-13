@@ -43,6 +43,11 @@ class UserController
      */
     private $valitron;
 
+    /**
+     * @\Swoft\Bean\Annotation\Inject("SendCode")
+     * @var \App\Common\Sms\SendCode
+     */
+    private $sendCode;
 
     /**
      * 用户登录模板
@@ -52,11 +57,14 @@ class UserController
      */
     public function login(Response $response)
     {
-        /** @var \Swoft\Session\SessionManager $sessionManager */
-        $sessionManager = \Swoft\App::getBean('sessionManager');
-        $data = ['aa' => 'ddd'];
-        $sessionManager->setSession($data);
-        return [];
+        //还差获取验证码-》页面token比对的功能
+        $session = session()->all();
+        if(!isset($session['_token'])){
+            $session['_token'] = md5(time().mt_rand(0,20));
+            session()->put($session);
+        }
+        $token = $session['_token'];
+        return ['token' => $token];
     }
 
     /**
@@ -109,6 +117,8 @@ class UserController
             $msgArr = array_pop($check);
             return Util::showMsg([],$msgArr[0],'0');
         }
+        //判断验证码
+
         /* @var LiveUserLogic $logic */
         $logic = App::getBean(LiveUserLogic::class);
         $post['password'] = $logic->generatePassword($post['password']);
@@ -120,6 +130,9 @@ class UserController
         var_dump($userId);
         if($userId){
             $userInfo = $logic->getUserInfoById($userId);
+
+            //update last login date
+            $logic->updateLastLoginTime($userId,time());
             //set cookie
             $loginData = JsonHelper::encode($userInfo);
             $retJson   = Util::showMsg([],'register_success');
@@ -129,5 +142,21 @@ class UserController
             return Util::showMsg([],'register_fail','0');
         }
     }
+
+    /**
+     * 发送短信
+     * @param $request
+     * @return object
+     */
+    public function sendCode(Request $request)
+    {
+        $phone = $request->post('phone');
+        $token = $request->post('token','token');
+        /* @var LiveUserLogic $logic */
+        $logic = App::getBean(LiveUserLogic::class);
+        $return =  $logic->sendRegisterCode($phone,$token);
+        return $return;
+    }
+
 
 }

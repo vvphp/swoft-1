@@ -109,8 +109,8 @@ class Valitron{
         $Validator->rule("required",['phone']);  //不能为空
         $Validator->rule('phone',['phone']); //检查电话
         $message_list = array(
-            'phone.required' => '手机号不能为空',
-            'phone.phone'    => '手机号不正确,请重新输入',
+            'phone.required' => 'login_phone_empty',
+            'phone.phone'    => 'login_phone_error',
         );
         if ($Validator->validate($message_list)){
             return true;

@@ -59,6 +59,7 @@
                         <input type="text" name="nike_name" lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
                     </div>
                 </div>
+                <input type="hidden" value="<?php echo $token; ?>" name="token" id="token">
                 <div class="layui-form-item">
                     <label class="layui-form-label">验证码</label>
                     <div class="layui-input-inline">
@@ -91,7 +92,7 @@
 
         //自定义验证规则
         form.verify({
-            pass: [/(.+){6,12}$/, '密码必须6到12位']
+            pass: [/(.+){6,20}$/, '密码必须6到20位']
         });
 
         //监听登录
@@ -107,8 +108,6 @@
             console.log(data);
             return false;
         });
-
-
 
         //监听注册
         form.on('submit(register)', function(data){
@@ -129,15 +128,20 @@
           */
         $(document).on('click','#getCode',function(){
             var phone = $("#phone").val();
+            var token = $("#token").val();
             if (!phone.match(/^[1][3,4,5,7,8][0-9]{9}$/)) {
                 layer.msg('手机号不正确');
                 return false;
             }
-            var data = {"phone":phone,'token':'1234'};
-            $.post("/live/user/sendCode",data.field,function(res){
-                console.log(res);
+            var data = {"phone":phone,'token':token};
+            $.post("/live/code/sendCode",data,function(res){
+                 console.log(res);
+                 data = JSON.parse(res);
+                 if(data.code== '-1'){
+                     layer.msg(data.msg);
+                     alert(data.msg);
+                 }
             });
-
         });
     });
 

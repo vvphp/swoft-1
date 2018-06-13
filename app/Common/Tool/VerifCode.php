@@ -12,6 +12,7 @@ class  VerifCode{
     /**
      * 生成短信验证码 字母+数字
      * @param int $len
+     * @return string
      */
     public static  function  generatingVerificationCode($len=4)
     {
