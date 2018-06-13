@@ -41,6 +41,8 @@ class DetailController
 
     private $game_id = 0;
 
+    private $maxComment = 100;
+
     /**
      * 文字直播
      * @RequestMapping("wenzi/{game_id}")
@@ -97,6 +99,14 @@ class DetailController
         //save db
         /* @var LiveCommentLogic $logic */
         $logic = App::getBean(LiveCommentLogic::class);
+
+        //一天同一场比赛只能发100条聊天信息
+        $startTime = strtotime(date('Y-m-d').' 00:00:00');
+        $endTime   = strtotime(date('Y-m-d').' 23:59:59');
+        $commentCount = $logic->getCommentCountByGameId($this->game_id,$user_id,$startTime,$endTime);
+        if($commentCount > $this->maxComment){
+             return Util::showMsg([],'max_number_letters');
+        }
         $ret = $logic->saveComment($this->game_id,$data);
         if($ret){
             /* @var LiveWebSocketPushLogic $logic */

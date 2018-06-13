@@ -110,9 +110,10 @@ $(document).ready(function(){
                  data = JSON.parse(data);
                 if(data.code== '-1') {
                     layer.alert(data.msg, {icon: 5});
+                    return false;
                 }
+                $("#chatContent").val('');
                 if(chatRoom){
-                   $("#chatContent").val('');
                    $(".tselect>a").click();
                    $(".chatRoom>.zhibo_text>#livebox>#jiazaizhong").hide();
                    chatRoom = 0;

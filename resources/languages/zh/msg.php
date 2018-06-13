@@ -50,5 +50,6 @@ return [
     'not_empty_chat_content'         => '聊天内容不能为空',
     'send_success'                   => '发送成功',
     'please_login'                   => '请登录',
-    'user_info_error'                => '用户数据非法,请重试'
+    'user_info_error'                => '用户数据非法,请重试',
+    'max_number_letters'             => '今日发信次数已达上限',
 ];

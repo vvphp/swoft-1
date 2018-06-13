@@ -90,4 +90,17 @@ class LiveCommentLogic
        return $list;
     }
 
+
+    /**
+     * @param $game_id
+     * @param $user_id
+     * @param string $startTime
+     * @param string $endTime
+     * @return int
+     */
+    public function getCommentCountByGameId($game_id,$user_id,$startTime='',$endTime='')
+    {
+        return  $this->LiveCommentDao->getCommentCountByGameId($game_id,$user_id,$startTime,$endTime);
+    }
+
 }

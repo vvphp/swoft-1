@@ -62,6 +62,26 @@ class LiveCommentDao
         return empty($result) ? [] : $result->toArray();
     }
 
+    /**
+     * 根据game_id 和用户ID获取在一段时间内的聊天总数
+     * @param $game_id
+     * @param $user_id
+     * @param string $startTime
+     * @param string $endTime
+     * @return int
+     */
+    public function getCommentCountByGameId($game_id,$user_id,$startTime='',$endTime='')
+    {
+        $where = [
+            'game_id' => $game_id,
+            'user_id' => $user_id
+        ];
+        if(!empty($startTime) && !empty($endTime)){
+            $where[] = ['add_date','between',$startTime,$endTime];
+        }
+         return  LiveComment::count('id',$where)->getResult();
+    }
+
 
 
 }
