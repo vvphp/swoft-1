@@ -27,7 +27,7 @@ class LiveUserInfo extends Model
 
     /**
      * @var int $phone 手机号
-     * @Column(name="phone", type="integer", default=0)
+     * @Column(name="phone", type="char", length=11)
      */
     private $phone;
 

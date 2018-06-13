@@ -126,7 +126,7 @@
                 if(data.code == '1'){
                     //关闭当前窗口
                    // layer.close(layer.index);
-                    layer.closeAll();
+                    setTimeout(function(){layer.closeAll();},5000);
                 }
             });
             return false;
