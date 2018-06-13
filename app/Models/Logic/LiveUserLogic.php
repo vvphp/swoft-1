@@ -15,6 +15,8 @@ use Swoft\Rpc\Client\Bean\Annotation\Reference;
 use Swoft\Bean\Annotation\Inject;
 use App\Models\Dao\LiveUserDao;
 use App\Common\Tool\Util;
+use App\Common\Helper\Login;
+use App\Common\McrYpt\DES1;
 
 /**
  * 用户逻辑层
@@ -148,7 +150,6 @@ class LiveUserLogic
             return $ret;
         }
         $userId = $this->saveUser($post);
-        var_dump($userId);
         if($userId){
             $userInfo = $this->getUserInfoById($userId);
             //update last login date
@@ -159,6 +160,21 @@ class LiveUserLogic
             $ret['msg'] = 'register_fail';
             return $ret;
         }
+    }
+
+    /**
+     * 获取当前登录的用户信息
+     * @param $request
+     * @return array|bool|string
+     */
+    public function getLoginUserInfo($request)
+    {
+        $userInfo = [];
+        $userCookieData = $request->cookie(Login::getFrontCookieName());
+        if($userCookieData){
+            $userInfo =  DES1::decrypt($userCookieData);
+        }
+        return $userInfo;
     }
 
 }

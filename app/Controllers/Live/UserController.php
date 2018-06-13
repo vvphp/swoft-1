@@ -47,10 +47,12 @@ class UserController
     /**
      * 用户登录模板
      * @RequestMapping();
+     * @param $request
+     * @param $response
      * @View(template="zhibo/user/login")
      * @return Response
      */
-    public function login(Response $response)
+    public function login(Request $request,Response $response)
     {
         $session = session()->all();
         if(!isset($session['_token'])){

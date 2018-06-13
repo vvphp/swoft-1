@@ -14,6 +14,7 @@ return [
 
     'systemParameter' => [
              'adminCookie' => 'adminLogin',                        //后台登录的cookie名
+             'frontCookie' => 'frontLogin',                        //前台登录的cookie名
              'live_status' => [1,2,3]                              //直播状态
     ],
 

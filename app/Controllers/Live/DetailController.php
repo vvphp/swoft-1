@@ -11,6 +11,7 @@
 namespace App\Controllers\Live;
 
 
+use App\Models\Logic\LiveUserLogic;
 use Swoft\App;
 use Swoft\Core\Coroutine;
 use Swoft\Http\Server\Bean\Annotation\Controller;
@@ -30,6 +31,8 @@ use App\Models\Logic\LiveWebSocketPushLogic;
 use App\Models\Logic\LiveCommentLogic;
 use App\Common\Tool\Util;
 use Swoft\Http\Message\Cookie\Cookie;
+use App\Common\Helper\Login;
+use App\Common\McrYpt\DES1;
 
 /**
  * Class GameController
@@ -62,11 +65,13 @@ class DetailController
             throw new BadMethodCallException('非法请求!!!');
         }
         $this->game_id = $game_id;
+        /* @var LiveUserLogic $logic */
+        $logic = App::getBean(LiveUserLogic::class);
+        $userInfo = $logic->getLoginUserInfo($request);
 
-       // $ret  =  [ 'data' => $data ];
-       // $cookie = new Cookie('live_'.$game_id.'_',uniqid(),time()+3600,'/',$request->getUri()->getHost());
-       // return  view("zhibo/detail/wenzi", $ret)->withCookie($cookie);
-        return [ 'data' => $data ];
+        print_r($userInfo);
+
+        return [ 'data' => $data,'userInfo' => $userInfo ];
     }
 
 

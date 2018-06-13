@@ -82,6 +82,11 @@
 <script src="/static/zhibo8/layui/layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
+  function closeLayer()
+  {
+     parent.layer.closeAll();
+  }
+
     layui.use(['form', 'layedit', 'laydate','element'], function(){
         var form = layui.form
             ,layer = layui.layer
@@ -106,7 +111,7 @@
                 layer.msg(data.msg);
                 if(data.code == '1'){
                     //关闭当前窗口
-                    layer.closeAll();
+                    setTimeout("closeLayer()",3000);
                 }
             });
             return false;
@@ -124,9 +129,8 @@
                 data = JSON.parse(res);
                 layer.msg(data.msg);
                 if(data.code == '1'){
-                    //关闭当前窗口
-                   // layer.close(layer.index);
-                    setTimeout(function(){layer.closeAll();},5000);
+                     //关闭当前窗口
+                    setTimeout("closeLayer()",3000);
                 }
             });
             return false;
