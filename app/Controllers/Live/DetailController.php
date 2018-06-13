@@ -39,8 +39,16 @@ use App\Common\Tool\Util;
 class DetailController
 {
 
+    /**
+     * 赛事ID
+     * @var int
+     */
     private $game_id = 0;
 
+    /**
+     * 当日对当场比赛可发送的最大聊天数
+     * @var int
+     */
     private $maxComment = 100;
 
     /**
@@ -105,7 +113,7 @@ class DetailController
         $endTime   = strtotime(date('Y-m-d').' 23:59:59');
         $commentCount = $logic->getCommentCountByGameId($this->game_id,$user_id,$startTime,$endTime);
         if($commentCount > $this->maxComment){
-             return Util::showMsg([],'max_number_letters');
+             return Util::showMsg([],'max_number_letters','0');
         }
         $ret = $logic->saveComment($this->game_id,$data);
         if($ret){

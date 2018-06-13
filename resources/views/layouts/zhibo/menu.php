@@ -1,10 +1,10 @@
 <div class="menu">
     <div class="container">
         <div class="logo">
-            <a title="13520v.com" href="/"><img alt="直播吧" src="/static/zhibo8/images/logo.jpg"></a>
+            <a title="13520v.com" href="/"><img style="max-width:77px;" alt="直播吧" src="/static/zhibo8/images/logo.jpg"></a>
         </div>
         <div class="nav">
-            <ul>
+            <ul style="display: none">
                 <li><a href="/">首页</a></li>
                 <li><a href="https://bbs.zhibo8.cc/" target="_blank" >论坛</a></li>
                 <li>
