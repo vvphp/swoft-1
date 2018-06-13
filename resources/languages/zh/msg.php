@@ -33,6 +33,7 @@ return [
     'register_fail'          =>  '注册失败',
     'register_success'       =>  '注册成功',
     'register_phone_exists'  => '手机号已存在',
+    'register_phone_not_exists'  => '手机号可以注册',
     'login_error_empty_data' => '请输入用户名和密码',
     'live_add_null_data'     => '直播数据不能为空',
     'live_data_add_failure'  => '添加直播数据失败',

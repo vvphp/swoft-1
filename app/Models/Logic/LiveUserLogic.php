@@ -82,6 +82,9 @@ class LiveUserLogic
      */
     public function getUserListByPhone($phone)
     {
+        if(empty($phone)){
+            return [];
+        }
         return   $this->LiveUserDao->getUserListByPhone($phone);
     }
 
@@ -107,43 +110,6 @@ class LiveUserLogic
         return  $this->LiveUserDao->updateLastLoginTime($userId,$date);
     }
 
-
-    /**
-     * 发送注册验证码
-     * @param $phone
-     * @param string $token
-     * @return json
-     */
-    public function sendRegisterCode($phone,$token='')
-    {
-        //检查手机格式
-        $check = $this->valitron->valitronPhone($phone);
-        if(is_array($check)){
-            $msgArr = array_pop($check);
-            return Util::showMsg([],$msgArr[0],'0');
-        }
-        //验证token
-        if(!empty($token)){
-            $session = session()->all();
-            $sessionToken = $session['_token'];
-            //token验证
-            $check = $this->valitron->valitronEquals($token,$sessionToken);
-            if(!$check){
-                return Util::showMsg([],'Infoexpired','0');
-            }
-        }
-        //不能超过5次
-        $countCheck = $this->sendCode->checkGreaterTotalNumber($phone);
-        if(!$countCheck){
-            return Util::showMsg([],'smsSendLimit','0');
-        }
-       $res =  $this->sendCode->sendSms($phone);
-       if(!$res){
-            return Util::showMsg([],'smsCodeError','0');
-        }
-        return Util::showMsg([],'smsSendSuccess','0');
-    }
-
     /**
      * 生成加密密码
      * @param $password
@@ -154,5 +120,45 @@ class LiveUserLogic
          return  md5($password.'zxr');
     }
 
+
+    /**
+     * 注册逻辑
+     * @param array $post
+     * @return array
+     */
+    public function register($post = [])
+    {
+        $ret = ['check' => false,'msg' => null,'data' => [] ];
+        $check = $this->valitron->verificationRegister($post);
+        if(is_array($check)){
+            $msgArr = array_pop($check);
+            $ret['msg'] = $msgArr[0];
+            return $ret;
+        }
+        //判断验证码
+        $checkCode = $this->sendCode->comparisonCode($post['phone'],$post['verCode']);
+        if(!$checkCode){
+            $ret['msg'] = 'login_verify_error';
+            return $ret;
+        }
+        $post['password'] = $this->generatePassword($post['password']);
+        $userList =  $this->getUserListByPhone($post['phone']);
+        if(!empty($userList)){
+            $ret['msg'] = 'register_phone_exists';
+            return $ret;
+        }
+        $userId = $this->saveUser($post);
+        var_dump($userId);
+        if($userId){
+            $userInfo = $this->getUserInfoById($userId);
+            //update last login date
+            $this->updateLastLoginTime($userId,time());
+            $ret = ['check' => true,'msg' => '','data'=> $userInfo ];
+            return $ret;
+        }else{
+            $ret['msg'] = 'register_fail';
+            return $ret;
+        }
+    }
 
 }

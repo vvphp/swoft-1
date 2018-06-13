@@ -43,11 +43,6 @@ class UserController
      */
     private $valitron;
 
-    /**
-     * @\Swoft\Bean\Annotation\Inject("SendCode")
-     * @var \App\Common\Sms\SendCode
-     */
-    private $sendCode;
 
     /**
      * 用户登录模板
@@ -57,7 +52,6 @@ class UserController
      */
     public function login(Response $response)
     {
-        //还差获取验证码-》页面token比对的功能
         $session = session()->all();
         if(!isset($session['_token'])){
             $session['_token'] = md5(time().mt_rand(0,20));
@@ -112,50 +106,41 @@ class UserController
     {
         $post = $request->post();
         $post = array_filter($post,'trim');
-        $check = $this->valitron->verificationRegister($post);
-        if(is_array($check)){
-            $msgArr = array_pop($check);
-            return Util::showMsg([],$msgArr[0],'0');
-        }
-        //判断验证码
-
         /* @var LiveUserLogic $logic */
         $logic = App::getBean(LiveUserLogic::class);
-        $post['password'] = $logic->generatePassword($post['password']);
-        $userList =  $logic->getUserListByPhone($post['phone']);
-        if(!empty($userList)){
-            return Util::showMsg([],'register_phone_exists','0');
-        }
-        $userId = $logic->saveUser($post);
-        var_dump($userId);
-        if($userId){
-            $userInfo = $logic->getUserInfoById($userId);
-
-            //update last login date
-            $logic->updateLastLoginTime($userId,time());
+        $result = $logic->register($post);
+        if($result['check'] == false){
+             return Util::showMsg([],$result['msg'],'0');
+        }else{
+            $userInfo = $result['data'];
             //set cookie
             $loginData = JsonHelper::encode($userInfo);
-            $retJson   = Util::showMsg([],'register_success');
+            $retJson   = Util::showMsg(['userInfo' => $userInfo],'register_success');
             $cookie = new Cookie(Login::getFrontCookieName(),DES1::encrypt($loginData));
-            $response->withCookie($cookie)->withContent($retJson)->send();
-        }else{
-            return Util::showMsg([],'register_fail','0');
+           return  $response->withCookie($cookie)->withContent($retJson)->send();
         }
     }
 
     /**
-     * 发送短信
-     * @param $request
-     * @return object
+     * 验证手机号是否存在
+     * @param Request $request
+     * @return json
      */
-    public function sendCode(Request $request)
+    public function verifyingPhone(Request $request)
     {
-        $phone = $request->post('phone');
-        $token = $request->post('token','token');
+        $post = $request->post();
+        $check = $this->valitron->valitronPhone($post['phone']);
+        if(is_array($check)){
+            $msgArr = array_pop($check);
+            return Util::showMsg([],$msgArr[0],'0');
+        }
         /* @var LiveUserLogic $logic */
         $logic = App::getBean(LiveUserLogic::class);
-        $return =  $logic->sendRegisterCode($phone,$token);
-        return $return;
+        $userList =  $logic->getUserListByPhone($post['phone']);
+        if(!empty($userList)){
+            return Util::showMsg([],'register_phone_exists','0');
+        }
+        return Util::showMsg([],'register_phone_not_exists');
     }
 
 

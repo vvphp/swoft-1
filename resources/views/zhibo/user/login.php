@@ -43,7 +43,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">手机号</label>
                     <div class="layui-input-inline">
-                        <input type="text" id="phone" name="phone"lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                        <input type="text" id="register_phone" name="phone"lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -124,22 +124,40 @@
         });
 
         /**
+         *判断手机是否存在
+         * */
+        $("#register_phone").blur(function(){
+            var phone = $("#phone").val();
+            if(phone.length != 11){
+                return false;
+            }
+            var data = {"phone":phone};
+            $.post("/live/user/verifyingPhone",data,function(res){
+                data = JSON.parse(res);
+                if(data.code== '-1'){
+                    layer.msg(data.msg);
+                }
+            });
+        });
+        /**
          * 获取验证码
           */
         $(document).on('click','#getCode',function(){
             var phone = $("#phone").val();
             var token = $("#token").val();
+            if(phone.length == 0){
+                layer.msg('请填写手机号');
+                 return false;
+            }
             if (!phone.match(/^[1][3,4,5,7,8][0-9]{9}$/)) {
                 layer.msg('手机号不正确');
                 return false;
             }
             var data = {"phone":phone,'token':token};
-            $.post("/live/code/sendCode",data,function(res){
-                 console.log(res);
+            $.post("/live/code/sendSmsCode",data,function(res){
                  data = JSON.parse(res);
                  if(data.code== '-1'){
                      layer.msg(data.msg);
-                     alert(data.msg);
                  }
             });
         });
