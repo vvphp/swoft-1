@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var html ='';
     var chatRoom = 1;
+    var liveRoom = 1;
 	var wsUri = 'ws://47.95.14.113:9400/live/?game_id='+game_id;
     //预加载历史直播数据 start
      if(commentaryData.length > 0){
@@ -62,6 +63,10 @@ $(document).ready(function(){
           switch(type){
               case 'live':
                   //直播数据
+                  if(liveRoom){
+                      $(".zhibo>.zhibo_text>#livebox>#jiazaizhong").hide();
+                      liveRoom = 0;
+                  }
                     fillLiveData(data);
                     break;
               case 'chat':
