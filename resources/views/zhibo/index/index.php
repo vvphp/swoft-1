@@ -8,7 +8,7 @@
                 <?php foreach($videoNewsList[0] as $key => $val){ ?>
                 <li <?php if($key == 0): ?> class="head ico_fb" <?php endif; ?>>
                     <?php foreach($val as $index => $item){ ?>
-                       <a href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
+                       <a title="<?php echo $item['title']; ?>" href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
                        <?php if($index == 0): ?>
                           <span></span>
                       <?php endif; ?>
@@ -23,7 +23,7 @@
                 <?php foreach($textNewsList[0] as $key => $val){ ?>
                 <li <?php if($key == 0): ?> class="head"  <?php endif; ?>>
                     <?php foreach($val as $index => $item){ ?>
-                    <a   href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
+                    <a title="<?php echo $item['title']; ?>"   href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
                         <?php if($index == 0): ?>
                                <span></span>
                         <?php endif; ?>
@@ -38,7 +38,7 @@
                 <?php foreach($videoNewsList[1] as $key => $val){ ?>
                     <li <?php if($key == 0): ?> class="head ico_fb" <?php endif; ?>>
                         <?php foreach($val as $index => $item){ ?>
-                            <a href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
+                            <a title="<?php echo $item['title']; ?>" href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
                             <?php if($index == 0): ?>
                                 <span></span>
                             <?php endif; ?>
@@ -52,7 +52,7 @@
                 <?php foreach($textNewsList[1] as $key => $val){ ?>
                     <li <?php if($key == 0): ?> class="head"  <?php endif; ?>>
                         <?php foreach($val as $index => $item){ ?>
-                            <a   href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
+                            <a title="<?php echo $item['title']; ?>"   href="<?php echo $item['link']; ?>" target="_blank"><?php echo $item['title']; ?></a>
                             <?php if($index == 0): ?>
                                 <span></span>
                             <?php endif; ?>
@@ -82,7 +82,7 @@
                         <?php foreach($item['play_links'] as $pk => $pl){ ?>
                             <a href="<?php echo $pl['playUrl'] ?>" target="_blank"><?php echo $pl['playPlatform'] ?></a>
                         <?php }  ?>
-                           <a href="/live/detail/wenzi/<?php echo $item['id']; ?>" target="_blank">雷子直播</a>
+                           <a href="/live/detail/wenzi/<?php echo $item['id']; ?>" target="_blank">黑狗直播</a>
                     </li>
                  <?php } ?>
                 </ul>
