@@ -9,6 +9,7 @@
 
 return [
     'version'      => '1.0',
+    'language'     => 'zh',
     'autoInitBean' => true,
     'bootScan'     => [
         'App\Commands',
@@ -27,10 +28,16 @@ return [
         'App\Process',
         'App\Fallback',
         'App\WebSocket',
+        'App\Common'
     ],
     'I18n'         => [
         'sourceLanguage' => '@root/resources/messages/',
     ],
+
+    'devtool' => [
+        'logEventToConsole' => true,
+        'logHttpRequestToConsole' => true,
+      ],
     'env'          => 'Base',
     'db'           => require __DIR__ . DS . 'db.php',
     'cache'        => require __DIR__ . DS . 'cache.php',

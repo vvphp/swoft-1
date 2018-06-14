@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '40725293a2ac2c3dc06eda78738e3ff6' => __DIR__ . '/..' . '/swoft/framework/src/Helper/Functions.php',
         '8e4f694d7da0e33450e63833b9a75993' => __DIR__ . '/..' . '/swoft/http-message/src/Helper/Functions.php',
         'cc37a1befbed2103104b095911899e94' => __DIR__ . '/..' . '/swoft/console/src/Helper/Functions.php',
@@ -14,17 +15,20 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '30ef5a432812e53e35293749d21015ac' => __DIR__ . '/..' . '/swoft/redis/src/Helper/Functions.php',
         '0bdbd081a332e921d63969714c2039f5' => __DIR__ . '/..' . '/swoft/process/src/Helper/Functions.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '3ec4e28b2d7ec76d44271b44c2949657' => __DIR__ . '/..' . '/swoft/rpc/src/Helper/Functions.php',
-        '078453678d5904c08fc98526b0a1fdfd' => __DIR__ . '/..' . '/swoft/i18n/src/Helper/Functions.php',
-        'de0209ef97707191a1f57c14b7d28404' => __DIR__ . '/..' . '/swoft/websocket-server/src/Helper/Functions.php',
-        '0f7264010dfe4b150414d6c16fc2a53e' => __DIR__ . '/..' . '/swoft/task/src/Helper/Functions.php',
         '2f302328dcf56dd8b9fca7051cc3ad19' => __DIR__ . '/..' . '/swoft/view/src/Helper/Functions.php',
         '308b1cd28050e0e1f676c087dcd68b67' => __DIR__ . '/..' . '/swoft/cache/src/Helper/Functions.php',
-        '7f06e18cf5332466ea24ff7f629eec8e' => __DIR__ . '/..' . '/swoft/devtool/src/Helper/Functions.php',
         '3cd604ead90e4203944cac2155cf2c4f' => __DIR__ . '/..' . '/swoft/session/src/Helper/Functions.php',
         '9fda9a396d29cac3e058fdfb84337515' => __DIR__ . '/..' . '/swoft/memory/src/Helper/Functions.php',
+        'de0209ef97707191a1f57c14b7d28404' => __DIR__ . '/..' . '/swoft/websocket-server/src/Helper/Functions.php',
+        '0f7264010dfe4b150414d6c16fc2a53e' => __DIR__ . '/..' . '/swoft/task/src/Helper/Functions.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '078453678d5904c08fc98526b0a1fdfd' => __DIR__ . '/..' . '/swoft/i18n/src/Helper/Functions.php',
         'd0b12a6e9f0416b1f736e52ca82d7ae3' => __DIR__ . '/..' . '/swoft/db/src/Helper/Functions.php',
+        '7f06e18cf5332466ea24ff7f629eec8e' => __DIR__ . '/..' . '/swoft/devtool/src/Helper/Functions.php',
         '507d652ffd041175c4dcafb9af7b13f2' => __DIR__ . '/../..' . '/app/Swoft.php',
     );
 
@@ -46,9 +50,9 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Translation\\' => 30,
-            'Swoole\\' => 7,
             'Swoft\\WebSocket\\Server\\' => 23,
             'Swoft\\View\\' => 11,
             'Swoft\\Test\\' => 11,
@@ -88,6 +92,12 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'L' => 
         array (
             'Leuffen\\TextTemplate\\' => 21,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
         'D' => 
         array (
@@ -129,6 +139,10 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
@@ -136,10 +150,6 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
-        ),
-        'Swoole\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/eaglewu/swoole-ide-helper/src',
         ),
         'Swoft\\WebSocket\\Server\\' => 
         array (
@@ -262,6 +272,18 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         array (
             0 => __DIR__ . '/..' . '/text/template/src',
         ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
@@ -306,9 +328,18 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
     );
 
     public static $classMap = array (
+        'Callback' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
+        'CallbackBody' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
+        'CallbackParam' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
+        'CallbackParameterToReference' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
+        'CallbackReturnReference' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
+        'CallbackReturnValue' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
+        'DOMDocumentWrapper' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/DOMDocumentWrapper.php',
+        'DOMEvent' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/DOMEvent.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'ICallbackNamed' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
@@ -771,6 +802,16 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'phpQuery' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery.php',
+        'phpQueryEvents' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/phpQueryEvents.php',
+        'phpQueryObject' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/phpQueryObject.php',
+        'phpQueryObjectPlugin_Scripts' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/plugins/Scripts.php',
+        'phpQueryObjectPlugin_WebBrowser' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/plugins/WebBrowser.php',
+        'phpQueryObjectPlugin_example' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/plugins/example.php',
+        'phpQueryPlugin_Scripts' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/plugins/Scripts.php',
+        'phpQueryPlugin_WebBrowser' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/plugins/WebBrowser.php',
+        'phpQueryPlugin_example' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery/plugins/example.php',
+        'phpQueryPlugins' => __DIR__ . '/..' . '/electrolinux/phpquery/phpQuery/phpQuery.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

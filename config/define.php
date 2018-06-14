@@ -27,6 +27,8 @@ $aliases = [
     '@console'    => '@beans/console.php',
     '@commands'   => '@app/command',
     '@vendor'     => '@root/vendor',
+    '@common'     => '@app/Common',
+    '@lib'        => '@app/Lib'
 ];
 
 \Swoft\App::setAliases($aliases);

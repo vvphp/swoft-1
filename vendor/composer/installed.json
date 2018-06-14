@@ -1,105 +1,5 @@
 [
     {
-        "name": "zendframework/zend-stdlib",
-        "version": "3.1.1",
-        "version_normalized": "3.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/zendframework/zend-stdlib.git",
-            "reference": "10ef03144902d1955f935fff5346ed52f7d99bcc"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/zendframework/zend-stdlib/10ef03144902d1955f935fff5346ed52f7d99bcc.zip",
-            "reference": "10ef03144902d1955f935fff5346ed52f7d99bcc",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0"
-        },
-        "require-dev": {
-            "athletic/athletic": "~0.1",
-            "phpunit/phpunit": "~4.0",
-            "zendframework/zend-coding-standard": "~1.0.0"
-        },
-        "time": "2018-04-12T16:05:42+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.1-dev",
-                "dev-develop": "3.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Zend\\Stdlib\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "homepage": "https://github.com/zendframework/zend-stdlib",
-        "keywords": [
-            "stdlib",
-            "zf2"
-        ]
-    },
-    {
-        "name": "zendframework/zend-mime",
-        "version": "2.7.0",
-        "version_normalized": "2.7.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/zendframework/zend-mime.git",
-            "reference": "5db38e92f8a6c7c5e25c8afce6e2d0bd49340c5f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/zendframework/zend-mime/5db38e92f8a6c7c5e25c8afce6e2d0bd49340c5f.zip",
-            "reference": "5db38e92f8a6c7c5e25c8afce6e2d0bd49340c5f",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0",
-            "zendframework/zend-stdlib": "^2.7 || ^3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7.21 || ^6.3",
-            "zendframework/zend-coding-standard": "~1.0.0",
-            "zendframework/zend-mail": "^2.6"
-        },
-        "suggest": {
-            "zendframework/zend-mail": "Zend\\Mail component"
-        },
-        "time": "2017-11-28T15:02:22+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.7-dev",
-                "dev-develop": "2.8-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Zend\\Mime\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "description": "Create and parse MIME messages and parts",
-        "homepage": "https://github.com/zendframework/zend-mime",
-        "keywords": [
-            "ZendFramework",
-            "mime",
-            "zf"
-        ]
-    },
-    {
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -698,60 +598,6 @@
         ]
     },
     {
-        "name": "swoft/framework",
-        "version": "v1.0.15",
-        "version_normalized": "1.0.15.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-framework.git",
-            "reference": "a2552750188746a9616882b2700c08361cfe827f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-framework/a2552750188746a9616882b2700c08361cfe827f.zip",
-            "reference": "a2552750188746a9616882b2700c08361cfe827f",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/annotations": "^1.4",
-            "monolog/monolog": "^1.23",
-            "php": ">=7.0",
-            "php-di/phpdoc-reader": "^2.0",
-            "phpseclib/phpseclib": "2.0.0",
-            "psr/http-message": "^1.0",
-            "psr/http-server-middleware": "^1.0",
-            "vlucas/phpdotenv": "^2.4",
-            "zendframework/zend-mime": "^2.7"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "friendsofphp/php-cs-fixer": "^2.10",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-10T14:09:05+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/rpc",
         "version": "v1.0.0",
         "version_normalized": "1.0.0.0",
@@ -795,84 +641,6 @@
             "swoft",
             "swoole"
         ]
-    },
-    {
-        "name": "swoft/i18n",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-i18n.git",
-            "reference": "f895495b2a857cb6fad27c677ca36ff01e8f727f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-i18n/f895495b2a857cb6fad27c677ca36ff01e8f727f.zip",
-            "reference": "f895495b2a857cb6fad27c677ca36ff01e8f727f",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-03-06T14:50:23+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\I18n\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "I18n Translations Component for Swoft",
-        "keywords": [
-            "i18n",
-            "php",
-            "swoft",
-            "swoole",
-            "translation"
-        ]
-    },
-    {
-        "name": "eaglewu/swoole-ide-helper",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/eaglewu/swoole-ide-helper.git",
-            "reference": "a36f8b10e322adb19a9299a5708a972208953007"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/eaglewu/swoole-ide-helper/a36f8b10e322adb19a9299a5708a972208953007.zip",
-            "reference": "a36f8b10e322adb19a9299a5708a972208953007",
-            "shasum": ""
-        },
-        "time": "2018-04-08T01:53:39+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Swoole\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "authors": [
-            {
-                "name": "eagle",
-                "email": "eaglewudi@gmail.com"
-            }
-        ],
-        "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名"
     },
     {
         "name": "swoft/http-message",
@@ -1051,186 +819,6 @@
             "rpc",
             "swoft",
             "swoole"
-        ]
-    },
-    {
-        "name": "swoft/http-client",
-        "version": "v1.0.5",
-        "version_normalized": "1.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-http-client.git",
-            "reference": "1b3881b844762afd62c3a41ed05b67587db819cf"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-client/1b3881b844762afd62c3a41ed05b67587db819cf.zip",
-            "reference": "1b3881b844762afd62c3a41ed05b67587db819cf",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0",
-            "swoft/http-message": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-12T15:26:41+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\HttpClient\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "HTTP Client Component for Swoft",
-        "keywords": [
-            "client",
-            "http",
-            "http-client",
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "swoft/http-server",
-        "version": "v1.0.4",
-        "version_normalized": "1.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-http-server.git",
-            "reference": "67a7ae092d696b5ba7803659c8939a5f9d8e1fb0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-server/67a7ae092d696b5ba7803659c8939a5f9d8e1fb0.zip",
-            "reference": "67a7ae092d696b5ba7803659c8939a5f9d8e1fb0",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/console": "^1.0",
-            "swoft/framework": "^1.0",
-            "swoft/http-message": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-04T07:50:30+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Http\\Server\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "swoft/websocket-server",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-websocket-server.git",
-            "reference": "cbb7e0a6814c47b6ae9f568e4b1e08668d4ea0d9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-websocket-server/cbb7e0a6814c47b6ae9f568e4b1e08668d4ea0d9.zip",
-            "reference": "cbb7e0a6814c47b6ae9f568e4b1e08668d4ea0d9",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/http-server": "^1.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-02T12:48:56+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\WebSocket\\Server\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "websocket server for swoft",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole",
-            "websocket",
-            "websocket-server"
-        ]
-    },
-    {
-        "name": "swoft/task",
-        "version": "v1.0.4",
-        "version_normalized": "1.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-task.git",
-            "reference": "f134a77429f46d7160b2aa6cb23eb0ae09751473"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-task/f134a77429f46d7160b2aa6cb23eb0ae09751473.zip",
-            "reference": "f134a77429f46d7160b2aa6cb23eb0ae09751473",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7",
-            "swoft/process": "^1.0"
-        },
-        "time": "2018-04-10T13:43:00+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Task\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "routine",
-            "swoft",
-            "swoole",
-            "task"
         ]
     },
     {
@@ -1420,62 +1008,6 @@
         ]
     },
     {
-        "name": "text/template",
-        "version": "v2.3.1",
-        "version_normalized": "2.3.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/dermatthes/text-template.git",
-            "reference": "04e3d57227ceffb758a9f4ec7157a537b3d3df56"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/dermatthes/text-template/04e3d57227ceffb758a9f4ec7157a537b3d3df56.zip",
-            "reference": "04e3d57227ceffb758a9f4ec7157a537b3d3df56",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4"
-        },
-        "require-dev": {
-            "nette/tester": "*",
-            "phpunit/phpcov": "^2.0",
-            "satooshi/php-coveralls": "dev-master"
-        },
-        "time": "2018-03-28T13:07:58+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Leuffen\\TextTemplate\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Matthias Leuffen",
-                "email": "matthes@leuffen.de"
-            }
-        ],
-        "description": "Simple and secure string-template-engine (Twig-like syntax) with nested if/elseif/else, loops, filters. Simple OOP api: Just one class doing the job (2-lines of code). Fast and secure: No code-generation, no eval'ed() code. Extensible by callbacks. Fully tested. Rich examples included.",
-        "homepage": "http://github.com/dermatthes/text-template",
-        "keywords": [
-            "filter",
-            "for",
-            "if",
-            "loop",
-            "mail",
-            "render",
-            "smarty",
-            "template",
-            "text",
-            "twig"
-        ]
-    },
-    {
         "name": "seld/phar-utils",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -1567,186 +1099,6 @@
         ]
     },
     {
-        "name": "swoft/devtool",
-        "version": "v1.0.5",
-        "version_normalized": "1.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-devtool.git",
-            "reference": "dc02d4747e507aa0a43aa1e690ca1c225095bd86"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-devtool/dc02d4747e507aa0a43aa1e690ca1c225095bd86.zip",
-            "reference": "dc02d4747e507aa0a43aa1e690ca1c225095bd86",
-            "shasum": ""
-        },
-        "require": {
-            "seld/phar-utils": "^1.0",
-            "swoft/console": "^1.0",
-            "swoft/data-parser": "^1.0",
-            "swoft/framework": "^1.0",
-            "text/template": "~2.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-11T11:34:09+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Devtool\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "devTool for swoft",
-        "keywords": [
-            "debug",
-            "devtool",
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "symfony/polyfill-mbstring",
-        "version": "v1.7.0",
-        "version_normalized": "1.7.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/polyfill-mbstring.git",
-            "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/78be803ce01e55d3491c1397cf1c64beb9c1b63b.zip",
-            "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "suggest": {
-            "ext-mbstring": "For best performance"
-        },
-        "time": "2018-01-30T19:27:44+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.7-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Mbstring\\": ""
-            },
-            "files": [
-                "bootstrap.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony polyfill for the Mbstring extension",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "compatibility",
-            "mbstring",
-            "polyfill",
-            "portable",
-            "shim"
-        ]
-    },
-    {
-        "name": "symfony/translation",
-        "version": "v4.0.8",
-        "version_normalized": "4.0.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/translation.git",
-            "reference": "e20a9b7f9f62cb33a11638b345c248e7d510c938"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/translation/e20a9b7f9f62cb33a11638b345c248e7d510c938.zip",
-            "reference": "e20a9b7f9f62cb33a11638b345c248e7d510c938",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.1.3",
-            "symfony/polyfill-mbstring": "~1.0"
-        },
-        "conflict": {
-            "symfony/config": "<3.4",
-            "symfony/dependency-injection": "<3.4",
-            "symfony/yaml": "<3.4"
-        },
-        "require-dev": {
-            "psr/log": "~1.0",
-            "symfony/config": "~3.4|~4.0",
-            "symfony/dependency-injection": "~3.4|~4.0",
-            "symfony/finder": "~2.8|~3.0|~4.0",
-            "symfony/intl": "~3.4|~4.0",
-            "symfony/yaml": "~3.4|~4.0"
-        },
-        "suggest": {
-            "psr/log": "To use logging capability in translator",
-            "symfony/config": "",
-            "symfony/yaml": ""
-        },
-        "time": "2018-02-22T10:50:29+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Translation\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Translation Component",
-        "homepage": "https://symfony.com"
-    },
-    {
         "name": "swoft/session",
         "version": "v1.0.2",
         "version_normalized": "1.0.2.0",
@@ -1794,52 +1146,6 @@
         ]
     },
     {
-        "name": "swoft/process",
-        "version": "v1.0.3",
-        "version_normalized": "1.0.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-process.git",
-            "reference": "c39e6022a2b9365fd1fa8c498729058b7481f7f9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-process/c39e6022a2b9365fd1fa8c498729058b7481f7f9.zip",
-            "reference": "c39e6022a2b9365fd1fa8c498729058b7481f7f9",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-04-10T13:39:14+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\Process\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "Process Component for Swoft",
-        "keywords": [
-            "php",
-            "process",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/memory",
         "version": "v1.0.1",
         "version_normalized": "1.0.1.0",
@@ -1880,66 +1186,6 @@
             "swoft",
             "swoole"
         ]
-    },
-    {
-        "name": "symfony/yaml",
-        "version": "v4.0.8",
-        "version_normalized": "4.0.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/yaml.git",
-            "reference": "8b34ebb5989df61cbd77eff29a02c4db9ac1069c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/yaml/8b34ebb5989df61cbd77eff29a02c4db9ac1069c.zip",
-            "reference": "8b34ebb5989df61cbd77eff29a02c4db9ac1069c",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.1.3"
-        },
-        "conflict": {
-            "symfony/console": "<3.4"
-        },
-        "require-dev": {
-            "symfony/console": "~3.4|~4.0"
-        },
-        "suggest": {
-            "symfony/console": "For validating YAML files using the lint command"
-        },
-        "time": "2018-04-03T05:24:00+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Yaml\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Yaml Component",
-        "homepage": "https://symfony.com"
     },
     {
         "name": "sebastian/version",
@@ -3126,53 +2372,6 @@
         ]
     },
     {
-        "name": "myclabs/deep-copy",
-        "version": "1.7.0",
-        "version_normalized": "1.7.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/myclabs/DeepCopy.git",
-            "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/myclabs/DeepCopy/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e.zip",
-            "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0"
-        },
-        "require-dev": {
-            "doctrine/collections": "^1.0",
-            "doctrine/common": "^2.6",
-            "phpunit/phpunit": "^4.1"
-        },
-        "time": "2017-10-19T19:58:43+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "DeepCopy\\": "src/DeepCopy/"
-            },
-            "files": [
-                "src/DeepCopy/deep_copy.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "Create deep copies (clones) of your objects",
-        "keywords": [
-            "clone",
-            "copy",
-            "duplicate",
-            "object",
-            "object graph"
-        ]
-    },
-    {
         "name": "phpunit/phpunit",
         "version": "5.7.27",
         "version_normalized": "5.7.27.0",
@@ -3257,18 +2456,866 @@
         ]
     },
     {
-        "name": "swoft/db",
-        "version": "v1.1.3",
-        "version_normalized": "1.1.3.0",
+        "name": "zendframework/zend-stdlib",
+        "version": "3.2.0",
+        "version_normalized": "3.2.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-db.git",
-            "reference": "4fb271140b774d6decc3a5ab0dbd933b47aef914"
+            "url": "https://github.com/zendframework/zend-stdlib.git",
+            "reference": "cd164b4a18b5d1aeb69be2c26db035b5ed6925ae"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/4fb271140b774d6decc3a5ab0dbd933b47aef914.zip",
-            "reference": "4fb271140b774d6decc3a5ab0dbd933b47aef914",
+            "url": "https://files.phpcomposer.com/files/zendframework/zend-stdlib/cd164b4a18b5d1aeb69be2c26db035b5ed6925ae.zip",
+            "reference": "cd164b4a18b5d1aeb69be2c26db035b5ed6925ae",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6 || ^7.0"
+        },
+        "require-dev": {
+            "phpbench/phpbench": "^0.13",
+            "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2",
+            "zendframework/zend-coding-standard": "~1.0.0"
+        },
+        "time": "2018-04-30T13:50:40+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.2.x-dev",
+                "dev-develop": "3.3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Zend\\Stdlib\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "SPL extensions, array utilities, error handlers, and more",
+        "keywords": [
+            "ZendFramework",
+            "stdlib",
+            "zf"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-mbstring",
+        "version": "v1.8.0",
+        "version_normalized": "1.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "3296adf6a6454a050679cde90f95350ad604b171"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/3296adf6a6454a050679cde90f95350ad604b171.zip",
+            "reference": "3296adf6a6454a050679cde90f95350ad604b171",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2018-04-26T10:06:28+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.8-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for the Mbstring extension",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "swoft/framework",
+        "version": "v1.0.17",
+        "version_normalized": "1.0.17.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-framework.git",
+            "reference": "620394d570183bd4e2b1a6df06d9ad69d2d08a2e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-framework/620394d570183bd4e2b1a6df06d9ad69d2d08a2e.zip",
+            "reference": "620394d570183bd4e2b1a6df06d9ad69d2d08a2e",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/annotations": "^1.4",
+            "monolog/monolog": "^1.23",
+            "php": ">=7.0",
+            "php-di/phpdoc-reader": "^2.0",
+            "phpseclib/phpseclib": "2.0.0",
+            "psr/http-message": "^1.0",
+            "psr/http-server-middleware": "^1.0",
+            "vlucas/phpdotenv": "^2.4",
+            "zendframework/zend-mime": "^2.7"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "friendsofphp/php-cs-fixer": "^2.10",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-07T15:48:47+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/http-server",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-http-server.git",
+            "reference": "1aef8f2b66e8af4959559be87debc5ef11fadf20"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-server/1aef8f2b66e8af4959559be87debc5ef11fadf20.zip",
+            "reference": "1aef8f2b66e8af4959559be87debc5ef11fadf20",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/console": "^1.0",
+            "swoft/framework": "^1.0",
+            "swoft/http-message": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-02T16:13:28+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Http\\Server\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/websocket-server",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-websocket-server.git",
+            "reference": "d614189bd6a583e2f1b28e1be8b4b77efbda4ded"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-websocket-server/d614189bd6a583e2f1b28e1be8b4b77efbda4ded.zip",
+            "reference": "d614189bd6a583e2f1b28e1be8b4b77efbda4ded",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/http-server": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-03T01:17:51+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\WebSocket\\Server\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "websocket server for swoft",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole",
+            "websocket",
+            "websocket-server"
+        ]
+    },
+    {
+        "name": "swoft/task",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-task.git",
+            "reference": "fcf12d1e3cea6fdc3b274e421615bc238ccad1f6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-task/fcf12d1e3cea6fdc3b274e421615bc238ccad1f6.zip",
+            "reference": "fcf12d1e3cea6fdc3b274e421615bc238ccad1f6",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7",
+            "swoft/process": "^1.0"
+        },
+        "time": "2018-05-02T16:01:39+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Task\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "routine",
+            "swoft",
+            "swoole",
+            "task"
+        ]
+    },
+    {
+        "name": "text/template",
+        "version": "v2.4.0",
+        "version_normalized": "2.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dermatthes/text-template.git",
+            "reference": "153db4db7ec85ba4d0ea0c46f20dd3d0280b3904"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/dermatthes/text-template/153db4db7ec85ba4d0ea0c46f20dd3d0280b3904.zip",
+            "reference": "153db4db7ec85ba4d0ea0c46f20dd3d0280b3904",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "nette/tester": "*",
+            "phpunit/phpcov": "^2.0",
+            "satooshi/php-coveralls": "*"
+        },
+        "time": "2018-05-08T12:29:53+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Leuffen\\TextTemplate\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "matthes@leuffen.de"
+            }
+        ],
+        "description": "Simple and secure string-template-engine (Twig-like syntax) with nested if/elseif/else, loops, filters. Simple OOP api: Just one class doing the job (2-lines of code). Fast and secure: No code-generation, no eval'ed() code. Extensible by callbacks. Fully tested. Rich examples included.",
+        "homepage": "http://text-template.pub.leuffen.de",
+        "keywords": [
+            "filter",
+            "for",
+            "if",
+            "loop",
+            "mail",
+            "render",
+            "smarty",
+            "template",
+            "text",
+            "twig"
+        ]
+    },
+    {
+        "name": "swoft/process",
+        "version": "v1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-process.git",
+            "reference": "c747c68649d8bf08a396be201030591ce670d992"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-process/c747c68649d8bf08a396be201030591ce670d992.zip",
+            "reference": "c747c68649d8bf08a396be201030591ce670d992",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-04-16T02:19:07+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\Process\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Process Component for Swoft",
+        "keywords": [
+            "php",
+            "process",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "electrolinux/phpquery",
+        "version": "0.9.6",
+        "version_normalized": "0.9.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/electrolinux/phpquery.git",
+            "reference": "6cb8afcfe8cd4ce45f2f8c27d561383037c27a3a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/electrolinux/phpquery/6cb8afcfe8cd4ce45f2f8c27d561383037c27a3a.zip",
+            "reference": "6cb8afcfe8cd4ce45f2f8c27d561383037c27a3a",
+            "shasum": ""
+        },
+        "time": "2013-03-21T12:39:33+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "phpQuery/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tobiasz Cudnik",
+                "email": "tobiasz.cudnik@gmail.com",
+                "homepage": "https://github.com/TobiaszCudnik",
+                "role": "Developer"
+            },
+            {
+                "name": "didier Belot",
+                "role": "Packager"
+            }
+        ],
+        "description": "phpQuery is a server-side, chainable, CSS3 selector driven Document Object Model (DOM) API based on jQuery JavaScript Library",
+        "homepage": "http://code.google.com/p/phpquery/"
+    },
+    {
+        "name": "guzzlehttp/promises",
+        "version": "v1.3.1",
+        "version_normalized": "1.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/promises.git",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/guzzle/promises/a59da6cf61d80060647ff4d3eb2c03a2bc694646.zip",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0"
+        },
+        "time": "2016-12-20T10:07:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle promises library",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "1.4.2",
+        "version_normalized": "1.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/guzzle/psr7/f5b8a8512e2b58b0071a7280e39f14f72e05d87c.zip",
+            "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/http-message": "~1.0"
+        },
+        "provide": {
+            "psr/http-message-implementation": "1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2017-03-20T17:10:46+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Psr7\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Tobias Schultze",
+                "homepage": "https://github.com/Tobion"
+            }
+        ],
+        "description": "PSR-7 message implementation that also provides common utility methods",
+        "keywords": [
+            "http",
+            "message",
+            "request",
+            "response",
+            "stream",
+            "uri",
+            "url"
+        ]
+    },
+    {
+        "name": "guzzlehttp/guzzle",
+        "version": "6.3.3",
+        "version_normalized": "6.3.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/guzzle.git",
+            "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/guzzle/guzzle/407b0cb880ace85c9b63c5f9551db498cb2d50ba.zip",
+            "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/promises": "^1.0",
+            "guzzlehttp/psr7": "^1.4",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+            "psr/log": "^1.0"
+        },
+        "suggest": {
+            "psr/log": "Required for using the Log middleware"
+        },
+        "time": "2018-04-22T15:46:56+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "6.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/functions_include.php"
+            ],
+            "psr-4": {
+                "GuzzleHttp\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle is a PHP HTTP client library",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "client",
+            "curl",
+            "framework",
+            "http",
+            "http client",
+            "rest",
+            "web service"
+        ]
+    },
+    {
+        "name": "zendframework/zend-mime",
+        "version": "2.7.1",
+        "version_normalized": "2.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/zendframework/zend-mime.git",
+            "reference": "52ae5fa9f12845cae749271034a2d594f0e4c6f2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/zendframework/zend-mime/52ae5fa9f12845cae749271034a2d594f0e4c6f2.zip",
+            "reference": "52ae5fa9f12845cae749271034a2d594f0e4c6f2",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6 || ^7.0",
+            "zendframework/zend-stdlib": "^2.7 || ^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7.21 || ^6.3",
+            "zendframework/zend-coding-standard": "~1.0.0",
+            "zendframework/zend-mail": "^2.6"
+        },
+        "suggest": {
+            "zendframework/zend-mail": "Zend\\Mail component"
+        },
+        "time": "2018-05-14T19:02:50+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.7-dev",
+                "dev-develop": "2.8-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Zend\\Mime\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "Create and parse MIME messages and parts",
+        "homepage": "https://github.com/zendframework/zend-mime",
+        "keywords": [
+            "ZendFramework",
+            "mime",
+            "zf"
+        ]
+    },
+    {
+        "name": "swoft/http-client",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-http-client.git",
+            "reference": "cb768475aa6e84f0cd011ac4751c7308616d4d22"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-client/cb768475aa6e84f0cd011ac4751c7308616d4d22.zip",
+            "reference": "cb768475aa6e84f0cd011ac4751c7308616d4d22",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0",
+            "swoft/http-message": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-05-15T11:31:33+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\HttpClient\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "HTTP Client Component for Swoft",
+        "keywords": [
+            "client",
+            "http",
+            "http-client",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/redis",
+        "version": "v1.0.8",
+        "version_normalized": "1.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-redis.git",
+            "reference": "e0adf8ba1d6d97a8870a0eff336570c38ae8f51f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-redis/e0adf8ba1d6d97a8870a0eff336570c38ae8f51f.zip",
+            "reference": "e0adf8ba1d6d97a8870a0eff336570c38ae8f51f",
+            "shasum": ""
+        },
+        "require": {
+            "psr/simple-cache": "^1.0.0",
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7",
+            "swoft/service-governance": "^1.0"
+        },
+        "time": "2018-05-13T16:06:18+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\Redis\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Redis Component for Swoft",
+        "keywords": [
+            "php",
+            "redis",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/i18n",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-i18n.git",
+            "reference": "3081cf117ad24b2c26d6250cbdf59947542fa8be"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-i18n/3081cf117ad24b2c26d6250cbdf59947542fa8be.zip",
+            "reference": "3081cf117ad24b2c26d6250cbdf59947542fa8be",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "eaglewu/swoole-ide-helper": "dev-master",
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2018-03-19T15:10:34+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\I18n\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "I18n Translations Component for Swoft",
+        "keywords": [
+            "i18n",
+            "php",
+            "swoft",
+            "swoole",
+            "translation"
+        ]
+    },
+    {
+        "name": "eaglewu/swoole-ide-helper",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/eaglewu/swoole-ide-helper.git",
+            "reference": "118f1d44e9ef3877ab22b5df57a84f1dfaa0b30b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/eaglewu/swoole-ide-helper/118f1d44e9ef3877ab22b5df57a84f1dfaa0b30b.zip",
+            "reference": "118f1d44e9ef3877ab22b5df57a84f1dfaa0b30b",
+            "shasum": ""
+        },
+        "time": "2018-05-16T13:12:21+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "eagle",
+                "email": "eaglewudi@gmail.com"
+            }
+        ],
+        "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名"
+    },
+    {
+        "name": "swoft/db",
+        "version": "v1.1.12",
+        "version_normalized": "1.1.12.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-db.git",
+            "reference": "97c4d49c0f1e7c7156b9e6e2f5e82e8b5a62ee32"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/97c4d49c0f1e7c7156b9e6e2f5e82e8b5a62ee32.zip",
+            "reference": "97c4d49c0f1e7c7156b9e6e2f5e82e8b5a62ee32",
             "shasum": ""
         },
         "require": {
@@ -3282,7 +3329,7 @@
             "friendsofphp/php-cs-fixer": "^2.10",
             "phpunit/phpunit": "^5.7"
         },
-        "time": "2018-04-19T15:25:08+00:00",
+        "time": "2018-05-23T09:51:57+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -3308,36 +3355,93 @@
         ]
     },
     {
-        "name": "swoft/redis",
-        "version": "v1.0.6",
-        "version_normalized": "1.0.6.0",
+        "name": "symfony/polyfill-ctype",
+        "version": "v1.8.0",
+        "version_normalized": "1.8.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-redis.git",
-            "reference": "011055dc31f72f7eab3b02d064513e8f5a0014d7"
+            "url": "https://github.com/symfony/polyfill-ctype.git",
+            "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-redis/011055dc31f72f7eab3b02d064513e8f5a0014d7.zip",
-            "reference": "011055dc31f72f7eab3b02d064513e8f5a0014d7",
+            "url": "https://files.phpcomposer.com/files/symfony/polyfill-ctype/7cc359f1b7b80fc25ed7796be7d96adc9b354bae.zip",
+            "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
             "shasum": ""
         },
         "require": {
-            "psr/simple-cache": "^1.0.0",
-            "swoft/framework": "^1.0"
+            "php": ">=5.3.3"
+        },
+        "time": "2018-04-30T19:57:29+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.8-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Ctype\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            },
+            {
+                "name": "Gert de Pagter",
+                "email": "BackEndTea@gmail.com"
+            }
+        ],
+        "description": "Symfony polyfill for ctype functions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "ctype",
+            "polyfill",
+            "portable"
+        ]
+    },
+    {
+        "name": "swoft/devtool",
+        "version": "v1.0.7",
+        "version_normalized": "1.0.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-devtool.git",
+            "reference": "8d02aa762b43f57b22997d13d3879258fbaafe06"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-devtool/8d02aa762b43f57b22997d13d3879258fbaafe06.zip",
+            "reference": "8d02aa762b43f57b22997d13d3879258fbaafe06",
+            "shasum": ""
+        },
+        "require": {
+            "seld/phar-utils": "^1.0",
+            "swoft/console": "^1.0",
+            "swoft/data-parser": "^1.0",
+            "swoft/framework": "^1.0",
+            "text/template": "~2.3"
         },
         "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7",
-            "swoft/service-governance": "^1.0"
+            "phpunit/phpunit": "^5.7"
         },
-        "time": "2018-04-14T05:41:56+00:00",
+        "time": "2018-06-06T04:06:52+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "classmap": [],
             "psr-4": {
-                "Swoft\\Redis\\": "src/"
+                "Swoft\\Devtool\\": "src/"
             },
             "files": [
                 "src/Helper/Functions.php"
@@ -3347,27 +3451,99 @@
         "license": [
             "Apache-2.0"
         ],
-        "description": "Redis Component for Swoft",
+        "description": "devTool for swoft",
         "keywords": [
+            "debug",
+            "devtool",
             "php",
-            "redis",
             "swoft",
             "swoole"
         ]
     },
     {
-        "name": "nesbot/carbon",
-        "version": "1.27.0",
-        "version_normalized": "1.27.0.0",
+        "name": "symfony/translation",
+        "version": "v4.1.0",
+        "version_normalized": "4.1.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "ef81c39b67200dcd7401c24363dcac05ac3a4fe9"
+            "url": "https://github.com/symfony/translation.git",
+            "reference": "16328f5b217cebc8dd4adfe4aeeaa8c377581f5a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/ef81c39b67200dcd7401c24363dcac05ac3a4fe9.zip",
-            "reference": "ef81c39b67200dcd7401c24363dcac05ac3a4fe9",
+            "url": "https://files.phpcomposer.com/files/symfony/translation/16328f5b217cebc8dd4adfe4aeeaa8c377581f5a.zip",
+            "reference": "16328f5b217cebc8dd4adfe4aeeaa8c377581f5a",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "conflict": {
+            "symfony/config": "<3.4",
+            "symfony/dependency-injection": "<3.4",
+            "symfony/yaml": "<3.4"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/config": "~3.4|~4.0",
+            "symfony/console": "~3.4|~4.0",
+            "symfony/dependency-injection": "~3.4|~4.0",
+            "symfony/finder": "~2.8|~3.0|~4.0",
+            "symfony/intl": "~3.4|~4.0",
+            "symfony/yaml": "~3.4|~4.0"
+        },
+        "suggest": {
+            "psr/log-implementation": "To use logging capability in translator",
+            "symfony/config": "",
+            "symfony/yaml": ""
+        },
+        "time": "2018-05-30T07:26:09+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Translation\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Translation Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "nesbot/carbon",
+        "version": "1.29.2",
+        "version_normalized": "1.29.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/briannesbitt/Carbon.git",
+            "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/ed6aa898982f441ccc9b2acdec51490f2bc5d337.zip",
+            "reference": "ed6aa898982f441ccc9b2acdec51490f2bc5d337",
             "shasum": ""
         },
         "require": {
@@ -3378,7 +3554,7 @@
             "friendsofphp/php-cs-fixer": "~2",
             "phpunit/phpunit": "^4.8.35 || ^5.7"
         },
-        "time": "2018-04-23T09:02:57+00:00",
+        "time": "2018-05-29T15:23:46+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -3404,5 +3580,116 @@
             "datetime",
             "time"
         ]
+    },
+    {
+        "name": "myclabs/deep-copy",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/myclabs/DeepCopy.git",
+            "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/myclabs/DeepCopy/478465659fd987669df0bd8a9bf22a8710e5f1b6.zip",
+            "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1"
+        },
+        "replace": {
+            "myclabs/deep-copy": "self.version"
+        },
+        "require-dev": {
+            "doctrine/collections": "^1.0",
+            "doctrine/common": "^2.6",
+            "phpunit/phpunit": "^7.1"
+        },
+        "time": "2018-05-29T17:25:09+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DeepCopy\\": "src/DeepCopy/"
+            },
+            "files": [
+                "src/DeepCopy/deep_copy.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Create deep copies (clones) of your objects",
+        "keywords": [
+            "clone",
+            "copy",
+            "duplicate",
+            "object",
+            "object graph"
+        ]
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "v4.1.0",
+        "version_normalized": "4.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/yaml.git",
+            "reference": "80e4bfa9685fc4a09acc4a857ec16974a9cd944e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/yaml/80e4bfa9685fc4a09acc4a857ec16974a9cd944e.zip",
+            "reference": "80e4bfa9685fc4a09acc4a857ec16974a9cd944e",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/polyfill-ctype": "~1.8"
+        },
+        "conflict": {
+            "symfony/console": "<3.4"
+        },
+        "require-dev": {
+            "symfony/console": "~3.4|~4.0"
+        },
+        "suggest": {
+            "symfony/console": "For validating YAML files using the lint command"
+        },
+        "time": "2018-05-30T07:26:09+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Yaml\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Yaml Component",
+        "homepage": "https://symfony.com"
     }
 ]

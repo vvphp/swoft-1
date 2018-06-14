@@ -21,11 +21,27 @@ return [
         'maxIdleTime' => 60,
         'timeout'     => 8,
         'db'          => 1,
-        'prefix'      => 'redis_',
+        'prefix'      => '',
         'serialize'   => 0,
     ],
-    'demoRedis' => [
+    'test_demoRedis' => [
         'db'     => 2,
         'prefix' => 'demo_redis_',
     ],
+    'demoRedis'     => [
+        'name'        => 'demoRedis',
+        'uri'         => [
+            '127.0.0.1:6380',
+        ],
+        'minActive'   => 8,
+        'maxActive'   => 8,
+        'maxWait'     => 8,
+        'maxWaitTime' => 3,
+        'maxIdleTime' => 60,
+        'timeout'     => 8,
+        'db'          => 1,
+        'prefix'      => '',
+        'serialize'   => 0,
+    ],
+
 ];
