@@ -21,7 +21,6 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         '3ec4e28b2d7ec76d44271b44c2949657' => __DIR__ . '/..' . '/swoft/rpc/src/Helper/Functions.php',
         '2f302328dcf56dd8b9fca7051cc3ad19' => __DIR__ . '/..' . '/swoft/view/src/Helper/Functions.php',
         '308b1cd28050e0e1f676c087dcd68b67' => __DIR__ . '/..' . '/swoft/cache/src/Helper/Functions.php',
-        '3cd604ead90e4203944cac2155cf2c4f' => __DIR__ . '/..' . '/swoft/session/src/Helper/Functions.php',
         '9fda9a396d29cac3e058fdfb84337515' => __DIR__ . '/..' . '/swoft/memory/src/Helper/Functions.php',
         'de0209ef97707191a1f57c14b7d28404' => __DIR__ . '/..' . '/swoft/websocket-server/src/Helper/Functions.php',
         '0f7264010dfe4b150414d6c16fc2a53e' => __DIR__ . '/..' . '/swoft/task/src/Helper/Functions.php',
@@ -29,6 +28,7 @@ class ComposerStaticInita8cdca36b81989e4582c39a0d25f373b
         '078453678d5904c08fc98526b0a1fdfd' => __DIR__ . '/..' . '/swoft/i18n/src/Helper/Functions.php',
         'd0b12a6e9f0416b1f736e52ca82d7ae3' => __DIR__ . '/..' . '/swoft/db/src/Helper/Functions.php',
         '7f06e18cf5332466ea24ff7f629eec8e' => __DIR__ . '/..' . '/swoft/devtool/src/Helper/Functions.php',
+        '3cd604ead90e4203944cac2155cf2c4f' => __DIR__ . '/..' . '/swoft/session/src/Helper/Functions.php',
         '507d652ffd041175c4dcafb9af7b13f2' => __DIR__ . '/../..' . '/app/Swoft.php',
     );
 
