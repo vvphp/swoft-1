@@ -546,51 +546,6 @@
         ]
     },
     {
-        "name": "swoft/rpc",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-rpc.git",
-            "reference": "766f8d5c3034747562b11ec3c006e2964c53f571"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-rpc/766f8d5c3034747562b11ec3c006e2964c53f571.zip",
-            "reference": "766f8d5c3034747562b11ec3c006e2964c53f571",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-03-06T14:52:35+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Rpc\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "rpc",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/http-message",
         "version": "v1.0.0",
         "version_normalized": "1.0.0.0",
@@ -812,51 +767,6 @@
             "swoft",
             "swoole",
             "view"
-        ]
-    },
-    {
-        "name": "swoft/service-governance",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-service-governance.git",
-            "reference": "7022adfa2dd4c1c4ec85c551ec1feb9df752e22f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-service-governance/7022adfa2dd4c1c4ec85c551ec1feb9df752e22f.zip",
-            "reference": "7022adfa2dd4c1c4ec85c551ec1feb9df752e22f",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-03-06T14:54:11+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Sg\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "Service Governance",
-            "php",
-            "swoft",
-            "swoole"
         ]
     },
     {
@@ -2985,51 +2895,6 @@
         ]
     },
     {
-        "name": "swoft/http-client",
-        "version": "v1.0.6",
-        "version_normalized": "1.0.6.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-http-client.git",
-            "reference": "cb768475aa6e84f0cd011ac4751c7308616d4d22"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-client/cb768475aa6e84f0cd011ac4751c7308616d4d22.zip",
-            "reference": "cb768475aa6e84f0cd011ac4751c7308616d4d22",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/framework": "^1.0",
-            "swoft/http-message": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-05-15T11:31:33+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\HttpClient\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "HTTP Client Component for Swoft",
-        "keywords": [
-            "client",
-            "http",
-            "http-client",
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/i18n",
         "version": "v1.0.1",
         "version_normalized": "1.0.1.0",
@@ -3181,57 +3046,6 @@
         ],
         "description": "microservice framework base on swoole",
         "keywords": [
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
-        "name": "swoft/db",
-        "version": "v1.1.13",
-        "version_normalized": "1.1.13.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-db.git",
-            "reference": "f1b74d457211e8c38762f3fdc7acaa66ea94a0fd"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/f1b74d457211e8c38762f3fdc7acaa66ea94a0fd.zip",
-            "reference": "f1b74d457211e8c38762f3fdc7acaa66ea94a0fd",
-            "shasum": ""
-        },
-        "require": {
-            "ext-pdo": "*",
-            "swoft/console": "^1.0",
-            "swoft/framework": "^1.0.15",
-            "swoft/service-governance": "^1.0"
-        },
-        "require-dev": {
-            "friendsofphp/php-cs-fixer": "^2.10",
-            "phpunit/phpunit": "^5.7",
-            "swoft/swoole-ide-helper": "dev-master"
-        },
-        "time": "2018-06-14T03:57:06+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Db\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "Active Record",
-            "db",
-            "orm",
             "php",
             "swoft",
             "swoole"
@@ -3564,63 +3378,6 @@
         "homepage": "https://symfony.com"
     },
     {
-        "name": "nesbot/carbon",
-        "version": "1.31.1",
-        "version_normalized": "1.31.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "385780c8ca2dbfd25452666e3f55e8dc1df58c41"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/385780c8ca2dbfd25452666e3f55e8dc1df58c41.zip",
-            "reference": "385780c8ca2dbfd25452666e3f55e8dc1df58c41",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9",
-            "symfony/translation": "~2.6 || ~3.0 || ~4.0"
-        },
-        "require-dev": {
-            "friendsofphp/php-cs-fixer": "~2",
-            "phpunit/phpunit": "^4.8.35 || ^5.7"
-        },
-        "time": "2018-06-25T13:15:16+00:00",
-        "type": "library",
-        "extra": {
-            "laravel": {
-                "providers": [
-                    "Carbon\\Laravel\\ServiceProvider"
-                ]
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Brian Nesbitt",
-                "email": "brian@nesbot.com",
-                "homepage": "http://nesbot.com"
-            }
-        ],
-        "description": "A simple API extension for DateTime.",
-        "homepage": "http://carbon.nesbot.com",
-        "keywords": [
-            "date",
-            "datetime",
-            "time"
-        ]
-    },
-    {
         "name": "vlucas/phpdotenv",
         "version": "v2.5.0",
         "version_normalized": "2.5.0.0",
@@ -3698,5 +3455,248 @@
             }
         ],
         "description": "Swoole 在IDE下自动识别类、函数、宏，自动补全函数名"
+    },
+    {
+        "name": "swoft/rpc",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-rpc.git",
+            "reference": "c017bf57e3fcc13b1bf27e3d3b7d1dedd8016bfb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-rpc/c017bf57e3fcc13b1bf27e3d3b7d1dedd8016bfb.zip",
+            "reference": "c017bf57e3fcc13b1bf27e3d3b7d1dedd8016bfb",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-07T17:59:15+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Rpc\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "rpc",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/http-client",
+        "version": "v1.0.7",
+        "version_normalized": "1.0.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-http-client.git",
+            "reference": "aec7d3b57ce986386f4b71ff757a0f5e0464bdee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-client/aec7d3b57ce986386f4b71ff757a0f5e0464bdee.zip",
+            "reference": "aec7d3b57ce986386f4b71ff757a0f5e0464bdee",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0",
+            "swoft/http-message": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-10T07:26:09+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\HttpClient\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "HTTP Client Component for Swoft",
+        "keywords": [
+            "client",
+            "http",
+            "http-client",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/service-governance",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-service-governance.git",
+            "reference": "9608c9bc08f0f469462ced02af0fc3081265032c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-service-governance/9608c9bc08f0f469462ced02af0fc3081265032c.zip",
+            "reference": "9608c9bc08f0f469462ced02af0fc3081265032c",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/framework": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-10T07:17:04+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Sg\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "Service Governance",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/db",
+        "version": "v1.1.17",
+        "version_normalized": "1.1.17.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-db.git",
+            "reference": "be513f3451b45d7f30fb3cf3ba739075eadd1aec"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/be513f3451b45d7f30fb3cf3ba739075eadd1aec.zip",
+            "reference": "be513f3451b45d7f30fb3cf3ba739075eadd1aec",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "swoft/console": "^1.0",
+            "swoft/framework": "^1.0.15",
+            "swoft/service-governance": "^1.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.10",
+            "phpunit/phpunit": "^5.7",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-11T13:18:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Db\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "Active Record",
+            "db",
+            "orm",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "nesbot/carbon",
+        "version": "1.32.0",
+        "version_normalized": "1.32.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/briannesbitt/Carbon.git",
+            "reference": "64563e2b9f69e4db1b82a60e81efa327a30ff343"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/64563e2b9f69e4db1b82a60e81efa327a30ff343.zip",
+            "reference": "64563e2b9f69e4db1b82a60e81efa327a30ff343",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9",
+            "symfony/translation": "~2.6 || ~3.0 || ~4.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "~2",
+            "phpunit/phpunit": "^4.8.35 || ^5.7"
+        },
+        "time": "2018-07-05T06:59:26+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Carbon\\Laravel\\ServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Brian Nesbitt",
+                "email": "brian@nesbot.com",
+                "homepage": "http://nesbot.com"
+            }
+        ],
+        "description": "A simple API extension for DateTime.",
+        "homepage": "http://carbon.nesbot.com",
+        "keywords": [
+            "date",
+            "datetime",
+            "time"
+        ]
     }
 ]
