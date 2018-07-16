@@ -21,7 +21,7 @@ class LiveTeamTable extends Model
     /**
      * @var int $id 
      * @Id()
-     * @Column(name="id", type="tinyint")
+     * @Column(name="id", type="integer")
      */
     private $id;
 
