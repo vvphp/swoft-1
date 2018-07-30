@@ -10,7 +10,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/http-message/f6561bf28d520154e4b0ec72be95418abe6d9363.zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
             "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
             "shasum": ""
         },
@@ -62,7 +62,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/http-server-handler/439d92054dc06097f2406ec074a2627839955a02.zip",
+            "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/439d92054dc06097f2406ec074a2627839955a02",
             "reference": "439d92054dc06097f2406ec074a2627839955a02",
             "shasum": ""
         },
@@ -117,7 +117,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/http-server-middleware/ea17eb1fb2c8df6db919cc578451a8013c6a0ae5.zip",
+            "url": "https://api.github.com/repos/php-fig/http-server-middleware/zipball/ea17eb1fb2c8df6db919cc578451a8013c6a0ae5",
             "reference": "ea17eb1fb2c8df6db919cc578451a8013c6a0ae5",
             "shasum": ""
         },
@@ -172,7 +172,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/log/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d.zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
             "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
             "shasum": ""
         },
@@ -221,7 +221,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/Seldaek/monolog/fd8c787753b3a2ad11bc60c063cff1358a32a3b4.zip",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
             "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
             "shasum": ""
         },
@@ -301,7 +301,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/PHP-DI/PhpDocReader/7d0de60b9341933c8afd172a6255cd7557601e0e.zip",
+            "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/7d0de60b9341933c8afd172a6255cd7557601e0e",
             "reference": "7d0de60b9341933c8afd172a6255cd7557601e0e",
             "shasum": ""
         },
@@ -340,7 +340,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/doctrine/lexer/83893c552fd2045dd78aef794c31e694c37c0b8c.zip",
+            "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
             "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
             "shasum": ""
         },
@@ -396,7 +396,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/doctrine/annotations/c7f2050c68a9ab0bdb0f98567ec08d80ea7d24d5.zip",
+            "url": "https://api.github.com/repos/doctrine/annotations/zipball/c7f2050c68a9ab0bdb0f98567ec08d80ea7d24d5",
             "reference": "c7f2050c68a9ab0bdb0f98567ec08d80ea7d24d5",
             "shasum": ""
         },
@@ -466,7 +466,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/phpseclib/phpseclib/a74aa9efbe61430fcb60157c8e025a48ec8ff604.zip",
+            "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a74aa9efbe61430fcb60157c8e025a48ec8ff604",
             "reference": "a74aa9efbe61430fcb60157c8e025a48ec8ff604",
             "shasum": ""
         },
@@ -546,52 +546,6 @@
         ]
     },
     {
-        "name": "swoft/http-message",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-http-message.git",
-            "reference": "71f8a4054c2719700373b4483c85ed9fb1009c94"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-message/71f8a4054c2719700373b4483c85ed9fb1009c94.zip",
-            "reference": "71f8a4054c2719700373b4483c85ed9fb1009c94",
-            "shasum": ""
-        },
-        "require": {
-            "psr/http-message": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-02-26T13:35:57+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\Http\\Message\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "http-message",
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/console",
         "version": "v1.0.7",
         "version_normalized": "1.0.7.0",
@@ -602,7 +556,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-console/1f3d3cc86162a39a5981d1ff8c4dfe41277880b8.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-console/zipball/1f3d3cc86162a39a5981d1ff8c4dfe41277880b8",
             "reference": "1f3d3cc86162a39a5981d1ff8c4dfe41277880b8",
             "shasum": ""
         },
@@ -648,7 +602,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-rpc-server/5622a9ca7ea3f2089f1a6780a4357f34687a7822.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-rpc-server/zipball/5622a9ca7ea3f2089f1a6780a4357f34687a7822",
             "reference": "5622a9ca7ea3f2089f1a6780a4357f34687a7822",
             "shasum": ""
         },
@@ -693,7 +647,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-rpc-client/2c477a6138040b9ffb06c6d8fa6a6da447b019fe.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-rpc-client/zipball/2c477a6138040b9ffb06c6d8fa6a6da447b019fe",
             "reference": "2c477a6138040b9ffb06c6d8fa6a6da447b019fe",
             "shasum": ""
         },
@@ -735,7 +689,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-view/16fa8be1713bef6e4aaa914bb2a0ac00314cbd2f.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-view/zipball/16fa8be1713bef6e4aaa914bb2a0ac00314cbd2f",
             "reference": "16fa8be1713bef6e4aaa914bb2a0ac00314cbd2f",
             "shasum": ""
         },
@@ -780,7 +734,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/php-fig/simple-cache/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b.zip",
+            "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
             "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
             "shasum": ""
         },
@@ -830,7 +784,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-cache/a982405f166242f7c697fd9255973fa651671653.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-cache/zipball/a982405f166242f7c697fd9255973fa651671653",
             "reference": "a982405f166242f7c697fd9255973fa651671653",
             "shasum": ""
         },
@@ -876,7 +830,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/Seldaek/phar-utils/7009b5139491975ef6486545a39f3e6dad5ac30a.zip",
+            "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/7009b5139491975ef6486545a39f3e6dad5ac30a",
             "reference": "7009b5139491975ef6486545a39f3e6dad5ac30a",
             "shasum": ""
         },
@@ -922,7 +876,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-data-parser/356c340f41496ce5df713109e60a07ec9ae1be74.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-data-parser/zipball/356c340f41496ce5df713109e60a07ec9ae1be74",
             "reference": "356c340f41496ce5df713109e60a07ec9ae1be74",
             "shasum": ""
         },
@@ -967,7 +921,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-memory/cc9f94a4ac30f9be393fd20693ff598a75ba474b.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-memory/zipball/cc9f94a4ac30f9be393fd20693ff598a75ba474b",
             "reference": "cc9f94a4ac30f9be393fd20693ff598a75ba474b",
             "shasum": ""
         },
@@ -1009,7 +963,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/version/99732be0ddb3361e16ad77b68ba41efc8e979019.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/99732be0ddb3361e16ad77b68ba41efc8e979019",
             "reference": "99732be0ddb3361e16ad77b68ba41efc8e979019",
             "shasum": ""
         },
@@ -1054,7 +1008,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/resource-operations/ce990bb21759f94aeafd30209e8cfcdfa8bc3f52.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/resource-operations/zipball/ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
             "reference": "ce990bb21759f94aeafd30209e8cfcdfa8bc3f52",
             "shasum": ""
         },
@@ -1098,7 +1052,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/recursion-context/2c3ba150cbec723aa057506e73a8d33bdb286c9a.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/2c3ba150cbec723aa057506e73a8d33bdb286c9a",
             "reference": "2c3ba150cbec723aa057506e73a8d33bdb286c9a",
             "shasum": ""
         },
@@ -1153,7 +1107,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/object-enumerator/1311872ac850040a79c3c058bea3e22d0f09cbb7.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/1311872ac850040a79c3c058bea3e22d0f09cbb7",
             "reference": "1311872ac850040a79c3c058bea3e22d0f09cbb7",
             "shasum": ""
         },
@@ -1201,7 +1155,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/global-state/bc37d50fea7d017d3d340f230811c9f1d7280af4.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/bc37d50fea7d017d3d340f230811c9f1d7280af4",
             "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4",
             "shasum": ""
         },
@@ -1254,7 +1208,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/exporter/ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
             "reference": "ce474bdd1a34744d7ac5d6aad3a46d48d9bac4c4",
             "shasum": ""
         },
@@ -1323,7 +1277,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/environment/5795ffe5dc5b02460c3e34222fee8cbe245d8fac.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
             "reference": "5795ffe5dc5b02460c3e34222fee8cbe245d8fac",
             "shasum": ""
         },
@@ -1375,7 +1329,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/diff/7f066a26a962dbe58ddea9f72a4e82874a3975a4.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/7f066a26a962dbe58ddea9f72a4e82874a3975a4",
             "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4",
             "shasum": ""
         },
@@ -1429,7 +1383,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/comparator/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
             "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
             "shasum": ""
         },
@@ -1495,7 +1449,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/doctrine/instantiator/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda.zip",
+            "url": "https://api.github.com/repos/doctrine/instantiator/zipball/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
             "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
             "shasum": ""
         },
@@ -1551,7 +1505,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-text-template/31f8b717e51d9a2afca6c9f046f5d69fc27c8686.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/31f8b717e51d9a2afca6c9f046f5d69fc27c8686",
             "reference": "31f8b717e51d9a2afca6c9f046f5d69fc27c8686",
             "shasum": ""
         },
@@ -1594,7 +1548,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/phpunit-mock-objects/a23b761686d50a560cc56233b9ecf49597cc9118.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/a23b761686d50a560cc56233b9ecf49597cc9118",
             "reference": "a23b761686d50a560cc56233b9ecf49597cc9118",
             "shasum": ""
         },
@@ -1655,7 +1609,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-timer/3dcf38ca72b158baf0bc245e9184d3fdffa9c46f.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
             "reference": "3dcf38ca72b158baf0bc245e9184d3fdffa9c46f",
             "shasum": ""
         },
@@ -1706,7 +1660,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-file-iterator/730b01bc3e867237eaac355e06a36b85dd93a8b4.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
             "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
             "shasum": ""
         },
@@ -1755,7 +1709,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/code-unit-reverse-lookup/4419fcdb5eabb9caa61a27c7a1db532a6b55dd18.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/code-unit-reverse-lookup/zipball/4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
             "reference": "4419fcdb5eabb9caa61a27c7a1db532a6b55dd18",
             "shasum": ""
         },
@@ -1802,7 +1756,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-token-stream/791198a2c6254db10131eecfe8c06670700904db.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/791198a2c6254db10131eecfe8c06670700904db",
             "reference": "791198a2c6254db10131eecfe8c06670700904db",
             "shasum": ""
         },
@@ -1853,7 +1807,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-code-coverage/ef7b2f56815df854e66ceaee8ebe9393ae36a40d.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
             "reference": "ef7b2f56815df854e66ceaee8ebe9393ae36a40d",
             "shasum": ""
         },
@@ -1918,7 +1872,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/webmozart/assert/0df1908962e7a3071564e857d86874dad1ef204a.zip",
+            "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
             "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
             "shasum": ""
         },
@@ -1970,7 +1924,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/phpDocumentor/ReflectionCommon/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6.zip",
+            "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
             "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
             "shasum": ""
         },
@@ -2026,7 +1980,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/phpDocumentor/TypeResolver/9c977708995954784726e25d0cd1dddf4e65b0f7.zip",
+            "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
             "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
             "shasum": ""
         },
@@ -2075,7 +2029,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/phpDocumentor/ReflectionDocBlock/94fd0001232e47129dd3504189fa1c7225010d08.zip",
+            "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
             "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
             "shasum": ""
         },
@@ -2128,7 +2082,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/phpspec/prophecy/33a7e3c4fda54e912ff6338c48823bd5c0f0b712.zip",
+            "url": "https://api.github.com/repos/phpspec/prophecy/zipball/33a7e3c4fda54e912ff6338c48823bd5c0f0b712",
             "reference": "33a7e3c4fda54e912ff6338c48823bd5c0f0b712",
             "shasum": ""
         },
@@ -2193,7 +2147,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/sebastianbergmann/phpunit/b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c.zip",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c",
             "reference": "b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c",
             "shasum": ""
         },
@@ -2277,7 +2231,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/zendframework/zend-stdlib/cd164b4a18b5d1aeb69be2c26db035b5ed6925ae.zip",
+            "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/cd164b4a18b5d1aeb69be2c26db035b5ed6925ae",
             "reference": "cd164b4a18b5d1aeb69be2c26db035b5ed6925ae",
             "shasum": ""
         },
@@ -2325,7 +2279,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/3296adf6a6454a050679cde90f95350ad604b171.zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/3296adf6a6454a050679cde90f95350ad604b171",
             "reference": "3296adf6a6454a050679cde90f95350ad604b171",
             "shasum": ""
         },
@@ -2376,49 +2330,6 @@
         ]
     },
     {
-        "name": "swoft/http-server",
-        "version": "v1.0.5",
-        "version_normalized": "1.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-http-server.git",
-            "reference": "1aef8f2b66e8af4959559be87debc5ef11fadf20"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-server/1aef8f2b66e8af4959559be87debc5ef11fadf20.zip",
-            "reference": "1aef8f2b66e8af4959559be87debc5ef11fadf20",
-            "shasum": ""
-        },
-        "require": {
-            "swoft/console": "^1.0",
-            "swoft/framework": "^1.0",
-            "swoft/http-message": "^1.0"
-        },
-        "require-dev": {
-            "eaglewu/swoole-ide-helper": "dev-master",
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2018-05-02T16:13:28+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Http\\Server\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/websocket-server",
         "version": "v1.0.2",
         "version_normalized": "1.0.2.0",
@@ -2429,7 +2340,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-websocket-server/d614189bd6a583e2f1b28e1be8b4b77efbda4ded.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-websocket-server/zipball/d614189bd6a583e2f1b28e1be8b4b77efbda4ded",
             "reference": "d614189bd6a583e2f1b28e1be8b4b77efbda4ded",
             "shasum": ""
         },
@@ -2474,7 +2385,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-task/fcf12d1e3cea6fdc3b274e421615bc238ccad1f6.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-task/zipball/fcf12d1e3cea6fdc3b274e421615bc238ccad1f6",
             "reference": "fcf12d1e3cea6fdc3b274e421615bc238ccad1f6",
             "shasum": ""
         },
@@ -2521,7 +2432,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/dermatthes/text-template/153db4db7ec85ba4d0ea0c46f20dd3d0280b3904.zip",
+            "url": "https://api.github.com/repos/dermatthes/text-template/zipball/153db4db7ec85ba4d0ea0c46f20dd3d0280b3904",
             "reference": "153db4db7ec85ba4d0ea0c46f20dd3d0280b3904",
             "shasum": ""
         },
@@ -2577,7 +2488,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-process/c747c68649d8bf08a396be201030591ce670d992.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-process/zipball/c747c68649d8bf08a396be201030591ce670d992",
             "reference": "c747c68649d8bf08a396be201030591ce670d992",
             "shasum": ""
         },
@@ -2623,7 +2534,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/electrolinux/phpquery/6cb8afcfe8cd4ce45f2f8c27d561383037c27a3a.zip",
+            "url": "https://api.github.com/repos/electrolinux/phpquery/zipball/6cb8afcfe8cd4ce45f2f8c27d561383037c27a3a",
             "reference": "6cb8afcfe8cd4ce45f2f8c27d561383037c27a3a",
             "shasum": ""
         },
@@ -2665,7 +2576,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/guzzle/promises/a59da6cf61d80060647ff4d3eb2c03a2bc694646.zip",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
             "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
             "shasum": ""
         },
@@ -2718,7 +2629,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/guzzle/psr7/f5b8a8512e2b58b0071a7280e39f14f72e05d87c.zip",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
             "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
             "shasum": ""
         },
@@ -2785,7 +2696,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/guzzle/guzzle/407b0cb880ace85c9b63c5f9551db498cb2d50ba.zip",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
             "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
             "shasum": ""
         },
@@ -2852,7 +2763,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/zendframework/zend-mime/52ae5fa9f12845cae749271034a2d594f0e4c6f2.zip",
+            "url": "https://api.github.com/repos/zendframework/zend-mime/zipball/52ae5fa9f12845cae749271034a2d594f0e4c6f2",
             "reference": "52ae5fa9f12845cae749271034a2d594f0e4c6f2",
             "shasum": ""
         },
@@ -2905,7 +2816,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-i18n/3081cf117ad24b2c26d6250cbdf59947542fa8be.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-i18n/zipball/3081cf117ad24b2c26d6250cbdf59947542fa8be",
             "reference": "3081cf117ad24b2c26d6250cbdf59947542fa8be",
             "shasum": ""
         },
@@ -2951,7 +2862,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/polyfill-ctype/7cc359f1b7b80fc25ed7796be7d96adc9b354bae.zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
             "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
             "shasum": ""
         },
@@ -2998,60 +2909,6 @@
         ]
     },
     {
-        "name": "swoft/framework",
-        "version": "v1.0.20",
-        "version_normalized": "1.0.20.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-framework.git",
-            "reference": "2da84a5e22313e0e855f5e26341023e5bbb5ac6f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-framework/2da84a5e22313e0e855f5e26341023e5bbb5ac6f.zip",
-            "reference": "2da84a5e22313e0e855f5e26341023e5bbb5ac6f",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/annotations": "^1.4",
-            "monolog/monolog": "^1.23",
-            "php": ">=7.0",
-            "php-di/phpdoc-reader": "^2.0",
-            "phpseclib/phpseclib": "2.0.0",
-            "psr/http-message": "^1.0",
-            "psr/http-server-middleware": "^1.0",
-            "vlucas/phpdotenv": "^2.4",
-            "zendframework/zend-mime": "^2.7"
-        },
-        "require-dev": {
-            "friendsofphp/php-cs-fixer": "^2.10",
-            "phpunit/phpunit": "^5.7",
-            "swoft/swoole-ide-helper": "dev-master"
-        },
-        "time": "2018-06-14T03:57:06+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [],
-            "psr-4": {
-                "Swoft\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "swoft/devtool",
         "version": "v1.0.8",
         "version_normalized": "1.0.8.0",
@@ -3062,7 +2919,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-devtool/f6983dc8a4de84d1915ed967815a645f97883470.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-devtool/zipball/f6983dc8a4de84d1915ed967815a645f97883470",
             "reference": "f6983dc8a4de84d1915ed967815a645f97883470",
             "shasum": ""
         },
@@ -3111,7 +2968,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-session/e2bc8e6b8396d94cb90012d366af8eee39cf5bfe.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-session/zipball/e2bc8e6b8396d94cb90012d366af8eee39cf5bfe",
             "reference": "e2bc8e6b8396d94cb90012d366af8eee39cf5bfe",
             "shasum": ""
         },
@@ -3158,7 +3015,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/myclabs/DeepCopy/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8.zip",
+            "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
             "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
             "shasum": ""
         },
@@ -3208,7 +3065,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-redis/9b54860c8d972e35851fb445abb768bc6fb6fde9.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-redis/zipball/9b54860c8d972e35851fb445abb768bc6fb6fde9",
             "reference": "9b54860c8d972e35851fb445abb768bc6fb6fde9",
             "shasum": ""
         },
@@ -3256,7 +3113,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/yaml/80e4bfa9685fc4a09acc4a857ec16974a9cd944e.zip",
+            "url": "https://api.github.com/repos/symfony/yaml/zipball/80e4bfa9685fc4a09acc4a857ec16974a9cd944e",
             "reference": "80e4bfa9685fc4a09acc4a857ec16974a9cd944e",
             "shasum": ""
         },
@@ -3317,7 +3174,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/translation/b6d8164085ee0b6debcd1b7a131fd6f63bb04854.zip",
+            "url": "https://api.github.com/repos/symfony/translation/zipball/b6d8164085ee0b6debcd1b7a131fd6f63bb04854",
             "reference": "b6d8164085ee0b6debcd1b7a131fd6f63bb04854",
             "shasum": ""
         },
@@ -3388,7 +3245,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/vlucas/phpdotenv/6ae3e2e6494bb5e58c2decadafc3de7f1453f70a.zip",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
             "reference": "6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
             "shasum": ""
         },
@@ -3440,7 +3297,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/eaglewu/swoole-ide-helper/1873beb3709ea9c5ece6e3ecb74a525f5ee4166f.zip",
+            "url": "https://api.github.com/repos/eaglewu/swoole-ide-helper/zipball/1873beb3709ea9c5ece6e3ecb74a525f5ee4166f",
             "reference": "1873beb3709ea9c5ece6e3ecb74a525f5ee4166f",
             "shasum": ""
         },
@@ -3467,7 +3324,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-rpc/c017bf57e3fcc13b1bf27e3d3b7d1dedd8016bfb.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-rpc/zipball/c017bf57e3fcc13b1bf27e3d3b7d1dedd8016bfb",
             "reference": "c017bf57e3fcc13b1bf27e3d3b7d1dedd8016bfb",
             "shasum": ""
         },
@@ -3512,7 +3369,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-http-client/aec7d3b57ce986386f4b71ff757a0f5e0464bdee.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-http-client/zipball/aec7d3b57ce986386f4b71ff757a0f5e0464bdee",
             "reference": "aec7d3b57ce986386f4b71ff757a0f5e0464bdee",
             "shasum": ""
         },
@@ -3557,7 +3414,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-service-governance/9608c9bc08f0f469462ced02af0fc3081265032c.zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-service-governance/zipball/9608c9bc08f0f469462ced02af0fc3081265032c",
             "reference": "9608c9bc08f0f469462ced02af0fc3081265032c",
             "shasum": ""
         },
@@ -3592,57 +3449,6 @@
         ]
     },
     {
-        "name": "swoft/db",
-        "version": "v1.1.17",
-        "version_normalized": "1.1.17.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swoft-cloud/swoft-db.git",
-            "reference": "be513f3451b45d7f30fb3cf3ba739075eadd1aec"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swoft-cloud/swoft-db/be513f3451b45d7f30fb3cf3ba739075eadd1aec.zip",
-            "reference": "be513f3451b45d7f30fb3cf3ba739075eadd1aec",
-            "shasum": ""
-        },
-        "require": {
-            "ext-pdo": "*",
-            "swoft/console": "^1.0",
-            "swoft/framework": "^1.0.15",
-            "swoft/service-governance": "^1.0"
-        },
-        "require-dev": {
-            "friendsofphp/php-cs-fixer": "^2.10",
-            "phpunit/phpunit": "^5.7",
-            "swoft/swoole-ide-helper": "dev-master"
-        },
-        "time": "2018-07-11T13:18:27+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Swoft\\Db\\": "src/"
-            },
-            "files": [
-                "src/Helper/Functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "description": "microservice framework base on swoole",
-        "keywords": [
-            "Active Record",
-            "db",
-            "orm",
-            "php",
-            "swoft",
-            "swoole"
-        ]
-    },
-    {
         "name": "nesbot/carbon",
         "version": "1.32.0",
         "version_normalized": "1.32.0.0",
@@ -3653,7 +3459,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/64563e2b9f69e4db1b82a60e81efa327a30ff343.zip",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/64563e2b9f69e4db1b82a60e81efa327a30ff343",
             "reference": "64563e2b9f69e4db1b82a60e81efa327a30ff343",
             "shasum": ""
         },
@@ -3697,6 +3503,201 @@
             "date",
             "datetime",
             "time"
+        ]
+    },
+    {
+        "name": "swoft/framework",
+        "version": "v1.0.21",
+        "version_normalized": "1.0.21.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-framework.git",
+            "reference": "82aadc28974cc593569a7de8099cf12c1e4811e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-framework/zipball/82aadc28974cc593569a7de8099cf12c1e4811e3",
+            "reference": "82aadc28974cc593569a7de8099cf12c1e4811e3",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/annotations": "^1.4",
+            "monolog/monolog": "^1.23",
+            "php": ">=7.0",
+            "php-di/phpdoc-reader": "^2.0",
+            "phpseclib/phpseclib": "2.0.0",
+            "psr/http-message": "^1.0",
+            "psr/http-server-middleware": "^1.0",
+            "vlucas/phpdotenv": "^2.4",
+            "zendframework/zend-mime": "^2.7"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.10",
+            "phpunit/phpunit": "^5.7",
+            "psy/psysh": "@stable",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-03T13:50:24+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/http-message",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-http-message.git",
+            "reference": "31e4eb93246f597e2d7fed061eeab5b002743e6a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-http-message/zipball/31e4eb93246f597e2d7fed061eeab5b002743e6a",
+            "reference": "31e4eb93246f597e2d7fed061eeab5b002743e6a",
+            "shasum": ""
+        },
+        "require": {
+            "psr/http-message": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-15T14:03:29+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [],
+            "psr-4": {
+                "Swoft\\Http\\Message\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "http-message",
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/http-server",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-http-server.git",
+            "reference": "649e67a44eccc051ee4cf65c4961a150bdf566cf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-http-server/zipball/649e67a44eccc051ee4cf65c4961a150bdf566cf",
+            "reference": "649e67a44eccc051ee4cf65c4961a150bdf566cf",
+            "shasum": ""
+        },
+        "require": {
+            "swoft/console": "^1.0",
+            "swoft/framework": "^1.0",
+            "swoft/http-message": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-12T03:48:04+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Http\\Server\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "php",
+            "swoft",
+            "swoole"
+        ]
+    },
+    {
+        "name": "swoft/db",
+        "version": "v1.1.18",
+        "version_normalized": "1.1.18.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swoft-cloud/swoft-db.git",
+            "reference": "d9218a310a255d13d6d4d78cb3bdba948d3ba5f8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swoft-cloud/swoft-db/zipball/d9218a310a255d13d6d4d78cb3bdba948d3ba5f8",
+            "reference": "d9218a310a255d13d6d4d78cb3bdba948d3ba5f8",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "swoft/console": "^1.0",
+            "swoft/framework": "^1.0.15",
+            "swoft/service-governance": "^1.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.10",
+            "phpunit/phpunit": "^5.7",
+            "swoft/swoole-ide-helper": "dev-master"
+        },
+        "time": "2018-07-12T11:08:06+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swoft\\Db\\": "src/"
+            },
+            "files": [
+                "src/Helper/Functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "microservice framework base on swoole",
+        "keywords": [
+            "Active Record",
+            "db",
+            "orm",
+            "php",
+            "swoft",
+            "swoole"
         ]
     }
 ]
